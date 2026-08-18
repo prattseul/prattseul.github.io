@@ -4,88 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Site</title>
+    <title>PRATTSEUL</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="site">
+    <header class="header">
 
-        <!-- HEADER -->
+        <a href="/" class="logo">
+            PRATTSEUL
+        </a>
 
-        <header>
+        <button class="menu-button" id="openMenu">
+            MENU
+        </button>
 
-            <a href="#" class="logo">
-                MY SITE
-            </a>
-
-            <button
-                class="menu-button"
-                id="openMenu"
-                aria-label="Ouvrir le menu">
-                MENU
-            </button>
-
-        </header>
+    </header>
 
 
-        <!-- MENU -->
+    <!-- MENU -->
 
-        <nav class="menu" id="menu">
+    <nav class="menu" id="menu">
 
-            <button
-                class="menu-close"
-                id="closeMenu">
-                CLOSE
-            </button>
+        <button class="menu-close" id="closeMenu">
+            CLOSE
+        </button>
+
+        <div class="menu-links">
 
             <a href="#home">HOME</a>
             <a href="#about">ABOUT</a>
             <a href="#work">WORK</a>
             <a href="#films">FILMS</a>
             <a href="#shows">SHOWS</a>
-            <a href="#press">PRESS</a>
             <a href="#contact">CONTACT</a>
 
-        </nav>
-
-
-        <!-- HERO -->
-
-        <main id="home">
-
-            <section class="hero">
-
-                <div class="hero-placeholder">
-                    ✦
-                </div>
-
-                <h1 class="hero-title">
-                    YOUR NAME
-                </h1>
-
-            </section>
-
-        </main>
-
-
-        <!-- FOOTER -->
-
-        <div class="copyright">
-            © 2026 YOUR NAME
         </div>
 
-        <div class="social">
+    </nav>
+
+
+    <!-- PAGE -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <img
+                src="IMG02.jpg"
+                alt=""
+                class="hero-image"
+            >
+
+            <div class="hero-title">
+                PRATTSEUL
+            </div>
+
+        </section>
+
+
+        <section class="content" id="about">
+
+            <h2>ABOUT</h2>
+
+            <p>
+                Your text goes here.
+            </p>
+
+        </section>
+
+
+        <section class="content" id="work">
+
+            <h2>WORK</h2>
+
+        </section>
+
+
+        <section class="content" id="films">
+
+            <h2>FILMS</h2>
+
+        </section>
+
+
+        <section class="content" id="shows">
+
+            <h2>SHOWS</h2>
+
+        </section>
+
+
+        <section class="content" id="contact">
+
+            <h2>CONTACT</h2>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <span>
+            © 2026 PRATTSEUL
+        </span>
+
+        <div>
             <a href="#">INSTAGRAM</a>
-            <a href="#">YOUTUBE</a>
+            <a href="#">CONTACT</a>
         </div>
 
-    </div>
+    </footer>
 
-
-    <!-- JAVASCRIPT -->
 
     <script>
 
