@@ -3,7 +3,9 @@ const menuOpen = document.getElementById("menuOpen");
 const menuClose = document.getElementById("menuClose");
 
 
-/* OUVRIR */
+/* ========================================
+   OPEN MENU
+======================================== */
 
 menuOpen.addEventListener("click", () => {
 
@@ -14,7 +16,9 @@ menuOpen.addEventListener("click", () => {
 });
 
 
-/* FERMER */
+/* ========================================
+   CLOSE MENU
+======================================== */
 
 menuClose.addEventListener("click", () => {
 
@@ -25,7 +29,9 @@ menuClose.addEventListener("click", () => {
 });
 
 
-/* ESC */
+/* ========================================
+   CLOSE WITH ESC
+======================================== */
 
 document.addEventListener("keydown", (event) => {
 
@@ -36,5 +42,22 @@ document.addEventListener("keydown", (event) => {
         document.body.classList.remove("menu-active");
 
     }
+
+});
+
+
+/* ========================================
+   CLOSE WHEN CLICKING A LINK
+======================================== */
+
+document.querySelectorAll(".menu-list a").forEach((link) => {
+
+    link.addEventListener("click", () => {
+
+        menu.classList.remove("active");
+
+        document.body.classList.remove("menu-active");
+
+    });
 
 });
