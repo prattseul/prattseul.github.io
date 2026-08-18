@@ -17,12 +17,13 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html,
+body {
+    width: 100%;
+    min-height: 100%;
 }
 
 body {
-    margin: 0;
     background: #000;
     color: #fff;
     font-family: "PP Neue Bit", Arial, sans-serif;
@@ -49,19 +50,27 @@ button {
 
 .background {
     position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
     z-index: 0;
+
     background: #000;
     overflow: hidden;
 }
 
 .background img {
     position: absolute;
-    inset: 0;
+
+    top: 0;
+    left: 0;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
     object-position: center;
 }
@@ -73,18 +82,22 @@ button {
 
 .menu-button {
     position: fixed;
+
     top: 20px;
     left: 22px;
-    z-index: 200;
 
-    padding: 0;
+    z-index: 9999;
+
     border: 0;
+    padding: 0;
+
     background: transparent;
 
     color: #fff;
-    font-family: inherit;
-    font-size: 16px;
-    line-height: 1;
+
+    font-family: "PP Neue Bit", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
 
     cursor: pointer;
 }
@@ -100,26 +113,38 @@ button {
     top: 20px;
     right: 22px;
 
-    z-index: 200;
+    z-index: 9999;
 
     display: flex;
     flex-direction: column;
 
     align-items: center;
+    justify-content: flex-start;
 
-    gap: 13px;
+    gap: 12px;
+
+    width: 24px;
+
+    color: #fff;
 }
+
+
+/* Chaque lien */
 
 .social-links a {
     display: flex;
 
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
 
     align-items: center;
     justify-content: center;
 
     color: #fff;
+
+    opacity: 1;
+
+    cursor: pointer;
 
     transition: opacity 0.2s ease;
 }
@@ -128,23 +153,31 @@ button {
     opacity: 0.5;
 }
 
-.social-links svg {
-    width: 18px;
-    height: 18px;
 
+/* SVG */
+
+.social-links svg {
     display: block;
 
-    fill: none;
-    stroke: currentColor;
+    width: 20px;
+    height: 20px;
 
-    stroke-width: 1.6;
+    overflow: visible;
+
+    fill: none;
+    stroke: #fff;
+
+    stroke-width: 1.7;
 
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
+
+/* Pour les formes qui doivent être pleines */
+
 .social-links svg .filled {
-    fill: currentColor;
+    fill: #fff;
     stroke: none;
 }
 
@@ -158,7 +191,6 @@ button {
 
     z-index: 10;
 
-    width: 100%;
     min-height: 100vh;
 
     padding: 120px 22px;
@@ -167,8 +199,11 @@ button {
 }
 
 .page-content h1 {
-    font-size: clamp(70px, 14vw, 220px);
+    margin: 0;
 
+    color: #fff;
+
+    font-size: clamp(70px, 14vw, 220px);
     line-height: 0.8;
 
     letter-spacing: -0.07em;
@@ -176,7 +211,7 @@ button {
 
 
 /* =====================================
-   MENU
+   MENU OUVERT
 ===================================== */
 
 .menu {
@@ -189,11 +224,9 @@ button {
     max-width: 85vw;
     height: 100vh;
 
-    z-index: 1000;
+    z-index: 10000;
 
     background: transparent;
-
-    color: #fff;
 
     padding: 20px 22px;
 
@@ -221,7 +254,7 @@ button {
 
 
 /* =====================================
-   CLOSE BUTTON
+   BOUTON CLOSE
 ===================================== */
 
 .menu-close {
@@ -230,6 +263,8 @@ button {
     top: 20px;
     right: 22px;
 
+    z-index: 10001;
+
     border: 0;
     padding: 0;
 
@@ -237,24 +272,24 @@ button {
 
     color: #fff;
 
-    font-family: inherit;
-    font-size: 16px;
-    line-height: 1;
+    font-family: "PP Neue Bit", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
 
     cursor: pointer;
 }
 
 
 /* =====================================
-   MENU LINKS
+   LIENS DU MENU
 ===================================== */
 
 .menu-list {
-    margin-top: 70px;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    margin-top: 70px;
 }
 
 .menu-list a {
@@ -263,13 +298,9 @@ button {
     color: #fff;
 
     font-size: clamp(38px, 5vw, 72px);
-
     line-height: 0.9;
 
     letter-spacing: -0.045em;
-
-    text-shadow:
-        0 0 10px rgba(0, 0, 0, 0.35);
 
     transition: opacity 0.2s ease;
 }
@@ -292,30 +323,27 @@ button {
     .menu-button {
         top: 17px;
         left: 18px;
-
-        font-size: 15px;
+        font-size: 16px;
     }
-
 
     .social-links {
         top: 17px;
         right: 18px;
 
-        gap: 10px;
+        width: 22px;
+
+        gap: 9px;
     }
 
-
     .social-links a {
+        width: 22px;
+        height: 22px;
+    }
+
+    .social-links svg {
         width: 18px;
         height: 18px;
     }
-
-
-    .social-links svg {
-        width: 16px;
-        height: 16px;
-    }
-
 
     .menu {
         width: 300px;
@@ -324,29 +352,23 @@ button {
         padding: 17px 18px;
     }
 
-
     .menu-close {
         top: 17px;
         right: 18px;
-
-        font-size: 15px;
+        font-size: 16px;
     }
-
 
     .menu-list {
         margin-top: 60px;
     }
 
-
     .menu-list a {
         font-size: 42px;
     }
 
-
     .page-content {
         padding: 100px 18px;
     }
-
 
     .page-content h1 {
         font-size: 18vw;
