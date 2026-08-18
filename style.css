@@ -1,35 +1,35 @@
+/* =========================
+   POLICE
+========================= */
+
 @font-face {
-    font-family: "PPNeueBit-Bold";
+    font-family: "PP Neue Bit";
     src: url("fonts/PPNeueBit-Bold.woff2") format("woff2");
-    font-weight: 400;
+    font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
 
-body {
-    font-family: "PPNeueBit-Bold", sans-serif;
-}
 
 /* =========================
-   BASE
+   RESET
 ========================= */
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background: #fff;
-    color: #111;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
+    background: #000;
+    color: #fff;
+    font-family: "PP Neue Bit", Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 a {
@@ -39,56 +39,43 @@ a {
 
 
 /* =========================
-   SITE
-========================= */
-
-.site {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-
-
-/* =========================
    HEADER
 ========================= */
 
-header {
+.header {
     position: fixed;
     top: 0;
     left: 0;
 
     width: 100%;
-    height: 70px;
+    padding: 25px 30px;
 
     display: flex;
-    align-items: center;
     justify-content: space-between;
-
-    padding: 0 30px;
+    align-items: center;
 
     z-index: 100;
 
-    mix-blend-mode: difference;
     color: white;
+    mix-blend-mode: difference;
 }
 
 .logo {
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: 0.08em;
-    font-weight: 400;
 }
 
 .menu-button {
-    border: 0;
-    background: none;
-    color: inherit;
+    border: none;
+    background: transparent;
+
+    color: white;
 
     font-family: inherit;
     font-size: 14px;
 
     cursor: pointer;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
 }
 
 
@@ -101,28 +88,26 @@ header {
     inset: 0;
 
     background: #fff;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: 60px;
+    color: #000;
 
     z-index: 90;
 
+    display: flex;
+    align-items: center;
+
+    padding: 40px;
+
     opacity: 0;
     visibility: hidden;
-    pointer-events: none;
 
     transition:
-        opacity 0.35s ease,
-        visibility 0.35s ease;
+        opacity 0.4s ease,
+        visibility 0.4s ease;
 }
 
 .menu.active {
     opacity: 1;
     visibility: visible;
-    pointer-events: auto;
 }
 
 .menu-close {
@@ -130,7 +115,7 @@ header {
     top: 25px;
     right: 30px;
 
-    border: 0;
+    border: none;
     background: none;
 
     font-family: inherit;
@@ -139,22 +124,25 @@ header {
     cursor: pointer;
 }
 
-.menu a {
-    width: fit-content;
-
-    font-size: clamp(32px, 6vw, 80px);
-    line-height: 1.05;
-
-    letter-spacing: -0.04em;
-
-    transition: opacity 0.2s ease;
+.menu-links {
+    display: flex;
+    flex-direction: column;
 }
 
-.menu:hover a {
-    opacity: 0.25;
+.menu-links a {
+    font-size: clamp(40px, 7vw, 100px);
+    line-height: 0.95;
+
+    letter-spacing: -0.06em;
+
+    transition: opacity 0.25s ease;
 }
 
-.menu a:hover {
+.menu-links:hover a {
+    opacity: 0.2;
+}
+
+.menu-links a:hover {
     opacity: 1;
 }
 
@@ -167,35 +155,13 @@ header {
     width: 100%;
     height: 100vh;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     position: relative;
-    overflow: hidden;
-}
 
-.hero-placeholder {
-    width: 100%;
-    height: 100%;
+    overflow: hidden;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #d9d9d9 0%,
-            #999 35%,
-            #222 100%
-        );
-
-    color: white;
-
-    font-size: clamp(40px, 10vw, 160px);
-
-    letter-spacing: -0.08em;
 }
 
 .hero-image {
@@ -203,29 +169,60 @@ header {
     height: 100%;
 
     object-fit: cover;
+
     display: block;
 }
 
 .hero-title {
     position: absolute;
 
-    left: 50%;
     top: 50%;
+    left: 50%;
 
     transform: translate(-50%, -50%);
 
+    font-size: clamp(60px, 14vw, 220px);
+
+    letter-spacing: -0.09em;
+
+    white-space: nowrap;
+
     color: white;
-
-    font-size: clamp(50px, 12vw, 180px);
-    font-weight: 400;
-
-    letter-spacing: -0.08em;
-
-    pointer-events: none;
 
     mix-blend-mode: difference;
 
-    white-space: nowrap;
+    pointer-events: none;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.content {
+    min-height: 100vh;
+
+    padding: 140px 30px;
+
+    background: #fff;
+    color: #000;
+}
+
+.content h2 {
+    font-size: clamp(50px, 10vw, 160px);
+
+    font-weight: 700;
+
+    letter-spacing: -0.08em;
+
+    margin-bottom: 60px;
+}
+
+.content p {
+    max-width: 600px;
+
+    font-size: 18px;
+    line-height: 1.4;
 }
 
 
@@ -233,40 +230,21 @@ header {
    FOOTER
 ========================= */
 
-.copyright {
-    position: fixed;
-
-    bottom: 20px;
-    left: 30px;
-
-    font-size: 11px;
-    letter-spacing: 0.04em;
-
-    z-index: 20;
-
-    mix-blend-mode: difference;
-    color: white;
-}
-
-.social {
-    position: fixed;
-
-    bottom: 20px;
-    right: 30px;
+footer {
+    padding: 25px 30px;
 
     display: flex;
-    gap: 18px;
+    justify-content: space-between;
 
     font-size: 11px;
 
-    z-index: 20;
-
-    mix-blend-mode: difference;
-    color: white;
+    background: #000;
+    color: #fff;
 }
 
-.social a:hover {
-    text-decoration: underline;
+footer div {
+    display: flex;
+    gap: 20px;
 }
 
 
@@ -276,30 +254,30 @@ header {
 
 @media (max-width: 700px) {
 
-    header {
-        height: 60px;
-        padding: 0 20px;
+    .header {
+        padding: 20px;
     }
 
     .menu {
         padding: 30px;
     }
 
-    .menu a {
-        font-size: 42px;
+    .menu-links a {
+        font-size: 48px;
     }
 
     .hero-title {
         font-size: 18vw;
     }
 
-    .copyright {
-        left: 20px;
-        bottom: 15px;
+    .content {
+        padding: 100px 20px;
     }
 
-    .social {
-        right: 20px;
-        bottom: 15px;
+    footer {
+        padding: 20px;
+
+        flex-direction: column;
+        gap: 10px;
     }
 }
