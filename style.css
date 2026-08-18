@@ -86,7 +86,7 @@ button {
 
     color: #fff;
 
-    font-size: 36px;
+    font-size: 28px;
     line-height: 1;
 
     cursor: pointer;
@@ -140,7 +140,7 @@ button {
 
     align-items: center;
 
-    gap: 14px;
+    gap: 12px;
 
     color: #fff;
 }
@@ -148,8 +148,8 @@ button {
 .social-links a {
     display: flex;
 
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
 
     align-items: center;
     justify-content: center;
@@ -166,8 +166,8 @@ button {
 .social-links svg {
     display: block;
 
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
 
     fill: none;
 
@@ -241,7 +241,7 @@ button {
 
     color: #fff;
 
-    font-size: 36px;
+    font-size: 28px;
 
     line-height: 1;
 
@@ -260,7 +260,7 @@ button {
 
     align-items: flex-start;
 
-    margin-top: 90px;
+    margin-top: 75px;
 }
 
 .menu-list a {
@@ -328,7 +328,7 @@ button {
     }
 
     .menu-button {
-        font-size: 32px;
+        font-size: 25px;
     }
 
 
@@ -350,17 +350,17 @@ button {
     /* RÉSEAUX MOBILE */
 
     .social-links {
-        gap: 12px;
+        gap: 10px;
     }
 
     .social-links a {
-        width: 32px;
-        height: 32px;
+        width: 25px;
+        height: 25px;
     }
 
     .social-links svg {
-        width: 32px;
-        height: 32px;
+        width: 25px;
+        height: 25px;
     }
 
 
@@ -376,11 +376,11 @@ button {
         top: 17px;
         right: 18px;
 
-        font-size: 32px;
+        font-size: 25px;
     }
 
     .menu-list {
-        margin-top: 75px;
+        margin-top: 65px;
     }
 
     .menu-list a {
