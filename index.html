@@ -18,7 +18,7 @@
 
 
     <!-- MENU -->
-    <button class="menu-button" id="menuOpen">
+    <button class="menu-button" id="menuOpen" type="button">
         menu
     </button>
 
@@ -70,7 +70,7 @@
     <!-- MENU PLEIN ÉCRAN -->
     <nav class="menu" id="menu">
 
-        <button class="menu-close" id="menuClose">
+        <button class="menu-close" id="menuClose" type="button">
             close
         </button>
 
@@ -126,37 +126,8 @@
     </main>
 
 
-    <script>
-
-        const menu = document.getElementById("menu");
-        const menuOpen = document.getElementById("menuOpen");
-        const menuClose = document.getElementById("menuClose");
-
-        menuOpen.addEventListener("click", () => {
-            menu.classList.add("active");
-            document.body.classList.add("menu-active");
-        });
-
-        menuClose.addEventListener("click", () => {
-            menu.classList.remove("active");
-            document.body.classList.remove("menu-active");
-        });
-
-        document.querySelectorAll(".menu-list a").forEach(link => {
-            link.addEventListener("click", () => {
-                menu.classList.remove("active");
-                document.body.classList.remove("menu-active");
-            });
-        });
-
-        document.addEventListener("keydown", event => {
-            if (event.key === "Escape") {
-                menu.classList.remove("active");
-                document.body.classList.remove("menu-active");
-            }
-        });
-
-    </script>
+    <!-- JAVASCRIPT EXTERNE -->
+    <script src="script.js"></script>
 
 </body>
 </html>
