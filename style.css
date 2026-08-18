@@ -19,20 +19,14 @@
 ===================================== */
 
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
-
 }
 
 
 html {
-
     scroll-behavior: smooth;
-
 }
 
 
@@ -50,30 +44,22 @@ body {
         sans-serif;
 
     overflow-x: hidden;
-
 }
 
 
 body.menu-active {
-
     overflow: hidden;
-
 }
 
 
 a {
-
     color: inherit;
-
     text-decoration: none;
-
 }
 
 
 button {
-
     font-family: inherit;
-
 }
 
 
@@ -88,7 +74,6 @@ button {
     inset: 0;
 
     width: 100%;
-
     height: 100%;
 
     z-index: 0;
@@ -96,7 +81,6 @@ button {
     background: #000;
 
     overflow: hidden;
-
 }
 
 
@@ -107,13 +91,11 @@ button {
     inset: 0;
 
     width: 100%;
-
     height: 100%;
 
     object-fit: cover;
 
     object-position: center;
-
 }
 
 
@@ -126,7 +108,6 @@ button {
     position: fixed;
 
     top: 20px;
-
     left: 22px;
 
     z-index: 200;
@@ -146,96 +127,40 @@ button {
     line-height: 1;
 
     cursor: pointer;
-
 }
 
 
 /* =====================================
-   SOCIAL LINKS
+   PAGE CONTENT
 ===================================== */
 
-.social-links {
+.page-content {
 
-    position: fixed;
+    position: relative;
 
-    top: 20px;
-
-    right: 22px;
-
-    z-index: 200;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 14px;
-
-    color: #fff;
-
-}
-
-
-.social-links a {
-
-    width: 20px;
-
-    height: 20px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    transition:
-        opacity 0.2s ease;
-
-}
-
-
-.social-links a:hover {
-
-    opacity: 0.4;
-
-}
-
-
-.social-links svg {
+    z-index: 10;
 
     width: 100%;
+    min-height: 100vh;
 
-    height: 100%;
+    padding: 120px 22px;
 
-    fill: none;
-
-    stroke: currentColor;
-
-    stroke-width: 1.5;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-
+    color: #fff;
 }
 
 
-.social-links .filled {
+.page-content h1 {
 
-    fill: currentColor;
+    font-size:
+        clamp(
+            70px,
+            14vw,
+            220px
+        );
 
-    stroke: none;
+    line-height: 0.8;
 
-}
-
-
-.social-links polygon {
-
-    fill: currentColor;
-
-    stroke: none;
-
+    letter-spacing: -0.07em;
 }
 
 
@@ -248,7 +173,6 @@ button {
     position: fixed;
 
     top: 0;
-
     left: 0;
 
     width: 340px;
@@ -280,7 +204,6 @@ button {
         visibility 0.3s ease;
 
     overflow-y: auto;
-
 }
 
 
@@ -294,12 +217,11 @@ button {
 
     transform:
         translateX(0);
-
 }
 
 
 /* =====================================
-   CLOSE BUTTON
+   CLOSE
 ===================================== */
 
 .menu-close {
@@ -307,7 +229,6 @@ button {
     position: absolute;
 
     top: 20px;
-
     right: 22px;
 
     border: 0;
@@ -325,7 +246,6 @@ button {
     line-height: 1;
 
     cursor: pointer;
-
 }
 
 
@@ -342,7 +262,6 @@ button {
     flex-direction: column;
 
     align-items: flex-start;
-
 }
 
 
@@ -364,91 +283,21 @@ button {
     letter-spacing: -0.045em;
 
     text-shadow:
-        0 0 10px rgba(0, 0, 0, 0.35);
+        0 0 10px
+        rgba(0, 0, 0, 0.35);
 
     transition:
         opacity 0.2s ease;
-
 }
 
 
 .menu-list:hover a {
-
     opacity: 0.35;
-
 }
 
 
 .menu-list a:hover {
-
     opacity: 1;
-
-}
-
-
-/* =====================================
-   MAIN
-===================================== */
-
-main {
-
-    position: relative;
-
-    z-index: 10;
-
-}
-
-
-/* =====================================
-   HOME
-===================================== */
-
-.home {
-
-    width: 100%;
-
-    height: 100vh;
-
-    background: transparent;
-
-}
-
-
-/* =====================================
-   SECTIONS
-===================================== */
-
-.section {
-
-    position: relative;
-
-    width: 100%;
-
-    min-height: 100vh;
-
-    padding:
-        120px 22px;
-
-    background: #fff;
-
-    color: #000;
-
-}
-
-
-.section h1 {
-
-    font-size:
-        clamp(
-            60px,
-            12vw,
-            190px
-        );
-
-    line-height: 0.85;
-
-    letter-spacing: -0.07em;
-
 }
 
 
@@ -458,35 +307,12 @@ main {
 
 @media (max-width: 600px) {
 
-
     .menu-button {
 
         top: 17px;
-
         left: 18px;
 
         font-size: 15px;
-
-    }
-
-
-    .social-links {
-
-        top: 17px;
-
-        right: 18px;
-
-        gap: 11px;
-
-    }
-
-
-    .social-links a {
-
-        width: 18px;
-
-        height: 18px;
-
     }
 
 
@@ -496,49 +322,41 @@ main {
 
         max-width: 85vw;
 
-        padding:
-            17px 18px;
-
+        padding: 17px 18px;
     }
 
 
     .menu-close {
 
         top: 17px;
-
         right: 18px;
 
         font-size: 15px;
-
     }
 
 
     .menu-list {
 
         margin-top: 60px;
-
     }
 
 
     .menu-list a {
 
         font-size: 42px;
-
     }
 
 
-    .section {
+    .page-content {
 
         padding:
             100px 18px;
-
     }
 
 
-    .section h1 {
+    .page-content h1 {
 
         font-size: 18vw;
-
     }
 
 }
