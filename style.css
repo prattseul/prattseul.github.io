@@ -313,8 +313,8 @@ button {
 
     object-fit: cover;
 
-    /* Image cadrée plus haut */
-    object-position: center 25%;
+    /* Image décalée vers le bas */
+    object-position: center 75%;
 }
 
 
