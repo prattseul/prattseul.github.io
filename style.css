@@ -344,3 +344,69 @@ footer {
     }
 
 }
+/* ========================================
+   SOCIAL LINKS
+======================================== */
+
+.social-links {
+    position: absolute;
+
+    left: 22px;
+    bottom: 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+.social-links a {
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover {
+    opacity: 0.4;
+}
+
+.social-links svg {
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.social-links svg polygon {
+    fill: currentColor;
+    stroke: none;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .social-links {
+        left: 18px;
+        bottom: 18px;
+
+        gap: 16px;
+    }
+
+    .social-links a {
+        width: 20px;
+        height: 20px;
+    }
+
+}
