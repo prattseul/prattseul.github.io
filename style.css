@@ -1,6 +1,6 @@
-/* =========================================
+/* ========================================
    FONT
-========================================= */
+======================================== */
 
 @font-face {
 
@@ -17,14 +17,13 @@
 }
 
 
-/* =========================================
+/* ========================================
    RESET
-========================================= */
+======================================== */
 
 * {
 
     margin: 0;
-
     padding: 0;
 
     box-sizing: border-box;
@@ -39,6 +38,8 @@ html {
 
 body {
 
+    margin: 0;
+
     background: #000;
 
     color: #fff;
@@ -46,7 +47,6 @@ body {
     font-family:
         "PP Neue Bit",
         Arial,
-        Helvetica,
         sans-serif;
 
     overflow-x: hidden;
@@ -73,283 +73,19 @@ button {
 }
 
 
-/* =========================================
-   HEADER
-========================================= */
+/* ========================================
+   FIXED BACKGROUND
+======================================== */
 
-.header {
+.background {
 
     position: fixed;
 
     top: 0;
-
     left: 0;
 
-    width: 100%;
-
-    padding: 18px 22px;
-
-    display: flex;
-
-    align-items: flex-start;
-
-    justify-content: space-between;
-
-    z-index: 100;
-
-    color: #fff;
-
-    mix-blend-mode: difference;
-}
-
-
-.logo {
-
-    font-size: 16px;
-
-    line-height: 1;
-
-    letter-spacing: 0.02em;
-}
-
-
-.menu-button {
-
-    border: 0;
-
-    background: transparent;
-
-    color: #fff;
-
-    font-size: 16px;
-
-    line-height: 1;
-
-    cursor: pointer;
-}
-
-
-/* =========================================
-   MENU
-========================================= */
-
-.menu {
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    z-index: 200;
-
-    background: #fff;
-
-    color: #000;
-
-    padding: 18px 22px;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
-}
-
-
-.menu.is-open {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-}
-
-
-/* =========================================
-   CLOSE
-========================================= */
-
-.menu-close {
-
-    position: absolute;
-
-    top: 18px;
-
-    right: 22px;
-
-    border: 0;
-
-    background: transparent;
-
-    color: #000;
-
-    font-size: 16px;
-
-    line-height: 1;
-
-    cursor: pointer;
-}
-
-
-/* =========================================
-   MENU LIST
-========================================= */
-
-.menu-list {
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    margin-top: 64px;
-}
-
-
-.menu-list a {
-
-    display: block;
-
-    font-size:
-        clamp(
-            42px,
-            6.5vw,
-            100px
-        );
-
-    line-height: 0.9;
-
-    letter-spacing: -0.045em;
-
-    transition:
-        opacity 0.2s ease;
-}
-
-
-/* DIMENSIONNEMENT AU SURVOL */
-
-.menu-list:hover a {
-
-    opacity: 0.25;
-}
-
-
-.menu-list a:hover {
-
-    opacity: 1;
-}
-
-
-/* =========================================
-   SOCIAL LINKS
-========================================= */
-
-.social-links {
-
-    position: fixed;
-
-    left: 22px;
-
-    bottom: 22px;
-
-    z-index: 150;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 17px;
-
-    color: #fff;
-
-    mix-blend-mode: difference;
-}
-
-
-.social-links a {
-
-    width: 20px;
-
-    height: 20px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: #fff;
-
-    transition:
-        opacity 0.2s ease;
-}
-
-
-.social-links a:hover {
-
-    opacity: 0.4;
-}
-
-
-.social-links svg {
-
-    width: 100%;
-
-    height: 100%;
-
-    fill: none;
-
-    stroke: currentColor;
-
-    stroke-width: 1.5;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-}
-
-
-.social-links svg .filled {
-
-    fill: currentColor;
-
-    stroke: none;
-}
-
-
-.social-links svg polygon {
-
-    fill: currentColor;
-
-    stroke: none;
-}
-
-
-/* =========================================
-   HERO
-========================================= */
-
-/* =========================================
-   FIXED BACKGROUND
-========================================= */
-
-.site-background {
-
-    position: fixed;
-
-    inset: 0;
-
     width: 100vw;
-    height: 100svh;
+    height: 100vh;
 
     z-index: 0;
 
@@ -361,22 +97,27 @@ button {
 
 .background-image {
 
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
     width: 100%;
     height: 100%;
-
-    display: block;
 
     object-fit: cover;
 
     object-position: center;
+
+    display: block;
 }
 
 
-/* =========================================
-   CENTER MARK
-========================================= */
+/* ========================================
+   CENTER SYMBOL
+======================================== */
 
-.hero-mark {
+.center-symbol {
 
     position: absolute;
 
@@ -398,67 +139,300 @@ button {
 }
 
 
-/* =========================================
-   CONTENT
-========================================= */
+/* ========================================
+   HEADER
+======================================== */
 
-.page-content {
+.header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 18px 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    z-index: 100;
+
+    color: #fff;
+
+    mix-blend-mode: difference;
+}
+
+
+.logo {
+
+    font-size: 16px;
+
+    line-height: 1;
+}
+
+
+.menu-button {
+
+    border: none;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-size: 16px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   MENU OVERLAY
+======================================== */
+
+.menu {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 1000;
+
+    background: #fff;
+
+    color: #000;
+
+    padding: 18px 22px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    overflow-y: auto;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+.menu.is-open {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* ========================================
+   MENU CLOSE
+======================================== */
+
+.menu-close {
+
+    position: absolute;
+
+    top: 18px;
+    right: 22px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #000;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   MENU LINKS
+======================================== */
+
+.menu-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    margin-top: 65px;
+}
+
+
+.menu-list a {
+
+    display: block;
+
+    color: #000;
+
+    font-size:
+        clamp(
+            42px,
+            6.5vw,
+            100px
+        );
+
+    line-height: 0.9;
+
+    letter-spacing: -0.045em;
+
+    transition:
+        opacity 0.2s ease;
+}
+
+
+.menu-list:hover a {
+
+    opacity: 0.25;
+}
+
+
+.menu-list a:hover {
+
+    opacity: 1;
+}
+
+
+/* ========================================
+   SOCIAL LINKS
+======================================== */
+
+.social-links {
+
+    position: fixed;
+
+    left: 22px;
+    bottom: 22px;
+
+    z-index: 1100;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+    color: #fff;
+
+    mix-blend-mode: difference;
+}
+
+
+.social-links a {
+
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+
+    transition:
+        opacity 0.2s ease;
+}
+
+
+.social-links a:hover {
+
+    opacity: 0.4;
+}
+
+
+.social-links svg {
+
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.5;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+}
+
+
+.social-links .filled {
+
+    fill: currentColor;
+
+    stroke: none;
+}
+
+
+.social-links polygon {
+
+    fill: currentColor;
+
+    stroke: none;
+}
+
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+main {
 
     position: relative;
 
     z-index: 10;
 
-    padding-top: 100svh;
+    width: 100%;
 }
 
 
-/* =========================================
-   SECTIONS
-========================================= */
+/* ========================================
+   HOME SPACE
+======================================== */
 
-.section {
+.home-space {
 
-    min-height: 100svh;
+    width: 100%;
 
-    padding:
-        120px 22px;
+    height: 100vh;
 
-    background: #fff;
+    background: transparent;
 
-    color: #000;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-between;
+    pointer-events: none;
 }
 
 
-.section h1 {
-
-    font-size:
-        clamp(
-            60px,
-            12vw,
-            190px
-        );
-
-    font-weight: 700;
-
-    line-height: 0.85;
-
-    letter-spacing: -0.07em;
-}
-
-
-/* =========================================
+/* ========================================
    CONTENT SECTIONS
-========================================= */
+======================================== */
 
-.section {
+.content-section {
 
-    min-height: 100svh;
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
 
     padding:
         120px 22px;
@@ -469,13 +443,15 @@ button {
 
     display: flex;
 
-    flex-direction: column;
+    align-items: flex-start;
 
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 
-.section h1 {
+.content-section h1 {
+
+    margin: 0;
 
     font-size:
         clamp(
@@ -492,21 +468,18 @@ button {
 }
 
 
-.section p {
-
-    font-size: 18px;
-
-    line-height: 1.2;
-}
-
-
-/* =========================================
+/* ========================================
    FOOTER
-========================================= */
+======================================== */
 
 footer {
 
-    padding: 18px 22px;
+    position: relative;
+
+    z-index: 10;
+
+    padding:
+        18px 22px;
 
     background: #000;
 
@@ -516,14 +489,12 @@ footer {
 }
 
 
-/* =========================================
+/* ========================================
    MOBILE
-========================================= */
+======================================== */
 
 @media (max-width: 600px) {
 
-
-    /* HEADER */
 
     .header {
 
@@ -543,8 +514,6 @@ footer {
         font-size: 15px;
     }
 
-
-    /* MENU */
 
     .menu {
 
@@ -577,8 +546,6 @@ footer {
     }
 
 
-    /* SOCIAL */
-
     .social-links {
 
         left: 18px;
@@ -597,36 +564,24 @@ footer {
     }
 
 
-    /* HERO */
-
-    .hero {
-
-        height: 100svh;
-    }
-
-
-    .hero-mark {
+    .center-symbol {
 
         font-size: 32px;
     }
 
 
-    /* SECTIONS */
-
-    .section {
+    .content-section {
 
         padding:
             100px 18px;
     }
 
 
-    .section h1 {
+    .content-section h1 {
 
         font-size: 18vw;
     }
 
-
-    /* FOOTER */
 
     footer {
 
