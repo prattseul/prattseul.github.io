@@ -60,7 +60,7 @@ button {
 
     width: 100%;
 
-    padding: 20px 40px;
+    padding: 20px 200px;
 
     display: flex;
     align-items: flex-start;
@@ -202,7 +202,7 @@ button {
 
     background: transparent;
 
-    padding: 20px 40px;
+    padding: 20px 200px;
 
     opacity: 0;
 
@@ -232,7 +232,7 @@ button {
     position: absolute;
 
     top: 20px;
-    right: 40px;
+    right: 200px;
 
     border: none;
     padding: 0;
@@ -323,7 +323,7 @@ button {
 @media (max-width: 600px) {
 
     .top {
-        padding: 17px 25px;
+        padding: 17px 125px;
     }
 
     .menu-button {
@@ -368,12 +368,12 @@ button {
     .menu {
         width: min(320px, 85vw);
 
-        padding: 17px 25px;
+        padding: 17px 125px;
     }
 
     .close-button {
         top: 17px;
-        right: 25px;
+        right: 125px;
 
         font-size: 25px;
     }
