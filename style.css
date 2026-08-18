@@ -1,16 +1,8 @@
-/* ========================================
-   FONT
-======================================== */
-
 @font-face {
     font-family: "PP Neue Bit";
-
-    src: url("fonts/PPNeueBit-Bold.woff2")
-        format("woff2");
-
+    src: url("fonts/PPNeueBit-Bold.woff2") format("woff2");
     font-weight: 700;
     font-style: normal;
-
     font-display: swap;
 }
 
@@ -46,19 +38,18 @@ body.menu-active {
     overflow: hidden;
 }
 
-button,
-a {
-    font-family: inherit;
-}
-
 a {
     color: inherit;
     text-decoration: none;
 }
 
+button {
+    font-family: inherit;
+}
+
 
 /* ========================================
-   TOP
+   HEADER
 ======================================== */
 
 .top {
@@ -72,12 +63,10 @@ a {
     padding: 20px 22px;
 
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
+    justify-content: space-between;
 
     z-index: 500;
-
-    color: #fff;
 
     pointer-events: none;
 }
@@ -105,7 +94,38 @@ a {
 
 
 /* ========================================
-   SOCIAL LINKS
+   LOGO
+======================================== */
+
+.site-logo {
+    position: absolute;
+
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: block;
+
+    z-index: 510;
+
+    pointer-events: auto;
+}
+
+.site-logo img {
+    display: block;
+
+    width: 55px;
+    height: auto;
+
+    max-height: 30px;
+
+    object-fit: contain;
+}
+
+
+/* ========================================
+   RÉSEAUX SOCIAUX
 ======================================== */
 
 .social-links {
@@ -122,9 +142,6 @@ a {
     color: #fff;
 }
 
-
-/* Chaque icône */
-
 .social-links a {
     display: flex;
 
@@ -136,17 +153,12 @@ a {
 
     color: #fff;
 
-    opacity: 1;
-
     transition: opacity 0.2s ease;
 }
 
 .social-links a:hover {
     opacity: 0.45;
 }
-
-
-/* SVG */
 
 .social-links svg {
     display: block;
@@ -164,9 +176,6 @@ a {
     stroke-linejoin: round;
 }
 
-
-/* Points / formes pleines */
-
 .social-links svg .filled {
     fill: currentColor;
     stroke: none;
@@ -174,28 +183,20 @@ a {
 
 
 /* ========================================
-   MENU
+   MENU OUVERT
 ======================================== */
 
 .menu {
     position: fixed;
 
-    top: 0;
-    left: 0;
+    inset: 0;
 
     width: 100%;
     height: 100vh;
 
     z-index: 1000;
 
-    /*
-       TRANSPARENT :
-       on voit toujours le background derrière
-    */
-
     background: transparent;
-
-    color: #fff;
 
     padding: 20px 22px;
 
@@ -210,7 +211,6 @@ a {
         visibility 0.25s ease;
 }
 
-
 .menu.active {
     opacity: 1;
 
@@ -221,7 +221,7 @@ a {
 
 
 /* ========================================
-   CLOSE
+   BOUTON CLOSE
 ======================================== */
 
 .close-button {
@@ -246,7 +246,7 @@ a {
 
 
 /* ========================================
-   MENU LIST
+   LIENS DU MENU
 ======================================== */
 
 .menu-list {
@@ -260,28 +260,16 @@ a {
 }
 
 .menu-list a {
-    width: fit-content;
-
     color: #fff;
 
-    font-size: clamp(
-        42px,
-        6.5vw,
-        100px
-    );
+    font-size: clamp(42px, 6.5vw, 100px);
 
     line-height: 0.92;
 
     letter-spacing: -0.045em;
 
-    text-shadow:
-        0 1px 8px rgba(0, 0, 0, 0.25);
-
     transition: opacity 0.2s ease;
 }
-
-
-/* Effet au survol */
 
 .menu-list:hover a {
     opacity: 0.3;
@@ -301,63 +289,26 @@ a {
 
     width: 100%;
 
+    height: 100vh;
     height: 100svh;
-
-    min-height: 100vh;
 
     overflow: hidden;
 
     background: #000;
 }
 
-
-/* ========================================
-   BACKGROUND IMAGE
-======================================== */
-
 .hero-image {
     position: absolute;
 
-    top: 0;
-    left: 0;
+    inset: 0;
 
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
-    object-position: center;
-
     display: block;
-}
 
-
-/* ========================================
-   CENTER MARK
-======================================== */
-
-.hero-mark {
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    font-size: clamp(
-        30px,
-        5vw,
-        80px
-    );
-
-    line-height: 1;
-
-    color: #fff;
-
-    mix-blend-mode: difference;
-
-    pointer-events: none;
+    object-fit: cover;
+    object-position: center;
 }
 
 
@@ -371,33 +322,36 @@ a {
         padding: 17px 18px;
     }
 
-
     .menu-button {
         font-size: 16px;
     }
 
+    .site-logo {
+        top: 17px;
+    }
+
+    .site-logo img {
+        width: 45px;
+        max-height: 25px;
+    }
 
     .social-links {
         gap: 9px;
     }
-
 
     .social-links a {
         width: 18px;
         height: 18px;
     }
 
-
     .social-links svg {
         width: 16px;
         height: 16px;
     }
 
-
     .menu {
         padding: 17px 18px;
     }
-
 
     .close-button {
         top: 17px;
@@ -406,15 +360,11 @@ a {
         font-size: 16px;
     }
 
-
     .menu-list {
         margin-top: 60px;
     }
 
-
     .menu-list a {
         font-size: 45px;
-
-        line-height: 0.9;
     }
 }
