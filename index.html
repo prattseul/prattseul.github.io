@@ -1,235 +1,88 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>PRATTSEUL</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <!-- BACKGROUND FIXE -->
+    <div class="background">
+        <img src="IMG02.jpg" alt="">
+    </div>
 
-    <!-- =====================================
-         BACKGROUND FIXE
-    ====================================== -->
 
-    <div id="fixed-background">
+    <!-- MENU -->
+    <button class="menu-button" id="menuOpen">
+        menu
+    </button>
 
-        <img
-            src="IMG02.jpg"
-            alt=""
-        >
 
-        <div class="center-symbol">
-            ✦
-        </div>
+    <!-- RÉSEAUX SOCIAUX -->
+    <div class="social-links">
+
+        <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1" class="filled"></circle>
+            </svg>
+        </a>
+
+        <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24">
+                <path d="M21 12s0-4-1-5-3-1-8-1-7 0-8 1-1 5-1 5 0 4 1 5 3 1 8 1 7 0 8-1 1-5 1-5z"></path>
+                <polygon points="10,9 16,12 10,15"></polygon>
+            </svg>
+        </a>
+
+        <a href="#" aria-label="Spotify">
+            <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M7 9.5c3.5-1 6.5-.7 10 .7"></path>
+                <path d="M7.5 12.5c3-.7 5.5-.5 8.5.6"></path>
+                <path d="M8.5 15.3c2.3-.5 4.3-.3 6.5.5"></path>
+            </svg>
+        </a>
+
+        <a href="#" aria-label="Apple Music">
+            <svg viewBox="0 0 24 24">
+                <path d="M16 5v10.5"></path>
+                <path d="M16 7c1.5-1 3-1.2 4-.8"></path>
+                <ellipse cx="13" cy="16.5" rx="3" ry="2"></ellipse>
+            </svg>
+        </a>
+
+        <a href="#" aria-label="Bandcamp">
+            <svg viewBox="0 0 24 24">
+                <path d="M3 17h10l7-10H10L3 17z"></path>
+            </svg>
+        </a>
 
     </div>
 
 
+    <!-- MENU PLEIN ÉCRAN -->
+    <nav class="menu" id="menu">
 
-    <!-- =====================================
-         HEADER
-    ====================================== -->
-
-    <header id="site-header">
-
-        <button
-            id="menu-open"
-            type="button"
-        >
-            menu
-        </button>
-
-    </header>
-
-
-
-    <!-- =====================================
-         SOCIALS
-    ====================================== -->
-
-    <aside id="socials">
-
-
-        <a
-            href="#"
-            aria-label="Instagram"
-        >
-
-            <svg viewBox="0 0 24 24">
-
-                <rect
-                    x="3"
-                    y="3"
-                    width="18"
-                    height="18"
-                    rx="5"
-                />
-
-                <circle
-                    cx="12"
-                    cy="12"
-                    r="4"
-                />
-
-                <circle
-                    cx="17.5"
-                    cy="6.5"
-                    r="1"
-                    class="filled"
-                />
-
-            </svg>
-
-        </a>
-
-
-
-        <a
-            href="#"
-            aria-label="YouTube"
-        >
-
-            <svg viewBox="0 0 24 24">
-
-                <path
-                    d="M21 12s0-4-1-5-3-1-8-1-7 0-8 1-1 5-1 5 0 4 1 5 3 1 8 1 7 0 8-1 1-5 1-5z"
-                />
-
-                <polygon
-                    points="10,9 16,12 10,15"
-                />
-
-            </svg>
-
-        </a>
-
-
-
-        <a
-            href="#"
-            aria-label="Spotify"
-        >
-
-            <svg viewBox="0 0 24 24">
-
-                <circle
-                    cx="12"
-                    cy="12"
-                    r="9"
-                />
-
-                <path
-                    d="M7 9.5c3.5-1 6.5-.7 10 .7"
-                />
-
-                <path
-                    d="M7.5 12.5c3-.7 5.5-.5 8.5.6"
-                />
-
-                <path
-                    d="M8.5 15.3c2.3-.5 4.3-.3 6.5.5"
-                />
-
-            </svg>
-
-        </a>
-
-
-
-        <a
-            href="#"
-            aria-label="Apple Music"
-        >
-
-            <svg viewBox="0 0 24 24">
-
-                <path d="M16 5v10.5" />
-
-                <path
-                    d="M16 7c1.5-1 3-1.2 4-.8"
-                />
-
-                <ellipse
-                    cx="13"
-                    cy="16.5"
-                    rx="3"
-                    ry="2"
-                />
-
-            </svg>
-
-        </a>
-
-
-
-        <a
-            href="#"
-            aria-label="Bandcamp"
-        >
-
-            <svg viewBox="0 0 24 24">
-
-                <path
-                    d="M3 17h10l7-10H10L3 17z"
-                />
-
-            </svg>
-
-        </a>
-
-
-    </aside>
-
-
-
-    <!-- =====================================
-         MENU
-    ====================================== -->
-
-    <nav id="menu-overlay">
-
-        <button
-            id="menu-close"
-            type="button"
-        >
+        <button class="menu-close" id="menuClose">
             close
         </button>
 
-
-        <div id="menu-links">
+        <div class="menu-list">
 
             <a href="#home">home</a>
-
             <a href="#about">about</a>
-
-            <a href="#accounts">
-                official accounts
-            </a>
-
+            <a href="#accounts">official accounts</a>
             <a href="#shop">shop</a>
-
             <a href="#films">films</a>
-
             <a href="#shows">shows</a>
-
             <a href="#press">press</a>
-
             <a href="#contact">contact</a>
 
         </div>
@@ -237,232 +90,73 @@
     </nav>
 
 
-
-    <!-- =====================================
-         PAGE
-    ====================================== -->
-
+    <!-- CONTENU -->
     <main>
 
+        <section id="home" class="home"></section>
 
-        <!-- HOME -->
-
-        <section
-            id="home"
-            class="home"
-        >
-        </section>
-
-
-
-        <!-- ABOUT -->
-
-        <section
-            id="about"
-            class="content"
-        >
-
+        <section id="about" class="section">
             <h1>about</h1>
-
         </section>
 
-
-
-        <!-- ACCOUNTS -->
-
-        <section
-            id="accounts"
-            class="content"
-        >
-
-            <h1>
-                official accounts
-            </h1>
-
+        <section id="accounts" class="section">
+            <h1>official accounts</h1>
         </section>
 
-
-
-        <!-- SHOP -->
-
-        <section
-            id="shop"
-            class="content"
-        >
-
+        <section id="shop" class="section">
             <h1>shop</h1>
-
         </section>
 
-
-
-        <!-- FILMS -->
-
-        <section
-            id="films"
-            class="content"
-        >
-
+        <section id="films" class="section">
             <h1>films</h1>
-
         </section>
 
-
-
-        <!-- SHOWS -->
-
-        <section
-            id="shows"
-            class="content"
-        >
-
+        <section id="shows" class="section">
             <h1>shows</h1>
-
         </section>
 
-
-
-        <!-- PRESS -->
-
-        <section
-            id="press"
-            class="content"
-        >
-
+        <section id="press" class="section">
             <h1>press</h1>
-
         </section>
 
-
-
-        <!-- CONTACT -->
-
-        <section
-            id="contact"
-            class="content"
-        >
-
+        <section id="contact" class="section">
             <h1>contact</h1>
-
         </section>
-
 
     </main>
 
 
-
-    <!-- =====================================
-         JAVASCRIPT
-    ====================================== -->
-
     <script>
 
+        const menu = document.getElementById("menu");
+        const menuOpen = document.getElementById("menuOpen");
+        const menuClose = document.getElementById("menuClose");
 
-        const menu =
-            document.getElementById(
-                "menu-overlay"
-            );
+        menuOpen.addEventListener("click", () => {
+            menu.classList.add("active");
+            document.body.classList.add("menu-active");
+        });
 
+        menuClose.addEventListener("click", () => {
+            menu.classList.remove("active");
+            document.body.classList.remove("menu-active");
+        });
 
-        const openButton =
-            document.getElementById(
-                "menu-open"
-            );
+        document.querySelectorAll(".menu-list a").forEach(link => {
+            link.addEventListener("click", () => {
+                menu.classList.remove("active");
+                document.body.classList.remove("menu-active");
+            });
+        });
 
-
-        const closeButton =
-            document.getElementById(
-                "menu-close"
-            );
-
-
-
-        openButton.addEventListener(
-            "click",
-            () => {
-
-                menu.classList.add(
-                    "visible"
-                );
-
-                document.body.classList.add(
-                    "menu-active"
-                );
-
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") {
+                menu.classList.remove("active");
+                document.body.classList.remove("menu-active");
             }
-        );
-
-
-
-        closeButton.addEventListener(
-            "click",
-            () => {
-
-                menu.classList.remove(
-                    "visible"
-                );
-
-                document.body.classList.remove(
-                    "menu-active"
-                );
-
-            }
-        );
-
-
-
-        document
-            .querySelectorAll(
-                "#menu-links a"
-            )
-            .forEach(
-                (link) => {
-
-                    link.addEventListener(
-                        "click",
-                        () => {
-
-                            menu.classList.remove(
-                                "visible"
-                            );
-
-                            document.body.classList.remove(
-                                "menu-active"
-                            );
-
-                        }
-                    );
-
-                }
-            );
-
-
-
-        document.addEventListener(
-            "keydown",
-            (event) => {
-
-                if (
-                    event.key === "Escape"
-                ) {
-
-                    menu.classList.remove(
-                        "visible"
-                    );
-
-                    document.body.classList.remove(
-                        "menu-active"
-                    );
-
-                }
-
-            }
-        );
-
+        });
 
     </script>
 
-
 </body>
-
 </html>
