@@ -3,101 +3,264 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>PRATTSEUL</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-    <!-- TOP -->
+    <!-- =========================================
+         HEADER
+    ========================================== -->
 
-    <header class="top">
+    <header class="header">
 
-        <a href="#home" class="copyright">
-            ©
+        <a href="#home" class="logo">
+            PRATTSEUL
         </a>
 
-        <button class="menu-button" id="openMenu">
+        <button
+            class="menu-button"
+            id="openMenu"
+            type="button"
+        >
             menu
         </button>
 
     </header>
 
 
-    <!-- MENU -->
+    <!-- =========================================
+         MENU
+    ========================================== -->
 
-    <nav class="menu" id="menu">
+    <nav
+        class="menu"
+        id="menu"
+        aria-hidden="true"
+    >
 
-        <button class="close-button" id="closeMenu">
-            Close
+        <button
+            class="menu-close"
+            id="closeMenu"
+            type="button"
+        >
+            close
         </button>
+
 
         <div class="menu-list">
 
             <a href="#home">home</a>
+
             <a href="#about">about</a>
+
             <a href="#accounts">official accounts</a>
+
             <a href="#shop">shop</a>
+
             <a href="#films">films</a>
+
             <a href="#shows">shows</a>
+
             <a href="#press">press</a>
+
             <a href="#contact">contact</a>
 
         </div>
-       
 
     </nav>
-     <div class="social-links">
 
-        <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-                <circle cx="12" cy="12" r="4"></circle>
-                <circle cx="17.5" cy="6.5" r="1"></circle>
+
+    <!-- =========================================
+         SOCIAL LINKS
+    ========================================== -->
+
+    <div class="social-links">
+
+        <!-- INSTAGRAM -->
+
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5"
+                ></rect>
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                ></circle>
+
+                <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1"
+                    class="filled"
+                ></circle>
+
             </svg>
+
         </a>
-    
-        <a href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M21 12s0-4-1-5-3-1-8-1-7 0-8 1-1 5-1 5 0 4 1 5 3 1 8 1 7 0 8-1 1-5 1-5z"></path>
-                <polygon points="10,9 16,12 10,15"></polygon>
+
+
+        <!-- YOUTUBE -->
+
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M21 12s0-4-1-5-3-1-8-1-7 0-8 1-1 5-1 5 0 4 1 5 3 1 8 1 7 0 8-1 1-5 1-5z"
+                ></path>
+
+                <polygon
+                    points="10,9 16,12 10,15"
+                ></polygon>
+
             </svg>
+
         </a>
-    
-        <a href="https://open.spotify.com/" target="_blank" rel="noopener" aria-label="Spotify">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9"></circle>
-                <path d="M7 9.5c3.5-1 6.5-.7 10 .7"></path>
-                <path d="M7.5 12.5c3-.7 5.5-.5 8.5.6"></path>
-                <path d="M8.5 15.3c2.3-.5 4.3-.3 6.5.5"></path>
+
+
+        <!-- SPOTIFY -->
+
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Spotify"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                ></circle>
+
+                <path
+                    d="M7 9.5c3.5-1 6.5-.7 10 .7"
+                ></path>
+
+                <path
+                    d="M7.5 12.5c3-.7 5.5-.5 8.5.6"
+                ></path>
+
+                <path
+                    d="M8.5 15.3c2.3-.5 4.3-.3 6.5.5"
+                ></path>
+
             </svg>
+
         </a>
-    
-        <a href="https://music.apple.com/" target="_blank" rel="noopener" aria-label="Apple Music">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M16 5v10.5"></path>
-                <path d="M16 7c1.5-1 3-1.2 4-.8"></path>
-                <ellipse cx="13" cy="16.5" rx="3" ry="2"></ellipse>
+
+
+        <!-- APPLE MUSIC -->
+
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Apple Music"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M16 5v10.5"
+                ></path>
+
+                <path
+                    d="M16 7c1.5-1 3-1.2 4-.8"
+                ></path>
+
+                <ellipse
+                    cx="13"
+                    cy="16.5"
+                    rx="3"
+                    ry="2"
+                ></ellipse>
+
             </svg>
+
         </a>
-    
-        <a href="#" target="_blank" rel="noopener" aria-label="Bandcamp">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 17h10l7-10H10L3 17z"></path>
+
+
+        <!-- BANDCAMP -->
+
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Bandcamp"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M3 17h10l7-10H10L3 17z"
+                ></path>
+
             </svg>
+
         </a>
-    
+
     </div>
 
 
-    <!-- HOME -->
+    <!-- =========================================
+         MAIN
+    ========================================== -->
 
     <main>
 
-        <section class="hero" id="home">
+        <!-- HOME -->
+
+        <section
+            class="hero"
+            id="home"
+        >
 
             <img
                 src="IMG02.jpg"
@@ -114,7 +277,10 @@
 
         <!-- ABOUT -->
 
-        <section class="section" id="about">
+        <section
+            class="section"
+            id="about"
+        >
 
             <h1>about</h1>
 
@@ -127,7 +293,10 @@
 
         <!-- ACCOUNTS -->
 
-        <section class="section" id="accounts">
+        <section
+            class="section"
+            id="accounts"
+        >
 
             <h1>official accounts</h1>
 
@@ -136,7 +305,10 @@
 
         <!-- SHOP -->
 
-        <section class="section" id="shop">
+        <section
+            class="section"
+            id="shop"
+        >
 
             <h1>shop</h1>
 
@@ -145,7 +317,10 @@
 
         <!-- FILMS -->
 
-        <section class="section" id="films">
+        <section
+            class="section"
+            id="films"
+        >
 
             <h1>films</h1>
 
@@ -154,7 +329,10 @@
 
         <!-- SHOWS -->
 
-        <section class="section" id="shows">
+        <section
+            class="section"
+            id="shows"
+        >
 
             <h1>shows</h1>
 
@@ -163,7 +341,10 @@
 
         <!-- PRESS -->
 
-        <section class="section" id="press">
+        <section
+            class="section"
+            id="press"
+        >
 
             <h1>press</h1>
 
@@ -172,7 +353,10 @@
 
         <!-- CONTACT -->
 
-        <section class="section" id="contact">
+        <section
+            class="section"
+            id="contact"
+        >
 
             <h1>contact</h1>
 
@@ -181,40 +365,106 @@
     </main>
 
 
-    <!-- BOTTOM -->
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
 
     <footer>
 
         <span>
-            © PRATTSEUL
+            © 2026 PRATTSEUL
         </span>
 
     </footer>
 
 
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
     <script>
 
         const menu = document.getElementById("menu");
-        const openMenu = document.getElementById("openMenu");
-        const closeMenu = document.getElementById("closeMenu");
 
-        openMenu.addEventListener("click", () => {
+        const openMenu =
+            document.getElementById("openMenu");
+
+        const closeMenu =
+            document.getElementById("closeMenu");
+
+        const menuLinks =
+            document.querySelectorAll(".menu-list a");
+
+
+        function openNavigation() {
+
             menu.classList.add("is-open");
-        });
 
-        closeMenu.addEventListener("click", () => {
+            menu.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            document.body.classList.add(
+                "menu-open"
+            );
+
+        }
+
+
+        function closeNavigation() {
+
             menu.classList.remove("is-open");
+
+            menu.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
+        }
+
+
+        openMenu.addEventListener(
+            "click",
+            openNavigation
+        );
+
+
+        closeMenu.addEventListener(
+            "click",
+            closeNavigation
+        );
+
+
+        menuLinks.forEach((link) => {
+
+            link.addEventListener(
+                "click",
+                closeNavigation
+            );
+
         });
 
-        document.querySelectorAll(".menu-list a").forEach(link => {
 
-            link.addEventListener("click", () => {
-                menu.classList.remove("is-open");
-            });
+        document.addEventListener(
+            "keydown",
+            (event) => {
 
-        });
+                if (event.key === "Escape") {
+
+                    closeNavigation();
+
+                }
+
+            }
+        );
 
     </script>
 
 </body>
+
 </html>
