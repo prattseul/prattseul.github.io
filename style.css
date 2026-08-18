@@ -107,6 +107,9 @@ button {
 
     display: block;
 
+    width: 80px;
+    height: auto;
+
     z-index: 510;
 
     pointer-events: auto;
@@ -115,10 +118,10 @@ button {
 .site-logo img {
     display: block;
 
-    width: 55px;
+    width: 80px;
     height: auto;
 
-    max-height: 30px;
+    max-width: 80px;
 
     object-fit: contain;
 }
@@ -183,7 +186,7 @@ button {
 
 
 /* ========================================
-   MENU OUVERT
+   MENU
 ======================================== */
 
 .menu {
@@ -221,7 +224,7 @@ button {
 
 
 /* ========================================
-   BOUTON CLOSE
+   CLOSE
 ======================================== */
 
 .close-button {
@@ -246,7 +249,7 @@ button {
 
 
 /* ========================================
-   LIENS DU MENU
+   MENU LIST
 ======================================== */
 
 .menu-list {
@@ -326,14 +329,23 @@ button {
         font-size: 16px;
     }
 
+
+    /* LOGO MOBILE */
+
     .site-logo {
         top: 17px;
+
+        width: 60px;
     }
 
     .site-logo img {
-        width: 45px;
-        max-height: 25px;
+        width: 60px;
+
+        max-width: 60px;
     }
+
+
+    /* RÉSEAUX MOBILE */
 
     .social-links {
         gap: 9px;
@@ -348,6 +360,9 @@ button {
         width: 16px;
         height: 16px;
     }
+
+
+    /* MENU MOBILE */
 
     .menu {
         padding: 17px 18px;
