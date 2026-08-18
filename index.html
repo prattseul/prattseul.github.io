@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +12,16 @@
 
 <body>
 
-    <header class="header">
+    <!-- TOP -->
 
-        <a href="/" class="logo">
-            PRATTSEUL
+    <header class="top">
+
+        <a href="#home" class="copyright">
+            ©
         </a>
 
         <button class="menu-button" id="openMenu">
-            MENU
+            menu
         </button>
 
     </header>
@@ -28,25 +31,27 @@
 
     <nav class="menu" id="menu">
 
-        <button class="menu-close" id="closeMenu">
-            CLOSE
+        <button class="close-button" id="closeMenu">
+            Close
         </button>
 
-        <div class="menu-links">
+        <div class="menu-list">
 
-            <a href="#home">HOME</a>
-            <a href="#about">ABOUT</a>
-            <a href="#work">WORK</a>
-            <a href="#films">FILMS</a>
-            <a href="#shows">SHOWS</a>
-            <a href="#contact">CONTACT</a>
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#accounts">official accounts</a>
+            <a href="#shop">shop</a>
+            <a href="#films">films</a>
+            <a href="#shows">shows</a>
+            <a href="#press">press</a>
+            <a href="#contact">contact</a>
 
         </div>
 
     </nav>
 
 
-    <!-- PAGE -->
+    <!-- HOME -->
 
     <main>
 
@@ -58,64 +63,89 @@
                 class="hero-image"
             >
 
-            <div class="hero-title">
-                PRATTSEUL
+            <div class="hero-mark">
+                ✦
             </div>
 
         </section>
 
 
-        <section class="content" id="about">
+        <!-- ABOUT -->
 
-            <h2>ABOUT</h2>
+        <section class="section" id="about">
+
+            <h1>about</h1>
 
             <p>
-                Your text goes here.
+                PRATTSEUL
             </p>
 
         </section>
 
 
-        <section class="content" id="work">
+        <!-- ACCOUNTS -->
 
-            <h2>WORK</h2>
+        <section class="section" id="accounts">
 
-        </section>
-
-
-        <section class="content" id="films">
-
-            <h2>FILMS</h2>
+            <h1>official accounts</h1>
 
         </section>
 
 
-        <section class="content" id="shows">
+        <!-- SHOP -->
 
-            <h2>SHOWS</h2>
+        <section class="section" id="shop">
+
+            <h1>shop</h1>
 
         </section>
 
 
-        <section class="content" id="contact">
+        <!-- FILMS -->
 
-            <h2>CONTACT</h2>
+        <section class="section" id="films">
+
+            <h1>films</h1>
+
+        </section>
+
+
+        <!-- SHOWS -->
+
+        <section class="section" id="shows">
+
+            <h1>shows</h1>
+
+        </section>
+
+
+        <!-- PRESS -->
+
+        <section class="section" id="press">
+
+            <h1>press</h1>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="section" id="contact">
+
+            <h1>contact</h1>
 
         </section>
 
     </main>
 
 
+    <!-- BOTTOM -->
+
     <footer>
 
         <span>
-            © 2026 PRATTSEUL
+            © PRATTSEUL
         </span>
-
-        <div>
-            <a href="#">INSTAGRAM</a>
-            <a href="#">CONTACT</a>
-        </div>
 
     </footer>
 
@@ -127,17 +157,17 @@
         const closeMenu = document.getElementById("closeMenu");
 
         openMenu.addEventListener("click", () => {
-            menu.classList.add("active");
+            menu.classList.add("is-open");
         });
 
         closeMenu.addEventListener("click", () => {
-            menu.classList.remove("active");
+            menu.classList.remove("is-open");
         });
 
-        document.querySelectorAll(".menu a").forEach(link => {
+        document.querySelectorAll(".menu-list a").forEach(link => {
 
             link.addEventListener("click", () => {
-                menu.classList.remove("active");
+                menu.classList.remove("is-open");
             });
 
         });
