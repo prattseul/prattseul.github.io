@@ -1,579 +1,470 @@
-/* =========================================
-   FONT
-========================================= */
+<!DOCTYPE html>
+<html lang="fr">
 
-@font-face {
+<head>
+    <meta charset="UTF-8">
 
-    font-family: "PP Neue Bit";
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    src: url("fonts/PPNeueBit-Bold.woff2")
-        format("woff2");
+    <title>PRATTSEUL</title>
 
-    font-weight: 700;
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    font-style: normal;
 
-    font-display: swap;
-}
+<body>
 
+    <!-- =========================================
+         HEADER
+    ========================================== -->
 
-/* =========================================
-   RESET
-========================================= */
+    <header class="header">
 
-* {
+        <a href="#home" class="logo">
+            PRATTSEUL
+        </a>
 
-    margin: 0;
+        <button
+            class="menu-button"
+            id="openMenu"
+            type="button"
+        >
+            menu
+        </button>
 
-    padding: 0;
+    </header>
 
-    box-sizing: border-box;
-}
 
+    <!-- =========================================
+         MENU
+    ========================================== -->
 
-html {
+    <nav
+        class="menu"
+        id="menu"
+        aria-hidden="true"
+    >
 
-    scroll-behavior: smooth;
-}
+        <button
+            class="menu-close"
+            id="closeMenu"
+            type="button"
+        >
+            close
+        </button>
 
 
-body {
+        <div class="menu-list">
 
-    background: #000;
+            <a href="#home">home</a>
 
-    color: #fff;
+            <a href="#about">about</a>
 
-    font-family:
-        "PP Neue Bit",
-        Arial,
-        Helvetica,
-        sans-serif;
+            <a href="#accounts">official accounts</a>
 
-    overflow-x: hidden;
-}
+            <a href="#shop">shop</a>
 
+            <a href="#films">films</a>
 
-body.menu-open {
+            <a href="#shows">shows</a>
 
-    overflow: hidden;
-}
+            <a href="#press">press</a>
 
+            <a href="#contact">contact</a>
 
-a {
+        </div>
 
-    color: inherit;
+    </nav>
 
-    text-decoration: none;
-}
 
+    <!-- =========================================
+         SOCIAL LINKS
+    ========================================== -->
 
-button {
+    <div class="social-links">
 
-    font-family: inherit;
-}
+        <!-- INSTAGRAM -->
 
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+        >
 
-/* =========================================
-   HEADER
-========================================= */
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
 
-.header {
+                <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5"
+                ></rect>
 
-    position: fixed;
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                ></circle>
 
-    top: 0;
+                <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1"
+                    class="filled"
+                ></circle>
 
-    left: 0;
+            </svg>
 
-    width: 100%;
+        </a>
 
-    padding: 18px 22px;
 
-    display: flex;
+        <!-- YOUTUBE -->
 
-    align-items: flex-start;
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+        >
 
-    justify-content: space-between;
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
 
-    z-index: 100;
+                <path
+                    d="M21 12s0-4-1-5-3-1-8-1-7 0-8 1-1 5-1 5 0 4 1 5 3 1 8 1 7 0 8-1 1-5 1-5z"
+                ></path>
 
-    color: #fff;
+                <polygon
+                    points="10,9 16,12 10,15"
+                ></polygon>
 
-    mix-blend-mode: difference;
-}
+            </svg>
 
+        </a>
 
-.logo {
 
-    font-size: 16px;
+        <!-- SPOTIFY -->
 
-    line-height: 1;
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Spotify"
+        >
 
-    letter-spacing: 0.02em;
-}
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
 
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                ></circle>
 
-.menu-button {
+                <path
+                    d="M7 9.5c3.5-1 6.5-.7 10 .7"
+                ></path>
 
-    border: 0;
+                <path
+                    d="M7.5 12.5c3-.7 5.5-.5 8.5.6"
+                ></path>
 
-    background: transparent;
+                <path
+                    d="M8.5 15.3c2.3-.5 4.3-.3 6.5.5"
+                ></path>
 
-    color: #fff;
+            </svg>
 
-    font-size: 16px;
+        </a>
 
-    line-height: 1;
 
-    cursor: pointer;
-}
+        <!-- APPLE MUSIC -->
 
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Apple Music"
+        >
 
-/* =========================================
-   MENU
-========================================= */
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
 
-.menu {
+                <path
+                    d="M16 5v10.5"
+                ></path>
 
-    position: fixed;
+                <path
+                    d="M16 7c1.5-1 3-1.2 4-.8"
+                ></path>
 
-    inset: 0;
+                <ellipse
+                    cx="13"
+                    cy="16.5"
+                    rx="3"
+                    ry="2"
+                ></ellipse>
 
-    width: 100%;
+            </svg>
 
-    height: 100%;
+        </a>
 
-    z-index: 200;
 
-    background: #fff;
+        <!-- BANDCAMP -->
 
-    color: #000;
+        <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Bandcamp"
+        >
 
-    padding: 18px 22px;
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
 
-    opacity: 0;
+                <path
+                    d="M3 17h10l7-10H10L3 17z"
+                ></path>
 
-    visibility: hidden;
+            </svg>
 
-    pointer-events: none;
+        </a>
 
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
-}
+    </div>
 
 
-.menu.is-open {
+    <!-- =========================================
+         MAIN
+    ========================================== -->
 
-    opacity: 1;
+    <main>
 
-    visibility: visible;
+        <!-- HOME -->
 
-    pointer-events: auto;
-}
+        <section
+            class="hero"
+            id="home"
+        >
 
+            <img
+                src="IMG02.jpg"
+                alt=""
+                class="hero-image"
+            >
 
-/* =========================================
-   CLOSE
-========================================= */
+            <div class="hero-mark">
+                ✦
+            </div>
 
-.menu-close {
+        </section>
 
-    position: absolute;
 
-    top: 18px;
+        <!-- ABOUT -->
 
-    right: 22px;
+        <section
+            class="section"
+            id="about"
+        >
 
-    border: 0;
+            <h1>about</h1>
 
-    background: transparent;
+            <p>
+                PRATTSEUL
+            </p>
 
-    color: #000;
+        </section>
 
-    font-size: 16px;
 
-    line-height: 1;
+        <!-- ACCOUNTS -->
 
-    cursor: pointer;
-}
+        <section
+            class="section"
+            id="accounts"
+        >
 
+            <h1>official accounts</h1>
 
-/* =========================================
-   MENU LIST
-========================================= */
+        </section>
 
-.menu-list {
 
-    display: flex;
+        <!-- SHOP -->
 
-    flex-direction: column;
+        <section
+            class="section"
+            id="shop"
+        >
 
-    align-items: flex-start;
+            <h1>shop</h1>
 
-    margin-top: 64px;
-}
+        </section>
 
 
-.menu-list a {
+        <!-- FILMS -->
 
-    display: block;
+        <section
+            class="section"
+            id="films"
+        >
 
-    font-size:
-        clamp(
-            42px,
-            6.5vw,
-            100px
+            <h1>films</h1>
+
+        </section>
+
+
+        <!-- SHOWS -->
+
+        <section
+            class="section"
+            id="shows"
+        >
+
+            <h1>shows</h1>
+
+        </section>
+
+
+        <!-- PRESS -->
+
+        <section
+            class="section"
+            id="press"
+        >
+
+            <h1>press</h1>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section
+            class="section"
+            id="contact"
+        >
+
+            <h1>contact</h1>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <span>
+            © 2026 PRATTSEUL
+        </span>
+
+    </footer>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+        const menu = document.getElementById("menu");
+
+        const openMenu =
+            document.getElementById("openMenu");
+
+        const closeMenu =
+            document.getElementById("closeMenu");
+
+        const menuLinks =
+            document.querySelectorAll(".menu-list a");
+
+
+        function openNavigation() {
+
+            menu.classList.add("is-open");
+
+            menu.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            document.body.classList.add(
+                "menu-open"
+            );
+
+        }
+
+
+        function closeNavigation() {
+
+            menu.classList.remove("is-open");
+
+            menu.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
+        }
+
+
+        openMenu.addEventListener(
+            "click",
+            openNavigation
         );
 
-    line-height: 0.9;
 
-    letter-spacing: -0.045em;
-
-    transition:
-        opacity 0.2s ease;
-}
-
-
-/* DIMENSIONNEMENT AU SURVOL */
-
-.menu-list:hover a {
-
-    opacity: 0.25;
-}
-
-
-.menu-list a:hover {
-
-    opacity: 1;
-}
-
-
-/* =========================================
-   SOCIAL LINKS
-========================================= */
-
-.social-links {
-
-    position: fixed;
-
-    left: 22px;
-
-    bottom: 22px;
-
-    z-index: 150;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 17px;
-
-    color: #fff;
-
-    mix-blend-mode: difference;
-}
-
-
-.social-links a {
-
-    width: 20px;
-
-    height: 20px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: #fff;
-
-    transition:
-        opacity 0.2s ease;
-}
-
-
-.social-links a:hover {
-
-    opacity: 0.4;
-}
-
-
-.social-links svg {
-
-    width: 100%;
-
-    height: 100%;
-
-    fill: none;
-
-    stroke: currentColor;
-
-    stroke-width: 1.5;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-}
-
-
-.social-links svg .filled {
-
-    fill: currentColor;
-
-    stroke: none;
-}
-
-
-.social-links svg polygon {
-
-    fill: currentColor;
-
-    stroke: none;
-}
-
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero {
-
-    position: relative;
-
-    width: 100%;
-
-    height: 100svh;
-
-    overflow: hidden;
-
-    background: #000;
-}
-
-
-.hero-image {
-
-    width: 100%;
-
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    object-position: center;
-}
-
-
-.hero-mark {
-
-    position: absolute;
-
-    top: 50%;
-
-    left: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    color: #fff;
-
-    font-size:
-        clamp(
-            30px,
-            5vw,
-            80px
+        closeMenu.addEventListener(
+            "click",
+            closeNavigation
         );
 
-    line-height: 1;
 
-    mix-blend-mode: difference;
+        menuLinks.forEach((link) => {
 
-    pointer-events: none;
-}
+            link.addEventListener(
+                "click",
+                closeNavigation
+            );
 
-
-/* =========================================
-   CONTENT SECTIONS
-========================================= */
-
-.section {
-
-    min-height: 100svh;
-
-    padding:
-        120px 22px;
-
-    background: #fff;
-
-    color: #000;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-between;
-}
+        });
 
 
-.section h1 {
+        document.addEventListener(
+            "keydown",
+            (event) => {
 
-    font-size:
-        clamp(
-            60px,
-            12vw,
-            190px
+                if (event.key === "Escape") {
+
+                    closeNavigation();
+
+                }
+
+            }
         );
 
-    font-weight: 700;
+    </script>
 
-    line-height: 0.85;
+</body>
 
-    letter-spacing: -0.07em;
-}
-
-
-.section p {
-
-    font-size: 18px;
-
-    line-height: 1.2;
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
-
-footer {
-
-    padding: 18px 22px;
-
-    background: #000;
-
-    color: #fff;
-
-    font-size: 14px;
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-
-    /* HEADER */
-
-    .header {
-
-        padding:
-            16px 18px;
-    }
-
-
-    .logo {
-
-        font-size: 15px;
-    }
-
-
-    .menu-button {
-
-        font-size: 15px;
-    }
-
-
-    /* MENU */
-
-    .menu {
-
-        padding:
-            16px 18px;
-    }
-
-
-    .menu-close {
-
-        top: 16px;
-
-        right: 18px;
-
-        font-size: 15px;
-    }
-
-
-    .menu-list {
-
-        margin-top: 58px;
-    }
-
-
-    .menu-list a {
-
-        font-size: 45px;
-
-        line-height: 0.9;
-    }
-
-
-    /* SOCIAL */
-
-    .social-links {
-
-        left: 18px;
-
-        bottom: 18px;
-
-        gap: 15px;
-    }
-
-
-    .social-links a {
-
-        width: 19px;
-
-        height: 19px;
-    }
-
-
-    /* HERO */
-
-    .hero {
-
-        height: 100svh;
-    }
-
-
-    .hero-mark {
-
-        font-size: 32px;
-    }
-
-
-    /* SECTIONS */
-
-    .section {
-
-        padding:
-            100px 18px;
-    }
-
-
-    .section h1 {
-
-        font-size: 18vw;
-    }
-
-
-    /* FOOTER */
-
-    footer {
-
-        padding:
-            18px;
-    }
-
-}
+</html>
