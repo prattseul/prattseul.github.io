@@ -147,8 +147,6 @@ button {
 
     cursor: pointer;
 
-    mix-blend-mode: difference;
-
 }
 
 
@@ -175,8 +173,6 @@ button {
     gap: 14px;
 
     color: #fff;
-
-    mix-blend-mode: difference;
 
 }
 
@@ -244,7 +240,7 @@ button {
 
 
 /* =====================================
-   COMPACT MENU
+   MENU
 ===================================== */
 
 .menu {
@@ -263,9 +259,9 @@ button {
 
     z-index: 1000;
 
-    background: #fff;
+    background: transparent;
 
-    color: #000;
+    color: #fff;
 
     padding: 20px 22px;
 
@@ -320,7 +316,7 @@ button {
 
     background: transparent;
 
-    color: #000;
+    color: #fff;
 
     font-family: inherit;
 
@@ -334,7 +330,7 @@ button {
 
 
 /* =====================================
-   MENU LIST
+   MENU LINKS
 ===================================== */
 
 .menu-list {
@@ -354,7 +350,7 @@ button {
 
     display: block;
 
-    color: #000;
+    color: #fff;
 
     font-size:
         clamp(
@@ -367,6 +363,9 @@ button {
 
     letter-spacing: -0.045em;
 
+    text-shadow:
+        0 0 10px rgba(0, 0, 0, 0.35);
+
     transition:
         opacity 0.2s ease;
 
@@ -375,7 +374,7 @@ button {
 
 .menu-list:hover a {
 
-    opacity: 0.25;
+    opacity: 0.35;
 
 }
 
