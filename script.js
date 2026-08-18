@@ -1,63 +1,41 @@
-const menu = document.getElementById("menu");
-const menuOpen = document.getElementById("menuOpen");
-const menuClose = document.getElementById("menuClose");
+document.addEventListener("DOMContentLoaded", function () {
 
+    const menuButton = document.querySelector(".menu-button");
+    const closeButton = document.querySelector(".close-button");
+    const menu = document.querySelector(".menu");
 
-/* ========================================
-   OPEN MENU
-======================================== */
-
-menuOpen.addEventListener("click", () => {
-
-    menu.classList.add("active");
-
-    document.body.classList.add("menu-active");
-
-});
-
-
-/* ========================================
-   CLOSE MENU
-======================================== */
-
-menuClose.addEventListener("click", () => {
-
-    menu.classList.remove("active");
-
-    document.body.classList.remove("menu-active");
-
-});
-
-
-/* ========================================
-   CLOSE WITH ESC
-======================================== */
-
-document.addEventListener("keydown", (event) => {
-
-    if (event.key === "Escape") {
-
-        menu.classList.remove("active");
-
-        document.body.classList.remove("menu-active");
-
+    if (!menuButton || !closeButton || !menu) {
+        return;
     }
 
-});
+    /* OUVRIR LE MENU */
+    menuButton.addEventListener("click", function () {
+        menu.classList.add("active");
+        document.body.classList.add("menu-active");
+    });
 
-
-/* ========================================
-   CLOSE WHEN CLICKING A LINK
-======================================== */
-
-document.querySelectorAll(".menu-list a").forEach((link) => {
-
-    link.addEventListener("click", () => {
-
+    /* FERMER LE MENU */
+    closeButton.addEventListener("click", function () {
         menu.classList.remove("active");
-
         document.body.classList.remove("menu-active");
+    });
 
+    /* FERMER AVEC LA TOUCHE ESC */
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            menu.classList.remove("active");
+            document.body.classList.remove("menu-active");
+        }
+    });
+
+    /* FERMER LE MENU APRÈS AVOIR CLIQUÉ SUR UN LIEN */
+    const menuLinks = document.querySelectorAll(".menu-list a");
+
+    menuLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+            menu.classList.remove("active");
+            document.body.classList.remove("menu-active");
+        });
     });
 
 });
