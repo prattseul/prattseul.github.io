@@ -1,83 +1,135 @@
 @font-face {
+
     font-family: "PP Neue Bit";
-    src: url("fonts/PPNeueBit-Bold.woff2") format("woff2");
+
+    src:
+        url("fonts/PPNeueBit-Bold.woff2")
+        format("woff2");
+
     font-weight: 700;
+
     font-style: normal;
+
     font-display: swap;
 }
 
 
-/* ================================
+/* =====================================
    RESET
-================================ */
+===================================== */
 
 * {
+
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
+
 }
+
 
 html {
+
     scroll-behavior: smooth;
+
 }
+
 
 body {
+
     margin: 0;
+
     background: #000;
+
     color: #fff;
-    font-family: "PP Neue Bit", Arial, sans-serif;
+
+    font-family:
+        "PP Neue Bit",
+        Arial,
+        sans-serif;
+
     overflow-x: hidden;
+
 }
+
 
 body.menu-active {
+
     overflow: hidden;
+
 }
+
 
 a {
+
     color: inherit;
+
     text-decoration: none;
+
 }
+
 
 button {
+
     font-family: inherit;
+
 }
 
 
-/* ================================
+/* =====================================
    BACKGROUND
-================================ */
+===================================== */
 
 .background {
+
     position: fixed;
+
     inset: 0;
+
     width: 100%;
+
     height: 100%;
+
     z-index: 0;
+
     background: #000;
+
     overflow: hidden;
+
 }
+
 
 .background img {
+
     position: absolute;
+
     inset: 0;
+
     width: 100%;
+
     height: 100%;
+
     object-fit: cover;
+
     object-position: center;
+
 }
 
 
-/* ================================
+/* =====================================
    MENU BUTTON
-================================ */
+===================================== */
 
 .menu-button {
+
     position: fixed;
 
     top: 20px;
+
     left: 22px;
 
-    z-index: 100;
+    z-index: 200;
 
     padding: 0;
 
@@ -88,28 +140,34 @@ button {
     color: #fff;
 
     font-family: inherit;
+
     font-size: 16px;
+
     line-height: 1;
 
     cursor: pointer;
 
     mix-blend-mode: difference;
+
 }
 
 
-/* ================================
+/* =====================================
    SOCIAL LINKS
-================================ */
+===================================== */
 
 .social-links {
+
     position: fixed;
 
     top: 20px;
+
     right: 22px;
 
-    z-index: 100;
+    z-index: 200;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
@@ -119,26 +177,39 @@ button {
     color: #fff;
 
     mix-blend-mode: difference;
+
 }
 
+
 .social-links a {
+
     width: 20px;
+
     height: 20px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
-    transition: opacity 0.2s ease;
+    transition:
+        opacity 0.2s ease;
+
 }
+
 
 .social-links a:hover {
+
     opacity: 0.4;
+
 }
 
+
 .social-links svg {
+
     width: 100%;
+
     height: 100%;
 
     fill: none;
@@ -148,66 +219,99 @@ button {
     stroke-width: 1.5;
 
     stroke-linecap: round;
+
     stroke-linejoin: round;
+
 }
+
 
 .social-links .filled {
+
     fill: currentColor;
+
     stroke: none;
+
 }
+
 
 .social-links polygon {
+
     fill: currentColor;
+
     stroke: none;
+
 }
 
 
-/* ================================
-   MENU
-================================ */
+/* =====================================
+   COMPACT MENU
+===================================== */
 
 .menu {
+
     position: fixed;
 
-    inset: 0;
+    top: 0;
 
-    width: 100%;
-    height: 100%;
+    left: 0;
+
+    width: 340px;
+
+    max-width: 85vw;
+
+    height: 100vh;
 
     z-index: 1000;
 
     background: #fff;
+
     color: #000;
 
     padding: 20px 22px;
 
     opacity: 0;
+
     visibility: hidden;
 
     pointer-events: none;
 
-    overflow-y: auto;
+    transform:
+        translateX(-100%);
 
     transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease;
+        transform 0.3s ease,
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    overflow-y: auto;
+
 }
+
 
 .menu.active {
+
     opacity: 1;
+
     visibility: visible;
+
     pointer-events: auto;
+
+    transform:
+        translateX(0);
+
 }
 
 
-/* ================================
-   CLOSE
-================================ */
+/* =====================================
+   CLOSE BUTTON
+===================================== */
 
 .menu-close {
+
     position: absolute;
 
     top: 20px;
+
     right: 22px;
 
     border: 0;
@@ -219,142 +323,223 @@ button {
     color: #000;
 
     font-family: inherit;
+
     font-size: 16px;
+
     line-height: 1;
 
     cursor: pointer;
+
 }
 
 
-/* ================================
+/* =====================================
    MENU LIST
-================================ */
+===================================== */
 
 .menu-list {
+
     margin-top: 70px;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: flex-start;
+
 }
 
+
 .menu-list a {
+
     display: block;
 
     color: #000;
 
-    font-size: clamp(42px, 6.5vw, 100px);
+    font-size:
+        clamp(
+            38px,
+            5vw,
+            72px
+        );
 
     line-height: 0.9;
 
     letter-spacing: -0.045em;
 
-    transition: opacity 0.2s ease;
+    transition:
+        opacity 0.2s ease;
+
 }
+
 
 .menu-list:hover a {
+
     opacity: 0.25;
+
 }
+
 
 .menu-list a:hover {
+
     opacity: 1;
+
 }
 
 
-/* ================================
+/* =====================================
    MAIN
-================================ */
+===================================== */
 
 main {
+
     position: relative;
+
     z-index: 10;
+
 }
 
 
-/* ================================
+/* =====================================
    HOME
-================================ */
+===================================== */
 
 .home {
+
     width: 100%;
+
     height: 100vh;
+
     background: transparent;
+
 }
 
 
-/* ================================
+/* =====================================
    SECTIONS
-================================ */
+===================================== */
 
 .section {
+
     position: relative;
 
     width: 100%;
+
     min-height: 100vh;
 
-    padding: 120px 22px;
+    padding:
+        120px 22px;
 
     background: #fff;
 
     color: #000;
+
 }
 
+
 .section h1 {
-    font-size: clamp(60px, 12vw, 190px);
+
+    font-size:
+        clamp(
+            60px,
+            12vw,
+            190px
+        );
 
     line-height: 0.85;
 
     letter-spacing: -0.07em;
+
 }
 
 
-/* ================================
+/* =====================================
    MOBILE
-================================ */
+===================================== */
 
 @media (max-width: 600px) {
 
+
     .menu-button {
+
         top: 17px;
+
         left: 18px;
+
         font-size: 15px;
+
     }
+
 
     .social-links {
+
         top: 17px;
+
         right: 18px;
+
         gap: 11px;
+
     }
+
 
     .social-links a {
+
         width: 18px;
+
         height: 18px;
+
     }
+
 
     .menu {
-        padding: 17px 18px;
+
+        width: 300px;
+
+        max-width: 85vw;
+
+        padding:
+            17px 18px;
+
     }
+
 
     .menu-close {
+
         top: 17px;
+
         right: 18px;
+
         font-size: 15px;
+
     }
+
 
     .menu-list {
+
         margin-top: 60px;
+
     }
+
 
     .menu-list a {
-        font-size: 44px;
+
+        font-size: 42px;
+
     }
+
 
     .section {
-        padding: 100px 18px;
+
+        padding:
+            100px 18px;
+
     }
 
+
     .section h1 {
+
         font-size: 18vw;
+
     }
+
 }
