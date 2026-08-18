@@ -192,9 +192,10 @@ button {
 .menu {
     position: fixed;
 
-    inset: 0;
+    top: 0;
+    left: 0;
 
-    width: 100%;
+    width: min(420px, 85vw);
     height: 100vh;
 
     z-index: 1000;
@@ -365,6 +366,8 @@ button {
     /* MENU MOBILE */
 
     .menu {
+        width: min(320px, 85vw);
+
         padding: 17px 18px;
     }
 
