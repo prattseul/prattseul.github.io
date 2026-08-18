@@ -1,227 +1,115 @@
-/* =====================================
-   FONT
-===================================== */
-
 @font-face {
-
-    font-family:
-        "PP Neue Bit";
-
-    src:
-        url("fonts/PPNeueBit-Bold.woff2")
-        format("woff2");
-
+    font-family: "PP Neue Bit";
+    src: url("fonts/PPNeueBit-Bold.woff2") format("woff2");
     font-weight: 700;
-
     font-style: normal;
-
     font-display: swap;
-
 }
 
 
-
-/* =====================================
+/* ================================
    RESET
-===================================== */
+================================ */
 
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
-
 }
-
 
 html {
-
     scroll-behavior: smooth;
-
 }
-
 
 body {
-
     margin: 0;
-
     background: #000;
-
     color: #fff;
-
-    font-family:
-        "PP Neue Bit",
-        Arial,
-        sans-serif;
-
+    font-family: "PP Neue Bit", Arial, sans-serif;
     overflow-x: hidden;
-
 }
-
 
 body.menu-active {
-
     overflow: hidden;
-
 }
-
 
 a {
-
     color: inherit;
-
     text-decoration: none;
-
 }
-
 
 button {
-
     font-family: inherit;
-
 }
 
 
-
-/* =====================================
+/* ================================
    BACKGROUND
-===================================== */
+================================ */
 
-/*
-   IMPORTANT :
-
-   Le background est indépendant
-   du contenu.
-
-   Il reste attaché au viewport.
-*/
-
-#fixed-background {
-
+.background {
     position: fixed;
-
     inset: 0;
-
-    width: 100vw;
-
-    height: 100vh;
-
-    z-index: -1;
-
-    overflow: hidden;
-
-    background: #000;
-
-}
-
-
-#fixed-background img {
-
-    position: absolute;
-
-    inset: 0;
-
     width: 100%;
-
     height: 100%;
-
-    object-fit: cover;
-
-    object-position: center;
-
+    z-index: 0;
+    background: #000;
+    overflow: hidden;
 }
 
-
-.center-symbol {
-
+.background img {
     position: absolute;
-
-    top: 50%;
-
-    left: 50%;
-
-    transform:
-        translate(
-            -50%,
-            -50%
-        );
-
-    font-size: 40px;
-
-    color: #fff;
-
-    mix-blend-mode: difference;
-
-    pointer-events: none;
-
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 
+/* ================================
+   MENU BUTTON
+================================ */
 
-/* =====================================
-   HEADER
-===================================== */
-
-#site-header {
-
+.menu-button {
     position: fixed;
 
-    top: 0;
+    top: 20px;
+    left: 22px;
 
-    left: 0;
-
-    z-index: 500;
-
-    padding:
-        20px 22px;
-
-    pointer-events: none;
-
-}
-
-
-#menu-open {
-
-    border: 0;
+    z-index: 100;
 
     padding: 0;
+
+    border: 0;
 
     background: transparent;
 
     color: #fff;
 
+    font-family: inherit;
     font-size: 16px;
-
     line-height: 1;
 
     cursor: pointer;
 
-    pointer-events: auto;
-
     mix-blend-mode: difference;
-
 }
 
 
+/* ================================
+   SOCIAL LINKS
+================================ */
 
-/* =====================================
-   SOCIALS
-===================================== */
-
-#socials {
-
+.social-links {
     position: fixed;
 
     top: 20px;
-
     right: 22px;
 
-    z-index: 500;
+    z-index: 100;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
@@ -231,39 +119,26 @@ button {
     color: #fff;
 
     mix-blend-mode: difference;
-
 }
 
-
-#socials a {
-
+.social-links a {
     width: 20px;
-
     height: 20px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    transition:
-        opacity 0.2s ease;
-
+    transition: opacity 0.2s ease;
 }
 
-
-#socials a:hover {
-
+.social-links a:hover {
     opacity: 0.4;
-
 }
 
-
-#socials svg {
-
+.social-links svg {
     width: 100%;
-
     height: 100%;
 
     fill: none;
@@ -273,56 +148,40 @@ button {
     stroke-width: 1.5;
 
     stroke-linecap: round;
-
     stroke-linejoin: round;
-
 }
 
-
-#socials .filled {
-
+.social-links .filled {
     fill: currentColor;
-
     stroke: none;
-
 }
 
-
-#socials polygon {
-
+.social-links polygon {
     fill: currentColor;
-
     stroke: none;
-
 }
 
 
+/* ================================
+   MENU
+================================ */
 
-/* =====================================
-   MENU OVERLAY
-===================================== */
-
-#menu-overlay {
-
+.menu {
     position: fixed;
 
     inset: 0;
 
-    width: 100vw;
-
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 
     z-index: 1000;
 
     background: #fff;
-
     color: #000;
 
-    padding:
-        20px 22px;
+    padding: 20px 22px;
 
     opacity: 0;
-
     visibility: hidden;
 
     pointer-events: none;
@@ -332,32 +191,23 @@ button {
     transition:
         opacity 0.25s ease,
         visibility 0.25s ease;
-
 }
 
-
-#menu-overlay.visible {
-
+.menu.active {
     opacity: 1;
-
     visibility: visible;
-
     pointer-events: auto;
-
 }
 
 
+/* ================================
+   CLOSE
+================================ */
 
-/* =====================================
-   CLOSE BUTTON
-===================================== */
-
-#menu-close {
-
+.menu-close {
     position: absolute;
 
     top: 20px;
-
     right: 22px;
 
     border: 0;
@@ -368,235 +218,143 @@ button {
 
     color: #000;
 
+    font-family: inherit;
     font-size: 16px;
+    line-height: 1;
 
     cursor: pointer;
-
 }
 
 
+/* ================================
+   MENU LIST
+================================ */
 
-/* =====================================
-   MENU LINKS
-===================================== */
-
-#menu-links {
-
+.menu-list {
     margin-top: 70px;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: flex-start;
-
 }
 
-
-#menu-links a {
-
+.menu-list a {
     display: block;
 
     color: #000;
 
-    font-size:
-        clamp(
-            42px,
-            6.5vw,
-            100px
-        );
+    font-size: clamp(42px, 6.5vw, 100px);
 
     line-height: 0.9;
 
-    letter-spacing:
-        -0.045em;
+    letter-spacing: -0.045em;
 
-    transition:
-        opacity 0.2s ease;
-
+    transition: opacity 0.2s ease;
 }
 
-
-#menu-links:hover a {
-
+.menu-list:hover a {
     opacity: 0.25;
-
 }
 
-
-#menu-links a:hover {
-
+.menu-list a:hover {
     opacity: 1;
-
 }
 
 
-
-/* =====================================
+/* ================================
    MAIN
-===================================== */
+================================ */
 
 main {
-
     position: relative;
-
-    width: 100%;
-
+    z-index: 10;
 }
 
 
-
-/* =====================================
+/* ================================
    HOME
-===================================== */
+================================ */
 
 .home {
-
-    height: 100vh;
-
     width: 100%;
-
-    background:
-        transparent;
-
+    height: 100vh;
+    background: transparent;
 }
 
 
+/* ================================
+   SECTIONS
+================================ */
 
-/* =====================================
-   CONTENT
-===================================== */
-
-.content {
-
+.section {
     position: relative;
 
+    width: 100%;
     min-height: 100vh;
 
-    width: 100%;
-
-    padding:
-        120px 22px;
+    padding: 120px 22px;
 
     background: #fff;
 
     color: #000;
-
 }
 
-
-.content h1 {
-
-    font-size:
-        clamp(
-            60px,
-            12vw,
-            190px
-        );
+.section h1 {
+    font-size: clamp(60px, 12vw, 190px);
 
     line-height: 0.85;
 
-    letter-spacing:
-        -0.07em;
-
+    letter-spacing: -0.07em;
 }
 
 
-
-/* =====================================
+/* ================================
    MOBILE
-===================================== */
+================================ */
 
 @media (max-width: 600px) {
 
-
-    #site-header {
-
-        padding:
-            17px 18px;
-
-    }
-
-
-    #menu-open {
-
-        font-size: 15px;
-
-    }
-
-
-    #socials {
-
+    .menu-button {
         top: 17px;
+        left: 18px;
+        font-size: 15px;
+    }
 
+    .social-links {
+        top: 17px;
         right: 18px;
-
         gap: 11px;
-
     }
 
-
-    #socials a {
-
+    .social-links a {
         width: 18px;
-
         height: 18px;
-
     }
 
-
-    #menu-overlay {
-
-        padding:
-            17px 18px;
-
+    .menu {
+        padding: 17px 18px;
     }
 
-
-    #menu-close {
-
+    .menu-close {
         top: 17px;
-
         right: 18px;
-
         font-size: 15px;
-
     }
 
-
-    #menu-links {
-
+    .menu-list {
         margin-top: 60px;
-
     }
 
-
-    #menu-links a {
-
+    .menu-list a {
         font-size: 44px;
-
     }
 
-
-    .center-symbol {
-
-        font-size: 32px;
-
+    .section {
+        padding: 100px 18px;
     }
 
-
-    .content {
-
-        padding:
-            100px 18px;
-
-    }
-
-
-    .content h1 {
-
+    .section h1 {
         font-size: 18vw;
-
     }
-
 }
