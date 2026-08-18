@@ -185,6 +185,18 @@ button {
 }
 
 
+/* APPLE MUSIC */
+
+.social-links img {
+    display: block;
+
+    width: 28px;
+    height: 28px;
+
+    object-fit: contain;
+}
+
+
 /* ========================================
    MENU
 ======================================== */
@@ -358,6 +370,11 @@ button {
     }
 
     .social-links svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .social-links img {
         width: 25px;
         height: 25px;
     }
