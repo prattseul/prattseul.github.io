@@ -1,15 +1,8 @@
 @font-face {
-
     font-family: "PP Neue Bit";
-
-    src:
-        url("fonts/PPNeueBit-Bold.woff2")
-        format("woff2");
-
+    src: url("fonts/PPNeueBit-Bold.woff2") format("woff2");
     font-weight: 700;
-
     font-style: normal;
-
     font-display: swap;
 }
 
@@ -24,39 +17,26 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
-
     margin: 0;
-
     background: #000;
-
     color: #fff;
-
-    font-family:
-        "PP Neue Bit",
-        Arial,
-        sans-serif;
-
+    font-family: "PP Neue Bit", Arial, sans-serif;
     overflow-x: hidden;
 }
-
 
 body.menu-active {
     overflow: hidden;
 }
 
-
 a {
     color: inherit;
     text-decoration: none;
 }
-
 
 button {
     font-family: inherit;
@@ -68,33 +48,21 @@ button {
 ===================================== */
 
 .background {
-
     position: fixed;
-
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     z-index: 0;
-
     background: #000;
-
     overflow: hidden;
 }
 
-
 .background img {
-
     position: absolute;
-
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     object-position: center;
 }
 
@@ -104,29 +72,80 @@ button {
 ===================================== */
 
 .menu-button {
-
     position: fixed;
-
     top: 20px;
     left: 22px;
-
     z-index: 200;
 
     padding: 0;
-
     border: 0;
-
     background: transparent;
 
     color: #fff;
-
     font-family: inherit;
-
     font-size: 16px;
-
     line-height: 1;
 
     cursor: pointer;
+}
+
+
+/* =====================================
+   SOCIAL LINKS
+===================================== */
+
+.social-links {
+    position: fixed;
+
+    top: 20px;
+    right: 22px;
+
+    z-index: 200;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.social-links a {
+    display: flex;
+
+    width: 20px;
+    height: 20px;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover {
+    opacity: 0.5;
+}
+
+.social-links svg {
+    width: 18px;
+    height: 18px;
+
+    display: block;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.6;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.social-links svg .filled {
+    fill: currentColor;
+    stroke: none;
 }
 
 
@@ -135,7 +154,6 @@ button {
 ===================================== */
 
 .page-content {
-
     position: relative;
 
     z-index: 10;
@@ -148,15 +166,8 @@ button {
     color: #fff;
 }
 
-
 .page-content h1 {
-
-    font-size:
-        clamp(
-            70px,
-            14vw,
-            220px
-        );
+    font-size: clamp(70px, 14vw, 220px);
 
     line-height: 0.8;
 
@@ -169,16 +180,13 @@ button {
 ===================================== */
 
 .menu {
-
     position: fixed;
 
     top: 0;
     left: 0;
 
     width: 340px;
-
     max-width: 85vw;
-
     height: 100vh;
 
     z-index: 1000;
@@ -190,13 +198,10 @@ button {
     padding: 20px 22px;
 
     opacity: 0;
-
     visibility: hidden;
-
     pointer-events: none;
 
-    transform:
-        translateX(-100%);
+    transform: translateX(-100%);
 
     transition:
         transform 0.3s ease,
@@ -206,33 +211,26 @@ button {
     overflow-y: auto;
 }
 
-
 .menu.active {
-
     opacity: 1;
-
     visibility: visible;
-
     pointer-events: auto;
 
-    transform:
-        translateX(0);
+    transform: translateX(0);
 }
 
 
 /* =====================================
-   CLOSE
+   CLOSE BUTTON
 ===================================== */
 
 .menu-close {
-
     position: absolute;
 
     top: 20px;
     right: 22px;
 
     border: 0;
-
     padding: 0;
 
     background: transparent;
@@ -240,9 +238,7 @@ button {
     color: #fff;
 
     font-family: inherit;
-
     font-size: 16px;
-
     line-height: 1;
 
     cursor: pointer;
@@ -254,47 +250,33 @@ button {
 ===================================== */
 
 .menu-list {
-
     margin-top: 70px;
 
     display: flex;
-
     flex-direction: column;
-
     align-items: flex-start;
 }
 
-
 .menu-list a {
-
     display: block;
 
     color: #fff;
 
-    font-size:
-        clamp(
-            38px,
-            5vw,
-            72px
-        );
+    font-size: clamp(38px, 5vw, 72px);
 
     line-height: 0.9;
 
     letter-spacing: -0.045em;
 
     text-shadow:
-        0 0 10px
-        rgba(0, 0, 0, 0.35);
+        0 0 10px rgba(0, 0, 0, 0.35);
 
-    transition:
-        opacity 0.2s ease;
+    transition: opacity 0.2s ease;
 }
-
 
 .menu-list:hover a {
     opacity: 0.35;
 }
-
 
 .menu-list a:hover {
     opacity: 1;
@@ -308,7 +290,6 @@ button {
 @media (max-width: 600px) {
 
     .menu-button {
-
         top: 17px;
         left: 18px;
 
@@ -316,10 +297,28 @@ button {
     }
 
 
+    .social-links {
+        top: 17px;
+        right: 18px;
+
+        gap: 10px;
+    }
+
+
+    .social-links a {
+        width: 18px;
+        height: 18px;
+    }
+
+
+    .social-links svg {
+        width: 16px;
+        height: 16px;
+    }
+
+
     .menu {
-
         width: 300px;
-
         max-width: 85vw;
 
         padding: 17px 18px;
@@ -327,7 +326,6 @@ button {
 
 
     .menu-close {
-
         top: 17px;
         right: 18px;
 
@@ -336,27 +334,21 @@ button {
 
 
     .menu-list {
-
         margin-top: 60px;
     }
 
 
     .menu-list a {
-
         font-size: 42px;
     }
 
 
     .page-content {
-
-        padding:
-            100px 18px;
+        padding: 100px 18px;
     }
 
 
     .page-content h1 {
-
         font-size: 18vw;
     }
-
 }
