@@ -86,7 +86,7 @@ button {
 
     color: #fff;
 
-    font-size: 18px;
+    font-size: 36px;
     line-height: 1;
 
     cursor: pointer;
@@ -140,7 +140,7 @@ button {
 
     align-items: center;
 
-    gap: 11px;
+    gap: 14px;
 
     color: #fff;
 }
@@ -148,8 +148,8 @@ button {
 .social-links a {
     display: flex;
 
-    width: 20px;
-    height: 20px;
+    width: 36px;
+    height: 36px;
 
     align-items: center;
     justify-content: center;
@@ -166,8 +166,8 @@ button {
 .social-links svg {
     display: block;
 
-    width: 18px;
-    height: 18px;
+    width: 36px;
+    height: 36px;
 
     fill: none;
 
@@ -241,7 +241,7 @@ button {
 
     color: #fff;
 
-    font-size: 18px;
+    font-size: 36px;
 
     line-height: 1;
 
@@ -260,7 +260,7 @@ button {
 
     align-items: flex-start;
 
-    margin-top: 70px;
+    margin-top: 90px;
 }
 
 .menu-list a {
@@ -313,7 +313,6 @@ button {
 
     object-fit: cover;
 
-    /* Image décalée vers le bas */
     object-position: center 75%;
 }
 
@@ -329,7 +328,7 @@ button {
     }
 
     .menu-button {
-        font-size: 16px;
+        font-size: 32px;
     }
 
 
@@ -351,17 +350,17 @@ button {
     /* RÉSEAUX MOBILE */
 
     .social-links {
-        gap: 9px;
+        gap: 12px;
     }
 
     .social-links a {
-        width: 18px;
-        height: 18px;
+        width: 32px;
+        height: 32px;
     }
 
     .social-links svg {
-        width: 16px;
-        height: 16px;
+        width: 32px;
+        height: 32px;
     }
 
 
@@ -377,11 +376,11 @@ button {
         top: 17px;
         right: 18px;
 
-        font-size: 16px;
+        font-size: 32px;
     }
 
     .menu-list {
-        margin-top: 60px;
+        margin-top: 75px;
     }
 
     .menu-list a {
