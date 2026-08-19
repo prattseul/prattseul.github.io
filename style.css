@@ -862,6 +862,24 @@ body:not(.internal-page) .page-title {
     opacity: 0.5;
 }
 
+/* ========================================
+   GIF CONCERTS
+======================================== */
+
+.shows-gif {
+    width: 100%;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.shows-gif img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+}
 
 /* ========================================
    PRESSE
@@ -1409,6 +1427,14 @@ body:not(.internal-page) .page-title {
 
         text-underline-offset: 3px;
     }
+
+    @media (max-width: 700px) {
+
+    .shows-gif {
+        margin-bottom: 16px;
+    }
+
+}
 
 
     /* ========================================
