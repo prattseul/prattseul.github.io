@@ -310,7 +310,7 @@ body::before {
 
 
 /* ========================================
-   CLOSE
+   BOUTON FERMETURE MENU
 ======================================== */
 
 .close-button {
@@ -337,7 +337,7 @@ body::before {
 
 
 /* ========================================
-   MENU LIST
+   LIENS DU MENU
 ======================================== */
 
 .menu-list {
@@ -372,7 +372,7 @@ body::before {
 
 
 /* ========================================
-   HERO ACCUEIL
+   HERO / PAGE D'ACCUEIL
 ======================================== */
 
 .hero {
@@ -429,7 +429,7 @@ body::before {
 
 
 /* ========================================
-   ABOUT
+   PAGE À PROPOS
 ======================================== */
 
 .about-content {
@@ -452,6 +452,11 @@ body::before {
     box-shadow: none;
 }
 
+
+/* ========================================
+   TITRE BIOGRAPHIE
+======================================== */
+
 .bio-title {
     margin: 0 0 20px;
 
@@ -464,7 +469,14 @@ body::before {
     font-weight: 700;
 
     letter-spacing: -0.015em;
+
+    text-shadow: none;
 }
+
+
+/* ========================================
+   TEXTE PAGE À PROPOS
+======================================== */
 
 .about-text {
     width: 100%;
@@ -480,19 +492,38 @@ body::before {
     line-height: 1.25;
 
     letter-spacing: -0.008em;
+
+    text-shadow: none;
 }
 
 .about-text p:last-child {
     margin-bottom: 0;
 }
 
+
+/* ========================================
+   GRAS
+======================================== */
+
 .about-text strong {
     font-weight: 700;
+
+    text-shadow: none;
 }
+
+
+/* ========================================
+   ITALIQUES
+======================================== */
 
 .about-text em {
     font-style: italic;
 }
+
+
+/* ========================================
+   INTERTITRES À PROPOS
+======================================== */
 
 .about-text h2 {
     margin: 0 0 20px;
@@ -506,7 +537,14 @@ body::before {
     font-weight: 700;
 
     letter-spacing: -0.015em;
+
+    text-shadow: none;
 }
+
+
+/* ========================================
+   PHOTO PAGE À PROPOS
+======================================== */
 
 .about-photo {
     width: 100%;
@@ -526,6 +564,11 @@ body::before {
     object-position: center 27%;
 }
 
+
+/* ========================================
+   CRÉDIT PHOTO
+======================================== */
+
 .about-photo figcaption {
     margin-top: 10px;
 
@@ -536,7 +579,14 @@ body::before {
     line-height: 1;
 
     text-align: right;
+
+    text-shadow: none;
 }
+
+
+/* ========================================
+   CRÉDIT BIOGRAPHIE
+======================================== */
 
 .bio-credit {
     margin-top: -12px;
@@ -548,6 +598,8 @@ body::before {
     line-height: 1.2;
 
     text-align: right;
+
+    text-shadow: none;
 }
 
 
@@ -564,24 +616,36 @@ body::before {
 
     flex-direction: column;
 
-    gap: 90px;
+    /*
+       Espace entre les différents projets :
+       Blizzard Moderne / L'oiseau de nuit / Enchanté
+    */
+    gap: 55px;
 
-    padding: 35px 45px 60px;
+    padding: 20px 45px 45px;
 }
 
 
-/* GROUPE / PROJET */
+/* ========================================
+   GROUPE / PROJET VIDÉO
+======================================== */
 
 .video-project {
     display: flex;
 
     flex-direction: column;
 
-    gap: 42px;
+    /*
+       Espace entre le titre du projet
+       et les vidéos, ainsi qu'entre les vidéos.
+    */
+    gap: 24px;
 }
 
 
-/* TITRE DU PROJET */
+/* ========================================
+   TITRE DU PROJET
+======================================== */
 
 .video-project-title {
     margin: 0;
@@ -608,14 +672,20 @@ body::before {
 }
 
 
-/* VIDÉO INDIVIDUELLE */
+/* ========================================
+   VIDÉO INDIVIDUELLE
+======================================== */
 
 .video-item {
     display: flex;
 
     flex-direction: column;
 
-    gap: 14px;
+    /*
+       Petit espace entre le titre
+       et le lecteur YouTube.
+    */
+    gap: 8px;
 }
 
 .video-item h2 {
@@ -633,7 +703,9 @@ body::before {
 }
 
 
-/* PLAYER YOUTUBE */
+/* ========================================
+   PLAYER YOUTUBE
+======================================== */
 
 .video-wrapper {
     position: relative;
@@ -666,6 +738,11 @@ body::before {
 
 @media (max-width: 700px) {
 
+
+    /* ========================================
+       BACKGROUND MOBILE
+    ======================================== */
+
     body::before {
         width: 100vw;
 
@@ -678,15 +755,27 @@ body::before {
     }
 
 
-    /* HEADER */
+    /* ========================================
+       HEADER MOBILE
+    ======================================== */
 
     .top {
         padding: 17px 18px;
     }
 
+
+    /* ========================================
+       BOUTON MENU MOBILE
+    ======================================== */
+
     .menu-button {
         font-size: 25px;
     }
+
+
+    /* ========================================
+       LOGO MOBILE
+    ======================================== */
 
     .site-logo {
         top: 17px;
@@ -700,14 +789,23 @@ body::before {
         max-width: 130px;
     }
 
+
+    /* ========================================
+       TITRE PAGE MOBILE
+    ======================================== */
+
     .page-title {
         top: 16px;
 
         font-size: 31px;
+
+        text-decoration: none;
     }
 
 
-    /* RÉSEAUX */
+    /* ========================================
+       RÉSEAUX MOBILE
+    ======================================== */
 
     .social-links {
         gap: 10px;
@@ -732,7 +830,9 @@ body::before {
     }
 
 
-    /* MENU */
+    /* ========================================
+       MENU MOBILE
+    ======================================== */
 
     .menu {
         width: min(320px, 85vw);
@@ -760,14 +860,18 @@ body::before {
     }
 
 
-    /* PAGE INTERNE */
+    /* ========================================
+       PAGE INTERNE MOBILE
+    ======================================== */
 
     .internal-content {
         padding: 100px 0 70px;
     }
 
 
-    /* ABOUT */
+    /* ========================================
+       PAGE À PROPOS MOBILE
+    ======================================== */
 
     .about-content {
         width: calc(100% - 36px);
@@ -777,13 +881,31 @@ body::before {
         gap: 38px;
 
         padding: 25px 22px 34px;
+
+        background: transparent;
+
+        border: none;
+
+        box-shadow: none;
     }
+
+
+    /* ========================================
+       TITRE BIO MOBILE
+    ======================================== */
 
     .bio-title {
         margin-bottom: 18px;
 
         font-size: 26px;
+
+        text-shadow: none;
     }
+
+
+    /* ========================================
+       TEXTE À PROPOS MOBILE
+    ======================================== */
 
     .about-text p {
         margin-bottom: 20px;
@@ -791,13 +913,31 @@ body::before {
         font-size: 19px;
 
         line-height: 1.25;
+
+        text-shadow: none;
     }
+
+    .about-text strong {
+        text-shadow: none;
+    }
+
+
+    /* ========================================
+       INTERTITRE À PROPOS MOBILE
+    ======================================== */
 
     .about-text h2 {
         margin-bottom: 20px;
 
         font-size: 27px;
+
+        text-shadow: none;
     }
+
+
+    /* ========================================
+       PHOTO MOBILE
+    ======================================== */
 
     .about-photo img {
         height: 68vh;
@@ -809,17 +949,26 @@ body::before {
 
     .about-photo figcaption {
         font-size: 14px;
+
+        text-shadow: none;
     }
+
+
+    /* ========================================
+       CRÉDIT BIO MOBILE
+    ======================================== */
 
     .bio-credit {
         margin-top: -8px;
 
         font-size: 14px;
+
+        text-shadow: none;
     }
 
 
     /* ========================================
-       VIDÉOS MOBILE
+       PAGE VIDÉOS MOBILE
     ======================================== */
 
     .videos-content {
@@ -827,14 +976,28 @@ body::before {
 
         min-width: 0;
 
-        gap: 65px;
+        /*
+           Moins d'espace entre les projets
+           sur téléphone.
+        */
+        gap: 45px;
 
-        padding: 25px 0 35px;
+        padding: 15px 0 30px;
     }
+
+
+    /* ========================================
+       PROJET VIDÉO MOBILE
+    ======================================== */
 
     .video-project {
-        gap: 32px;
+        gap: 20px;
     }
+
+
+    /* ========================================
+       TITRE PROJET MOBILE
+    ======================================== */
 
     .video-project-title {
         font-size: 30px;
@@ -844,8 +1007,13 @@ body::before {
         margin-left: 5px;
     }
 
+
+    /* ========================================
+       VIDÉO MOBILE
+    ======================================== */
+
     .video-item {
-        gap: 10px;
+        gap: 6px;
     }
 
     .video-item h2 {
@@ -853,6 +1021,11 @@ body::before {
 
         line-height: 1.05;
     }
+
+
+    /* ========================================
+       PLAYER YOUTUBE MOBILE
+    ======================================== */
 
     .video-wrapper {
         width: 100%;
