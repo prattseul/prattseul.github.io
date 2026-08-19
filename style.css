@@ -140,23 +140,42 @@ body::before {
 
 
 /* ========================================
-   LOGO ACCUEIL
+   CENTRE DU HEADER
+   LOGO + TITRE
 ======================================== */
 
-.site-logo {
+.header-center {
     position: absolute;
 
-    top: 20px;
-
+    top: 18px;
     left: 50%;
 
     transform: translateX(-50%);
 
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 7px;
+
+    z-index: 510;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   LOGO PRATTSEUL
+======================================== */
+
+.site-logo {
+    position: relative;
+
     display: block;
 
     width: 150px;
-
-    z-index: 510;
 
     pointer-events: auto;
 }
@@ -164,11 +183,9 @@ body::before {
 .site-logo img {
     display: block;
 
-    width: 150px;
+    width: 100%;
 
     height: auto;
-
-    max-width: 150px;
 
     object-fit: contain;
 }
@@ -179,27 +196,28 @@ body::before {
 ======================================== */
 
 .page-title {
-    position: absolute;
-
-    top: 17px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
+    position: relative;
 
     color: #fff;
 
-    font-size: 38px;
+    font-size: 25px;
 
-    line-height: 1;
+    line-height: 0.9;
+
+    font-weight: 700;
 
     white-space: nowrap;
 
     text-decoration: none;
 
-    z-index: 510;
-
     pointer-events: auto;
+}
+
+
+/* Sur l'accueil : logo uniquement */
+
+body:not(.internal-page) .page-title {
+    display: none;
 }
 
 
@@ -313,7 +331,7 @@ body::before {
 
 
 /* ========================================
-   CLOSE
+   FERMETURE MENU
 ======================================== */
 
 .close-button {
@@ -339,7 +357,7 @@ body::before {
 
 
 /* ========================================
-   MENU LIST
+   LISTE MENU
 ======================================== */
 
 .menu-list {
@@ -461,7 +479,7 @@ body::before {
 
     min-height: 100vh;
 
-    padding: 130px 0 100px;
+    padding: 145px 0 100px;
 
     display: flex;
 
@@ -485,7 +503,7 @@ body::before {
 
 
 /* ========================================
-   JUSTIFICATION DES TEXTES
+   JUSTIFICATION TEXTES
 ======================================== */
 
 .internal-content p {
@@ -741,7 +759,8 @@ body::before {
 .shows-list {
     width: 100%;
 
-    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    border-top:
+        1px solid rgba(255, 255, 255, 0.35);
 }
 
 .show-item {
@@ -873,7 +892,8 @@ body::before {
 }
 
 .press-content .press-year:first-child .press-list {
-    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    border-top:
+        1px solid rgba(255, 255, 255, 0.35);
 }
 
 
@@ -905,7 +925,7 @@ body::before {
 
 
 /* ========================================
-   LIGNE PRESSE CLIQUABLE
+   PRESSE CLIQUABLE
 ======================================== */
 
 .press-item-link {
@@ -936,7 +956,7 @@ body::before {
 
 
 /* ========================================
-   LIGNE PRESSE SANS LIEN
+   PRESSE SANS LIEN
 ======================================== */
 
 .press-item-no-link {
@@ -1083,7 +1103,7 @@ body::before {
 
 
 /* ========================================
-   LIEN CONTACT
+   EMAIL CONTACT
 ======================================== */
 
 .contact-link {
@@ -1137,22 +1157,27 @@ body::before {
         font-size: 25px;
     }
 
-    .site-logo {
-        top: 17px;
 
-        width: 130px;
+    /* LOGO + TITRE */
+
+    .header-center {
+        top: 16px;
+
+        gap: 5px;
+    }
+
+    .site-logo {
+        width: 125px;
     }
 
     .site-logo img {
-        width: 130px;
+        width: 100%;
 
-        max-width: 130px;
+        max-width: none;
     }
 
     .page-title {
-        top: 16px;
-
-        font-size: 31px;
+        font-size: 21px;
     }
 
 
@@ -1215,7 +1240,7 @@ body::before {
     /* PAGE INTERNE */
 
     .internal-content {
-        padding: 100px 0 70px;
+        padding: 120px 0 70px;
     }
 
 
@@ -1232,7 +1257,7 @@ body::before {
     }
 
 
-    /* TEXTE */
+    /* TEXTES */
 
     .internal-content p {
         text-align: justify;
@@ -1458,7 +1483,7 @@ body::before {
 
         gap: 2px;
 
-        padding: 10px 0;
+        padding: 12px 0;
     }
 
     .contact-role {
@@ -1474,7 +1499,7 @@ body::before {
     }
 
     .contact-link {
-        margin-top: 2px;
+        margin-top: 3px;
 
         font-size: 17px;
 
