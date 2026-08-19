@@ -298,7 +298,8 @@ body::before {
 
     transition:
         opacity 0.25s ease,
-        visibility 0.25s ease;
+        visibility 0.25s ease,
+        background-color 0.25s ease;
 }
 
 .menu.active {
@@ -368,6 +369,22 @@ body::before {
 
 .menu-list a:hover {
     opacity: 1;
+}
+
+
+/* ========================================
+   MENU ÉCRANS ÉTROITS
+======================================== */
+
+@media (max-width: 900px) {
+
+    .menu {
+        background: rgba(0, 0, 0, 0.92);
+
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
 }
 
 
@@ -1029,6 +1046,11 @@ body::before {
         height: 100dvh;
 
         padding: 17px 18px;
+
+        background: rgba(0, 0, 0, 0.92);
+
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
     }
 
     .close-button {
