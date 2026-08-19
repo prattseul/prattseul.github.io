@@ -214,7 +214,7 @@ body::before {
 }
 
 
-/* Sur l'accueil : logo uniquement */
+/* Pas de titre sur l'accueil */
 
 body:not(.internal-page) .page-title {
     display: none;
@@ -222,7 +222,7 @@ body:not(.internal-page) .page-title {
 
 
 /* ========================================
-   RÉSEAUX
+   RÉSEAUX SOCIAUX
 ======================================== */
 
 .social-links {
@@ -503,7 +503,7 @@ body:not(.internal-page) .page-title {
 
 
 /* ========================================
-   JUSTIFICATION TEXTES
+   JUSTIFICATION DES TEXTES
 ======================================== */
 
 .internal-content p {
@@ -738,6 +738,33 @@ body:not(.internal-page) .page-title {
     padding: 10px 35px 40px;
 }
 
+
+/* ========================================
+   GIF CONCERTS
+======================================== */
+
+.shows-gif {
+    width: 100%;
+
+    margin-bottom: 24px;
+
+    overflow: hidden;
+}
+
+.shows-gif img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+}
+
+
+/* ========================================
+   ANNÉES CONCERTS
+======================================== */
+
 .shows-year {
     width: 100%;
 }
@@ -762,6 +789,11 @@ body:not(.internal-page) .page-title {
     border-top:
         1px solid rgba(255, 255, 255, 0.35);
 }
+
+
+/* ========================================
+   LIGNE CONCERT
+======================================== */
 
 .show-item {
     width: 100%;
@@ -862,24 +894,6 @@ body:not(.internal-page) .page-title {
     opacity: 0.5;
 }
 
-/* ========================================
-   GIF CONCERTS
-======================================== */
-
-.shows-gif {
-    width: 100%;
-    margin-bottom: 24px;
-    overflow: hidden;
-}
-
-.shows-gif img {
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    object-fit: cover;
-}
 
 /* ========================================
    PRESSE
@@ -1059,34 +1073,73 @@ body:not(.internal-page) .page-title {
 ======================================== */
 
 .contact-content {
-    padding: 10px 35px 35px;
+    padding: 10px 0 35px;
 }
 
-.contact-list {
+
+/* ========================================
+   VISUEL CONTACTS
+======================================== */
+
+.contact-visual {
+    position: relative;
+
     width: 100%;
 
-    border-top:
-        1px solid rgba(255, 255, 255, 0.35);
+    overflow: hidden;
 }
 
-.contact-item {
+
+/* ========================================
+   IMAGE CONTACTS
+======================================== */
+
+.contact-background {
+    display: block;
+
     width: 100%;
+    height: auto;
 
-    display: grid;
+    object-fit: cover;
+}
 
-    grid-template-columns:
-        minmax(150px, 0.9fr)
-        minmax(220px, 1.35fr)
-        minmax(0, 1.75fr);
 
-    column-gap: 24px;
+/* ========================================
+   CONTACTS SUPERPOSÉS
+======================================== */
 
-    align-items: start;
+.contact-overlay {
+    position: absolute;
 
-    padding: 18px 0;
+    top: 50%;
+    left: 0;
 
-    border-bottom:
-        1px solid rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%);
+
+    width: 58%;
+
+    padding: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 27px;
+}
+
+
+/* ========================================
+   ENTRÉE CONTACT
+======================================== */
+
+.contact-entry {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 2px;
 }
 
 
@@ -1095,11 +1148,11 @@ body:not(.internal-page) .page-title {
 ======================================== */
 
 .contact-role {
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.62);
 
-    font-size: clamp(15px, 1.05vw, 18px);
+    font-size: clamp(14px, 1vw, 17px);
 
-    line-height: 1.05;
+    line-height: 1;
 
     font-weight: 700;
 }
@@ -1112,7 +1165,7 @@ body:not(.internal-page) .page-title {
 .contact-name {
     color: #fff;
 
-    font-size: clamp(17px, 1.2vw, 20px);
+    font-size: clamp(19px, 1.4vw, 23px);
 
     line-height: 1.05;
 
@@ -1125,6 +1178,8 @@ body:not(.internal-page) .page-title {
 ======================================== */
 
 .contact-link {
+    margin-top: 2px;
+
     color: #fff;
 
     font-size: clamp(17px, 1.2vw, 20px);
@@ -1153,6 +1208,10 @@ body:not(.internal-page) .page-title {
 
 @media (max-width: 700px) {
 
+    /* ========================================
+       BACKGROUND MOBILE
+    ========================================= */
+
     body::before {
         width: 100vw;
 
@@ -1165,7 +1224,9 @@ body:not(.internal-page) .page-title {
     }
 
 
-    /* HEADER */
+    /* ========================================
+       HEADER MOBILE
+    ========================================= */
 
     .top {
         padding: 17px 18px;
@@ -1176,7 +1237,9 @@ body:not(.internal-page) .page-title {
     }
 
 
-    /* LOGO + TITRE */
+    /* ========================================
+       LOGO + TITRE MOBILE
+    ========================================= */
 
     .header-center {
         top: 16px;
@@ -1199,7 +1262,9 @@ body:not(.internal-page) .page-title {
     }
 
 
-    /* RÉSEAUX */
+    /* ========================================
+       RÉSEAUX MOBILE
+    ========================================= */
 
     .social-links {
         gap: 10px;
@@ -1213,7 +1278,9 @@ body:not(.internal-page) .page-title {
     }
 
 
-    /* MENU */
+    /* ========================================
+       MENU MOBILE
+    ========================================= */
 
     .menu {
         width: min(320px, 85vw);
@@ -1245,7 +1312,9 @@ body:not(.internal-page) .page-title {
     }
 
 
-    /* COPYRIGHT */
+    /* ========================================
+       COPYRIGHT MOBILE
+    ========================================= */
 
     .site-copyright {
         right: 18px;
@@ -1255,14 +1324,18 @@ body:not(.internal-page) .page-title {
     }
 
 
-    /* PAGE INTERNE */
+    /* ========================================
+       PAGE INTERNE MOBILE
+    ========================================= */
 
     .internal-content {
         padding: 120px 0 70px;
     }
 
 
-    /* LARGEUR COMMUNE */
+    /* ========================================
+       LARGEUR COMMUNE MOBILE
+    ========================================= */
 
     .about-content,
     .videos-content,
@@ -1275,7 +1348,9 @@ body:not(.internal-page) .page-title {
     }
 
 
-    /* TEXTES */
+    /* ========================================
+       TEXTES MOBILE
+    ========================================= */
 
     .internal-content p {
         text-align: justify;
@@ -1376,6 +1451,10 @@ body:not(.internal-page) .page-title {
         padding: 10px 0 30px;
     }
 
+    .shows-gif {
+        margin-bottom: 16px;
+    }
+
     .shows-year-title {
         margin-bottom: 9px;
 
@@ -1427,14 +1506,6 @@ body:not(.internal-page) .page-title {
 
         text-underline-offset: 3px;
     }
-
-    @media (max-width: 700px) {
-
-    .shows-gif {
-        margin-bottom: 16px;
-    }
-
-}
 
 
     /* ========================================
@@ -1502,18 +1573,42 @@ body:not(.internal-page) .page-title {
         padding: 5px 0 25px;
     }
 
-    .contact-item {
-        display: flex;
+    .contact-visual {
+        min-height: 620px;
+    }
 
-        flex-direction: column;
+    .contact-background {
+        width: 100%;
 
+        height: 620px;
+
+        object-fit: cover;
+
+        object-position: 68% center;
+    }
+
+    .contact-overlay {
+        top: 0;
+        left: 0;
+
+        transform: none;
+
+        width: 72%;
+        height: 100%;
+
+        padding: 32px 18px;
+
+        justify-content: center;
+
+        gap: 25px;
+    }
+
+    .contact-entry {
         gap: 2px;
-
-        padding: 12px 0;
     }
 
     .contact-role {
-        font-size: 15px;
+        font-size: 14px;
 
         line-height: 1;
     }
@@ -1525,13 +1620,15 @@ body:not(.internal-page) .page-title {
     }
 
     .contact-link {
-        margin-top: 3px;
+        margin-top: 2px;
 
-        font-size: 17px;
+        font-size: 16px;
 
         line-height: 1.05;
 
         text-underline-offset: 3px;
+
+        overflow-wrap: anywhere;
     }
 
 }
