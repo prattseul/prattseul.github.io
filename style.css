@@ -372,6 +372,29 @@ body::before {
 
 
 /* ========================================
+   COPYRIGHT GLOBAL
+======================================== */
+
+.site-copyright {
+    position: fixed;
+
+    right: 22px;
+    bottom: 18px;
+
+    z-index: 500;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 15px;
+    line-height: 1;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
    HERO / PAGE D'ACCUEIL
 ======================================== */
 
@@ -431,14 +454,6 @@ body::before {
 /* ========================================
    JUSTIFICATION DES TEXTES DU SITE
 ======================================== */
-
-/*
-   Tous les paragraphes de contenu des pages
-   internes seront désormais justifiés.
-
-   Les titres, menus, crédits et légendes
-   ne sont pas concernés.
-*/
 
 .internal-content p {
     text-align: justify;
@@ -868,6 +883,18 @@ body::before {
 
 
     /* ========================================
+       COPYRIGHT MOBILE
+    ======================================== */
+
+    .site-copyright {
+        right: 18px;
+        bottom: 14px;
+
+        font-size: 13px;
+    }
+
+
+    /* ========================================
        PAGE INTERNE MOBILE
     ======================================== */
 
@@ -885,10 +912,6 @@ body::before {
 
         text-justify: inter-word;
 
-        /*
-           Permet au navigateur de couper les mots
-           proprement si nécessaire sur petit écran.
-        */
         hyphens: auto;
     }
 
@@ -987,10 +1010,6 @@ body::before {
 
         font-size: 14px;
 
-        /*
-           Le crédit reste aligné à droite
-           et n'est pas justifié.
-        */
         text-align: right;
 
         text-shadow: none;
