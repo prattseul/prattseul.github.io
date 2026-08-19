@@ -257,6 +257,7 @@ body::before {
 
 .social-links svg .filled {
     fill: currentColor;
+
     stroke: none;
 }
 
@@ -696,7 +697,6 @@ body::before {
 
     flex-direction: column;
 
-    /* plus compact */
     gap: 42px;
 
     padding: 10px 35px 40px;
@@ -726,11 +726,6 @@ body::before {
     border-top: 1px solid rgba(255, 255, 255, 0.35);
 }
 
-
-/* ========================================
-   LIGNE CONCERT
-======================================== */
-
 .show-item {
     width: 100%;
 
@@ -746,7 +741,6 @@ body::before {
 
     align-items: start;
 
-    /* 16px auparavant */
     padding: 10px 0;
 
     border-bottom:
@@ -759,19 +753,9 @@ body::before {
         color 0.25s ease;
 }
 
-
-/* ========================================
-   DATE PASSÉE
-======================================== */
-
 .show-item.past {
     opacity: 0.42;
 }
-
-
-/* ========================================
-   DATE
-======================================== */
 
 .show-date {
     font-size: clamp(18px, 1.3vw, 22px);
@@ -783,11 +767,6 @@ body::before {
     white-space: nowrap;
 }
 
-
-/* ========================================
-   LIEU
-======================================== */
-
 .show-location {
     font-size: clamp(18px, 1.3vw, 22px);
 
@@ -796,17 +775,11 @@ body::before {
     font-weight: 700;
 }
 
-
-/* ========================================
-   INFO
-======================================== */
-
 .show-info {
     display: flex;
 
     flex-direction: column;
 
-    /* 4px auparavant */
     gap: 2px;
 }
 
@@ -827,11 +800,6 @@ body::before {
 
     font-weight: 700;
 }
-
-
-/* ========================================
-   BILLETTERIE
-======================================== */
 
 .show-ticket {
     align-self: start;
@@ -855,6 +823,151 @@ body::before {
 
 .show-ticket:hover {
     opacity: 0.5;
+}
+
+
+/* ========================================
+   PRESSE
+======================================== */
+
+.press-content {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 42px;
+
+    padding: 10px 35px 40px;
+}
+
+
+/* ========================================
+   ANNÉE PRESSE
+======================================== */
+
+.press-year {
+    width: 100%;
+}
+
+.press-year-title {
+    margin: 0 0 12px;
+
+    color: #fff;
+
+    font-size: clamp(34px, 3vw, 48px);
+
+    line-height: 0.95;
+
+    font-weight: 700;
+
+    letter-spacing: -0.02em;
+}
+
+
+/* ========================================
+   LISTE PRESSE
+======================================== */
+
+.press-list {
+    width: 100%;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+
+/* ========================================
+   LIGNE PRESSE
+======================================== */
+
+.press-item {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(100px, 0.75fr)
+        minmax(145px, 1fr)
+        minmax(0, 2.3fr);
+
+    column-gap: 18px;
+
+    align-items: start;
+
+    padding: 11px 0;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.35);
+}
+
+
+/* ========================================
+   DATE PRESSE
+======================================== */
+
+.press-date {
+    color: #fff;
+
+    font-size: clamp(17px, 1.2vw, 21px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* ========================================
+   MÉDIA
+======================================== */
+
+.press-media {
+    color: #fff;
+
+    font-size: clamp(17px, 1.2vw, 21px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   TITRE PRESSE
+======================================== */
+
+.press-title {
+    color: #fff;
+
+    font-size: clamp(17px, 1.2vw, 21px);
+
+    line-height: 1.08;
+
+    font-weight: 700;
+
+    transition: opacity 0.2s ease;
+}
+
+
+/* TITRE CLIQUABLE */
+
+a.press-title {
+    text-decoration: underline;
+
+    text-decoration-thickness: 1px;
+
+    text-underline-offset: 4px;
+}
+
+a.press-title:hover {
+    opacity: 0.5;
+}
+
+
+/* TITRE SANS LIEN */
+
+.press-title-no-link {
+    color: rgba(255, 255, 255, 0.78);
 }
 
 
@@ -986,7 +1099,9 @@ body::before {
     }
 
 
-    /* À PROPOS */
+    /* ========================================
+       À PROPOS MOBILE
+    ========================================= */
 
     .about-content {
         gap: 38px;
@@ -1033,7 +1148,9 @@ body::before {
     }
 
 
-    /* VIDÉOS */
+    /* ========================================
+       VIDÉOS MOBILE
+    ========================================= */
 
     .videos-content {
         gap: 45px;
@@ -1062,17 +1179,17 @@ body::before {
     }
 
 
-    /* CONCERTS */
+    /* ========================================
+       CONCERTS MOBILE
+    ========================================= */
 
     .shows-content {
-        /* 48px auparavant */
         gap: 32px;
 
         padding: 10px 0 30px;
     }
 
     .shows-year-title {
-        /* 14px auparavant */
         margin-bottom: 9px;
 
         font-size: 32px;
@@ -1085,10 +1202,8 @@ body::before {
 
         flex-direction: column;
 
-        /* 4px auparavant */
         gap: 2px;
 
-        /* 13px auparavant */
         padding: 9px 0;
     }
 
@@ -1118,14 +1233,64 @@ body::before {
         line-height: 1;
     }
 
-
-    /* BILLETTERIE MOBILE */
-
     .show-ticket {
         margin-top: 5px;
 
         font-size: 16px;
 
+        text-underline-offset: 3px;
+    }
+
+
+    /* ========================================
+       PRESSE MOBILE
+    ========================================= */
+
+    .press-content {
+        gap: 32px;
+
+        padding: 10px 0 30px;
+    }
+
+    .press-year-title {
+        margin-bottom: 9px;
+
+        font-size: 32px;
+
+        line-height: 0.95;
+    }
+
+    .press-item {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 3px;
+
+        padding: 10px 0;
+    }
+
+    .press-date {
+        font-size: 16px;
+
+        line-height: 1;
+    }
+
+    .press-media {
+        font-size: 20px;
+
+        line-height: 1;
+    }
+
+    .press-title {
+        margin-top: 2px;
+
+        font-size: 18px;
+
+        line-height: 1.08;
+    }
+
+    a.press-title {
         text-underline-offset: 3px;
     }
 
