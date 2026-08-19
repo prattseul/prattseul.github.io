@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     /* ========================================
-       CHARGEMENT DU COMPOSANT
+       CHARGEMENT DU COMPOSANT COMMUN
     ========================================= */
 
     try {
@@ -81,53 +81,22 @@ document.addEventListener("DOMContentLoaded", async function () {
     const menu = document.querySelector(".menu");
 
 
-    if (!menuButton || !closeButton || !menu) {
-        return;
-    }
+    if (menuButton && closeButton && menu) {
+
+        /* OUVRIR */
+
+        menuButton.addEventListener("click", function () {
+
+            menu.classList.add("active");
+
+            document.body.classList.add("menu-active");
+
+        });
 
 
-    /* OUVRIR */
+        /* FERMER */
 
-    menuButton.addEventListener("click", function () {
-
-        menu.classList.add("active");
-
-        document.body.classList.add("menu-active");
-
-    });
-
-
-    /* FERMER */
-
-    closeButton.addEventListener("click", function () {
-
-        menu.classList.remove("active");
-
-        document.body.classList.remove("menu-active");
-
-    });
-
-
-    /* ESC */
-
-    document.addEventListener("keydown", function (event) {
-
-        if (event.key === "Escape") {
-
-            menu.classList.remove("active");
-
-            document.body.classList.remove("menu-active");
-
-        }
-
-    });
-
-
-    /* FERMETURE APRÈS CLIC SUR LIEN */
-
-    document.querySelectorAll(".menu-list a").forEach(function (link) {
-
-        link.addEventListener("click", function () {
+        closeButton.addEventListener("click", function () {
 
             menu.classList.remove("active");
 
@@ -135,6 +104,121 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         });
 
-    });
+
+        /* ESC */
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+
+                menu.classList.remove("active");
+
+                document.body.classList.remove("menu-active");
+
+            }
+
+        });
+
+
+        /* FERMER APRÈS CLIC SUR UN LIEN */
+
+        document.querySelectorAll(".menu-list a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                menu.classList.remove("active");
+
+                document.body.classList.remove("menu-active");
+
+            });
+
+        });
+
+    }
+
+
+    /* ========================================
+       CONCERTS : DATES PASSÉES AUTOMATIQUES
+    ========================================= */
+
+    const showItems = document.querySelectorAll(".show-item");
+
+    if (showItems.length > 0) {
+
+        /*
+           On récupère la date du jour
+           et on la ramène à minuit.
+
+           Ainsi, un concert prévu aujourd'hui
+           reste considéré comme "à venir".
+        */
+
+        const today = new Date();
+
+        today.setHours(0, 0, 0, 0);
+
+
+        showItems.forEach(function (showItem) {
+
+            const timeElement = showItem.querySelector("time[datetime]");
+
+            if (!timeElement) {
+                return;
+            }
+
+
+            const dateString = timeElement.getAttribute("datetime");
+
+            if (!dateString) {
+                return;
+            }
+
+
+            /*
+               On construit la date en heure locale
+               pour éviter les décalages de fuseau horaire.
+            */
+
+            const parts = dateString.split("-");
+
+            if (parts.length !== 3) {
+                return;
+            }
+
+
+            const year = Number(parts[0]);
+
+            const month = Number(parts[1]) - 1;
+
+            const day = Number(parts[2]);
+
+
+            const showDate = new Date(
+                year,
+                month,
+                day
+            );
+
+            showDate.setHours(0, 0, 0, 0);
+
+
+            /*
+               Si la date est antérieure à aujourd'hui,
+               on ajoute automatiquement .past
+            */
+
+            if (showDate < today) {
+
+                showItem.classList.add("past");
+
+            } else {
+
+                showItem.classList.remove("past");
+
+            }
+
+        });
+
+    }
 
 });
