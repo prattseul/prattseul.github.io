@@ -33,12 +33,10 @@ html {
 
 body {
     position: relative;
-
     width: 100%;
     min-height: 100%;
 
     background: #000;
-
     color: #fff;
 
     font-family: "PP Neue Bit", sans-serif;
@@ -68,7 +66,6 @@ body::before {
     content: "";
 
     position: fixed;
-
     inset: 0;
 
     width: 100vw;
@@ -77,11 +74,8 @@ body::before {
     height: 100dvh;
 
     background-image: url("images/IMG02.jpg");
-
     background-size: cover;
-
     background-position: center 75%;
-
     background-repeat: no-repeat;
 
     z-index: 0;
@@ -105,9 +99,7 @@ body::before {
     padding: 20px 22px;
 
     display: flex;
-
     align-items: flex-start;
-
     justify-content: space-between;
 
     z-index: 500;
@@ -124,33 +116,26 @@ body::before {
     pointer-events: auto;
 
     border: none;
-
     padding: 0;
 
     background: transparent;
-
     color: #fff;
 
     font-size: 28px;
-
     line-height: 1;
 
     cursor: pointer;
 }
 
 
-/* ========================================
-   PAS DE BOUTON MENU SUR L'ACCUEIL
-======================================== */
+/* PAS DE BOUTON MENU SUR L'ACCUEIL */
 
 body[data-home="true"] .menu-button {
     display: none;
 }
 
 
-/* ========================================
-   PAS DE MENU COULISSANT SUR L'ACCUEIL
-======================================== */
+/* PAS DE MENU COULISSANT SUR L'ACCUEIL */
 
 body[data-home="true"] .menu {
     display: none !important;
@@ -170,9 +155,7 @@ body[data-home="true"] .menu {
     transform: translateX(-50%);
 
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
 
     gap: 2px;
@@ -201,7 +184,6 @@ body[data-home="true"] .menu {
     display: block;
 
     width: 100%;
-
     height: auto;
 
     object-fit: contain;
@@ -218,9 +200,7 @@ body[data-home="true"] .menu {
     color: #fff;
 
     font-size: 25px;
-
     line-height: 0.9;
-
     font-weight: 700;
 
     white-space: nowrap;
@@ -231,7 +211,7 @@ body[data-home="true"] .menu {
 }
 
 
-/* Pas de titre de page sur l'accueil */
+/* Pas de titre sur l'accueil */
 
 body[data-home="true"] .page-title {
     display: none !important;
@@ -246,14 +226,17 @@ body[data-home="true"] .page-title {
     pointer-events: auto;
 
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
 
     gap: 12px;
 
     color: #fff;
+
+    /* IMPORTANT :
+       garde les réseaux à droite même lorsque
+       le bouton menu est absent sur l'accueil */
+    margin-left: auto;
 }
 
 .social-links a {
@@ -281,18 +264,15 @@ body[data-home="true"] .page-title {
     height: 28px;
 
     fill: none;
-
     stroke: currentColor;
 
     stroke-width: 1.6;
-
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
 .social-links svg .filled {
     fill: currentColor;
-
     stroke: none;
 }
 
@@ -308,7 +288,6 @@ body[data-home="true"] .page-title {
 
 /* ========================================
    MENU COULISSANT
-   PAGES INTERNES
 ======================================== */
 
 .menu {
@@ -341,7 +320,6 @@ body[data-home="true"] .page-title {
 
 .menu.active {
     opacity: 1;
-
     visibility: visible;
 
     pointer-events: auto;
@@ -359,15 +337,12 @@ body[data-home="true"] .page-title {
     right: 22px;
 
     border: none;
-
     padding: 0;
 
     background: transparent;
-
     color: #fff;
 
     font-size: 28px;
-
     line-height: 1;
 
     cursor: pointer;
@@ -380,9 +355,7 @@ body[data-home="true"] .page-title {
 
 .menu-list {
     display: flex;
-
     flex-direction: column;
-
     align-items: flex-start;
 
     margin-top: 75px;
@@ -392,7 +365,6 @@ body[data-home="true"] .page-title {
     color: #fff;
 
     font-size: clamp(42px, 6.5vw, 100px);
-
     line-height: 0.92;
 
     letter-spacing: -0.045em;
@@ -440,7 +412,6 @@ body[data-home="true"] .page-title {
     color: rgba(255, 255, 255, 0.8);
 
     font-size: 15px;
-
     line-height: 1;
 
     white-space: nowrap;
@@ -480,9 +451,7 @@ body[data-home="true"] .page-title {
     transform: translateY(-50%);
 
     display: flex;
-
     flex-direction: column;
-
     align-items: flex-start;
 
     z-index: 20;
@@ -497,7 +466,6 @@ body[data-home="true"] .page-title {
     color: #fff;
 
     font-size: clamp(42px, 5.5vw, 82px);
-
     line-height: 0.88;
 
     letter-spacing: -0.045em;
@@ -508,11 +476,6 @@ body[data-home="true"] .page-title {
         opacity 0.2s ease,
         transform 0.2s ease;
 }
-
-
-/* ========================================
-   SURVOL MENU ACCUEIL
-======================================== */
 
 .home-menu:hover a {
     opacity: 0.22;
@@ -556,13 +519,11 @@ body[data-home="true"] .page-title {
     z-index: 1;
 
     width: 100%;
-
     min-height: 100vh;
 
     padding: 145px 0 100px;
 
     display: flex;
-
     justify-content: center;
 }
 
@@ -583,12 +544,11 @@ body[data-home="true"] .page-title {
 
 
 /* ========================================
-   JUSTIFICATION DES TEXTES
+   JUSTIFICATION
 ======================================== */
 
 .internal-content p {
     text-align: justify;
-
     text-justify: inter-word;
 }
 
@@ -599,7 +559,6 @@ body[data-home="true"] .page-title {
 
 .about-content {
     display: flex;
-
     flex-direction: column;
 
     gap: 48px;
@@ -609,7 +568,6 @@ body[data-home="true"] .page-title {
     background: transparent;
 
     border: none;
-
     box-shadow: none;
 }
 
@@ -619,9 +577,7 @@ body[data-home="true"] .page-title {
     color: #fff;
 
     font-size: clamp(27px, 2.1vw, 36px);
-
     line-height: 1;
-
     font-weight: 700;
 
     letter-spacing: -0.015em;
@@ -637,7 +593,6 @@ body[data-home="true"] .page-title {
     color: #fff;
 
     font-size: clamp(21px, 1.55vw, 27px);
-
     line-height: 1.25;
 
     letter-spacing: -0.008em;
@@ -661,9 +616,7 @@ body[data-home="true"] .page-title {
     color: #fff;
 
     font-size: clamp(26px, 2vw, 34px);
-
     line-height: 1;
-
     font-weight: 700;
 
     letter-spacing: -0.015em;
@@ -671,7 +624,6 @@ body[data-home="true"] .page-title {
 
 .about-photo {
     width: 100%;
-
     margin: 0;
 }
 
@@ -683,7 +635,6 @@ body[data-home="true"] .page-title {
     height: min(78vh, 920px);
 
     object-fit: cover;
-
     object-position: center 27%;
 }
 
@@ -693,7 +644,6 @@ body[data-home="true"] .page-title {
     color: rgba(255, 255, 255, 0.82);
 
     font-size: 16px;
-
     line-height: 1;
 
     text-align: right;
@@ -705,7 +655,6 @@ body[data-home="true"] .page-title {
     color: rgba(255, 255, 255, 0.8);
 
     font-size: 16px;
-
     line-height: 1.2;
 
     text-align: right;
@@ -726,9 +675,7 @@ body[data-home="true"] .page-title {
     color: #fff;
 
     font-size: clamp(28px, 2.2vw, 36px);
-
     line-height: 1;
-
     font-weight: 700;
 
     letter-spacing: -0.015em;
@@ -764,7 +711,6 @@ body[data-home="true"] .page-title {
     color: rgba(255, 255, 255, 0.68);
 
     font-size: clamp(14px, 0.95vw, 16px);
-
     line-height: 1;
 
     font-weight: 700;
@@ -776,7 +722,6 @@ body[data-home="true"] .page-title {
     color: #fff;
 
     font-size: clamp(19px, 1.35vw, 23px);
-
     line-height: 1;
 
     font-weight: 700;
@@ -788,7 +733,6 @@ body[data-home="true"] .page-title {
     color: rgba(255, 255, 255, 0.76);
 
     font-size: clamp(14px, 1vw, 17px);
-
     line-height: 1.05;
 
     font-weight: 700;
@@ -801,7 +745,6 @@ body[data-home="true"] .page-title {
 
 .videos-content {
     display: flex;
-
     flex-direction: column;
 
     gap: 55px;
@@ -811,7 +754,6 @@ body[data-home="true"] .page-title {
 
 .video-project {
     display: flex;
-
     flex-direction: column;
 
     gap: 24px;
@@ -823,7 +765,6 @@ body[data-home="true"] .page-title {
     color: #fff;
 
     font-size: clamp(30px, 2.5vw, 42px);
-
     line-height: 1;
 
     font-weight: 700;
@@ -843,7 +784,6 @@ body[data-home="true"] .page-title {
 
 .video-item {
     display: flex;
-
     flex-direction: column;
 
     gap: 8px;
@@ -855,7 +795,6 @@ body[data-home="true"] .page-title {
     color: #fff;
 
     font-size: clamp(22px, 1.7vw, 29px);
-
     line-height: 1.05;
 
     font-weight: 700;
@@ -893,7 +832,6 @@ body[data-home="true"] .page-title {
 
 .shows-content {
     display: flex;
-
     flex-direction: column;
 
     gap: 42px;
@@ -928,7 +866,6 @@ body[data-home="true"] .page-title {
     color: #fff;
 
     font-size: clamp(34px, 3vw, 48px);
-
     line-height: 0.95;
 
     font-weight: 700;
@@ -976,7 +913,6 @@ body[data-home="true"] .page-title {
 
 .show-date {
     font-size: clamp(18px, 1.3vw, 22px);
-
     line-height: 1;
 
     font-weight: 700;
@@ -986,7 +922,6 @@ body[data-home="true"] .page-title {
 
 .show-location {
     font-size: clamp(18px, 1.3vw, 22px);
-
     line-height: 1;
 
     font-weight: 700;
@@ -994,7 +929,6 @@ body[data-home="true"] .page-title {
 
 .show-info {
     display: flex;
-
     flex-direction: column;
 
     gap: 2px;
@@ -1002,7 +936,6 @@ body[data-home="true"] .page-title {
 
 .show-venue {
     font-size: clamp(18px, 1.3vw, 22px);
-
     line-height: 1;
 
     font-weight: 700;
@@ -1012,7 +945,6 @@ body[data-home="true"] .page-title {
     color: rgba(255, 255, 255, 0.72);
 
     font-size: clamp(14px, 1vw, 17px);
-
     line-height: 1;
 
     font-weight: 700;
@@ -1024,7 +956,6 @@ body[data-home="true"] .page-title {
     color: #fff;
 
     font-size: clamp(15px, 1vw, 18px);
-
     line-height: 1;
 
     font-weight: 700;
@@ -1049,7 +980,6 @@ body[data-home="true"] .page-title {
 
 .press-content {
     display: flex;
-
     flex-direction: column;
 
     gap: 0;
@@ -1138,7 +1068,6 @@ body[data-home="true"] .page-title {
     color: inherit;
 
     font-size: clamp(16px, 1.1vw, 19px);
-
     line-height: 1;
 
     font-weight: 700;
@@ -1150,7 +1079,6 @@ body[data-home="true"] .page-title {
     color: inherit;
 
     font-size: clamp(16px, 1.1vw, 19px);
-
     line-height: 1;
 
     font-weight: 700;
@@ -1160,7 +1088,6 @@ body[data-home="true"] .page-title {
     color: inherit;
 
     font-size: clamp(16px, 1.1vw, 19px);
-
     line-height: 1.05;
 
     font-weight: 700;
@@ -1174,7 +1101,6 @@ body[data-home="true"] .page-title {
 
     .press-title {
         text-align: justify;
-
         text-justify: inter-word;
     }
 
@@ -1220,7 +1146,6 @@ body[data-home="true"] .page-title {
     color: rgba(255, 255, 255, 0.65);
 
     font-size: clamp(15px, 1.05vw, 18px);
-
     line-height: 1.05;
 
     font-weight: 700;
@@ -1230,7 +1155,6 @@ body[data-home="true"] .page-title {
     color: #fff;
 
     font-size: clamp(17px, 1.2vw, 20px);
-
     line-height: 1.05;
 
     font-weight: 700;
@@ -1240,15 +1164,12 @@ body[data-home="true"] .page-title {
     color: #fff;
 
     font-size: clamp(17px, 1.2vw, 20px);
-
     line-height: 1.05;
 
     font-weight: 700;
 
     text-decoration: underline;
-
     text-decoration-thickness: 1px;
-
     text-underline-offset: 3px;
 
     transition: opacity 0.2s ease;
@@ -1315,6 +1236,8 @@ body[data-home="true"] .page-title {
 
     .social-links {
         gap: 10px;
+
+        margin-left: auto;
     }
 
     .social-links a,
@@ -1367,9 +1290,7 @@ body[data-home="true"] .page-title {
     }
 
 
-    /* ========================================
-       MENU PERMANENT ACCUEIL MOBILE
-    ========================================= */
+    /* MENU ACCUEIL */
 
     .home-menu {
         top: 50%;
@@ -1387,7 +1308,7 @@ body[data-home="true"] .page-title {
     }
 
 
-    /* ACCUEIL */
+    /* GIF ACCUEIL */
 
     .welcome-gif {
         width: min(360px, 75vw);
@@ -1425,9 +1346,7 @@ body[data-home="true"] .page-title {
     }
 
 
-    /* ========================================
-       À PROPOS MOBILE
-    ========================================= */
+    /* À PROPOS */
 
     .about-content {
         gap: 38px;
@@ -1445,7 +1364,6 @@ body[data-home="true"] .page-title {
         margin-bottom: 20px;
 
         font-size: 19px;
-
         line-height: 1.25;
     }
 
@@ -1474,9 +1392,7 @@ body[data-home="true"] .page-title {
     }
 
 
-    /* ========================================
-       DISCOGRAPHIE MOBILE
-    ========================================= */
+    /* DISCOGRAPHIE */
 
     .discography-title {
         margin-bottom: 18px;
@@ -1507,9 +1423,7 @@ body[data-home="true"] .page-title {
     }
 
 
-    /* ========================================
-       VIDÉOS MOBILE
-    ========================================= */
+    /* VIDÉOS */
 
     .videos-content {
         gap: 45px;
@@ -1538,9 +1452,7 @@ body[data-home="true"] .page-title {
     }
 
 
-    /* ========================================
-       CONCERTS MOBILE
-    ========================================= */
+    /* CONCERTS */
 
     .shows-content {
         gap: 32px;
@@ -1556,7 +1468,6 @@ body[data-home="true"] .page-title {
         margin-bottom: 9px;
 
         font-size: 32px;
-
         line-height: 0.95;
     }
 
@@ -1572,19 +1483,16 @@ body[data-home="true"] .page-title {
 
     .show-date {
         font-size: 20px;
-
         line-height: 1;
     }
 
     .show-location {
         font-size: 20px;
-
         line-height: 1;
     }
 
     .show-venue {
         font-size: 18px;
-
         line-height: 1;
     }
 
@@ -1592,7 +1500,6 @@ body[data-home="true"] .page-title {
         margin-top: 1px;
 
         font-size: 15px;
-
         line-height: 1;
     }
 
@@ -1605,9 +1512,7 @@ body[data-home="true"] .page-title {
     }
 
 
-    /* ========================================
-       PRESSE MOBILE
-    ========================================= */
+    /* PRESSE */
 
     .press-content {
         gap: 0;
@@ -1615,17 +1520,8 @@ body[data-home="true"] .page-title {
         padding: 5px 0 25px;
     }
 
-    .press-year {
-        width: 100%;
-    }
-
-    .press-year-title {
-        display: none;
-    }
-
     .press-item {
         display: flex;
-
         flex-direction: column;
 
         gap: 1px;
@@ -1635,13 +1531,11 @@ body[data-home="true"] .page-title {
 
     .press-date {
         font-size: 14px;
-
         line-height: 1;
     }
 
     .press-media {
         font-size: 18px;
-
         line-height: 1;
     }
 
@@ -1649,22 +1543,13 @@ body[data-home="true"] .page-title {
         margin-top: 1px;
 
         font-size: 17px;
-
         line-height: 1.05;
 
         text-align: left;
     }
 
-    .press-item-link .press-date,
-    .press-item-link .press-media,
-    .press-item-link .press-title {
-        text-underline-offset: 3px;
-    }
 
-
-    /* ========================================
-       CONTACTS MOBILE
-    ========================================= */
+    /* CONTACTS */
 
     .contact-content {
         padding: 5px 0 25px;
@@ -1672,7 +1557,6 @@ body[data-home="true"] .page-title {
 
     .contact-item {
         display: flex;
-
         flex-direction: column;
 
         gap: 2px;
@@ -1682,13 +1566,11 @@ body[data-home="true"] .page-title {
 
     .contact-role {
         font-size: 15px;
-
         line-height: 1;
     }
 
     .contact-name {
         font-size: 19px;
-
         line-height: 1.05;
     }
 
@@ -1696,7 +1578,6 @@ body[data-home="true"] .page-title {
         margin-top: 3px;
 
         font-size: 17px;
-
         line-height: 1.05;
 
         text-underline-offset: 3px;
