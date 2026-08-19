@@ -216,11 +216,9 @@ body::before {
     display: flex;
 
     width: 28px;
-
     height: 28px;
 
     align-items: center;
-
     justify-content: center;
 
     color: #fff;
@@ -236,17 +234,14 @@ body::before {
     display: block;
 
     width: 28px;
-
     height: 28px;
 
     fill: none;
 
     stroke: currentColor;
-
     stroke-width: 1.6;
 
     stroke-linecap: round;
-
     stroke-linejoin: round;
 }
 
@@ -260,7 +255,6 @@ body::before {
     display: block;
 
     width: 28px;
-
     height: 28px;
 
     object-fit: contain;
@@ -275,7 +269,6 @@ body::before {
     position: fixed;
 
     top: 0;
-
     left: 0;
 
     width: min(420px, 85vw);
@@ -290,7 +283,6 @@ body::before {
     padding: 20px 22px;
 
     opacity: 0;
-
     visibility: hidden;
 
     pointer-events: none;
@@ -317,7 +309,6 @@ body::before {
     position: absolute;
 
     top: 20px;
-
     right: 22px;
 
     border: none;
@@ -386,6 +377,7 @@ body::before {
     color: rgba(255, 255, 255, 0.8);
 
     font-size: 15px;
+
     line-height: 1;
 
     white-space: nowrap;
@@ -419,7 +411,6 @@ body::before {
     inset: 0;
 
     width: 100%;
-
     height: 100%;
 
     display: block;
@@ -452,7 +443,7 @@ body::before {
 
 
 /* ========================================
-   JUSTIFICATION DES TEXTES DU SITE
+   JUSTIFICATION DES TEXTES
 ======================================== */
 
 .internal-content p {
@@ -534,21 +525,11 @@ body::before {
     margin-bottom: 0;
 }
 
-
-/* ========================================
-   GRAS
-======================================== */
-
 .about-text strong {
     font-weight: 700;
 
     text-shadow: none;
 }
-
-
-/* ========================================
-   ITALIQUES
-======================================== */
 
 .about-text em {
     font-style: italic;
@@ -670,7 +651,7 @@ body::before {
 
 
 /* ========================================
-   TITRE DU PROJET
+   TITRE DU PROJET VIDÉO
 ======================================== */
 
 .video-project-title {
@@ -747,10 +728,172 @@ body::before {
     inset: 0;
 
     width: 100%;
-
     height: 100%;
 
     border: 0;
+}
+
+
+/* ========================================
+   PAGE CONCERTS
+======================================== */
+
+.shows-content {
+    width: min(1050px, calc(100% - 80px));
+
+    min-width: 700px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 65px;
+
+    padding: 20px 35px 50px;
+}
+
+
+/* ========================================
+   ANNÉE
+======================================== */
+
+.shows-year {
+    width: 100%;
+}
+
+.shows-year-title {
+    margin: 0 0 20px;
+
+    color: #fff;
+
+    font-size: clamp(34px, 3vw, 48px);
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: -0.02em;
+}
+
+
+/* ========================================
+   LISTE DES CONCERTS
+======================================== */
+
+.shows-list {
+    width: 100%;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+
+/* ========================================
+   CONCERT
+======================================== */
+
+.show-item {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(125px, 0.8fr)
+        minmax(200px, 1.4fr)
+        minmax(260px, 1.8fr);
+
+    column-gap: 30px;
+
+    align-items: start;
+
+    padding: 16px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+
+    color: #fff;
+
+    transition:
+        opacity 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* ========================================
+   CONCERT PASSÉ
+   La classe .past est ajoutée automatiquement
+   par script.js selon la date du jour.
+======================================== */
+
+.show-item.past {
+    opacity: 0.42;
+}
+
+
+/* ========================================
+   DATE
+======================================== */
+
+.show-date {
+    font-size: clamp(20px, 1.5vw, 25px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* ========================================
+   VILLE / PAYS
+======================================== */
+
+.show-location {
+    font-size: clamp(20px, 1.5vw, 25px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   INFORMATIONS DU CONCERT
+======================================== */
+
+.show-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+/* ========================================
+   SALLE
+======================================== */
+
+.show-venue {
+    font-size: clamp(20px, 1.5vw, 25px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   INFO SECONDAIRE
+======================================== */
+
+.show-meta {
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: clamp(16px, 1.15vw, 20px);
+
+    line-height: 1.1;
+
+    font-weight: 700;
 }
 
 
@@ -835,19 +978,16 @@ body::before {
 
     .social-links a {
         width: 25px;
-
         height: 25px;
     }
 
     .social-links svg {
         width: 25px;
-
         height: 25px;
     }
 
     .social-links img {
         width: 25px;
-
         height: 25px;
     }
 
@@ -867,7 +1007,6 @@ body::before {
 
     .close-button {
         top: 17px;
-
         right: 18px;
 
         font-size: 25px;
@@ -936,11 +1075,6 @@ body::before {
         box-shadow: none;
     }
 
-
-    /* ========================================
-       TITRE BIO MOBILE
-    ======================================== */
-
     .bio-title {
         margin-bottom: 18px;
 
@@ -948,11 +1082,6 @@ body::before {
 
         text-shadow: none;
     }
-
-
-    /* ========================================
-       TEXTE À PROPOS MOBILE
-    ======================================== */
 
     .about-text p {
         margin-bottom: 20px;
@@ -968,11 +1097,6 @@ body::before {
         text-shadow: none;
     }
 
-
-    /* ========================================
-       INTERTITRE À PROPOS MOBILE
-    ======================================== */
-
     .about-text h2 {
         margin-bottom: 20px;
 
@@ -980,11 +1104,6 @@ body::before {
 
         text-shadow: none;
     }
-
-
-    /* ========================================
-       PHOTO MOBILE
-    ======================================== */
 
     .about-photo img {
         height: 68vh;
@@ -999,11 +1118,6 @@ body::before {
 
         text-shadow: none;
     }
-
-
-    /* ========================================
-       CRÉDIT BIO MOBILE
-    ======================================== */
 
     .bio-credit {
         margin-top: -8px;
@@ -1030,19 +1144,9 @@ body::before {
         padding: 15px 0 30px;
     }
 
-
-    /* ========================================
-       PROJET VIDÉO MOBILE
-    ======================================== */
-
     .video-project {
         gap: 20px;
     }
-
-
-    /* ========================================
-       TITRE PROJET MOBILE
-    ======================================== */
 
     .video-project-title {
         font-size: 30px;
@@ -1051,11 +1155,6 @@ body::before {
     .video-project-title span {
         margin-left: 5px;
     }
-
-
-    /* ========================================
-       VIDÉO MOBILE
-    ======================================== */
 
     .video-item {
         gap: 6px;
@@ -1067,15 +1166,106 @@ body::before {
         line-height: 1.05;
     }
 
-
-    /* ========================================
-       PLAYER YOUTUBE MOBILE
-    ======================================== */
-
     .video-wrapper {
         width: 100%;
 
         aspect-ratio: 16 / 9;
+    }
+
+
+    /* ========================================
+       PAGE CONCERTS MOBILE
+    ======================================== */
+
+    .shows-content {
+        width: calc(100% - 36px);
+
+        min-width: 0;
+
+        gap: 48px;
+
+        padding: 15px 0 35px;
+    }
+
+
+    /* ========================================
+       ANNÉE MOBILE
+    ======================================== */
+
+    .shows-year-title {
+        margin-bottom: 14px;
+
+        font-size: 34px;
+    }
+
+
+    /* ========================================
+       CONCERT MOBILE
+    ======================================== */
+
+    .show-item {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 4px;
+
+        padding: 13px 0;
+    }
+
+
+    /* ========================================
+       DATE MOBILE
+    ======================================== */
+
+    .show-date {
+        font-size: 21px;
+
+        line-height: 1;
+    }
+
+
+    /* ========================================
+       VILLE MOBILE
+    ======================================== */
+
+    .show-location {
+        font-size: 21px;
+
+        line-height: 1.05;
+    }
+
+
+    /* ========================================
+       SALLE MOBILE
+    ======================================== */
+
+    .show-venue {
+        font-size: 19px;
+
+        line-height: 1.05;
+    }
+
+
+    /* ========================================
+       INFO SECONDAIRE MOBILE
+    ======================================== */
+
+    .show-meta {
+        margin-top: 2px;
+
+        font-size: 16px;
+
+        line-height: 1.05;
+    }
+
+
+    /* ========================================
+       CONCERT PASSÉ MOBILE
+    ======================================== */
+
+    .show-item.past {
+        opacity: 0.42;
     }
 
 }
