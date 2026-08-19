@@ -257,6 +257,7 @@ body::before {
 
 .social-links svg .filled {
     fill: currentColor;
+
     stroke: none;
 }
 
@@ -483,7 +484,7 @@ body::before {
 
 
 /* ========================================
-   JUSTIFICATION
+   JUSTIFICATION DES TEXTES
 ======================================== */
 
 .internal-content p {
@@ -860,6 +861,9 @@ body::before {
     width: 100%;
 }
 
+
+/* Années masquées */
+
 .press-year-title {
     display: none;
 }
@@ -869,6 +873,9 @@ body::before {
 
     border-top: none;
 }
+
+
+/* Une seule ligne en haut de la liste */
 
 .press-content .press-year:first-child .press-list {
     border-top: 1px solid rgba(255, 255, 255, 0.35);
@@ -909,12 +916,31 @@ body::before {
 .press-item-link {
     cursor: pointer;
 
+    color: #fff;
+
     text-decoration: none;
 
-    transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
+    transition: opacity 0.2s ease;
 }
+
+
+/* Soulignement de toute l'information
+   lorsqu'une entrée possède un lien */
+
+.press-item-link .press-date,
+.press-item-link .press-media,
+.press-item-link .press-title {
+    text-decoration: underline;
+
+    text-decoration-thickness: 1px;
+
+    text-underline-offset: 3px;
+
+    text-decoration-skip-ink: auto;
+}
+
+
+/* Survol de toute la ligne */
 
 .press-item-link:hover {
     opacity: 0.5;
@@ -927,6 +953,12 @@ body::before {
 
 .press-item-no-link {
     cursor: default;
+}
+
+.press-item-no-link .press-date,
+.press-item-no-link .press-media,
+.press-item-no-link .press-title {
+    text-decoration: none;
 }
 
 
@@ -976,12 +1008,23 @@ body::before {
     font-weight: 700;
 }
 
-.press-item-link .press-title {
-    text-decoration: none;
-}
-
 .press-title-no-link {
     color: rgba(255, 255, 255, 0.72);
+}
+
+
+/* ========================================
+   JUSTIFICATION PRESSE DESKTOP
+======================================== */
+
+@media (min-width: 701px) {
+
+    .press-title {
+        text-align: justify;
+
+        text-justify: inter-word;
+    }
+
 }
 
 
@@ -1001,6 +1044,9 @@ body::before {
 
         background-position: center 75%;
     }
+
+
+    /* HEADER */
 
     .top {
         padding: 17px 18px;
@@ -1028,6 +1074,9 @@ body::before {
         font-size: 31px;
     }
 
+
+    /* RÉSEAUX */
+
     .social-links {
         gap: 10px;
     }
@@ -1038,6 +1087,9 @@ body::before {
         width: 25px;
         height: 25px;
     }
+
+
+    /* MENU */
 
     .menu {
         width: min(320px, 85vw);
@@ -1068,6 +1120,9 @@ body::before {
         font-size: 45px;
     }
 
+
+    /* COPYRIGHT */
+
     .site-copyright {
         right: 18px;
         bottom: 14px;
@@ -1075,9 +1130,15 @@ body::before {
         font-size: 13px;
     }
 
+
+    /* PAGE INTERNE */
+
     .internal-content {
         padding: 100px 0 70px;
     }
+
+
+    /* LARGEUR COMMUNE */
 
     .about-content,
     .videos-content,
@@ -1087,6 +1148,9 @@ body::before {
 
         min-width: 0;
     }
+
+
+    /* TEXTE */
 
     .internal-content p {
         text-align: justify;
@@ -1286,6 +1350,15 @@ body::before {
         font-size: 17px;
 
         line-height: 1.05;
+
+        /* Pas de justification sur téléphone */
+        text-align: left;
+    }
+
+    .press-item-link .press-date,
+    .press-item-link .press-media,
+    .press-item-link .press-title {
+        text-underline-offset: 3px;
     }
 
 }
