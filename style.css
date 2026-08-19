@@ -257,7 +257,6 @@ body::before {
 
 .social-links svg .filled {
     fill: currentColor;
-
     stroke: none;
 }
 
@@ -467,7 +466,7 @@ body::before {
 
 
 /* ========================================
-   JUSTIFICATION DES TEXTES
+   JUSTIFICATION
 ======================================== */
 
 .internal-content p {
@@ -840,36 +839,19 @@ body::before {
     padding: 5px 35px 35px;
 }
 
-
-/* ========================================
-   BLOCS ANNÉES PRESSE
-======================================== */
-
 .press-year {
     width: 100%;
 }
 
-
-/* Les années restent dans le HTML,
-   mais ne sont plus affichées */
-
 .press-year-title {
     display: none;
 }
-
-
-/* ========================================
-   LISTE PRESSE
-======================================== */
 
 .press-list {
     width: 100%;
 
     border-top: none;
 }
-
-
-/* Une seule bordure en haut de toute la liste */
 
 .press-content .press-year:first-child .press-list {
     border-top: 1px solid rgba(255, 255, 255, 0.35);
@@ -898,6 +880,36 @@ body::before {
 
     border-bottom:
         1px solid rgba(255, 255, 255, 0.3);
+
+    color: #fff;
+}
+
+
+/* ========================================
+   LIGNE CLIQUABLE
+======================================== */
+
+.press-item-link {
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.press-item-link:hover {
+    opacity: 0.5;
+}
+
+
+/* ========================================
+   LIGNE SANS LIEN
+======================================== */
+
+.press-item-no-link {
+    cursor: default;
 }
 
 
@@ -906,7 +918,7 @@ body::before {
 ======================================== */
 
 .press-date {
-    color: #fff;
+    color: inherit;
 
     font-size: clamp(16px, 1.1vw, 19px);
 
@@ -923,7 +935,7 @@ body::before {
 ======================================== */
 
 .press-media {
-    color: #fff;
+    color: inherit;
 
     font-size: clamp(16px, 1.1vw, 19px);
 
@@ -938,34 +950,18 @@ body::before {
 ======================================== */
 
 .press-title {
-    color: #fff;
+    color: inherit;
 
     font-size: clamp(16px, 1.1vw, 19px);
 
     line-height: 1.05;
 
     font-weight: 700;
-
-    transition: opacity 0.2s ease;
 }
 
-
-/* TITRES CLIQUABLES */
-
-a.press-title {
-    text-decoration: underline;
-
-    text-decoration-thickness: 1px;
-
-    text-underline-offset: 3px;
+.press-item-link .press-title {
+    text-decoration: none;
 }
-
-a.press-title:hover {
-    opacity: 0.5;
-}
-
-
-/* TITRES SANS LIEN */
 
 .press-title-no-link {
     color: rgba(255, 255, 255, 0.72);
@@ -988,9 +984,6 @@ a.press-title:hover {
 
         background-position: center 75%;
     }
-
-
-    /* HEADER */
 
     .top {
         padding: 17px 18px;
@@ -1018,9 +1011,6 @@ a.press-title:hover {
         font-size: 31px;
     }
 
-
-    /* RÉSEAUX */
-
     .social-links {
         gap: 10px;
     }
@@ -1031,9 +1021,6 @@ a.press-title:hover {
         width: 25px;
         height: 25px;
     }
-
-
-    /* MENU */
 
     .menu {
         width: min(320px, 85vw);
@@ -1059,9 +1046,6 @@ a.press-title:hover {
         font-size: 45px;
     }
 
-
-    /* COPYRIGHT */
-
     .site-copyright {
         right: 18px;
         bottom: 14px;
@@ -1069,15 +1053,9 @@ a.press-title:hover {
         font-size: 13px;
     }
 
-
-    /* PAGE INTERNE */
-
     .internal-content {
         padding: 100px 0 70px;
     }
-
-
-    /* LARGEUR COMMUNE */
 
     .about-content,
     .videos-content,
@@ -1087,9 +1065,6 @@ a.press-title:hover {
 
         min-width: 0;
     }
-
-
-    /* TEXTE */
 
     .internal-content p {
         text-align: justify;
@@ -1289,10 +1264,6 @@ a.press-title:hover {
         font-size: 17px;
 
         line-height: 1.05;
-    }
-
-    a.press-title {
-        text-underline-offset: 3px;
     }
 
 }
