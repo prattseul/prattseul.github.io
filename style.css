@@ -376,9 +376,9 @@ button {
     display: flex;
     flex-direction: column;
 
-    gap: 60px;
+    gap: 48px;
 
-    padding: 45px 45px 55px;
+    padding: 35px 45px 50px;
 
     background: transparent;
 
@@ -396,17 +396,22 @@ button {
 }
 
 .about-text p {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 
     color: #fff;
 
-    font-size: clamp(23px, 1.8vw, 30px);
+    /*
+       Légèrement plus petit qu'avant
+    */
+    font-size: clamp(21px, 1.55vw, 27px);
 
-    line-height: 1.42;
+    /*
+       Interligne plus serré
+    */
+    line-height: 1.25;
 
-    letter-spacing: -0.01em;
+    letter-spacing: -0.008em;
 
-    /* légère ombre uniquement sur le texte */
     text-shadow:
         0 0 6px rgba(255, 255, 255, 0.16),
         0 2px 12px rgba(0, 0, 0, 0.75);
@@ -416,8 +421,45 @@ button {
     margin-bottom: 0;
 }
 
+
+/* GRAS */
+
+.about-text strong {
+    font-weight: 700;
+
+    text-shadow:
+        0 0 7px rgba(255, 255, 255, 0.22),
+        0 2px 12px rgba(0, 0, 0, 0.8);
+}
+
+
+/* ITALIQUES */
+
 .about-text em {
     font-style: italic;
+}
+
+
+/* ========================================
+   INTERTITRE
+======================================== */
+
+.about-text h2 {
+    margin: 0 0 24px;
+
+    color: #fff;
+
+    font-size: clamp(26px, 2vw, 34px);
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: -0.015em;
+
+    text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.18),
+        0 2px 12px rgba(0, 0, 0, 0.75);
 }
 
 
@@ -450,6 +492,26 @@ button {
 
     font-size: 16px;
     line-height: 1;
+
+    text-align: right;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+
+/* ========================================
+   CRÉDIT BIOGRAPHIE
+======================================== */
+
+.bio-credit {
+    margin-top: -12px;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 16px;
+
+    line-height: 1.2;
 
     text-align: right;
 
@@ -532,20 +594,23 @@ button {
     }
 
 
-    /* CONTENU */
+    /* PAGE */
 
     .internal-content {
         padding: 100px 0 70px;
     }
+
+
+    /* ABOUT */
 
     .about-content {
         width: calc(100% - 36px);
 
         min-width: 0;
 
-        gap: 42px;
+        gap: 38px;
 
-        padding: 28px 22px 34px;
+        padding: 25px 22px 34px;
 
         background: transparent;
 
@@ -553,12 +618,24 @@ button {
         box-shadow: none;
     }
 
+
+    /* TEXTE */
+
     .about-text p {
-        margin-bottom: 24px;
+        margin-bottom: 20px;
 
-        font-size: 21px;
+        font-size: 19px;
 
-        line-height: 1.38;
+        line-height: 1.25;
+    }
+
+
+    /* INTERTITRE */
+
+    .about-text h2 {
+        margin-bottom: 20px;
+
+        font-size: 27px;
     }
 
 
@@ -573,6 +650,15 @@ button {
     }
 
     .about-photo figcaption {
+        font-size: 14px;
+    }
+
+
+    /* CRÉDIT BIO */
+
+    .bio-credit {
+        margin-top: -8px;
+
         font-size: 14px;
     }
 }
