@@ -429,6 +429,25 @@ body::before {
 
 
 /* ========================================
+   JUSTIFICATION DES TEXTES DU SITE
+======================================== */
+
+/*
+   Tous les paragraphes de contenu des pages
+   internes seront désormais justifiés.
+
+   Les titres, menus, crédits et légendes
+   ne sont pas concernés.
+*/
+
+.internal-content p {
+    text-align: justify;
+
+    text-justify: inter-word;
+}
+
+
+/* ========================================
    PAGE À PROPOS
 ======================================== */
 
@@ -616,10 +635,6 @@ body::before {
 
     flex-direction: column;
 
-    /*
-       Espace entre les différents projets :
-       Blizzard Moderne / L'oiseau de nuit / Enchanté
-    */
     gap: 55px;
 
     padding: 20px 45px 45px;
@@ -635,10 +650,6 @@ body::before {
 
     flex-direction: column;
 
-    /*
-       Espace entre le titre du projet
-       et les vidéos, ainsi qu'entre les vidéos.
-    */
     gap: 24px;
 }
 
@@ -681,10 +692,6 @@ body::before {
 
     flex-direction: column;
 
-    /*
-       Petit espace entre le titre
-       et le lecteur YouTube.
-    */
     gap: 8px;
 }
 
@@ -870,6 +877,23 @@ body::before {
 
 
     /* ========================================
+       JUSTIFICATION MOBILE
+    ======================================== */
+
+    .internal-content p {
+        text-align: justify;
+
+        text-justify: inter-word;
+
+        /*
+           Permet au navigateur de couper les mots
+           proprement si nécessaire sur petit écran.
+        */
+        hyphens: auto;
+    }
+
+
+    /* ========================================
        PAGE À PROPOS MOBILE
     ======================================== */
 
@@ -963,6 +987,12 @@ body::before {
 
         font-size: 14px;
 
+        /*
+           Le crédit reste aligné à droite
+           et n'est pas justifié.
+        */
+        text-align: right;
+
         text-shadow: none;
     }
 
@@ -976,10 +1006,6 @@ body::before {
 
         min-width: 0;
 
-        /*
-           Moins d'espace entre les projets
-           sur téléphone.
-        */
         gap: 45px;
 
         padding: 15px 0 30px;
