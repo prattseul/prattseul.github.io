@@ -141,7 +141,6 @@ body::before {
 
 /* ========================================
    CENTRE DU HEADER
-   LOGO + TITRE
 ======================================== */
 
 .header-center {
@@ -212,9 +211,6 @@ body::before {
 
     pointer-events: auto;
 }
-
-
-/* Pas de titre sur l'accueil */
 
 body:not(.internal-page) .page-title {
     display: none;
@@ -639,6 +635,109 @@ body:not(.internal-page) .page-title {
 
 
 /* ========================================
+   DISCOGRAPHIE
+======================================== */
+
+.discography {
+    width: 100%;
+}
+
+.discography-title {
+    margin: 0 0 22px;
+
+    color: #fff;
+
+    font-size: clamp(28px, 2.2vw, 36px);
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: -0.015em;
+}
+
+
+/* ========================================
+   GRILLE DISCOGRAPHIE
+======================================== */
+
+.discography-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* ========================================
+   DISQUE
+======================================== */
+
+.discography-item {
+    min-width: 0;
+}
+
+
+/* ========================================
+   POCHETTE
+======================================== */
+
+.discography-cover {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+}
+
+
+/* ========================================
+   INFOS DISQUE
+======================================== */
+
+.discography-info {
+    padding-top: 10px;
+}
+
+.discography-year {
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: clamp(14px, 0.95vw, 16px);
+
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+.discography-name {
+    margin-top: 4px;
+
+    color: #fff;
+
+    font-size: clamp(19px, 1.35vw, 23px);
+
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+.discography-label {
+    margin-top: 4px;
+
+    color: rgba(255, 255, 255, 0.76);
+
+    font-size: clamp(14px, 1vw, 17px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
    VIDÉOS
 ======================================== */
 
@@ -744,11 +843,6 @@ body:not(.internal-page) .page-title {
     padding: 10px 35px 40px;
 }
 
-
-/* ========================================
-   GIF CONCERTS
-======================================== */
-
 .shows-gif {
     width: 100%;
 
@@ -765,11 +859,6 @@ body:not(.internal-page) .page-title {
 
     object-fit: cover;
 }
-
-
-/* ========================================
-   ANNÉES CONCERTS
-======================================== */
 
 .shows-year {
     width: 100%;
@@ -795,11 +884,6 @@ body:not(.internal-page) .page-title {
     border-top:
         1px solid rgba(255, 255, 255, 0.35);
 }
-
-
-/* ========================================
-   LIGNE CONCERT
-======================================== */
 
 .show-item {
     width: 100%;
@@ -934,11 +1018,6 @@ body:not(.internal-page) .page-title {
         1px solid rgba(255, 255, 255, 0.35);
 }
 
-
-/* ========================================
-   LIGNE PRESSE
-======================================== */
-
 .press-item {
     width: 100%;
 
@@ -960,11 +1039,6 @@ body:not(.internal-page) .page-title {
 
     color: #fff;
 }
-
-
-/* ========================================
-   PRESSE CLIQUABLE
-======================================== */
 
 .press-item-link {
     cursor: pointer;
@@ -992,11 +1066,6 @@ body:not(.internal-page) .page-title {
     opacity: 0.5;
 }
 
-
-/* ========================================
-   PRESSE SANS LIEN
-======================================== */
-
 .press-item-no-link {
     cursor: default;
 }
@@ -1006,11 +1075,6 @@ body:not(.internal-page) .page-title {
 .press-item-no-link .press-title {
     text-decoration: none;
 }
-
-
-/* ========================================
-   DATE PRESSE
-======================================== */
 
 .press-date {
     color: inherit;
@@ -1024,11 +1088,6 @@ body:not(.internal-page) .page-title {
     white-space: nowrap;
 }
 
-
-/* ========================================
-   MÉDIA PRESSE
-======================================== */
-
 .press-media {
     color: inherit;
 
@@ -1038,11 +1097,6 @@ body:not(.internal-page) .page-title {
 
     font-weight: 700;
 }
-
-
-/* ========================================
-   TITRE PRESSE
-======================================== */
 
 .press-title {
     color: inherit;
@@ -1057,11 +1111,6 @@ body:not(.internal-page) .page-title {
 .press-title-no-link {
     color: rgba(255, 255, 255, 0.72);
 }
-
-
-/* ========================================
-   JUSTIFICATION PRESSE DESKTOP
-======================================== */
 
 @media (min-width: 701px) {
 
@@ -1109,11 +1158,6 @@ body:not(.internal-page) .page-title {
         1px solid rgba(255, 255, 255, 0.3);
 }
 
-
-/* ========================================
-   TYPE DE CONTACT
-======================================== */
-
 .contact-role {
     color: rgba(255, 255, 255, 0.65);
 
@@ -1124,11 +1168,6 @@ body:not(.internal-page) .page-title {
     font-weight: 700;
 }
 
-
-/* ========================================
-   NOM CONTACT
-======================================== */
-
 .contact-name {
     color: #fff;
 
@@ -1138,11 +1177,6 @@ body:not(.internal-page) .page-title {
 
     font-weight: 700;
 }
-
-
-/* ========================================
-   EMAIL CONTACT
-======================================== */
 
 .contact-link {
     color: #fff;
@@ -1359,6 +1393,39 @@ body:not(.internal-page) .page-title {
         margin-top: -8px;
 
         font-size: 14px;
+    }
+
+
+    /* ========================================
+       DISCOGRAPHIE MOBILE
+    ========================================= */
+
+    .discography-title {
+        margin-bottom: 18px;
+
+        font-size: 28px;
+    }
+
+    .discography-grid {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .discography-info {
+        padding-top: 8px;
+    }
+
+    .discography-year {
+        font-size: 14px;
+    }
+
+    .discography-name {
+        font-size: 22px;
+    }
+
+    .discography-label {
+        font-size: 16px;
     }
 
 
