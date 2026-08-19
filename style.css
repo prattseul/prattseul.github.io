@@ -467,7 +467,7 @@ body::before {
 
 
 /* ========================================
-   JUSTIFICATION
+   JUSTIFICATION DES TEXTES
 ======================================== */
 
 .internal-content p {
@@ -835,32 +835,26 @@ body::before {
 
     flex-direction: column;
 
-    gap: 42px;
+    gap: 0;
 
-    padding: 10px 35px 40px;
+    padding: 5px 35px 35px;
 }
 
 
 /* ========================================
-   ANNÉE PRESSE
+   BLOCS ANNÉES PRESSE
 ======================================== */
 
 .press-year {
     width: 100%;
 }
 
+
+/* Les années restent dans le HTML,
+   mais ne sont plus affichées */
+
 .press-year-title {
-    margin: 0 0 12px;
-
-    color: #fff;
-
-    font-size: clamp(34px, 3vw, 48px);
-
-    line-height: 0.95;
-
-    font-weight: 700;
-
-    letter-spacing: -0.02em;
+    display: none;
 }
 
 
@@ -871,6 +865,13 @@ body::before {
 .press-list {
     width: 100%;
 
+    border-top: none;
+}
+
+
+/* Une seule bordure en haut de toute la liste */
+
+.press-content .press-year:first-child .press-list {
     border-top: 1px solid rgba(255, 255, 255, 0.35);
 }
 
@@ -885,18 +886,18 @@ body::before {
     display: grid;
 
     grid-template-columns:
-        minmax(100px, 0.75fr)
-        minmax(145px, 1fr)
-        minmax(0, 2.3fr);
+        minmax(95px, 0.65fr)
+        minmax(140px, 1fr)
+        minmax(0, 2.5fr);
 
-    column-gap: 18px;
+    column-gap: 14px;
 
     align-items: start;
 
-    padding: 11px 0;
+    padding: 7px 0;
 
     border-bottom:
-        1px solid rgba(255, 255, 255, 0.35);
+        1px solid rgba(255, 255, 255, 0.3);
 }
 
 
@@ -907,9 +908,9 @@ body::before {
 .press-date {
     color: #fff;
 
-    font-size: clamp(17px, 1.2vw, 21px);
+    font-size: clamp(16px, 1.1vw, 19px);
 
-    line-height: 1.05;
+    line-height: 1;
 
     font-weight: 700;
 
@@ -918,15 +919,15 @@ body::before {
 
 
 /* ========================================
-   MÉDIA
+   MÉDIA PRESSE
 ======================================== */
 
 .press-media {
     color: #fff;
 
-    font-size: clamp(17px, 1.2vw, 21px);
+    font-size: clamp(16px, 1.1vw, 19px);
 
-    line-height: 1.05;
+    line-height: 1;
 
     font-weight: 700;
 }
@@ -939,9 +940,9 @@ body::before {
 .press-title {
     color: #fff;
 
-    font-size: clamp(17px, 1.2vw, 21px);
+    font-size: clamp(16px, 1.1vw, 19px);
 
-    line-height: 1.08;
+    line-height: 1.05;
 
     font-weight: 700;
 
@@ -949,14 +950,14 @@ body::before {
 }
 
 
-/* TITRE CLIQUABLE */
+/* TITRES CLIQUABLES */
 
 a.press-title {
     text-decoration: underline;
 
     text-decoration-thickness: 1px;
 
-    text-underline-offset: 4px;
+    text-underline-offset: 3px;
 }
 
 a.press-title:hover {
@@ -964,10 +965,10 @@ a.press-title:hover {
 }
 
 
-/* TITRE SANS LIEN */
+/* TITRES SANS LIEN */
 
 .press-title-no-link {
-    color: rgba(255, 255, 255, 0.78);
+    color: rgba(255, 255, 255, 0.72);
 }
 
 
@@ -1247,17 +1248,17 @@ a.press-title:hover {
     ========================================= */
 
     .press-content {
-        gap: 32px;
+        gap: 0;
 
-        padding: 10px 0 30px;
+        padding: 5px 0 25px;
+    }
+
+    .press-year {
+        width: 100%;
     }
 
     .press-year-title {
-        margin-bottom: 9px;
-
-        font-size: 32px;
-
-        line-height: 0.95;
+        display: none;
     }
 
     .press-item {
@@ -1265,29 +1266,29 @@ a.press-title:hover {
 
         flex-direction: column;
 
-        gap: 3px;
+        gap: 1px;
 
-        padding: 10px 0;
+        padding: 7px 0;
     }
 
     .press-date {
-        font-size: 16px;
+        font-size: 14px;
 
         line-height: 1;
     }
 
     .press-media {
-        font-size: 20px;
+        font-size: 18px;
 
         line-height: 1;
     }
 
     .press-title {
-        margin-top: 2px;
+        margin-top: 1px;
 
-        font-size: 18px;
+        font-size: 17px;
 
-        line-height: 1.08;
+        line-height: 1.05;
     }
 
     a.press-title {
