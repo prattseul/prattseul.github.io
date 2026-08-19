@@ -60,18 +60,19 @@ body::before {
 
     position: fixed;
 
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
 
     width: 100vw;
+
     height: 100vh;
     height: 100dvh;
 
     background-image: url("images/IMG02.jpg");
+
     background-size: cover;
+
     background-position: center 75%;
+
     background-repeat: no-repeat;
 
     z-index: 0;
@@ -95,7 +96,9 @@ body::before {
     padding: 20px 22px;
 
     display: flex;
+
     align-items: flex-start;
+
     justify-content: space-between;
 
     z-index: 500;
@@ -112,6 +115,7 @@ body::before {
     pointer-events: auto;
 
     border: none;
+
     padding: 0;
 
     background: transparent;
@@ -119,6 +123,7 @@ body::before {
     color: #fff;
 
     font-size: 28px;
+
     line-height: 1;
 
     cursor: pointer;
@@ -133,6 +138,7 @@ body::before {
     position: absolute;
 
     top: 20px;
+
     left: 50%;
 
     transform: translateX(-50%);
@@ -150,6 +156,7 @@ body::before {
     display: block;
 
     width: 150px;
+
     height: auto;
 
     max-width: 150px;
@@ -166,6 +173,7 @@ body::before {
     position: absolute;
 
     top: 17px;
+
     left: 50%;
 
     transform: translateX(-50%);
@@ -173,6 +181,7 @@ body::before {
     color: #fff;
 
     font-size: 38px;
+
     line-height: 1;
 
     white-space: nowrap;
@@ -193,7 +202,9 @@ body::before {
     pointer-events: auto;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 
     gap: 12px;
@@ -205,9 +216,11 @@ body::before {
     display: flex;
 
     width: 28px;
+
     height: 28px;
 
     align-items: center;
+
     justify-content: center;
 
     color: #fff;
@@ -223,6 +236,7 @@ body::before {
     display: block;
 
     width: 28px;
+
     height: 28px;
 
     fill: none;
@@ -230,12 +244,15 @@ body::before {
     stroke: currentColor;
 
     stroke-width: 1.6;
+
     stroke-linecap: round;
+
     stroke-linejoin: round;
 }
 
 .social-links svg .filled {
     fill: currentColor;
+
     stroke: none;
 }
 
@@ -243,6 +260,7 @@ body::before {
     display: block;
 
     width: 28px;
+
     height: 28px;
 
     object-fit: contain;
@@ -257,9 +275,11 @@ body::before {
     position: fixed;
 
     top: 0;
+
     left: 0;
 
     width: min(420px, 85vw);
+
     height: 100vh;
     height: 100dvh;
 
@@ -270,6 +290,7 @@ body::before {
     padding: 20px 22px;
 
     opacity: 0;
+
     visibility: hidden;
 
     pointer-events: none;
@@ -281,6 +302,7 @@ body::before {
 
 .menu.active {
     opacity: 1;
+
     visibility: visible;
 
     pointer-events: auto;
@@ -288,16 +310,18 @@ body::before {
 
 
 /* ========================================
-   BOUTON FERMETURE MENU
+   CLOSE
 ======================================== */
 
 .close-button {
     position: absolute;
 
     top: 20px;
+
     right: 22px;
 
     border: none;
+
     padding: 0;
 
     background: transparent;
@@ -305,6 +329,7 @@ body::before {
     color: #fff;
 
     font-size: 28px;
+
     line-height: 1;
 
     cursor: pointer;
@@ -312,12 +337,14 @@ body::before {
 
 
 /* ========================================
-   LIENS DU MENU
+   MENU LIST
 ======================================== */
 
 .menu-list {
     display: flex;
+
     flex-direction: column;
+
     align-items: flex-start;
 
     margin-top: 75px;
@@ -345,7 +372,7 @@ body::before {
 
 
 /* ========================================
-   HERO / PAGE D'ACCUEIL
+   HERO ACCUEIL
 ======================================== */
 
 .hero {
@@ -369,6 +396,7 @@ body::before {
     inset: 0;
 
     width: 100%;
+
     height: 100%;
 
     display: block;
@@ -389,6 +417,7 @@ body::before {
     z-index: 1;
 
     width: 100%;
+
     min-height: 100vh;
 
     padding: 130px 0 100px;
@@ -400,7 +429,7 @@ body::before {
 
 
 /* ========================================
-   CONTENU PAGE À PROPOS
+   ABOUT
 ======================================== */
 
 .about-content {
@@ -409,6 +438,7 @@ body::before {
     min-width: 600px;
 
     display: flex;
+
     flex-direction: column;
 
     gap: 48px;
@@ -422,11 +452,6 @@ body::before {
     box-shadow: none;
 }
 
-
-/* ========================================
-   TITRE BIOGRAPHIE
-======================================== */
-
 .bio-title {
     margin: 0 0 20px;
 
@@ -439,14 +464,7 @@ body::before {
     font-weight: 700;
 
     letter-spacing: -0.015em;
-
-    text-shadow: none;
 }
-
-
-/* ========================================
-   TEXTE PAGE À PROPOS
-======================================== */
 
 .about-text {
     width: 100%;
@@ -462,38 +480,19 @@ body::before {
     line-height: 1.25;
 
     letter-spacing: -0.008em;
-
-    text-shadow: none;
 }
 
 .about-text p:last-child {
     margin-bottom: 0;
 }
 
-
-/* ========================================
-   GRAS
-======================================== */
-
 .about-text strong {
     font-weight: 700;
-
-    text-shadow: none;
 }
-
-
-/* ========================================
-   ITALIQUES
-======================================== */
 
 .about-text em {
     font-style: italic;
 }
-
-
-/* ========================================
-   INTERTITRES
-======================================== */
 
 .about-text h2 {
     margin: 0 0 20px;
@@ -507,14 +506,7 @@ body::before {
     font-weight: 700;
 
     letter-spacing: -0.015em;
-
-    text-shadow: none;
 }
-
-
-/* ========================================
-   PHOTO PAGE À PROPOS
-======================================== */
 
 .about-photo {
     width: 100%;
@@ -534,11 +526,6 @@ body::before {
     object-position: center 27%;
 }
 
-
-/* ========================================
-   CRÉDIT PHOTO
-======================================== */
-
 .about-photo figcaption {
     margin-top: 10px;
 
@@ -549,14 +536,7 @@ body::before {
     line-height: 1;
 
     text-align: right;
-
-    text-shadow: none;
 }
-
-
-/* ========================================
-   CRÉDIT BIOGRAPHIE
-======================================== */
 
 .bio-credit {
     margin-top: -12px;
@@ -568,8 +548,115 @@ body::before {
     line-height: 1.2;
 
     text-align: right;
+}
 
-    text-shadow: none;
+
+/* ========================================
+   PAGE VIDÉOS
+======================================== */
+
+.videos-content {
+    width: min(900px, calc(100% - 80px));
+
+    min-width: 620px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 90px;
+
+    padding: 35px 45px 60px;
+}
+
+
+/* GROUPE / PROJET */
+
+.video-project {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 42px;
+}
+
+
+/* TITRE DU PROJET */
+
+.video-project-title {
+    margin: 0;
+
+    color: #fff;
+
+    font-size: clamp(30px, 2.5vw, 42px);
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: -0.02em;
+}
+
+.video-project-title span {
+    display: inline-block;
+
+    margin-left: 8px;
+
+    font-size: 0.65em;
+
+    opacity: 0.7;
+}
+
+
+/* VIDÉO INDIVIDUELLE */
+
+.video-item {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.video-item h2 {
+    margin: 0;
+
+    color: #fff;
+
+    font-size: clamp(22px, 1.7vw, 29px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+
+    letter-spacing: -0.01em;
+}
+
+
+/* PLAYER YOUTUBE */
+
+.video-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
 }
 
 
@@ -578,11 +665,6 @@ body::before {
 ======================================== */
 
 @media (max-width: 700px) {
-
-    /*
-       Le background reste en position fixed.
-       Aucun background-attachment: scroll.
-    */
 
     body::before {
         width: 100vw;
@@ -596,27 +678,15 @@ body::before {
     }
 
 
-    /* ========================================
-       HEADER MOBILE
-    ======================================== */
+    /* HEADER */
 
     .top {
         padding: 17px 18px;
     }
 
-
-    /* ========================================
-       BOUTON MENU MOBILE
-    ======================================== */
-
     .menu-button {
         font-size: 25px;
     }
-
-
-    /* ========================================
-       LOGO MOBILE
-    ======================================== */
 
     .site-logo {
         top: 17px;
@@ -630,23 +700,14 @@ body::before {
         max-width: 130px;
     }
 
-
-    /* ========================================
-       TITRE PAGE MOBILE
-    ======================================== */
-
     .page-title {
         top: 16px;
 
         font-size: 31px;
-
-        text-decoration: none;
     }
 
 
-    /* ========================================
-       RÉSEAUX MOBILE
-    ======================================== */
+    /* RÉSEAUX */
 
     .social-links {
         gap: 10px;
@@ -654,23 +715,24 @@ body::before {
 
     .social-links a {
         width: 25px;
+
         height: 25px;
     }
 
     .social-links svg {
         width: 25px;
+
         height: 25px;
     }
 
     .social-links img {
         width: 25px;
+
         height: 25px;
     }
 
 
-    /* ========================================
-       MENU MOBILE
-    ======================================== */
+    /* MENU */
 
     .menu {
         width: min(320px, 85vw);
@@ -683,6 +745,7 @@ body::before {
 
     .close-button {
         top: 17px;
+
         right: 18px;
 
         font-size: 25px;
@@ -697,18 +760,14 @@ body::before {
     }
 
 
-    /* ========================================
-       PAGE INTERNE MOBILE
-    ======================================== */
+    /* PAGE INTERNE */
 
     .internal-content {
         padding: 100px 0 70px;
     }
 
 
-    /* ========================================
-       CONTENU ABOUT MOBILE
-    ======================================== */
+    /* ABOUT */
 
     .about-content {
         width: calc(100% - 36px);
@@ -718,31 +777,13 @@ body::before {
         gap: 38px;
 
         padding: 25px 22px 34px;
-
-        background: transparent;
-
-        border: none;
-
-        box-shadow: none;
     }
-
-
-    /* ========================================
-       TITRE BIO MOBILE
-    ======================================== */
 
     .bio-title {
         margin-bottom: 18px;
 
         font-size: 26px;
-
-        text-shadow: none;
     }
-
-
-    /* ========================================
-       TEXTE MOBILE
-    ======================================== */
 
     .about-text p {
         margin-bottom: 20px;
@@ -750,31 +791,13 @@ body::before {
         font-size: 19px;
 
         line-height: 1.25;
-
-        text-shadow: none;
     }
-
-    .about-text strong {
-        text-shadow: none;
-    }
-
-
-    /* ========================================
-       INTERTITRE MOBILE
-    ======================================== */
 
     .about-text h2 {
         margin-bottom: 20px;
 
         font-size: 27px;
-
-        text-shadow: none;
     }
-
-
-    /* ========================================
-       PHOTO MOBILE
-    ======================================== */
 
     .about-photo img {
         height: 68vh;
@@ -786,21 +809,55 @@ body::before {
 
     .about-photo figcaption {
         font-size: 14px;
-
-        text-shadow: none;
     }
-
-
-    /* ========================================
-       CRÉDIT BIO MOBILE
-    ======================================== */
 
     .bio-credit {
         margin-top: -8px;
 
         font-size: 14px;
+    }
 
-        text-shadow: none;
+
+    /* ========================================
+       VIDÉOS MOBILE
+    ======================================== */
+
+    .videos-content {
+        width: calc(100% - 36px);
+
+        min-width: 0;
+
+        gap: 65px;
+
+        padding: 25px 0 35px;
+    }
+
+    .video-project {
+        gap: 32px;
+    }
+
+    .video-project-title {
+        font-size: 30px;
+    }
+
+    .video-project-title span {
+        margin-left: 5px;
+    }
+
+    .video-item {
+        gap: 10px;
+    }
+
+    .video-item h2 {
+        font-size: 21px;
+
+        line-height: 1.05;
+    }
+
+    .video-wrapper {
+        width: 100%;
+
+        aspect-ratio: 16 / 9;
     }
 
 }
