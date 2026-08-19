@@ -27,6 +27,12 @@ body {
     min-height: 100%;
 
     background: #000;
+    background-image: url("images/IMG02.jpg");
+    background-size: cover;
+    background-position: center 75%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
     color: #fff;
 
     font-family: "PP Neue Bit", sans-serif;
@@ -45,19 +51,6 @@ a {
 
 button {
     font-family: inherit;
-}
-
-
-/* ========================================
-   BACKGROUND
-======================================== */
-
-body {
-    background-image: url("images/IMG02.jpg");
-    background-size: cover;
-    background-position: center 75%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 
@@ -121,7 +114,6 @@ body {
     display: block;
 
     width: 150px;
-    height: auto;
 
     z-index: 510;
 
@@ -289,7 +281,6 @@ body {
     color: #fff;
 
     font-size: 28px;
-
     line-height: 1;
 
     cursor: pointer;
@@ -364,48 +355,106 @@ body {
 
 
 /* ========================================
-   PAGES INTERNES
+   PAGE INTERNE
 ======================================== */
-
-.internal-page {
-    min-height: 100vh;
-}
-
-
-/* CONTENEUR PRINCIPAL */
 
 .internal-content {
     position: relative;
 
     width: 100%;
+
     min-height: 100vh;
 
-    padding-top: 120px;
-    padding-bottom: 80px;
+    padding:
+        130px 0
+        100px;
 
     display: flex;
 
     justify-content: center;
-    align-items: flex-start;
 }
 
 
-/* DIV DE CONTENU */
+/* ========================================
+   ABOUT
+======================================== */
 
-.content-box {
-    width: 66.6667%;
+.about-content {
+    width: min(900px, calc(100% - 80px));
 
-    min-width: 600px;
+    min-width: 620px;
 
-    min-height: 400px;
+    display: flex;
 
-    margin: 0 auto;
+    flex-direction: column;
 
-    padding: 40px;
+    gap: 70px;
+}
 
-    color: #fff;
 
-    background: transparent;
+.about-text {
+    width: 100%;
+}
+
+
+.about-text p {
+    margin-bottom: 28px;
+
+    font-size: clamp(
+        24px,
+        2.1vw,
+        34px
+    );
+
+    line-height: 1.28;
+
+    letter-spacing: -0.015em;
+}
+
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+.about-text em {
+    font-style: italic;
+}
+
+
+/* IMAGE */
+
+.about-photo {
+    width: 100%;
+
+    margin: 0;
+}
+
+
+.about-photo img {
+    display: block;
+
+    width: 100%;
+
+    height: min(
+        78vh,
+        980px
+    );
+
+    object-fit: cover;
+
+    object-position: center 30%;
+}
+
+
+.about-photo figcaption {
+    margin-top: 10px;
+
+    font-size: 16px;
+
+    text-align: right;
+
+    color: rgba(255, 255, 255, 0.85);
 }
 
 
@@ -413,7 +462,7 @@ body {
    MOBILE
 ======================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     .top {
         padding: 17px 18px;
@@ -424,16 +473,12 @@ body {
     }
 
 
-    /* TITRE MOBILE */
-
     .page-title {
         top: 17px;
 
         font-size: 25px;
     }
 
-
-    /* RÉSEAUX MOBILE */
 
     .social-links {
         gap: 10px;
@@ -454,8 +499,6 @@ body {
         height: 25px;
     }
 
-
-    /* MENU MOBILE */
 
     .menu {
         width: min(320px, 85vw);
@@ -479,20 +522,41 @@ body {
     }
 
 
-    /* CONTENU MOBILE */
-
     .internal-content {
-        padding-top: 90px;
-        padding-bottom: 50px;
+        padding:
+            100px 0
+            70px;
     }
 
-    .content-box {
+
+    .about-content {
         width: calc(100% - 36px);
 
         min-width: 0;
 
-        min-height: 400px;
+        gap: 45px;
+    }
 
-        padding: 25px 0;
+
+    .about-text p {
+        margin-bottom: 22px;
+
+        font-size: 22px;
+
+        line-height: 1.3;
+    }
+
+
+    .about-photo img {
+        height: 72vh;
+
+        min-height: 520px;
+
+        object-position: center 30%;
+    }
+
+
+    .about-photo figcaption {
+        font-size: 14px;
     }
 }
