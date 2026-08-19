@@ -139,17 +139,27 @@ button {
 .page-title {
     position: absolute;
 
-    top: 20px;
+    top: 17px;
     left: 50%;
 
     transform: translateX(-50%);
 
     color: #fff;
 
-    font-size: 28px;
+    /*
+       Plus grand qu'avant
+    */
+    font-size: 38px;
     line-height: 1;
 
     white-space: nowrap;
+
+    /*
+       Soulignement
+    */
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 7px;
 
     z-index: 510;
 
@@ -388,6 +398,29 @@ button {
 
 
 /* ========================================
+   TITRE BIOGRAPHIE
+======================================== */
+
+.bio-title {
+    margin: 0 0 20px;
+
+    color: #fff;
+
+    font-size: clamp(27px, 2.1vw, 36px);
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: -0.015em;
+
+    text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.18),
+        0 2px 12px rgba(0, 0, 0, 0.75);
+}
+
+
+/* ========================================
    TEXTE ABOUT
 ======================================== */
 
@@ -400,14 +433,8 @@ button {
 
     color: #fff;
 
-    /*
-       Légèrement plus petit qu'avant
-    */
     font-size: clamp(21px, 1.55vw, 27px);
 
-    /*
-       Interligne plus serré
-    */
     line-height: 1.25;
 
     letter-spacing: -0.008em;
@@ -421,9 +448,6 @@ button {
     margin-bottom: 0;
 }
 
-
-/* GRAS */
-
 .about-text strong {
     font-weight: 700;
 
@@ -431,9 +455,6 @@ button {
         0 0 7px rgba(255, 255, 255, 0.22),
         0 2px 12px rgba(0, 0, 0, 0.8);
 }
-
-
-/* ITALIQUES */
 
 .about-text em {
     font-style: italic;
@@ -445,7 +466,7 @@ button {
 ======================================== */
 
 .about-text h2 {
-    margin: 0 0 24px;
+    margin: 0 0 20px;
 
     color: #fff;
 
@@ -541,10 +562,16 @@ button {
         font-size: 25px;
     }
 
-    .page-title {
-        top: 17px;
 
-        font-size: 25px;
+    /* TITRE DE PAGE MOBILE */
+
+    .page-title {
+        top: 16px;
+
+        font-size: 31px;
+
+        text-decoration-thickness: 2px;
+        text-underline-offset: 5px;
     }
 
 
@@ -616,6 +643,15 @@ button {
 
         border: none;
         box-shadow: none;
+    }
+
+
+    /* TITRE BIO */
+
+    .bio-title {
+        margin-bottom: 18px;
+
+        font-size: 26px;
     }
 
 
