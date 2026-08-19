@@ -8,6 +8,15 @@
 
 
 /* ========================================
+   VARIABLES GLOBALES
+======================================== */
+
+:root {
+    --content-width: 760px;
+}
+
+
+/* ========================================
    RESET
 ======================================== */
 
@@ -443,6 +452,20 @@ body::before {
 
 
 /* ========================================
+   LARGEUR COMMUNE DES PAGES INTERNES
+======================================== */
+
+.about-content,
+.videos-content,
+.shows-content,
+.page-content {
+    width: min(var(--content-width), calc(100% - 80px));
+
+    min-width: 600px;
+}
+
+
+/* ========================================
    JUSTIFICATION DES TEXTES
 ======================================== */
 
@@ -458,10 +481,6 @@ body::before {
 ======================================== */
 
 .about-content {
-    width: min(760px, calc(100% - 80px));
-
-    min-width: 600px;
-
     display: flex;
 
     flex-direction: column;
@@ -623,10 +642,6 @@ body::before {
 ======================================== */
 
 .videos-content {
-    width: min(900px, calc(100% - 80px));
-
-    min-width: 620px;
-
     display: flex;
 
     flex-direction: column;
@@ -739,10 +754,6 @@ body::before {
 ======================================== */
 
 .shows-content {
-    width: min(1050px, calc(100% - 80px));
-
-    min-width: 700px;
-
     display: flex;
 
     flex-direction: column;
@@ -797,11 +808,11 @@ body::before {
     display: grid;
 
     grid-template-columns:
-        minmax(125px, 0.8fr)
-        minmax(200px, 1.4fr)
-        minmax(260px, 1.8fr);
+        minmax(110px, 0.8fr)
+        minmax(160px, 1.25fr)
+        minmax(220px, 1.7fr);
 
-    column-gap: 30px;
+    column-gap: 22px;
 
     align-items: start;
 
@@ -819,8 +830,6 @@ body::before {
 
 /* ========================================
    CONCERT PASSÉ
-   La classe .past est ajoutée automatiquement
-   par script.js selon la date du jour.
 ======================================== */
 
 .show-item.past {
@@ -833,7 +842,7 @@ body::before {
 ======================================== */
 
 .show-date {
-    font-size: clamp(20px, 1.5vw, 25px);
+    font-size: clamp(19px, 1.4vw, 23px);
 
     line-height: 1.05;
 
@@ -848,7 +857,7 @@ body::before {
 ======================================== */
 
 .show-location {
-    font-size: clamp(20px, 1.5vw, 25px);
+    font-size: clamp(19px, 1.4vw, 23px);
 
     line-height: 1.05;
 
@@ -874,7 +883,7 @@ body::before {
 ======================================== */
 
 .show-venue {
-    font-size: clamp(20px, 1.5vw, 25px);
+    font-size: clamp(19px, 1.4vw, 23px);
 
     line-height: 1.05;
 
@@ -889,7 +898,7 @@ body::before {
 .show-meta {
     color: rgba(255, 255, 255, 0.72);
 
-    font-size: clamp(16px, 1.15vw, 20px);
+    font-size: clamp(15px, 1.05vw, 18px);
 
     line-height: 1.1;
 
@@ -1043,6 +1052,20 @@ body::before {
 
 
     /* ========================================
+       LARGEUR COMMUNE MOBILE
+    ======================================== */
+
+    .about-content,
+    .videos-content,
+    .shows-content,
+    .page-content {
+        width: calc(100% - 36px);
+
+        min-width: 0;
+    }
+
+
+    /* ========================================
        JUSTIFICATION MOBILE
     ======================================== */
 
@@ -1060,10 +1083,6 @@ body::before {
     ======================================== */
 
     .about-content {
-        width: calc(100% - 36px);
-
-        min-width: 0;
-
         gap: 38px;
 
         padding: 25px 22px 34px;
@@ -1135,10 +1154,6 @@ body::before {
     ======================================== */
 
     .videos-content {
-        width: calc(100% - 36px);
-
-        min-width: 0;
-
         gap: 45px;
 
         padding: 15px 0 30px;
@@ -1178,10 +1193,6 @@ body::before {
     ======================================== */
 
     .shows-content {
-        width: calc(100% - 36px);
-
-        min-width: 0;
-
         gap: 48px;
 
         padding: 15px 0 35px;
