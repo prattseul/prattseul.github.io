@@ -27,26 +27,15 @@ body {
     min-height: 100%;
 
     background: #000;
-
-    background-image:
-        url("images/IMG02.jpg");
-
+    background-image: url("images/IMG02.jpg");
     background-size: cover;
-
-    background-position:
-        center 75%;
-
-    background-repeat:
-        no-repeat;
-
-    background-attachment:
-        fixed;
+    background-position: center 75%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
     color: #fff;
 
-    font-family:
-        "PP Neue Bit",
-        sans-serif;
+    font-family: "PP Neue Bit", sans-serif;
 
     overflow-x: hidden;
 }
@@ -77,16 +66,11 @@ button {
 
     width: 100%;
 
-    padding:
-        20px 22px;
+    padding: 20px 22px;
 
     display: flex;
-
-    align-items:
-        flex-start;
-
-    justify-content:
-        space-between;
+    align-items: flex-start;
+    justify-content: space-between;
 
     z-index: 500;
 
@@ -102,16 +86,13 @@ button {
     pointer-events: auto;
 
     border: none;
-
     padding: 0;
 
-    background:
-        transparent;
+    background: transparent;
 
     color: #fff;
 
     font-size: 28px;
-
     line-height: 1;
 
     cursor: pointer;
@@ -126,11 +107,9 @@ button {
     position: absolute;
 
     top: 20px;
-
     left: 50%;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     display: block;
 
@@ -145,7 +124,6 @@ button {
     display: block;
 
     width: 150px;
-
     height: auto;
 
     max-width: 150px;
@@ -162,16 +140,13 @@ button {
     position: absolute;
 
     top: 20px;
-
     left: 50%;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     color: #fff;
 
     font-size: 28px;
-
     line-height: 1;
 
     white-space: nowrap;
@@ -190,9 +165,7 @@ button {
     pointer-events: auto;
 
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
 
     gap: 12px;
@@ -200,62 +173,48 @@ button {
     color: #fff;
 }
 
-
 .social-links a {
     display: flex;
 
     width: 28px;
-
     height: 28px;
 
     align-items: center;
-
     justify-content: center;
 
     color: #fff;
 
-    transition:
-        opacity 0.2s ease;
+    transition: opacity 0.2s ease;
 }
-
 
 .social-links a:hover {
     opacity: 0.45;
 }
 
-
 .social-links svg {
     display: block;
 
     width: 28px;
-
     height: 28px;
 
     fill: none;
 
-    stroke:
-        currentColor;
+    stroke: currentColor;
 
     stroke-width: 1.6;
-
     stroke-linecap: round;
-
     stroke-linejoin: round;
 }
 
-
 .social-links svg .filled {
     fill: currentColor;
-
     stroke: none;
 }
-
 
 .social-links img {
     display: block;
 
     width: 28px;
-
     height: 28px;
 
     object-fit: contain;
@@ -272,21 +231,16 @@ button {
     top: 0;
     left: 0;
 
-    width:
-        min(420px, 85vw);
-
+    width: min(420px, 85vw);
     height: 100vh;
 
     z-index: 1000;
 
-    background:
-        transparent;
+    background: transparent;
 
-    padding:
-        20px 22px;
+    padding: 20px 22px;
 
     opacity: 0;
-
     visibility: hidden;
 
     pointer-events: none;
@@ -296,10 +250,8 @@ button {
         visibility 0.25s ease;
 }
 
-
 .menu.active {
     opacity: 1;
-
     visibility: visible;
 
     pointer-events: auto;
@@ -314,20 +266,16 @@ button {
     position: absolute;
 
     top: 20px;
-
     right: 22px;
 
     border: none;
-
     padding: 0;
 
-    background:
-        transparent;
+    background: transparent;
 
     color: #fff;
 
     font-size: 28px;
-
     line-height: 1;
 
     cursor: pointer;
@@ -340,40 +288,27 @@ button {
 
 .menu-list {
     display: flex;
-
     flex-direction: column;
-
-    align-items:
-        flex-start;
+    align-items: flex-start;
 
     margin-top: 75px;
 }
 
-
 .menu-list a {
     color: #fff;
 
-    font-size:
-        clamp(
-            42px,
-            6.5vw,
-            100px
-        );
+    font-size: clamp(42px, 6.5vw, 100px);
 
     line-height: 0.92;
 
-    letter-spacing:
-        -0.045em;
+    letter-spacing: -0.045em;
 
-    transition:
-        opacity 0.2s ease;
+    transition: opacity 0.2s ease;
 }
-
 
 .menu-list:hover a {
     opacity: 0.3;
 }
-
 
 .menu-list a:hover {
     opacity: 1;
@@ -390,7 +325,6 @@ button {
     width: 100%;
 
     height: 100vh;
-
     height: 100svh;
 
     overflow: hidden;
@@ -398,22 +332,18 @@ button {
     background: #000;
 }
 
-
 .hero-image {
     position: absolute;
 
     inset: 0;
 
     width: 100%;
-
     height: 100%;
 
     display: block;
 
     object-fit: cover;
-
-    object-position:
-        center 75%;
+    object-position: center 75%;
 }
 
 
@@ -425,17 +355,13 @@ button {
     position: relative;
 
     width: 100%;
-
     min-height: 100vh;
 
-    padding:
-        130px 0
-        100px;
+    padding: 130px 0 100px;
 
     display: flex;
 
-    justify-content:
-        center;
+    justify-content: center;
 }
 
 
@@ -444,64 +370,30 @@ button {
 ======================================== */
 
 .about-content {
-    width:
-        min(
-            760px,
-            calc(100% - 80px)
-        );
+    width: min(760px, calc(100% - 80px));
 
-    min-width:
-        600px;
+    min-width: 600px;
 
     display: flex;
-
-    flex-direction:
-        column;
+    flex-direction: column;
 
     gap: 60px;
 
-    padding:
-        45px 45px
-        55px;
+    padding: 45px 45px 55px;
 
-    background:
-        rgba(
-            0,
-            0,
-            0,
-            0.34
-        );
+    /*
+       Pas de fond :
+       le background du site reste entièrement visible.
+    */
+    background: transparent;
 
     border:
         1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.18
-        );
+        rgba(255, 255, 255, 0.18);
 
     box-shadow:
-        0 0 18px
-        rgba(
-            255,
-            240,
-            220,
-            0.18
-        ),
-        0 0 45px
-        rgba(
-            255,
-            240,
-            220,
-            0.08
-        );
-
-    backdrop-filter:
-        blur(3px);
-
-    -webkit-backdrop-filter:
-        blur(3px);
+        0 0 18px rgba(255, 240, 220, 0.18),
+        0 0 45px rgba(255, 240, 220, 0.08);
 }
 
 
@@ -513,46 +405,29 @@ button {
     width: 100%;
 }
 
-
 .about-text p {
     margin-bottom: 30px;
 
     color: #fff;
 
-    font-size:
-        clamp(
-            23px,
-            1.8vw,
-            30px
-        );
+    font-size: clamp(23px, 1.8vw, 30px);
 
     line-height: 1.42;
 
-    letter-spacing:
-        -0.01em;
+    letter-spacing: -0.01em;
 
+    /*
+       Légère ombre pour détacher le texte
+       directement du background.
+    */
     text-shadow:
-        0 0 6px
-        rgba(
-            255,
-            255,
-            255,
-            0.16
-        ),
-        0 2px 12px
-        rgba(
-            0,
-            0,
-            0,
-            0.75
-        );
+        0 0 6px rgba(255, 255, 255, 0.16),
+        0 2px 12px rgba(0, 0, 0, 0.75);
 }
-
 
 .about-text p:last-child {
     margin-bottom: 0;
 }
-
 
 .about-text em {
     font-style: italic;
@@ -569,50 +444,30 @@ button {
     margin: 0;
 }
 
-
 .about-photo img {
     display: block;
 
     width: 100%;
 
-    height:
-        min(
-            78vh,
-            920px
-        );
+    height: min(78vh, 920px);
 
     object-fit: cover;
 
-    object-position:
-        center 27%;
+    object-position: center 27%;
 }
-
 
 .about-photo figcaption {
     margin-top: 10px;
 
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            0.82
-        );
+    color: rgba(255, 255, 255, 0.82);
 
     font-size: 16px;
-
     line-height: 1;
 
     text-align: right;
 
     text-shadow:
-        0 2px 8px
-        rgba(
-            0,
-            0,
-            0,
-            0.8
-        );
+        0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 
@@ -623,21 +478,19 @@ button {
 @media (max-width: 700px) {
 
     body {
-        background-attachment:
-            scroll;
+        background-attachment: scroll;
     }
 
+
+    /* HEADER */
 
     .top {
-        padding:
-            17px 18px;
+        padding: 17px 18px;
     }
-
 
     .menu-button {
         font-size: 25px;
     }
-
 
     .page-title {
         top: 17px;
@@ -646,30 +499,24 @@ button {
     }
 
 
-    /* SOCIAL */
+    /* RÉSEAUX */
 
     .social-links {
         gap: 10px;
     }
 
-
     .social-links a {
         width: 25px;
-
         height: 25px;
     }
-
 
     .social-links svg {
         width: 25px;
-
         height: 25px;
     }
 
-
     .social-links img {
         width: 25px;
-
         height: 25px;
     }
 
@@ -677,70 +524,47 @@ button {
     /* MENU */
 
     .menu {
-        width:
-            min(
-                320px,
-                85vw
-            );
+        width: min(320px, 85vw);
 
-        padding:
-            17px 18px;
+        padding: 17px 18px;
     }
-
 
     .close-button {
         top: 17px;
-
         right: 18px;
 
         font-size: 25px;
     }
 
-
     .menu-list {
         margin-top: 65px;
     }
-
 
     .menu-list a {
         font-size: 45px;
     }
 
 
-    /* INTERNAL */
+    /* CONTENU */
 
     .internal-content {
-        padding:
-            100px 0
-            70px;
+        padding: 100px 0 70px;
     }
 
-
     .about-content {
-        width:
-            calc(
-                100% - 36px
-            );
+        width: calc(100% - 36px);
 
         min-width: 0;
 
         gap: 42px;
 
-        padding:
-            28px 22px
-            34px;
+        padding: 28px 22px 34px;
 
-        backdrop-filter:
-            blur(2px);
-
-        -webkit-backdrop-filter:
-            blur(2px);
+        background: transparent;
     }
 
-
     .about-text p {
-        margin-bottom:
-            24px;
+        margin-bottom: 24px;
 
         font-size: 21px;
 
@@ -748,15 +572,15 @@ button {
     }
 
 
+    /* PHOTO */
+
     .about-photo img {
         height: 68vh;
 
         min-height: 500px;
 
-        object-position:
-            center 27%;
+        object-position: center 27%;
     }
-
 
     .about-photo figcaption {
         font-size: 14px;
