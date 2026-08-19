@@ -8,7 +8,7 @@
 
 
 /* ========================================
-   VARIABLES GLOBALES
+   VARIABLES
 ======================================== */
 
 :root {
@@ -61,7 +61,7 @@ button {
 
 
 /* ========================================
-   BACKGROUND FIXE GLOBAL
+   BACKGROUND FIXE
 ======================================== */
 
 body::before {
@@ -204,7 +204,7 @@ body::before {
 
 
 /* ========================================
-   RÉSEAUX SOCIAUX
+   RÉSEAUX
 ======================================== */
 
 .social-links {
@@ -248,6 +248,7 @@ body::before {
     fill: none;
 
     stroke: currentColor;
+
     stroke-width: 1.6;
 
     stroke-linecap: round;
@@ -256,7 +257,6 @@ body::before {
 
 .social-links svg .filled {
     fill: currentColor;
-
     stroke: none;
 }
 
@@ -311,7 +311,7 @@ body::before {
 
 
 /* ========================================
-   BOUTON FERMETURE MENU
+   CLOSE
 ======================================== */
 
 .close-button {
@@ -337,7 +337,7 @@ body::before {
 
 
 /* ========================================
-   LIENS DU MENU
+   MENU LIST
 ======================================== */
 
 .menu-list {
@@ -372,7 +372,7 @@ body::before {
 
 
 /* ========================================
-   COPYRIGHT GLOBAL
+   COPYRIGHT
 ======================================== */
 
 .site-copyright {
@@ -396,7 +396,7 @@ body::before {
 
 
 /* ========================================
-   HERO / PAGE D'ACCUEIL
+   ACCUEIL
 ======================================== */
 
 .hero {
@@ -452,7 +452,7 @@ body::before {
 
 
 /* ========================================
-   LARGEUR COMMUNE DES PAGES INTERNES
+   LARGEUR COMMUNE
 ======================================== */
 
 .about-content,
@@ -466,7 +466,7 @@ body::before {
 
 
 /* ========================================
-   JUSTIFICATION DES TEXTES
+   JUSTIFICATION
 ======================================== */
 
 .internal-content p {
@@ -477,7 +477,7 @@ body::before {
 
 
 /* ========================================
-   PAGE À PROPOS
+   À PROPOS
 ======================================== */
 
 .about-content {
@@ -496,11 +496,6 @@ body::before {
     box-shadow: none;
 }
 
-
-/* ========================================
-   TITRE BIOGRAPHIE
-======================================== */
-
 .bio-title {
     margin: 0 0 20px;
 
@@ -513,14 +508,7 @@ body::before {
     font-weight: 700;
 
     letter-spacing: -0.015em;
-
-    text-shadow: none;
 }
-
-
-/* ========================================
-   TEXTE PAGE À PROPOS
-======================================== */
 
 .about-text {
     width: 100%;
@@ -536,8 +524,6 @@ body::before {
     line-height: 1.25;
 
     letter-spacing: -0.008em;
-
-    text-shadow: none;
 }
 
 .about-text p:last-child {
@@ -546,18 +532,11 @@ body::before {
 
 .about-text strong {
     font-weight: 700;
-
-    text-shadow: none;
 }
 
 .about-text em {
     font-style: italic;
 }
-
-
-/* ========================================
-   INTERTITRES À PROPOS
-======================================== */
 
 .about-text h2 {
     margin: 0 0 20px;
@@ -571,14 +550,7 @@ body::before {
     font-weight: 700;
 
     letter-spacing: -0.015em;
-
-    text-shadow: none;
 }
-
-
-/* ========================================
-   PHOTO PAGE À PROPOS
-======================================== */
 
 .about-photo {
     width: 100%;
@@ -598,11 +570,6 @@ body::before {
     object-position: center 27%;
 }
 
-
-/* ========================================
-   CRÉDIT PHOTO
-======================================== */
-
 .about-photo figcaption {
     margin-top: 10px;
 
@@ -613,14 +580,7 @@ body::before {
     line-height: 1;
 
     text-align: right;
-
-    text-shadow: none;
 }
-
-
-/* ========================================
-   CRÉDIT BIOGRAPHIE
-======================================== */
 
 .bio-credit {
     margin-top: -12px;
@@ -632,13 +592,11 @@ body::before {
     line-height: 1.2;
 
     text-align: right;
-
-    text-shadow: none;
 }
 
 
 /* ========================================
-   PAGE VIDÉOS
+   VIDÉOS
 ======================================== */
 
 .videos-content {
@@ -651,11 +609,6 @@ body::before {
     padding: 20px 45px 45px;
 }
 
-
-/* ========================================
-   GROUPE / PROJET VIDÉO
-======================================== */
-
 .video-project {
     display: flex;
 
@@ -663,11 +616,6 @@ body::before {
 
     gap: 24px;
 }
-
-
-/* ========================================
-   TITRE DU PROJET VIDÉO
-======================================== */
 
 .video-project-title {
     margin: 0;
@@ -693,11 +641,6 @@ body::before {
     opacity: 0.7;
 }
 
-
-/* ========================================
-   VIDÉO INDIVIDUELLE
-======================================== */
-
 .video-item {
     display: flex;
 
@@ -719,11 +662,6 @@ body::before {
 
     letter-spacing: -0.01em;
 }
-
-
-/* ========================================
-   PLAYER YOUTUBE
-======================================== */
 
 .video-wrapper {
     position: relative;
@@ -750,7 +688,7 @@ body::before {
 
 
 /* ========================================
-   PAGE CONCERTS
+   CONCERTS
 ======================================== */
 
 .shows-content {
@@ -762,11 +700,6 @@ body::before {
 
     padding: 20px 35px 50px;
 }
-
-
-/* ========================================
-   ANNÉE
-======================================== */
 
 .shows-year {
     width: 100%;
@@ -786,11 +719,6 @@ body::before {
     letter-spacing: -0.02em;
 }
 
-
-/* ========================================
-   LISTE DES CONCERTS
-======================================== */
-
 .shows-list {
     width: 100%;
 
@@ -799,7 +727,7 @@ body::before {
 
 
 /* ========================================
-   CONCERT
+   LIGNE CONCERT
 ======================================== */
 
 .show-item {
@@ -808,17 +736,19 @@ body::before {
     display: grid;
 
     grid-template-columns:
-        minmax(110px, 0.8fr)
-        minmax(160px, 1.25fr)
-        minmax(220px, 1.7fr);
+        minmax(100px, 0.75fr)
+        minmax(140px, 1.15fr)
+        minmax(180px, 1.55fr)
+        auto;
 
-    column-gap: 22px;
+    column-gap: 16px;
 
     align-items: start;
 
     padding: 16px 0;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.35);
 
     color: #fff;
 
@@ -829,7 +759,7 @@ body::before {
 
 
 /* ========================================
-   CONCERT PASSÉ
+   DATE PASSÉE
 ======================================== */
 
 .show-item.past {
@@ -853,7 +783,7 @@ body::before {
 
 
 /* ========================================
-   VILLE / PAYS
+   LIEU
 ======================================== */
 
 .show-location {
@@ -866,7 +796,7 @@ body::before {
 
 
 /* ========================================
-   INFORMATIONS DU CONCERT
+   INFO
 ======================================== */
 
 .show-info {
@@ -877,11 +807,6 @@ body::before {
     gap: 4px;
 }
 
-
-/* ========================================
-   SALLE
-======================================== */
-
 .show-venue {
     font-size: clamp(19px, 1.4vw, 23px);
 
@@ -889,11 +814,6 @@ body::before {
 
     font-weight: 700;
 }
-
-
-/* ========================================
-   INFO SECONDAIRE
-======================================== */
 
 .show-meta {
     color: rgba(255, 255, 255, 0.72);
@@ -907,15 +827,39 @@ body::before {
 
 
 /* ========================================
+   BILLETTERIE
+======================================== */
+
+.show-ticket {
+    align-self: start;
+
+    color: #fff;
+
+    font-size: clamp(16px, 1.1vw, 19px);
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    text-decoration: underline;
+
+    text-underline-offset: 4px;
+
+    white-space: nowrap;
+
+    transition: opacity 0.2s ease;
+}
+
+.show-ticket:hover {
+    opacity: 0.5;
+}
+
+
+/* ========================================
    MOBILE
 ======================================== */
 
 @media (max-width: 700px) {
-
-
-    /* ========================================
-       BACKGROUND MOBILE
-    ======================================== */
 
     body::before {
         width: 100vw;
@@ -929,27 +873,15 @@ body::before {
     }
 
 
-    /* ========================================
-       HEADER MOBILE
-    ======================================== */
+    /* HEADER */
 
     .top {
         padding: 17px 18px;
     }
 
-
-    /* ========================================
-       BOUTON MENU MOBILE
-    ======================================== */
-
     .menu-button {
         font-size: 25px;
     }
-
-
-    /* ========================================
-       LOGO MOBILE
-    ======================================== */
 
     .site-logo {
         top: 17px;
@@ -963,47 +895,28 @@ body::before {
         max-width: 130px;
     }
 
-
-    /* ========================================
-       TITRE PAGE MOBILE
-    ======================================== */
-
     .page-title {
         top: 16px;
 
         font-size: 31px;
-
-        text-decoration: none;
     }
 
 
-    /* ========================================
-       RÉSEAUX MOBILE
-    ======================================== */
+    /* RÉSEAUX */
 
     .social-links {
         gap: 10px;
     }
 
-    .social-links a {
-        width: 25px;
-        height: 25px;
-    }
-
-    .social-links svg {
-        width: 25px;
-        height: 25px;
-    }
-
+    .social-links a,
+    .social-links svg,
     .social-links img {
         width: 25px;
         height: 25px;
     }
 
 
-    /* ========================================
-       MENU MOBILE
-    ======================================== */
+    /* MENU */
 
     .menu {
         width: min(320px, 85vw);
@@ -1030,9 +943,7 @@ body::before {
     }
 
 
-    /* ========================================
-       COPYRIGHT MOBILE
-    ======================================== */
+    /* COPYRIGHT */
 
     .site-copyright {
         right: 18px;
@@ -1042,18 +953,14 @@ body::before {
     }
 
 
-    /* ========================================
-       PAGE INTERNE MOBILE
-    ======================================== */
+    /* PAGE INTERNE */
 
     .internal-content {
         padding: 100px 0 70px;
     }
 
 
-    /* ========================================
-       LARGEUR COMMUNE MOBILE
-    ======================================== */
+    /* LARGEUR COMMUNE */
 
     .about-content,
     .videos-content,
@@ -1065,9 +972,7 @@ body::before {
     }
 
 
-    /* ========================================
-       JUSTIFICATION MOBILE
-    ======================================== */
+    /* TEXTE */
 
     .internal-content p {
         text-align: justify;
@@ -1078,28 +983,18 @@ body::before {
     }
 
 
-    /* ========================================
-       PAGE À PROPOS MOBILE
-    ======================================== */
+    /* À PROPOS */
 
     .about-content {
         gap: 38px;
 
         padding: 25px 22px 34px;
-
-        background: transparent;
-
-        border: none;
-
-        box-shadow: none;
     }
 
     .bio-title {
         margin-bottom: 18px;
 
         font-size: 26px;
-
-        text-shadow: none;
     }
 
     .about-text p {
@@ -1108,20 +1003,12 @@ body::before {
         font-size: 19px;
 
         line-height: 1.25;
-
-        text-shadow: none;
-    }
-
-    .about-text strong {
-        text-shadow: none;
     }
 
     .about-text h2 {
         margin-bottom: 20px;
 
         font-size: 27px;
-
-        text-shadow: none;
     }
 
     .about-photo img {
@@ -1134,24 +1021,16 @@ body::before {
 
     .about-photo figcaption {
         font-size: 14px;
-
-        text-shadow: none;
     }
 
     .bio-credit {
         margin-top: -8px;
 
         font-size: 14px;
-
-        text-align: right;
-
-        text-shadow: none;
     }
 
 
-    /* ========================================
-       PAGE VIDÉOS MOBILE
-    ======================================== */
+    /* VIDÉOS */
 
     .videos-content {
         gap: 45px;
@@ -1177,20 +1056,10 @@ body::before {
 
     .video-item h2 {
         font-size: 21px;
-
-        line-height: 1.05;
-    }
-
-    .video-wrapper {
-        width: 100%;
-
-        aspect-ratio: 16 / 9;
     }
 
 
-    /* ========================================
-       PAGE CONCERTS MOBILE
-    ======================================== */
+    /* CONCERTS */
 
     .shows-content {
         gap: 48px;
@@ -1198,21 +1067,11 @@ body::before {
         padding: 15px 0 35px;
     }
 
-
-    /* ========================================
-       ANNÉE MOBILE
-    ======================================== */
-
     .shows-year-title {
         margin-bottom: 14px;
 
         font-size: 34px;
     }
-
-
-    /* ========================================
-       CONCERT MOBILE
-    ======================================== */
 
     .show-item {
         display: flex;
@@ -1224,21 +1083,11 @@ body::before {
         padding: 13px 0;
     }
 
-
-    /* ========================================
-       DATE MOBILE
-    ======================================== */
-
     .show-date {
         font-size: 21px;
 
         line-height: 1;
     }
-
-
-    /* ========================================
-       VILLE MOBILE
-    ======================================== */
 
     .show-location {
         font-size: 21px;
@@ -1246,21 +1095,11 @@ body::before {
         line-height: 1.05;
     }
 
-
-    /* ========================================
-       SALLE MOBILE
-    ======================================== */
-
     .show-venue {
         font-size: 19px;
 
         line-height: 1.05;
     }
-
-
-    /* ========================================
-       INFO SECONDAIRE MOBILE
-    ======================================== */
 
     .show-meta {
         margin-top: 2px;
@@ -1271,12 +1110,14 @@ body::before {
     }
 
 
-    /* ========================================
-       CONCERT PASSÉ MOBILE
-    ======================================== */
+    /* BILLETTERIE MOBILE */
 
-    .show-item.past {
-        opacity: 0.42;
+    .show-ticket {
+        margin-top: 7px;
+
+        font-size: 17px;
+
+        text-underline-offset: 3px;
     }
 
 }
