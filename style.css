@@ -476,6 +476,7 @@ body::before {
 .about-content,
 .videos-content,
 .shows-content,
+.contact-content,
 .page-content {
     width: min(var(--content-width), calc(100% - 80px));
 
@@ -861,9 +862,6 @@ body::before {
     width: 100%;
 }
 
-
-/* Années masquées */
-
 .press-year-title {
     display: none;
 }
@@ -873,9 +871,6 @@ body::before {
 
     border-top: none;
 }
-
-
-/* Une seule ligne en haut de la liste */
 
 .press-content .press-year:first-child .press-list {
     border-top: 1px solid rgba(255, 255, 255, 0.35);
@@ -910,7 +905,7 @@ body::before {
 
 
 /* ========================================
-   LIGNE CLIQUABLE
+   LIGNE PRESSE CLIQUABLE
 ======================================== */
 
 .press-item-link {
@@ -922,10 +917,6 @@ body::before {
 
     transition: opacity 0.2s ease;
 }
-
-
-/* Soulignement de toute l'information
-   lorsqu'une entrée possède un lien */
 
 .press-item-link .press-date,
 .press-item-link .press-media,
@@ -939,16 +930,13 @@ body::before {
     text-decoration-skip-ink: auto;
 }
 
-
-/* Survol de toute la ligne */
-
 .press-item-link:hover {
     opacity: 0.5;
 }
 
 
 /* ========================================
-   LIGNE SANS LIEN
+   LIGNE PRESSE SANS LIEN
 ======================================== */
 
 .press-item-no-link {
@@ -1025,6 +1013,99 @@ body::before {
         text-justify: inter-word;
     }
 
+}
+
+
+/* ========================================
+   CONTACTS
+======================================== */
+
+.contact-content {
+    padding: 10px 35px 35px;
+}
+
+.contact-list {
+    width: 100%;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.35);
+}
+
+.contact-item {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(120px, 0.8fr)
+        minmax(180px, 1.2fr)
+        minmax(0, 2fr);
+
+    column-gap: 18px;
+
+    align-items: start;
+
+    padding: 12px 0;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+/* ========================================
+   TYPE DE CONTACT
+======================================== */
+
+.contact-role {
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: clamp(17px, 1.2vw, 20px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   NOM CONTACT
+======================================== */
+
+.contact-name {
+    color: #fff;
+
+    font-size: clamp(17px, 1.2vw, 20px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   LIEN CONTACT
+======================================== */
+
+.contact-link {
+    color: #fff;
+
+    font-size: clamp(17px, 1.2vw, 20px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+
+    text-decoration: underline;
+
+    text-decoration-thickness: 1px;
+
+    text-underline-offset: 3px;
+
+    transition: opacity 0.2s ease;
+}
+
+.contact-link:hover {
+    opacity: 0.5;
 }
 
 
@@ -1143,6 +1224,7 @@ body::before {
     .about-content,
     .videos-content,
     .shows-content,
+    .contact-content,
     .page-content {
         width: calc(100% - 36px);
 
@@ -1351,13 +1433,53 @@ body::before {
 
         line-height: 1.05;
 
-        /* Pas de justification sur téléphone */
         text-align: left;
     }
 
     .press-item-link .press-date,
     .press-item-link .press-media,
     .press-item-link .press-title {
+        text-underline-offset: 3px;
+    }
+
+
+    /* ========================================
+       CONTACTS MOBILE
+    ========================================= */
+
+    .contact-content {
+        padding: 5px 0 25px;
+    }
+
+    .contact-item {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 2px;
+
+        padding: 10px 0;
+    }
+
+    .contact-role {
+        font-size: 15px;
+
+        line-height: 1;
+    }
+
+    .contact-name {
+        font-size: 19px;
+
+        line-height: 1.05;
+    }
+
+    .contact-link {
+        margin-top: 2px;
+
+        font-size: 17px;
+
+        line-height: 1.05;
+
         text-underline-offset: 3px;
     }
 
