@@ -94,7 +94,7 @@ button {
 
 
 /* ========================================
-   LOGO
+   LOGO ACCUEIL
 ======================================== */
 
 .site-logo {
@@ -124,6 +124,31 @@ button {
     max-width: 150px;
 
     object-fit: contain;
+}
+
+
+/* ========================================
+   TITRE DES PAGES INTERNES
+======================================== */
+
+.page-title {
+    position: absolute;
+
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #fff;
+
+    font-size: 28px;
+    line-height: 1;
+
+    white-space: nowrap;
+
+    z-index: 510;
+
+    pointer-events: auto;
 }
 
 
@@ -183,9 +208,6 @@ button {
     fill: currentColor;
     stroke: none;
 }
-
-
-/* APPLE MUSIC */
 
 .social-links img {
     display: block;
@@ -297,7 +319,7 @@ button {
 
 
 /* ========================================
-   HERO
+   HERO ACCUEIL
 ======================================== */
 
 .hero {
@@ -329,6 +351,52 @@ button {
 
 
 /* ========================================
+   PAGES INTERNES
+======================================== */
+
+.internal-page {
+    min-height: 100vh;
+}
+
+
+/* CONTENEUR PRINCIPAL */
+
+.internal-content {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding-top: 120px;
+    padding-bottom: 80px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+/* DIV DE CONTENU */
+
+.content-box {
+    width: 66.6667%;
+
+    min-width: 600px;
+
+    min-height: 400px;
+
+    margin: 0 auto;
+
+    padding: 40px;
+
+    color: #fff;
+
+    background: transparent;
+}
+
+
+/* ========================================
    MOBILE
 ======================================== */
 
@@ -343,18 +411,12 @@ button {
     }
 
 
-    /* LOGO MOBILE */
+    /* TITRE MOBILE */
 
-    .site-logo {
+    .page-title {
         top: 17px;
 
-        width: 112px;
-    }
-
-    .site-logo img {
-        width: 112px;
-
-        max-width: 112px;
+        font-size: 25px;
     }
 
 
@@ -401,5 +463,23 @@ button {
 
     .menu-list a {
         font-size: 45px;
+    }
+
+
+    /* CONTENU MOBILE */
+
+    .internal-content {
+        padding-top: 90px;
+        padding-bottom: 50px;
+    }
+
+    .content-box {
+        width: calc(100% - 36px);
+
+        min-width: 0;
+
+        min-height: 400px;
+
+        padding: 25px 0;
     }
 }
