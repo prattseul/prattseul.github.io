@@ -140,6 +140,24 @@ body::before {
 
 
 /* ========================================
+   PAS DE BOUTON MENU SUR L'ACCUEIL
+======================================== */
+
+body[data-home="true"] .menu-button {
+    display: none;
+}
+
+
+/* ========================================
+   PAS DE MENU COULISSANT SUR L'ACCUEIL
+======================================== */
+
+body[data-home="true"] .menu {
+    display: none !important;
+}
+
+
+/* ========================================
    CENTRE DU HEADER
 ======================================== */
 
@@ -212,8 +230,11 @@ body::before {
     pointer-events: auto;
 }
 
-body:not(.internal-page) .page-title {
-    display: none;
+
+/* Pas de titre de page sur l'accueil */
+
+body[data-home="true"] .page-title {
+    display: none !important;
 }
 
 
@@ -286,7 +307,8 @@ body:not(.internal-page) .page-title {
 
 
 /* ========================================
-   MENU
+   MENU COULISSANT
+   PAGES INTERNES
 ======================================== */
 
 .menu {
@@ -442,6 +464,62 @@ body:not(.internal-page) .page-title {
     height: 100dvh;
 
     overflow: hidden;
+}
+
+
+/* ========================================
+   MENU PERMANENT ACCUEIL
+======================================== */
+
+.home-menu {
+    position: absolute;
+
+    top: 50%;
+    left: 22px;
+
+    transform: translateY(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    z-index: 20;
+}
+
+
+/* ========================================
+   LIENS MENU ACCUEIL
+======================================== */
+
+.home-menu a {
+    color: #fff;
+
+    font-size: clamp(42px, 5.5vw, 82px);
+
+    line-height: 0.88;
+
+    letter-spacing: -0.045em;
+
+    opacity: 0.42;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* ========================================
+   SURVOL MENU ACCUEIL
+======================================== */
+
+.home-menu:hover a {
+    opacity: 0.22;
+}
+
+.home-menu a:hover {
+    opacity: 1;
 }
 
 
@@ -656,11 +734,6 @@ body:not(.internal-page) .page-title {
     letter-spacing: -0.015em;
 }
 
-
-/* ========================================
-   GRILLE DISCOGRAPHIE
-======================================== */
-
 .discography-grid {
     display: grid;
 
@@ -669,19 +742,9 @@ body:not(.internal-page) .page-title {
     gap: 20px;
 }
 
-
-/* ========================================
-   DISQUE
-======================================== */
-
 .discography-item {
     min-width: 0;
 }
-
-
-/* ========================================
-   POCHETTE
-======================================== */
 
 .discography-cover {
     display: block;
@@ -692,11 +755,6 @@ body:not(.internal-page) .page-title {
 
     object-fit: cover;
 }
-
-
-/* ========================================
-   INFOS DISQUE
-======================================== */
 
 .discography-info {
     padding-top: 10px;
@@ -1306,6 +1364,26 @@ body:not(.internal-page) .page-title {
         bottom: 14px;
 
         font-size: 13px;
+    }
+
+
+    /* ========================================
+       MENU PERMANENT ACCUEIL MOBILE
+    ========================================= */
+
+    .home-menu {
+        top: 50%;
+        left: 18px;
+
+        transform: translateY(-50%);
+    }
+
+    .home-menu a {
+        font-size: clamp(38px, 12vw, 54px);
+
+        line-height: 0.9;
+
+        opacity: 0.48;
     }
 
 
