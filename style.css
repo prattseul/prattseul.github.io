@@ -696,9 +696,10 @@ body::before {
 
     flex-direction: column;
 
-    gap: 65px;
+    /* plus compact */
+    gap: 42px;
 
-    padding: 20px 35px 50px;
+    padding: 10px 35px 40px;
 }
 
 .shows-year {
@@ -706,13 +707,13 @@ body::before {
 }
 
 .shows-year-title {
-    margin: 0 0 20px;
+    margin: 0 0 12px;
 
     color: #fff;
 
     font-size: clamp(34px, 3vw, 48px);
 
-    line-height: 1;
+    line-height: 0.95;
 
     font-weight: 700;
 
@@ -741,11 +742,12 @@ body::before {
         minmax(180px, 1.55fr)
         auto;
 
-    column-gap: 16px;
+    column-gap: 14px;
 
     align-items: start;
 
-    padding: 16px 0;
+    /* 16px auparavant */
+    padding: 10px 0;
 
     border-bottom:
         1px solid rgba(255, 255, 255, 0.35);
@@ -772,9 +774,9 @@ body::before {
 ======================================== */
 
 .show-date {
-    font-size: clamp(19px, 1.4vw, 23px);
+    font-size: clamp(18px, 1.3vw, 22px);
 
-    line-height: 1.05;
+    line-height: 1;
 
     font-weight: 700;
 
@@ -787,9 +789,9 @@ body::before {
 ======================================== */
 
 .show-location {
-    font-size: clamp(19px, 1.4vw, 23px);
+    font-size: clamp(18px, 1.3vw, 22px);
 
-    line-height: 1.05;
+    line-height: 1;
 
     font-weight: 700;
 }
@@ -804,13 +806,14 @@ body::before {
 
     flex-direction: column;
 
-    gap: 4px;
+    /* 4px auparavant */
+    gap: 2px;
 }
 
 .show-venue {
-    font-size: clamp(19px, 1.4vw, 23px);
+    font-size: clamp(18px, 1.3vw, 22px);
 
-    line-height: 1.05;
+    line-height: 1;
 
     font-weight: 700;
 }
@@ -818,9 +821,9 @@ body::before {
 .show-meta {
     color: rgba(255, 255, 255, 0.72);
 
-    font-size: clamp(15px, 1.05vw, 18px);
+    font-size: clamp(14px, 1vw, 17px);
 
-    line-height: 1.1;
+    line-height: 1;
 
     font-weight: 700;
 }
@@ -835,7 +838,7 @@ body::before {
 
     color: #fff;
 
-    font-size: clamp(16px, 1.1vw, 19px);
+    font-size: clamp(15px, 1vw, 18px);
 
     line-height: 1;
 
@@ -1062,15 +1065,19 @@ body::before {
     /* CONCERTS */
 
     .shows-content {
-        gap: 48px;
+        /* 48px auparavant */
+        gap: 32px;
 
-        padding: 15px 0 35px;
+        padding: 10px 0 30px;
     }
 
     .shows-year-title {
-        margin-bottom: 14px;
+        /* 14px auparavant */
+        margin-bottom: 9px;
 
-        font-size: 34px;
+        font-size: 32px;
+
+        line-height: 0.95;
     }
 
     .show-item {
@@ -1078,44 +1085,46 @@ body::before {
 
         flex-direction: column;
 
-        gap: 4px;
+        /* 4px auparavant */
+        gap: 2px;
 
-        padding: 13px 0;
+        /* 13px auparavant */
+        padding: 9px 0;
     }
 
     .show-date {
-        font-size: 21px;
+        font-size: 20px;
 
         line-height: 1;
     }
 
     .show-location {
-        font-size: 21px;
+        font-size: 20px;
 
-        line-height: 1.05;
+        line-height: 1;
     }
 
     .show-venue {
-        font-size: 19px;
+        font-size: 18px;
 
-        line-height: 1.05;
+        line-height: 1;
     }
 
     .show-meta {
-        margin-top: 2px;
+        margin-top: 1px;
 
-        font-size: 16px;
+        font-size: 15px;
 
-        line-height: 1.05;
+        line-height: 1;
     }
 
 
     /* BILLETTERIE MOBILE */
 
     .show-ticket {
-        margin-top: 7px;
+        margin-top: 5px;
 
-        font-size: 17px;
+        font-size: 16px;
 
         text-underline-offset: 3px;
     }
