@@ -446,23 +446,29 @@ body:not(.internal-page) .page-title {
     height: 100dvh;
 
     overflow: hidden;
-
-    background: #000;
 }
 
-.hero-image {
+
+/* ========================================
+   GIF ACCUEIL
+======================================== */
+
+.welcome-gif {
     position: absolute;
 
-    inset: 0;
+    top: 50%;
+    left: 50%;
 
-    width: 100%;
-    height: 100%;
+    transform: translate(-50%, -50%);
 
     display: block;
 
-    object-fit: cover;
+    width: min(500px, 45vw);
+    height: auto;
 
-    object-position: center 75%;
+    z-index: 10;
+
+    pointer-events: none;
 }
 
 
@@ -1167,8 +1173,6 @@ body:not(.internal-page) .page-title {
 
 @media (max-width: 700px) {
 
-    /* BACKGROUND */
-
     body::before {
         width: 100vw;
 
@@ -1268,6 +1272,13 @@ body:not(.internal-page) .page-title {
         bottom: 14px;
 
         font-size: 13px;
+    }
+
+
+    /* ACCUEIL */
+
+    .welcome-gif {
+        width: min(360px, 75vw);
     }
 
 
