@@ -146,20 +146,12 @@ button {
 
     color: #fff;
 
-    /*
-       Plus grand qu'avant
-    */
     font-size: 38px;
     line-height: 1;
 
     white-space: nowrap;
 
-    /*
-       Soulignement
-    */
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 7px;
+    text-decoration: none;
 
     z-index: 510;
 
@@ -168,7 +160,7 @@ button {
 
 
 /* ========================================
-   RÉSEAUX
+   RÉSEAUX SOCIAUX
 ======================================== */
 
 .social-links {
@@ -269,7 +261,7 @@ button {
 
 
 /* ========================================
-   CLOSE
+   BOUTON FERMETURE MENU
 ======================================== */
 
 .close-button {
@@ -293,7 +285,7 @@ button {
 
 
 /* ========================================
-   MENU LIST
+   LIENS DU MENU
 ======================================== */
 
 .menu-list {
@@ -326,7 +318,7 @@ button {
 
 
 /* ========================================
-   HERO ACCUEIL
+   HERO / PAGE D'ACCUEIL
 ======================================== */
 
 .hero {
@@ -353,12 +345,13 @@ button {
     display: block;
 
     object-fit: cover;
+
     object-position: center 75%;
 }
 
 
 /* ========================================
-   PAGE INTERNE
+   PAGES INTERNES
 ======================================== */
 
 .internal-content {
@@ -370,12 +363,13 @@ button {
     padding: 130px 0 100px;
 
     display: flex;
+
     justify-content: center;
 }
 
 
 /* ========================================
-   ABOUT CONTENT
+   CONTENU PAGE À PROPOS
 ======================================== */
 
 .about-content {
@@ -393,6 +387,7 @@ button {
     background: transparent;
 
     border: none;
+
     box-shadow: none;
 }
 
@@ -414,14 +409,12 @@ button {
 
     letter-spacing: -0.015em;
 
-    text-shadow:
-        0 0 6px rgba(255, 255, 255, 0.18),
-        0 2px 12px rgba(0, 0, 0, 0.75);
+    text-shadow: none;
 }
 
 
 /* ========================================
-   TEXTE ABOUT
+   TEXTE PAGE À PROPOS
 ======================================== */
 
 .about-text {
@@ -439,22 +432,28 @@ button {
 
     letter-spacing: -0.008em;
 
-    text-shadow:
-        0 0 6px rgba(255, 255, 255, 0.16),
-        0 2px 12px rgba(0, 0, 0, 0.75);
+    text-shadow: none;
 }
 
 .about-text p:last-child {
     margin-bottom: 0;
 }
 
+
+/* ========================================
+   GRAS
+======================================== */
+
 .about-text strong {
     font-weight: 700;
 
-    text-shadow:
-        0 0 7px rgba(255, 255, 255, 0.22),
-        0 2px 12px rgba(0, 0, 0, 0.8);
+    text-shadow: none;
 }
+
+
+/* ========================================
+   ITALIQUES
+======================================== */
 
 .about-text em {
     font-style: italic;
@@ -462,7 +461,7 @@ button {
 
 
 /* ========================================
-   INTERTITRE
+   INTERTITRES
 ======================================== */
 
 .about-text h2 {
@@ -478,14 +477,12 @@ button {
 
     letter-spacing: -0.015em;
 
-    text-shadow:
-        0 0 6px rgba(255, 255, 255, 0.18),
-        0 2px 12px rgba(0, 0, 0, 0.75);
+    text-shadow: none;
 }
 
 
 /* ========================================
-   PHOTO ABOUT
+   PHOTO PAGE À PROPOS
 ======================================== */
 
 .about-photo {
@@ -506,18 +503,23 @@ button {
     object-position: center 27%;
 }
 
+
+/* ========================================
+   CRÉDIT PHOTO
+======================================== */
+
 .about-photo figcaption {
     margin-top: 10px;
 
     color: rgba(255, 255, 255, 0.82);
 
     font-size: 16px;
+
     line-height: 1;
 
     text-align: right;
 
-    text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: none;
 }
 
 
@@ -536,8 +538,7 @@ button {
 
     text-align: right;
 
-    text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: none;
 }
 
 
@@ -552,30 +553,57 @@ button {
     }
 
 
-    /* HEADER */
+    /* ========================================
+       HEADER MOBILE
+    ======================================== */
 
     .top {
         padding: 17px 18px;
     }
+
+
+    /* ========================================
+       BOUTON MENU MOBILE
+    ======================================== */
 
     .menu-button {
         font-size: 25px;
     }
 
 
-    /* TITRE DE PAGE MOBILE */
+    /* ========================================
+       LOGO MOBILE
+    ======================================== */
+
+    .site-logo {
+        top: 17px;
+
+        width: 130px;
+    }
+
+    .site-logo img {
+        width: 130px;
+
+        max-width: 130px;
+    }
+
+
+    /* ========================================
+       TITRE PAGE MOBILE
+    ======================================== */
 
     .page-title {
         top: 16px;
 
         font-size: 31px;
 
-        text-decoration-thickness: 2px;
-        text-underline-offset: 5px;
+        text-decoration: none;
     }
 
 
-    /* RÉSEAUX */
+    /* ========================================
+       RÉSEAUX MOBILE
+    ======================================== */
 
     .social-links {
         gap: 10px;
@@ -597,7 +625,9 @@ button {
     }
 
 
-    /* MENU */
+    /* ========================================
+       MENU MOBILE
+    ======================================== */
 
     .menu {
         width: min(320px, 85vw);
@@ -621,14 +651,18 @@ button {
     }
 
 
-    /* PAGE */
+    /* ========================================
+       PAGE INTERNE MOBILE
+    ======================================== */
 
     .internal-content {
         padding: 100px 0 70px;
     }
 
 
-    /* ABOUT */
+    /* ========================================
+       CONTENU ABOUT MOBILE
+    ======================================== */
 
     .about-content {
         width: calc(100% - 36px);
@@ -642,20 +676,27 @@ button {
         background: transparent;
 
         border: none;
+
         box-shadow: none;
     }
 
 
-    /* TITRE BIO */
+    /* ========================================
+       TITRE BIO MOBILE
+    ======================================== */
 
     .bio-title {
         margin-bottom: 18px;
 
         font-size: 26px;
+
+        text-shadow: none;
     }
 
 
-    /* TEXTE */
+    /* ========================================
+       TEXTE MOBILE
+    ======================================== */
 
     .about-text p {
         margin-bottom: 20px;
@@ -663,19 +704,31 @@ button {
         font-size: 19px;
 
         line-height: 1.25;
+
+        text-shadow: none;
+    }
+
+    .about-text strong {
+        text-shadow: none;
     }
 
 
-    /* INTERTITRE */
+    /* ========================================
+       INTERTITRE MOBILE
+    ======================================== */
 
     .about-text h2 {
         margin-bottom: 20px;
 
         font-size: 27px;
+
+        text-shadow: none;
     }
 
 
-    /* PHOTO */
+    /* ========================================
+       PHOTO MOBILE
+    ======================================== */
 
     .about-photo img {
         height: 68vh;
@@ -687,14 +740,21 @@ button {
 
     .about-photo figcaption {
         font-size: 14px;
+
+        text-shadow: none;
     }
 
 
-    /* CRÉDIT BIO */
+    /* ========================================
+       CRÉDIT BIO MOBILE
+    ======================================== */
 
     .bio-credit {
         margin-top: -8px;
 
         font-size: 14px;
+
+        text-shadow: none;
     }
+
 }
