@@ -49,6 +49,19 @@ button {
 
 
 /* ========================================
+   BACKGROUND
+======================================== */
+
+body {
+    background-image: url("images/IMG02.jpg");
+    background-size: cover;
+    background-position: center 75%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* ========================================
    HEADER
 ======================================== */
 
