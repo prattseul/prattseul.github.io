@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", async function () {
 
-    const navigationTarget = document.getElementById("site-navigation");
-    const body = document.body;
+    const navigationTarget =
+        document.getElementById("site-navigation");
+
+    const body =
+        document.body;
 
 
     /* ========================================
@@ -44,9 +47,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
         /*
-           Après l'intro, on supprime les transitions
-           spécifiques afin de retrouver le comportement
-           normal des hover du site.
+           Une fois l'intro terminée,
+           on revient aux transitions normales.
         */
 
         window.setTimeout(function () {
@@ -90,19 +92,16 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
 
-        const html = await response.text();
+        const html =
+            await response.text();
 
-        navigationTarget.innerHTML = html;
+
+        navigationTarget.innerHTML =
+            html;
 
     } catch (error) {
 
         console.error(error);
-
-
-        /*
-           Même en cas de problème avec la navigation,
-           le contenu de la page reste visible.
-        */
 
         revealPage();
 
@@ -129,8 +128,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     /*
-       Le logo reste maintenant visible
-       sur toutes les pages.
+       Logo visible sur toutes les pages.
     */
 
     if (siteLogo) {
@@ -148,9 +146,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         } else {
 
-            titleElement.textContent = pageTitle;
+            titleElement.textContent =
+                pageTitle;
 
-            titleElement.style.display = "block";
+            titleElement.style.display =
+                "block";
 
         }
 
@@ -182,9 +182,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         );
 
 
-        /* ========================================
+        /* ----------------------------------------
            OUVRIR
-        ========================================= */
+        ---------------------------------------- */
 
         function openMenu() {
 
@@ -195,9 +195,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
 
-        /* ========================================
+        /* ----------------------------------------
            FERMER
-        ========================================= */
+        ---------------------------------------- */
 
         function closeMenu() {
 
@@ -219,7 +219,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             if (closeTimer !== null) {
 
-                window.clearTimeout(closeTimer);
+                window.clearTimeout(
+                    closeTimer
+                );
 
                 closeTimer = null;
 
@@ -233,27 +235,28 @@ document.addEventListener("DOMContentLoaded", async function () {
             cancelScheduledClose();
 
 
-            closeTimer = window.setTimeout(function () {
+            closeTimer =
+                window.setTimeout(function () {
 
-                if (
-                    !menuButton.matches(":hover") &&
-                    !menu.matches(":hover")
-                ) {
+                    if (
+                        !menuButton.matches(":hover") &&
+                        !menu.matches(":hover")
+                    ) {
 
-                    closeMenu();
+                        closeMenu();
 
-                }
+                    }
 
 
-                closeTimer = null;
+                    closeTimer = null;
 
-            }, 120);
+                }, 120);
 
         }
 
 
         /* ----------------------------------------
-           ENTRÉE SUR LE BOUTON
+           SURVOL BOUTON
         ---------------------------------------- */
 
         menuButton.addEventListener(
@@ -273,10 +276,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         );
 
 
-        /* ----------------------------------------
-           SORTIE DU BOUTON
-        ---------------------------------------- */
-
         menuButton.addEventListener(
             "mouseleave",
             function () {
@@ -293,7 +292,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
         /* ----------------------------------------
-           ENTRÉE DANS LE MENU
+           SURVOL MENU
         ---------------------------------------- */
 
         menu.addEventListener(
@@ -312,10 +311,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
         );
 
-
-        /* ----------------------------------------
-           SORTIE DU MENU
-        ---------------------------------------- */
 
         menu.addEventListener(
             "mouseleave",
@@ -407,7 +402,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
         /* ========================================
-           TOUCHE ESCAPE
+           ESCAPE
         ========================================= */
 
         document.addEventListener(
@@ -427,7 +422,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
         /* ========================================
-           CLIC SUR LIEN DU MENU
+           LIENS DU MENU
         ========================================= */
 
         document
@@ -449,7 +444,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
         /* ========================================
-           CHANGEMENT TYPE DE POINTE
+           CHANGEMENT DE TYPE DE POINTE
         ========================================= */
 
         desktopHover.addEventListener(
@@ -467,7 +462,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     /* ========================================
-       CONCERTS — DATES PASSÉES
+       CONCERTS
     ========================================= */
 
     const showItems =
@@ -476,7 +471,108 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     if (showItems.length > 0) {
 
-        const today = new Date();
+
+        /* ========================================
+           PREMIÈRES PARTIES
+        ========================================= */
+
+        showItems.forEach(function (showItem) {
+
+            const metaElement =
+                showItem.querySelector(".show-meta");
+
+
+            if (!metaElement) {
+                return;
+            }
+
+
+            const metaText =
+                metaElement.textContent
+                    .trim()
+                    .replace(/\s+/g, " ");
+
+
+            /*
+               On repère automatiquement
+               toutes les mentions :
+
+               "première partie ARTISTE"
+            */
+
+            const supportMatch =
+                metaText.match(
+                    /^première partie\s+(.+)$/i
+                );
+
+
+            if (!supportMatch) {
+                return;
+            }
+
+
+            const artistName =
+                supportMatch[1].trim();
+
+
+            /*
+               Classe appliquée à toute la date.
+            */
+
+            showItem.classList.add(
+                "show-support"
+            );
+
+
+            /*
+               On transforme la ligne en :
+
+               PREMIÈRE PARTIE   Artiste
+            */
+
+            metaElement.classList.add(
+                "show-support-meta"
+            );
+
+
+            metaElement.textContent = "";
+
+
+            const label =
+                document.createElement("span");
+
+            label.className =
+                "show-support-label";
+
+            label.textContent =
+                "première partie";
+
+
+            const artist =
+                document.createElement("span");
+
+            artist.className =
+                "show-support-artist";
+
+            artist.textContent =
+                artistName;
+
+
+            metaElement.append(
+                label,
+                artist
+            );
+
+        });
+
+
+        /* ========================================
+           DATES PASSÉES
+        ========================================= */
+
+        const today =
+            new Date();
+
 
         today.setHours(
             0,
@@ -511,8 +607,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
             /*
-               Création de la date en heure locale
-               pour éviter les décalages de fuseau.
+               Date construite en heure locale
+               pour éviter les décalages
+               liés au fuseau horaire.
             */
 
             const parts =
@@ -552,11 +649,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             if (showDate < today) {
 
-                showItem.classList.add("past");
+                showItem.classList.add(
+                    "past"
+                );
 
             } else {
 
-                showItem.classList.remove("past");
+                showItem.classList.remove(
+                    "past"
+                );
 
             }
 
@@ -566,7 +667,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     /* ========================================
-       LANCEMENT DE L'INTRO
+       LANCEMENT INTRO
     ========================================= */
 
     revealPage();
