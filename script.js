@@ -1,8 +1,71 @@
 document.addEventListener("DOMContentLoaded", async function () {
 
     const navigationTarget = document.getElementById("site-navigation");
+    const body = document.body;
+
+
+    /* ========================================
+       INTRO — FONCTION DE RÉVÉLATION
+    ========================================= */
+
+    function revealPage() {
+
+        const reducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        );
+
+
+        if (reducedMotion.matches) {
+
+            body.classList.add(
+                "intro-ready",
+                "intro-complete"
+            );
+
+            return;
+        }
+
+
+        /*
+           Deux frames permettent au navigateur
+           d'afficher l'état initial avant
+           de lancer les transitions.
+        */
+
+        window.requestAnimationFrame(function () {
+
+            window.requestAnimationFrame(function () {
+
+                body.classList.add("intro-ready");
+
+            });
+
+        });
+
+
+        /*
+           Après l'intro, on supprime les transitions
+           spécifiques afin de retrouver le comportement
+           normal des hover du site.
+        */
+
+        window.setTimeout(function () {
+
+            body.classList.add("intro-complete");
+
+        }, 2100);
+
+    }
+
+
+    /* ========================================
+       NAVIGATION
+    ========================================= */
 
     if (!navigationTarget) {
+
+        revealPage();
+
         return;
     }
 
@@ -13,11 +76,19 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     try {
 
-        const response = await fetch("components/navigation.html");
+        const response = await fetch(
+            "components/navigation.html"
+        );
+
 
         if (!response.ok) {
-            throw new Error("Impossible de charger navigation.html");
+
+            throw new Error(
+                "Impossible de charger navigation.html"
+            );
+
         }
+
 
         const html = await response.text();
 
@@ -27,42 +98,60 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         console.error(error);
 
+
+        /*
+           Même en cas de problème avec la navigation,
+           le contenu de la page reste visible.
+        */
+
+        revealPage();
+
         return;
     }
 
 
     /* ========================================
-       TITRE OU LOGO
+       LOGO + TITRE
     ========================================= */
 
-    const body = document.body;
+    const pageTitle =
+        body.dataset.pageTitle || "";
 
-    const pageTitle = body.dataset.pageTitle || "";
-    const isHome = body.dataset.home === "true";
-
-    const siteLogo = document.getElementById("siteLogo");
-    const titleElement = document.getElementById("pageTitle");
+    const isHome =
+        body.dataset.home === "true";
 
 
-    if (isHome) {
+    const siteLogo =
+        document.getElementById("siteLogo");
 
-        if (siteLogo) {
-            siteLogo.style.display = "block";
-        }
+    const titleElement =
+        document.getElementById("pageTitle");
 
-        if (titleElement) {
+
+    /*
+       Le logo reste maintenant visible
+       sur toutes les pages.
+    */
+
+    if (siteLogo) {
+
+        siteLogo.style.display = "block";
+
+    }
+
+
+    if (titleElement) {
+
+        if (isHome) {
+
             titleElement.style.display = "none";
-        }
 
-    } else {
+        } else {
 
-        if (siteLogo) {
-            siteLogo.style.display = "none";
-        }
-
-        if (titleElement) {
             titleElement.textContent = pageTitle;
+
             titleElement.style.display = "block";
+
         }
 
     }
@@ -72,49 +161,59 @@ document.addEventListener("DOMContentLoaded", async function () {
        MENU
     ========================================= */
 
-    const menuButton = document.querySelector(".menu-button");
-    const closeButton = document.querySelector(".close-button");
-    const menu = document.querySelector(".menu");
+    const menuButton =
+        document.querySelector(".menu-button");
+
+    const closeButton =
+        document.querySelector(".close-button");
+
+    const menu =
+        document.querySelector(".menu");
 
 
-    if (menuButton && closeButton && menu) {
+    if (
+        menuButton &&
+        closeButton &&
+        menu
+    ) {
 
         const desktopHover = window.matchMedia(
             "(hover: hover) and (pointer: fine)"
         );
 
 
-        /* ----------------------------------------
+        /* ========================================
            OUVRIR
-        ---------------------------------------- */
+        ========================================= */
 
         function openMenu() {
 
             menu.classList.add("active");
 
-            document.body.classList.add("menu-active");
+            body.classList.add("menu-active");
 
         }
 
 
-        /* ----------------------------------------
+        /* ========================================
            FERMER
-        ---------------------------------------- */
+        ========================================= */
 
         function closeMenu() {
 
             menu.classList.remove("active");
 
-            document.body.classList.remove("menu-active");
+            body.classList.remove("menu-active");
 
         }
 
 
-        /* ----------------------------------------
-           DESKTOP : OUVERTURE AU SURVOL
-        ---------------------------------------- */
+        /* ========================================
+           DESKTOP — SURVOL
+        ========================================= */
 
         let closeTimer = null;
+
 
         function cancelScheduledClose() {
 
@@ -123,13 +222,16 @@ document.addEventListener("DOMContentLoaded", async function () {
                 window.clearTimeout(closeTimer);
 
                 closeTimer = null;
+
             }
 
         }
 
+
         function scheduleClose() {
 
             cancelScheduledClose();
+
 
             closeTimer = window.setTimeout(function () {
 
@@ -137,8 +239,11 @@ document.addEventListener("DOMContentLoaded", async function () {
                     !menuButton.matches(":hover") &&
                     !menu.matches(":hover")
                 ) {
+
                     closeMenu();
+
                 }
+
 
                 closeTimer = null;
 
@@ -147,194 +252,258 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
 
-        menuButton.addEventListener("mouseenter", function () {
-
-            if (!desktopHover.matches) {
-                return;
-            }
-
-            cancelScheduledClose();
-
-            openMenu();
-
-        });
-
-
-        menuButton.addEventListener("mouseleave", function () {
-
-            if (!desktopHover.matches) {
-                return;
-            }
-
-            scheduleClose();
-
-        });
-
-
-        menu.addEventListener("mouseenter", function () {
-
-            if (!desktopHover.matches) {
-                return;
-            }
-
-            cancelScheduledClose();
-
-            openMenu();
-
-        });
-
-
-        menu.addEventListener("mouseleave", function () {
-
-            if (!desktopHover.matches) {
-                return;
-            }
-
-            scheduleClose();
-
-        });
-
-
         /* ----------------------------------------
-           MOBILE / TACTILE : OUVERTURE AU CLIC
+           ENTRÉE SUR LE BOUTON
         ---------------------------------------- */
 
-        menuButton.addEventListener("click", function (event) {
+        menuButton.addEventListener(
+            "mouseenter",
+            function () {
 
-            event.stopPropagation();
+                if (!desktopHover.matches) {
+                    return;
+                }
 
-            if (desktopHover.matches) {
-                return;
-            }
-
-            openMenu();
-
-        });
-
-
-        /* ----------------------------------------
-           FERMER AVEC LE BOUTON
-        ---------------------------------------- */
-
-        closeButton.addEventListener("click", function (event) {
-
-            event.stopPropagation();
-
-            closeMenu();
-
-        });
-
-
-        /* ----------------------------------------
-           NE PAS FERMER SI ON CLIQUE DANS LE MENU
-        ---------------------------------------- */
-
-        menu.addEventListener("click", function (event) {
-
-            event.stopPropagation();
-
-        });
-
-
-        /* ----------------------------------------
-           FERMER SI ON CLIQUE À CÔTÉ
-           (MOBILE / TACTILE)
-        ---------------------------------------- */
-
-        document.addEventListener("click", function () {
-
-            if (
-                !desktopHover.matches &&
-                menu.classList.contains("active")
-            ) {
-
-                closeMenu();
-
-            }
-
-        });
-
-
-        /* ----------------------------------------
-           ESC
-        ---------------------------------------- */
-
-        document.addEventListener("keydown", function (event) {
-
-            if (event.key === "Escape") {
 
                 cancelScheduledClose();
 
-                closeMenu();
+                openMenu();
 
             }
-
-        });
+        );
 
 
         /* ----------------------------------------
-           FERMER APRÈS CLIC SUR UN LIEN
+           SORTIE DU BOUTON
         ---------------------------------------- */
 
-        document.querySelectorAll(".menu-list a").forEach(function (link) {
+        menuButton.addEventListener(
+            "mouseleave",
+            function () {
 
-            link.addEventListener("click", function () {
+                if (!desktopHover.matches) {
+                    return;
+                }
+
+
+                scheduleClose();
+
+            }
+        );
+
+
+        /* ----------------------------------------
+           ENTRÉE DANS LE MENU
+        ---------------------------------------- */
+
+        menu.addEventListener(
+            "mouseenter",
+            function () {
+
+                if (!desktopHover.matches) {
+                    return;
+                }
+
 
                 cancelScheduledClose();
 
+                openMenu();
+
+            }
+        );
+
+
+        /* ----------------------------------------
+           SORTIE DU MENU
+        ---------------------------------------- */
+
+        menu.addEventListener(
+            "mouseleave",
+            function () {
+
+                if (!desktopHover.matches) {
+                    return;
+                }
+
+
+                scheduleClose();
+
+            }
+        );
+
+
+        /* ========================================
+           MOBILE / TACTILE — CLIC
+        ========================================= */
+
+        menuButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+
+                if (desktopHover.matches) {
+                    return;
+                }
+
+
+                openMenu();
+
+            }
+        );
+
+
+        /* ========================================
+           BOUTON FERMER
+        ========================================= */
+
+        closeButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
                 closeMenu();
+
+            }
+        );
+
+
+        /* ========================================
+           CLIC DANS LE MENU
+        ========================================= */
+
+        menu.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+            }
+        );
+
+
+        /* ========================================
+           CLIC EXTÉRIEUR
+           MOBILE / TACTILE
+        ========================================= */
+
+        document.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    !desktopHover.matches &&
+                    menu.classList.contains("active")
+                ) {
+
+                    closeMenu();
+
+                }
+
+            }
+        );
+
+
+        /* ========================================
+           TOUCHE ESCAPE
+        ========================================= */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Escape") {
+
+                    cancelScheduledClose();
+
+                    closeMenu();
+
+                }
+
+            }
+        );
+
+
+        /* ========================================
+           CLIC SUR LIEN DU MENU
+        ========================================= */
+
+        document
+            .querySelectorAll(".menu-list a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        cancelScheduledClose();
+
+                        closeMenu();
+
+                    }
+                );
 
             });
 
-        });
 
+        /* ========================================
+           CHANGEMENT TYPE DE POINTE
+        ========================================= */
 
-        /* ----------------------------------------
-           SI LE TYPE DE POINTE CHANGE
-        ---------------------------------------- */
+        desktopHover.addEventListener(
+            "change",
+            function () {
 
-        desktopHover.addEventListener("change", function () {
+                cancelScheduledClose();
 
-            cancelScheduledClose();
+                closeMenu();
 
-            closeMenu();
-
-        });
+            }
+        );
 
     }
 
 
     /* ========================================
-       CONCERTS : DATES PASSÉES AUTOMATIQUES
+       CONCERTS — DATES PASSÉES
     ========================================= */
 
-    const showItems = document.querySelectorAll(".show-item");
+    const showItems =
+        document.querySelectorAll(".show-item");
+
 
     if (showItems.length > 0) {
 
-        /*
-           On récupère la date du jour
-           et on la ramène à minuit.
-
-           Ainsi, un concert prévu aujourd'hui
-           reste considéré comme "à venir".
-        */
-
         const today = new Date();
 
-        today.setHours(0, 0, 0, 0);
+        today.setHours(
+            0,
+            0,
+            0,
+            0
+        );
 
 
         showItems.forEach(function (showItem) {
 
-            const timeElement = showItem.querySelector("time[datetime]");
+            const timeElement =
+                showItem.querySelector(
+                    "time[datetime]"
+                );
+
 
             if (!timeElement) {
                 return;
             }
 
 
-            const dateString = timeElement.getAttribute("datetime");
+            const dateString =
+                timeElement.getAttribute(
+                    "datetime"
+                );
+
 
             if (!dateString) {
                 return;
@@ -342,35 +511,44 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
             /*
-               On construit la date en heure locale
-               pour éviter les décalages de fuseau horaire.
+               Création de la date en heure locale
+               pour éviter les décalages de fuseau.
             */
 
-            const parts = dateString.split("-");
+            const parts =
+                dateString.split("-");
+
 
             if (parts.length !== 3) {
                 return;
             }
 
 
-            const year = Number(parts[0]);
-            const month = Number(parts[1]) - 1;
-            const day = Number(parts[2]);
+            const year =
+                Number(parts[0]);
+
+            const month =
+                Number(parts[1]) - 1;
+
+            const day =
+                Number(parts[2]);
 
 
-            const showDate = new Date(
-                year,
-                month,
-                day
+            const showDate =
+                new Date(
+                    year,
+                    month,
+                    day
+                );
+
+
+            showDate.setHours(
+                0,
+                0,
+                0,
+                0
             );
 
-            showDate.setHours(0, 0, 0, 0);
-
-
-            /*
-               Si la date est antérieure à aujourd'hui,
-               on ajoute automatiquement .past
-            */
 
             if (showDate < today) {
 
@@ -386,14 +564,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     }
 
+
+    /* ========================================
+       LANCEMENT DE L'INTRO
+    ========================================= */
+
+    revealPage();
+
 });
-
-/* ========================================
-   INTRO GLOBALE
-======================================== */
-
-const introScript = document.createElement("script");
-
-introScript.src = "intro.js";
-
-document.body.appendChild(introScript);
