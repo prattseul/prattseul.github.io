@@ -1,0 +1,228 @@
+/* ========================================
+   INTRO GLOBALE — TOUTES LES PAGES
+======================================== */
+
+
+/* ========================================
+   BACKGROUND
+======================================== */
+
+body::before {
+    transform: scale(1.025);
+    transform-origin: center center;
+
+    opacity: 0.78;
+
+    transition:
+        transform 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 1.4s ease;
+
+    will-change: transform, opacity;
+}
+
+
+body.intro-ready::before {
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.site-logo {
+    opacity: 0;
+
+    transform: translateY(-5px);
+
+    transition:
+        opacity 0.8s ease 0.18s,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
+}
+
+
+body.intro-ready .site-logo {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   TITRE PAGE INTERNE
+======================================== */
+
+.page-title {
+    opacity: 0;
+
+    transform: translateY(-3px);
+
+    transition:
+        opacity 0.8s ease 0.28s,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.28s;
+}
+
+
+body.intro-ready .page-title {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   BOUTON MENU
+======================================== */
+
+.menu-button {
+    opacity: 0;
+
+    transform: translateX(-6px);
+
+    transition:
+        opacity 0.8s ease 0.35s,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+}
+
+
+body.intro-ready .menu-button {
+    opacity: 0.42;
+
+    transform: translateX(0);
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    body.intro-ready .menu-button:hover {
+        opacity: 1;
+    }
+
+}
+
+
+/* ========================================
+   RÉSEAUX SOCIAUX
+======================================== */
+
+.social-links {
+    opacity: 0;
+
+    transform: translateX(7px);
+
+    transition:
+        opacity 0.8s ease 0.45s,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s;
+}
+
+
+body.intro-ready .social-links {
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+
+/* ========================================
+   CONTENU DES PAGES INTERNES
+======================================== */
+
+body.internal-page .internal-content {
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.9s ease 0.48s,
+        transform 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.48s;
+}
+
+
+body.internal-page.intro-ready .internal-content {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   HOME — MENU PERMANENT
+======================================== */
+
+body[data-home="true"] .home-menu {
+    opacity: 0;
+
+    transform:
+        translateY(-50%)
+        translateX(-7px);
+
+    transition:
+        opacity 0.8s ease 0.38s,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.38s;
+}
+
+
+body[data-home="true"].intro-ready .home-menu {
+    opacity: 1;
+
+    transform:
+        translateY(-50%)
+        translateX(0);
+}
+
+
+/* ========================================
+   COPYRIGHT
+======================================== */
+
+.site-copyright {
+    opacity: 0;
+
+    transition:
+        opacity 0.9s ease 0.65s;
+}
+
+
+body.intro-ready .site-copyright {
+    opacity: 1;
+}
+
+
+/* ========================================
+   ACCESSIBILITÉ
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body::before,
+    .site-logo,
+    .page-title,
+    .menu-button,
+    .social-links,
+    body.internal-page .internal-content,
+    .site-copyright {
+
+        transition: none !important;
+
+        transform: none !important;
+
+        opacity: 1;
+    }
+
+
+    body[data-home="true"] .home-menu {
+
+        transition: none !important;
+
+        transform: translateY(-50%) !important;
+
+        opacity: 1;
+    }
+
+
+    body.intro-ready .menu-button {
+        opacity: 0.42;
+    }
+
+}
