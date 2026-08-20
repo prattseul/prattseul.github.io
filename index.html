@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="home-scroll.css">
+    <link rel="stylesheet" href="home-easter.css">
 </head>
 
 
@@ -21,7 +22,6 @@
 
     <!-- ========================================
          NAVIGATION COMMUNE
-         Logo + réseaux restent affichés
     ========================================= -->
 
     <div id="site-navigation"></div>
@@ -68,8 +68,6 @@
 
         <!-- ========================================
              GIF D'ACCUEIL
-             Révélé uniquement lors d'une
-             tentative de scroll
         ========================================= -->
 
         <img
@@ -84,11 +82,58 @@
 
 
     <!-- ========================================
+         EASTER EGG — JEU
+    ========================================= -->
+
+    <div
+        class="game-overlay"
+        id="gameOverlay"
+        aria-hidden="true"
+    >
+
+        <div class="game-shell">
+
+            <div class="game-header">
+
+                <div class="game-title">
+                    BLIZZARD MODERNE — LE JEU
+                </div>
+
+                <button
+                    class="game-close"
+                    id="gameClose"
+                    type="button"
+                    aria-label="Fermer le jeu"
+                >
+                    fermer
+                </button>
+
+            </div>
+
+
+            <div class="game-frame">
+
+                <iframe
+                    id="gameIframe"
+                    title="Blizzard Moderne — Le Jeu"
+                    frameborder="0"
+                    allowfullscreen
+                ></iframe>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================
          SCRIPTS
     ========================================= -->
 
     <script src="script.js"></script>
     <script src="home-scroll.js"></script>
+    <script src="home-easter.js"></script>
 
 </body>
 
