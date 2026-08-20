@@ -51,6 +51,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
+       PETIT GLITCH — INDICE
+    ========================================= */
+
+    function triggerLogoHint(logo) {
+
+        /*
+           On retire d'abord la classe
+           pour permettre de rejouer
+           l'animation si nécessaire.
+        */
+
+        logo.classList.remove(
+            "easter-hint"
+        );
+
+
+        /*
+           On force un reflow pour que
+           l'animation puisse redémarrer.
+        */
+
+        void logo.offsetWidth;
+
+
+        logo.classList.add(
+            "easter-hint"
+        );
+
+
+        window.setTimeout(function () {
+
+            logo.classList.remove(
+                "easter-hint"
+            );
+
+        }, 380);
+
+    }
+
+
+    /* ========================================
        OUVRIR
     ========================================= */
 
@@ -67,11 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        /*
-           L'overlay est rendu visible
-           avant de charger le jeu.
-        */
-
         body.classList.add(
             "game-open"
         );
@@ -84,8 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           Le jeu n'est chargé qu'au premier
-           déclenchement de l'easter egg.
+           Le jeu n'est chargé qu'une seule fois.
         */
 
         if (!gameLoaded) {
@@ -99,8 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           On donne le focus au jeu
-           pour le clavier.
+           Focus clavier sur le jeu.
         */
 
         window.setTimeout(function () {
@@ -178,6 +212,12 @@ document.addEventListener("DOMContentLoaded", function () {
         clickCount += 1;
 
 
+        /*
+           Premier clic :
+           fenêtre de 1,2 seconde
+           pour compléter les 3 clics.
+        */
+
         if (clickCount === 1) {
 
             clickTimer =
@@ -193,6 +233,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
+
+        /*
+           Deuxième clic :
+           petit indice visuel.
+        */
+
+        if (clickCount === 2) {
+
+            triggerLogoHint(
+                logo
+            );
+
+        }
+
+
+        /*
+           Troisième clic :
+           ouverture du jeu.
+        */
 
         if (clickCount >= 3) {
 
@@ -218,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /*
        Capture = true afin de neutraliser
-       le lien du logo avant la navigation.
+       le lien du logo avant toute navigation.
     */
 
     document.addEventListener(
@@ -229,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
-       FERMER
+       BOUTON FERMER
     ========================================= */
 
     gameClose.addEventListener(
@@ -237,6 +296,10 @@ document.addEventListener("DOMContentLoaded", function () {
         closeGame
     );
 
+
+    /* ========================================
+       CLIC SUR LE FOND
+    ========================================= */
 
     gameOverlay.addEventListener(
         "click",
@@ -253,6 +316,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     );
 
+
+    /* ========================================
+       ESCAPE
+    ========================================= */
 
     document.addEventListener(
         "keydown",
