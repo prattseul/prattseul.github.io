@@ -4,28 +4,7 @@
 
 
 /* ========================================
-   VISUEL D'OUVERTURE — IMG03
-======================================== */
-
-.press-hero {
-    width: 100%;
-
-    margin-bottom: 38px;
-
-    overflow: hidden;
-}
-
-
-.press-hero img {
-    display: block;
-
-    width: 100%;
-    height: auto;
-}
-
-
-/* ========================================
-   SÉLECTION — 3 COLONNES
+   SÉLECTION — 3 ARTICLES MIS EN AVANT
 ======================================== */
 
 .press-featured {
@@ -36,7 +15,7 @@
 
     gap: 18px;
 
-    margin-bottom: 48px;
+    margin-bottom: 30px;
 }
 
 
@@ -88,8 +67,9 @@
 /* ========================================
    LOGOS
 
-   Les couleurs sont supprimées mais
-   les noirs, blancs et gris sont conservés.
+   Les couleurs sont supprimées,
+   mais les noirs, blancs et gris
+   d'origine sont conservés.
 ======================================== */
 
 .press-featured-logo img {
@@ -149,7 +129,8 @@
     .press-featured-item:hover {
         transform: translateY(-3px);
 
-        border-color: rgba(255, 255, 255, 1);
+        border-color:
+            rgba(255, 255, 255, 1);
     }
 
 
@@ -162,15 +143,41 @@
 
 
 /* ========================================
-   SÉPARATION AVEC LES ARCHIVES
+   VISUEL — IMG03
 ======================================== */
 
-.press-featured + .press-year {
+.press-hero {
+    width: 100%;
+
+    margin-bottom: 38px;
+
+    overflow: hidden;
+}
+
+
+.press-hero img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* ========================================
+   ARCHIVES PRESSE
+
+   IMG03 se trouve maintenant entre
+   les highlights et les archives.
+   On rétablit donc explicitement
+   la bordure supérieure de la liste.
+======================================== */
+
+.press-hero + .press-year {
     padding-top: 4px;
 }
 
 
-.press-featured + .press-year .press-list {
+.press-hero + .press-year .press-list {
     border-top:
         1px solid rgba(255, 255, 255, 0.35);
 }
@@ -182,32 +189,31 @@
 
 @media (max-width: 700px) {
 
-    /* VISUEL */
-
-    .press-hero {
-        margin-bottom: 30px;
-    }
-
-
-    /* SÉLECTION */
+    /* ----------------------------------------
+       SÉLECTION
+    ---------------------------------------- */
 
     .press-featured {
         grid-template-columns: 1fr;
 
         gap: 32px;
 
-        margin-bottom: 42px;
+        margin-bottom: 28px;
     }
 
 
-    /* ARTICLE */
+    /* ----------------------------------------
+       ARTICLE
+    ---------------------------------------- */
 
     .press-featured-item {
         padding-top: 10px;
     }
 
 
-    /* LOGO */
+    /* ----------------------------------------
+       LOGO
+    ---------------------------------------- */
 
     .press-featured-logo {
         height: 82px;
@@ -226,19 +232,32 @@
     }
 
 
-    /* TITRE */
+    /* ----------------------------------------
+       TITRE
+    ---------------------------------------- */
 
     .press-featured-title {
         font-size: 19px;
     }
 
 
-    /* DATE */
+    /* ----------------------------------------
+       DATE
+    ---------------------------------------- */
 
     .press-featured-date {
         margin-top: 10px;
 
         font-size: 14px;
+    }
+
+
+    /* ----------------------------------------
+       IMAGE
+    ---------------------------------------- */
+
+    .press-hero {
+        margin-bottom: 30px;
     }
 
 }
