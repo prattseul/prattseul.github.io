@@ -98,7 +98,7 @@ body[data-home="true"] .home-menu {
         filter: none;
 
         transition:
-            opacity 7s cubic-bezier(
+            opacity 5s cubic-bezier(
                 0.22,
                 1,
                 0.36,
