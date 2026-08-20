@@ -639,6 +639,7 @@ body[data-home="true"] .page-title {
 
 .about-photo {
     width: 100%;
+
     margin: 0;
 }
 
@@ -651,33 +652,67 @@ body[data-home="true"] .page-title {
 }
 
 
-/* PHOTO GABBIE BURNS PLUS HAUTE */
+/* ========================================
+   PHOTO PRINCIPALE
+   PLUS PETITE / ÉDITORIALE
+======================================== */
+
+.about-photo-main {
+    width: 82%;
+
+    align-self: center;
+}
 
 .about-photo-main img {
-    height: min(72vh, 820px);
+    width: 100%;
 
-    object-position: center 27%;
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    object-position: center 24%;
 }
 
 
-/* IMG01 PLUS HORIZONTALE */
+/* ========================================
+   PHOTO IMG01
+   FORMAT CINÉMASCOPE 2.35:1
+======================================== */
+
+.about-photo-secondary {
+    width: 100%;
+}
 
 .about-photo-secondary img {
-    height: min(52vh, 560px);
+    width: 100%;
 
-    object-position: center center;
+    aspect-ratio: 2.35 / 1;
+
+    object-fit: cover;
+
+    object-position: center 44%;
 }
 
+
+/* ========================================
+   CRÉDITS PHOTO
+======================================== */
+
 .about-photo figcaption {
-    margin-top: 10px;
+    margin-top: 8px;
 
-    color: rgba(255, 255, 255, 0.82);
+    color: rgba(255, 255, 255, 0.72);
 
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1;
 
     text-align: right;
 }
+
+
+/* ========================================
+   CRÉDIT BIO
+======================================== */
 
 .bio-credit {
     margin-top: -10px;
@@ -1404,24 +1439,37 @@ body[data-home="true"] .page-title {
         font-size: 27px;
     }
 
+
+    /* PHOTO PRINCIPALE MOBILE */
+
+    .about-photo-main {
+        width: 88%;
+    }
+
     .about-photo-main img {
-        height: 60vh;
+        aspect-ratio: 4 / 5;
 
-        min-height: 420px;
+        object-position: center 24%;
+    }
 
-        object-position: center 27%;
+
+    /* IMG01 MOBILE */
+
+    .about-photo-secondary {
+        width: 100%;
     }
 
     .about-photo-secondary img {
-        height: 42vh;
+        aspect-ratio: 2.35 / 1;
 
-        min-height: 300px;
-
-        object-position: center center;
+        object-position: center 44%;
     }
 
+
     .about-photo figcaption {
-        font-size: 14px;
+        margin-top: 6px;
+
+        font-size: 13px;
     }
 
     .bio-credit {
