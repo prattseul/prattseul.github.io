@@ -1,6 +1,5 @@
 /* ========================================
    PAGE VIDÉOS
-   MISE EN PAGE ÉDITORIALE
 ======================================== */
 
 
@@ -9,13 +8,13 @@
 ======================================== */
 
 .videos-content {
-    width: min(1040px, calc(100% - 80px));
-    min-width: 0;
+    width: min(var(--content-width), calc(100% - 80px));
+    min-width: 600px;
 
     display: flex;
     flex-direction: column;
 
-    gap: 110px;
+    gap: 80px;
 
     padding: 20px 0 60px;
 }
@@ -31,7 +30,7 @@
     display: flex;
     flex-direction: column;
 
-    gap: 28px;
+    gap: 24px;
 }
 
 
@@ -47,15 +46,14 @@
     display: flex;
     align-items: baseline;
 
-    gap: 12px;
+    gap: 10px;
 
     color: #fff;
 
-    font-size: clamp(34px, 3.4vw, 54px);
-    line-height: 0.92;
+    font-size: 32px;
+    line-height: 1;
 
     font-weight: 700;
-    letter-spacing: -0.03em;
 }
 
 
@@ -69,22 +67,10 @@
 
     margin: 0;
 
-    font-size: 0.48em;
+    font-size: 16px;
     line-height: 1;
 
     opacity: 0.5;
-
-    letter-spacing: 0;
-}
-
-
-/* ========================================
-   TITRE ALTERNÉ
-======================================== */
-
-.video-project:nth-child(even) .video-project-title {
-    justify-content: flex-end;
-    text-align: right;
 }
 
 
@@ -96,13 +82,11 @@
     display: flex;
     flex-direction: column;
 
-    gap: 8px;
+    gap: 7px;
 
     min-width: 0;
 
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
+    transition: opacity 0.25s ease;
 }
 
 
@@ -111,11 +95,10 @@
 
     color: #fff;
 
-    font-size: clamp(19px, 1.45vw, 25px);
-    line-height: 1;
+    font-size: 21px;
+    line-height: 1.05;
 
     font-weight: 700;
-    letter-spacing: -0.01em;
 }
 
 
@@ -124,75 +107,31 @@
 ======================================== */
 
 .video-item-featured {
-    width: 88%;
-}
-
-
-/* Projets impairs : grande vidéo à gauche */
-
-.video-project:nth-child(odd) .video-item-featured {
-    align-self: flex-start;
-}
-
-
-/* Projets pairs : grande vidéo à droite */
-
-.video-project:nth-child(even) .video-item-featured {
-    align-self: flex-end;
+    width: 100%;
 }
 
 
 /* ========================================
-   GRILLE SECONDAIRE
+   VIDÉOS SECONDAIRES
 ======================================== */
 
 .video-grid {
-    width: 82%;
+    width: 100%;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    gap: 28px 18px;
-}
-
-
-/* Projet impair :
-   petites vidéos vers la droite */
-
-.video-project:nth-child(odd) .video-grid {
-    align-self: flex-end;
-}
-
-
-/* Projet pair :
-   petites vidéos vers la gauche */
-
-.video-project:nth-child(even) .video-grid {
-    align-self: flex-start;
+    gap: 22px 16px;
 }
 
 
 /* ========================================
-   CAS OÙ IL N'Y A QU'UNE
-   VIDÉO SECONDAIRE
+   CAS AVEC UNE SEULE VIDÉO SECONDAIRE
 ======================================== */
 
 .video-grid .video-item:only-child {
-    width: 72%;
-
-    grid-column: 1 / -1;
-}
-
-
-/* Blizzard Moderne :
-   la deuxième vidéo se place à droite */
-
-.video-project:nth-child(odd)
-.video-grid
-.video-item:only-child {
-    justify-self: end;
+    width: 100%;
 }
 
 
@@ -231,31 +170,13 @@
 
 @media (hover: hover) and (pointer: fine) {
 
-    /*
-       Lorsqu'on parcourt un groupe
-       de petites vidéos, les autres
-       s'effacent légèrement.
-    */
-
     .video-grid:hover .video-item {
-        opacity: 0.32;
+        opacity: 0.35;
     }
 
 
     .video-grid .video-item:hover {
         opacity: 1;
-
-        transform: translateY(-3px);
-    }
-
-
-    /*
-       Effet très léger sur
-       la vidéo principale.
-    */
-
-    .video-item-featured:hover {
-        transform: translateY(-3px);
     }
 
 }
@@ -270,67 +191,42 @@
     .videos-content {
         width: calc(100% - 36px);
 
-        gap: 65px;
+        min-width: 0;
+
+        gap: 55px;
 
         padding: 15px 0 35px;
     }
 
 
     .video-project {
-        gap: 20px;
-    }
-
-
-    /* Tous les titres reviennent à gauche */
-
-    .video-project:nth-child(even)
-    .video-project-title {
-        justify-content: flex-start;
-
-        text-align: left;
+        gap: 18px;
     }
 
 
     .video-project-title {
+        font-size: 27px;
+
         gap: 8px;
-
-        font-size: 30px;
     }
 
 
     .video-project-year {
-        font-size: 0.5em;
+        font-size: 14px;
     }
 
-
-    /* Grande vidéo pleine largeur */
-
-    .video-item-featured {
-        width: 100%;
-
-        align-self: stretch !important;
-    }
-
-
-    /* Une seule colonne */
 
     .video-grid {
         width: 100%;
 
         grid-template-columns: 1fr;
 
-        gap: 20px;
-
-        align-self: stretch !important;
+        gap: 18px;
     }
 
 
     .video-grid .video-item:only-child {
         width: 100%;
-
-        grid-column: auto;
-
-        justify-self: stretch;
     }
 
 
@@ -340,7 +236,7 @@
 
 
     .video-item h2 {
-        font-size: 21px;
+        font-size: 20px;
     }
 
 }
