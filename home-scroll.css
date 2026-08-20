@@ -9,26 +9,26 @@
 
 body[data-home="true"] .welcome-gif {
     /*
-       Le positionnement principal existe déjà
-       dans style.css.
-
-       On conserve donc :
-       top: 50%;
-       left: 50%;
-       width: min(500px, 45vw);
+       GIF plus grand que précédemment.
     */
+
+    width: min(700px, 58vw);
 
     opacity: 0;
     visibility: hidden;
 
     transform:
         translate(-50%, -50%)
-        scale(0.97);
+        scale(0.96);
+
+    /*
+       Apparition volontairement très lente.
+    */
 
     transition:
-        opacity 1.1s ease,
-        transform 1.25s cubic-bezier(0.22, 1, 0.36, 1),
-        visibility 0s linear 1.1s;
+        opacity 2.8s ease,
+        transform 3.2s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 2.8s;
 
     will-change:
         opacity,
@@ -49,8 +49,8 @@ body[data-home="true"].welcome-visible .welcome-gif {
         scale(1);
 
     transition:
-        opacity 1.1s ease,
-        transform 1.25s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 2.8s ease,
+        transform 3.2s cubic-bezier(0.22, 1, 0.36, 1),
         visibility 0s;
 }
 
@@ -62,7 +62,7 @@ body[data-home="true"].welcome-visible .welcome-gif {
 @media (max-width: 700px) {
 
     body[data-home="true"] .welcome-gif {
-        width: min(78vw, 430px);
+        width: min(88vw, 560px);
     }
 
 }
@@ -76,7 +76,8 @@ body[data-home="true"].welcome-visible .welcome-gif {
 
     body[data-home="true"] .welcome-gif,
     body[data-home="true"].welcome-visible .welcome-gif {
-        transition: opacity 0.2s linear;
+        transition:
+            opacity 0.2s linear;
 
         transform:
             translate(-50%, -50%);
