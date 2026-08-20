@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ========================================
-       HOME UNIQUEMENT
-    ========================================= */
-
     const body = document.body;
 
     if (body.dataset.home !== "true") {
@@ -35,11 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
-       URL DIRECTE DU BUILD HTML5
+       JEU LOCAL
     ========================================= */
 
     const gameUrl =
-        "https://html-classic.itch.zone/html/16608196/index.html?v=1782687302";
+        "game/index.html";
 
 
     /* ========================================
@@ -47,23 +43,18 @@ document.addEventListener("DOMContentLoaded", function () {
     ========================================= */
 
     let clickCount = 0;
-
     let clickTimer = null;
-
-    let welcomeWasVisible = false;
 
     let gameLoaded = false;
 
+    let welcomeWasVisible = false;
+
 
     /* ========================================
-       OUVRIR LE JEU
+       OUVRIR
     ========================================= */
 
     function openGame() {
-
-        /*
-           Mémoriser l'état du GIF de home.
-        */
 
         welcomeWasVisible =
             body.classList.contains(
@@ -71,17 +62,14 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-        /*
-           Masquer le GIF plein écran.
-        */
-
         body.classList.remove(
             "welcome-visible"
         );
 
 
         /*
-           Afficher d'abord l'overlay.
+           L'overlay est rendu visible
+           avant de charger le jeu.
         */
 
         body.classList.add(
@@ -96,57 +84,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           IMPORTANT :
-
-           On charge le jeu une fois que
-           son conteneur est réellement visible.
-
-           Cela évite certains problèmes
-           d'initialisation Canvas / WebAudio
-           quand le jeu démarre dans un élément
-           visibility:hidden.
+           Le jeu n'est chargé qu'au premier
+           déclenchement de l'easter egg.
         */
 
         if (!gameLoaded) {
 
-            window.requestAnimationFrame(
-                function () {
+            gameIframe.src =
+                gameUrl;
 
-                    window.requestAnimationFrame(
-                        function () {
-
-                            gameIframe.src =
-                                gameUrl;
-
-                            gameLoaded = true;
-
-                        }
-                    );
-
-                }
-            );
+            gameLoaded = true;
 
         }
 
 
         /*
-           Focus sur le jeu après son ouverture.
+           On donne le focus au jeu
+           pour le clavier.
         */
 
-        window.setTimeout(
-            function () {
+        window.setTimeout(function () {
 
-                gameIframe.focus();
+            gameIframe.focus();
 
-            },
-            400
-        );
+        }, 300);
 
     }
 
 
     /* ========================================
-       FERMER LE JEU
+       FERMER
     ========================================= */
 
     function closeGame() {
@@ -161,11 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "true"
         );
 
-
-        /*
-           Restaurer le GIF d'accueil
-           s'il était affiché avant.
-        */
 
         if (welcomeWasVisible) {
 
@@ -196,12 +158,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           Sur la home, le logo ne doit
-           jamais recharger index.html.
+           Sur la home, le logo
+           ne recharge jamais index.html.
         */
 
         event.preventDefault();
-
         event.stopPropagation();
 
 
@@ -216,11 +177,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         clickCount += 1;
 
-
-        /*
-           1,2 seconde pour effectuer
-           les trois clics.
-        */
 
         if (clickCount === 1) {
 
@@ -237,10 +193,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-
-        /*
-           Troisième clic.
-        */
 
         if (clickCount >= 3) {
 
@@ -264,6 +216,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    /*
+       Capture = true afin de neutraliser
+       le lien du logo avant la navigation.
+    */
+
     document.addEventListener(
         "click",
         handleLogoClick,
@@ -281,17 +238,12 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
-    /* ========================================
-       CLIC SUR LE FOND NOIR
-    ========================================= */
-
     gameOverlay.addEventListener(
         "click",
         function (event) {
 
             if (
-                event.target ===
-                gameOverlay
+                event.target === gameOverlay
             ) {
 
                 closeGame();
@@ -301,10 +253,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     );
 
-
-    /* ========================================
-       ESCAPE
-    ========================================= */
 
     document.addEventListener(
         "keydown",
