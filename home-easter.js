@@ -4,13 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
        HOME UNIQUEMENT
     ========================================= */
 
-    const body =
-        document.body;
+    const body = document.body;
 
-
-    if (
-        body.dataset.home !== "true"
-    ) {
+    if (body.dataset.home !== "true") {
         return;
     }
 
@@ -20,23 +16,30 @@ document.addEventListener("DOMContentLoaded", function () {
     ========================================= */
 
     const gameOverlay =
-        document.getElementById(
-            "gameOverlay"
-        );
-
+        document.getElementById("gameOverlay");
 
     const gameClose =
-        document.getElementById(
-            "gameClose"
-        );
+        document.getElementById("gameClose");
+
+    const gameIframe =
+        document.getElementById("gameIframe");
 
 
     if (
         !gameOverlay ||
-        !gameClose
+        !gameClose ||
+        !gameIframe
     ) {
         return;
     }
+
+
+    /* ========================================
+       URL DIRECTE DU BUILD HTML5
+    ========================================= */
+
+    const gameUrl =
+        "https://html-classic.itch.zone/html/16608196/index.html?v=1782687302";
 
 
     /* ========================================
@@ -49,6 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let welcomeWasVisible = false;
 
+    let gameLoaded = false;
+
 
     /* ========================================
        OUVRIR LE JEU
@@ -57,8 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function openGame() {
 
         /*
-           On mémorise si le GIF d'accueil
-           était visible.
+           Mémoriser l'état du GIF de home.
         */
 
         welcomeWasVisible =
@@ -68,8 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           On masque le GIF de fond
-           pendant le jeu.
+           Masquer le GIF plein écran.
         */
 
         body.classList.remove(
@@ -78,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           Ouverture overlay.
+           Afficher d'abord l'overlay.
         */
 
         body.classList.add(
@@ -93,16 +96,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           Focus sur fermer.
+           IMPORTANT :
+
+           On charge le jeu une fois que
+           son conteneur est réellement visible.
+
+           Cela évite certains problèmes
+           d'initialisation Canvas / WebAudio
+           quand le jeu démarre dans un élément
+           visibility:hidden.
+        */
+
+        if (!gameLoaded) {
+
+            window.requestAnimationFrame(
+                function () {
+
+                    window.requestAnimationFrame(
+                        function () {
+
+                            gameIframe.src =
+                                gameUrl;
+
+                            gameLoaded = true;
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+
+
+        /*
+           Focus sur le jeu après son ouverture.
         */
 
         window.setTimeout(
             function () {
 
-                gameClose.focus();
+                gameIframe.focus();
 
             },
-            100
+            400
         );
 
     }
@@ -126,8 +163,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           On restaure le GIF d'accueil
-           s'il était visible auparavant.
+           Restaurer le GIF d'accueil
+           s'il était affiché avant.
         */
 
         if (welcomeWasVisible) {
@@ -168,11 +205,6 @@ document.addEventListener("DOMContentLoaded", function () {
         event.stopPropagation();
 
 
-        /*
-           Si le jeu est déjà ouvert,
-           on ignore.
-        */
-
         if (
             body.classList.contains(
                 "game-open"
@@ -186,9 +218,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           Premier clic :
-           on donne 1,2 seconde pour
-           effectuer les trois clics.
+           1,2 seconde pour effectuer
+           les trois clics.
         */
 
         if (clickCount === 1) {
@@ -198,7 +229,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     function () {
 
                         clickCount = 0;
-
                         clickTimer = null;
 
                     },
@@ -214,14 +244,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (clickCount >= 3) {
 
-            if (
-                clickTimer !== null
-            ) {
+            if (clickTimer !== null) {
 
                 window.clearTimeout(
                     clickTimer
                 );
-
 
                 clickTimer = null;
 
@@ -230,19 +257,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             clickCount = 0;
 
-
             openGame();
 
         }
 
     }
 
-
-    /*
-       On utilise la phase capture
-       pour bloquer le lien du logo
-       avant toute navigation.
-    */
 
     document.addEventListener(
         "click",
@@ -252,35 +272,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
-       BOUTON FERMER
+       FERMER
     ========================================= */
 
     gameClose.addEventListener(
         "click",
-        function () {
-
-            closeGame();
-
-        }
+        closeGame
     );
 
 
     /* ========================================
-       CLIC SUR LE FOND
+       CLIC SUR LE FOND NOIR
     ========================================= */
 
     gameOverlay.addEventListener(
         "click",
         function (event) {
-
-            /*
-               On ferme uniquement si
-               l'utilisateur clique sur
-               l'overlay lui-même.
-
-               Un clic dans le jeu
-               ne doit évidemment rien faire.
-            */
 
             if (
                 event.target ===
