@@ -249,3 +249,19 @@
     }
 
 }
+
+/* ========================================
+   CRÉDIT PHOTO
+   MÊME TRAITEMENT QUE À PROPOS
+======================================== */
+
+.press-photo-credit {
+    margin-top: 8px;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 14px;
+    line-height: 1;
+
+    text-align: right;
+}
