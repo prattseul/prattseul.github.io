@@ -33,6 +33,7 @@ html {
 
 body {
     position: relative;
+
     width: 100%;
     min-height: 100%;
 
@@ -638,8 +639,6 @@ body[data-home="true"] .page-title {
 ======================================== */
 
 .about-photo {
-    width: 100%;
-
     margin: 0;
 }
 
@@ -654,11 +653,10 @@ body[data-home="true"] .page-title {
 
 /* ========================================
    PHOTO PRINCIPALE
-   PLUS PETITE / ÉDITORIALE
 ======================================== */
 
 .about-photo-main {
-    width: 82%;
+    width: 68%;
 
     align-self: center;
 }
@@ -675,8 +673,7 @@ body[data-home="true"] .page-title {
 
 
 /* ========================================
-   PHOTO IMG01
-   FORMAT CINÉMASCOPE 2.35:1
+   IMG01 — FORMAT 2.35:1
 ======================================== */
 
 .about-photo-secondary {
@@ -684,13 +681,21 @@ body[data-home="true"] .page-title {
 }
 
 .about-photo-secondary img {
+    display: block;
+
     width: 100%;
 
     aspect-ratio: 2.35 / 1;
 
     object-fit: cover;
 
-    object-position: center 44%;
+    /*
+       Le sujet d'IMG01 est volontairement
+       placé assez bas dans l'image originale.
+       On descend donc fortement la fenêtre
+       de cadrage pour conserver le personnage.
+    */
+    object-position: 50% 78%;
 }
 
 
@@ -1443,7 +1448,7 @@ body[data-home="true"] .page-title {
     /* PHOTO PRINCIPALE MOBILE */
 
     .about-photo-main {
-        width: 88%;
+        width: 76%;
     }
 
     .about-photo-main img {
@@ -1462,7 +1467,11 @@ body[data-home="true"] .page-title {
     .about-photo-secondary img {
         aspect-ratio: 2.35 / 1;
 
-        object-position: center 44%;
+        /*
+           Même principe sur mobile :
+           on garde le bas de l'image.
+        */
+        object-position: 50% 80%;
     }
 
 
