@@ -1,0 +1,265 @@
+/* ========================================
+   PAGE CONTACTS
+======================================== */
+
+
+/* ========================================
+   LARGEUR
+   IDENTIQUE AUX AUTRES PAGES
+======================================== */
+
+.contact-content {
+    width: min(
+        var(--content-width),
+        calc(100% - 80px)
+    );
+
+    min-width: 600px;
+}
+
+
+/* ========================================
+   GRILLE
+======================================== */
+
+.contact-grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 46px 24px;
+}
+
+
+/* ========================================
+   CARTE CONTACT
+======================================== */
+
+.contact-card {
+    min-width: 0;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 165px;
+
+    padding-top: 12px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.48);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* ========================================
+   ENTÊTE
+======================================== */
+
+.contact-card-header {
+    display: flex;
+    align-items: baseline;
+
+    gap: 10px;
+
+    margin-bottom: 24px;
+}
+
+
+/* ========================================
+   NUMÉRO
+======================================== */
+
+.contact-number {
+    color: rgba(255, 255, 255, 0.38);
+
+    font-size: 13px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: 0.05em;
+}
+
+
+/* ========================================
+   RÔLE
+======================================== */
+
+.contact-role {
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 14px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: 0.045em;
+
+    text-transform: uppercase;
+}
+
+
+/* ========================================
+   CORPS
+======================================== */
+
+.contact-card-body {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    flex: 1;
+}
+
+
+/* ========================================
+   NOM
+======================================== */
+
+.contact-name {
+    color: #fff;
+
+    font-size: clamp(27px, 2.2vw, 35px);
+    line-height: 0.95;
+
+    font-weight: 700;
+
+    letter-spacing: -0.025em;
+}
+
+
+/* ========================================
+   SOCIÉTÉ / STRUCTURE
+======================================== */
+
+.contact-company {
+    margin-top: 5px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 17px;
+    line-height: 1.05;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   EMAIL
+======================================== */
+
+.contact-link {
+    display: inline-block;
+
+    margin-top: auto;
+    padding-top: 22px;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 16px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    overflow-wrap: anywhere;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+/* ========================================
+   HOVER — ORDINATEUR
+======================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .contact-card:hover {
+        transform: translateY(-3px);
+
+        border-color:
+            rgba(255, 255, 255, 1);
+    }
+
+
+    .contact-card:hover .contact-link {
+        color: #fff;
+
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .contact-content {
+        width: calc(100% - 36px);
+
+        min-width: 0;
+    }
+
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+
+        gap: 34px;
+    }
+
+
+    .contact-card {
+        min-height: 0;
+
+        padding-top: 10px;
+    }
+
+
+    .contact-card-header {
+        margin-bottom: 17px;
+    }
+
+
+    .contact-number {
+        font-size: 12px;
+    }
+
+
+    .contact-role {
+        font-size: 13px;
+    }
+
+
+    .contact-name {
+        font-size: 29px;
+    }
+
+
+    .contact-company {
+        font-size: 16px;
+    }
+
+
+    .contact-link {
+        margin-top: 18px;
+        padding-top: 0;
+
+        font-size: 16px;
+    }
+
+}
