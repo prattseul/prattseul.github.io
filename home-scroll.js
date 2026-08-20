@@ -24,9 +24,20 @@ document.addEventListener("DOMContentLoaded", function () {
        ÉTAT
     ========================================= */
 
+    let gifVisible =
+        body.classList.contains(
+            "welcome-visible"
+        );
+
+
     let touchStartY = null;
 
-    let gifVisible = false;
+    /*
+       Empêche un même swipe de déclencher
+       plusieurs changements contradictoires.
+    */
+
+    let touchDirectionHandled = false;
 
 
     /* ========================================
@@ -41,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         gifVisible = true;
+
 
         body.classList.add(
             "welcome-visible"
@@ -62,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         gifVisible = false;
 
+
         body.classList.remove(
             "welcome-visible"
         );
@@ -76,9 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleWheel(event) {
 
         /*
-           deltaY positif :
-           tentative d'aller vers le bas
-           de la page.
+           Molette vers le bas :
+           apparition du GIF.
         */
 
         if (event.deltaY > 4) {
@@ -90,9 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           deltaY négatif :
-           tentative de revenir vers
-           le haut de la page.
+           Molette vers le haut :
+           retour au background.
         */
 
         if (event.deltaY < -4) {
@@ -110,10 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function handleKeydown(event) {
 
-        /*
-           Descendre dans la page.
-        */
-
         const downKeys = [
             "ArrowDown",
             "PageDown",
@@ -121,10 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
             " "
         ];
 
-
-        /*
-           Remonter dans la page.
-        */
 
         const upKeys = [
             "ArrowUp",
@@ -167,6 +170,14 @@ document.addEventListener("DOMContentLoaded", function () {
         touchStartY =
             event.touches[0].clientY;
 
+
+        /*
+           Nouveau swipe :
+           on autorise une nouvelle décision.
+        */
+
+        touchDirectionHandled = false;
+
     }
 
 
@@ -178,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (
             touchStartY === null ||
+            touchDirectionHandled ||
             !event.touches ||
             event.touches.length === 0
         ) {
@@ -195,15 +207,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         /*
            Le doigt monte :
-           on essaie de descendre dans la page.
-           → afficher le GIF.
+           intention de descendre dans la page.
+
+           → GIF.
         */
 
-        if (distance > 14) {
+        if (distance > 20) {
+
+            touchDirectionHandled = true;
 
             showWelcomeGif();
-
-            touchStartY = currentY;
 
             return;
         }
@@ -211,15 +224,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         /*
            Le doigt descend :
-           on essaie de remonter dans la page.
-           → retour au background.
+           intention de remonter dans la page.
+
+           → background.
         */
 
-        if (distance < -14) {
+        if (distance < -20) {
+
+            touchDirectionHandled = true;
 
             hideWelcomeGif();
-
-            touchStartY = currentY;
 
         }
 
@@ -233,6 +247,21 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleTouchEnd() {
 
         touchStartY = null;
+
+        touchDirectionHandled = false;
+
+    }
+
+
+    /* ========================================
+       ANNULATION DU GESTE
+    ========================================= */
+
+    function handleTouchCancel() {
+
+        touchStartY = null;
+
+        touchDirectionHandled = false;
 
     }
 
@@ -277,6 +306,15 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener(
         "touchend",
         handleTouchEnd,
+        {
+            passive: true
+        }
+    );
+
+
+    window.addEventListener(
+        "touchcancel",
+        handleTouchCancel,
         {
             passive: true
         }
