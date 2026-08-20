@@ -1,0 +1,107 @@
+/* ========================================
+   PAGE CONCERTS — VISUELS LIVE
+======================================== */
+
+
+/* ========================================
+   GIF PRINCIPAL — EN-TÊTE
+======================================== */
+
+.shows-hero {
+    width: 100%;
+
+    margin: 0 0 10px;
+
+    overflow: hidden;
+}
+
+
+.shows-hero img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* ========================================
+   GIF SECONDAIRE — RESPIRATION
+======================================== */
+
+.shows-interlude {
+    width: 60%;
+
+    align-self: center;
+
+    margin: 6px auto 2px;
+
+    overflow: hidden;
+}
+
+
+.shows-interlude img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* ========================================
+   PETITE APPARITION DU GIF SECONDAIRE
+   AVEC L'INTRO DE PAGE EXISTANTE
+======================================== */
+
+body.internal-page .shows-interlude {
+    opacity: 0;
+
+    transform: translateY(8px);
+
+    transition:
+        opacity 0.9s ease 0.25s,
+        transform 1.05s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+}
+
+
+body.internal-page.intro-ready .shows-interlude {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .shows-hero {
+        margin-bottom: 4px;
+    }
+
+
+    .shows-interlude {
+        width: 72%;
+
+        margin-top: 2px;
+    }
+
+}
+
+
+/* ========================================
+   ACCESSIBILITÉ
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body.internal-page .shows-interlude {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+}
