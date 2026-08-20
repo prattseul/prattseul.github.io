@@ -61,29 +61,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function openGame() {
 
-        /*
-           On mémorise l'état du GIF de home.
-        */
-
         welcomeWasVisible =
             body.classList.contains(
                 "welcome-visible"
             );
 
 
-        /*
-           On masque temporairement le GIF
-           plein écran derrière le jeu.
-        */
-
         body.classList.remove(
             "welcome-visible"
         );
 
-
-        /*
-           Chargement différé de l'iframe.
-        */
 
         if (!gameLoaded) {
 
@@ -105,10 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "false"
         );
 
-
-        /*
-           Focus sur le bouton fermer.
-        */
 
         window.setTimeout(function () {
 
@@ -136,11 +119,6 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        /*
-           On restaure l'état précédent
-           de la home.
-        */
-
         if (welcomeWasVisible) {
 
             body.classList.add(
@@ -156,84 +134,108 @@ document.addEventListener("DOMContentLoaded", function () {
        3 CLICS SUR LE LOGO
     ========================================= */
 
-    document.addEventListener(
-        "click",
-        function (event) {
+    function handleLogoClick(event) {
 
-            const logo =
-                event.target.closest(
-                    "#siteLogo, .site-logo"
+        const logo =
+            event.target.closest(
+                ".site-logo"
+            );
+
+
+        if (!logo) {
+            return;
+        }
+
+
+        /*
+           Très important :
+           on bloque immédiatement le lien
+           vers index.html sur la home.
+        */
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+
+        /*
+           Si le jeu est déjà ouvert,
+           on ne compte pas les clics.
+        */
+
+        if (
+            body.classList.contains(
+                "game-open"
+            )
+        ) {
+            return;
+        }
+
+
+        clickCount += 1;
+
+
+        /*
+           Premier clic :
+           on ouvre une fenêtre de 1 seconde
+           pour faire les 3 clics.
+        */
+
+        if (clickCount === 1) {
+
+            clickTimer =
+                window.setTimeout(
+                    function () {
+
+                        clickCount = 0;
+                        clickTimer = null;
+
+                    },
+                    1000
                 );
 
-
-            if (!logo) {
-                return;
-            }
+        }
 
 
-            /*
-               Si le jeu est déjà ouvert,
-               on ignore les clics.
-            */
+        /*
+           Troisième clic :
+           ouverture du jeu.
+        */
 
-            if (
-                body.classList.contains(
-                    "game-open"
-                )
-            ) {
-                return;
-            }
+        if (clickCount >= 3) {
 
+            if (clickTimer !== null) {
 
-            clickCount += 1;
+                window.clearTimeout(
+                    clickTimer
+                );
 
-
-            /*
-               Premier clic :
-               fenêtre d'environ 1 seconde
-               pour réaliser les trois clics.
-            */
-
-            if (clickCount === 1) {
-
-                clickTimer =
-                    window.setTimeout(
-                        function () {
-
-                            clickCount = 0;
-                            clickTimer = null;
-
-                        },
-                        1000
-                    );
+                clickTimer = null;
 
             }
 
 
-            /*
-               Troisième clic.
-            */
+            clickCount = 0;
 
-            if (clickCount >= 3) {
-
-                if (clickTimer !== null) {
-
-                    window.clearTimeout(
-                        clickTimer
-                    );
-
-                    clickTimer = null;
-
-                }
-
-
-                clickCount = 0;
-
-                openGame();
-
-            }
+            openGame();
 
         }
+
+    }
+
+
+    /*
+       Capture = true.
+
+       Cela permet de bloquer le clic
+       avant que le lien <a href="index.html">
+       ne puisse lancer la navigation.
+    */
+
+    document.addEventListener(
+        "click",
+        handleLogoClick,
+        true
     );
 
 
@@ -254,11 +256,6 @@ document.addEventListener("DOMContentLoaded", function () {
     gameOverlay.addEventListener(
         "click",
         function (event) {
-
-            /*
-               Le clic doit être directement
-               sur l'overlay, pas sur le jeu.
-            */
 
             if (
                 event.target ===
