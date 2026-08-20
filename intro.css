@@ -1,5 +1,6 @@
 /* ========================================
-   INTRO GLOBALE — TOUTES LES PAGES
+   INTRO GLOBALE
+   TOUTES LES PAGES
 ======================================== */
 
 
@@ -50,7 +51,7 @@ body.intro-ready .site-logo {
 
 
 /* ========================================
-   TITRE PAGE INTERNE
+   TITRE DE PAGE
 ======================================== */
 
 .page-title {
@@ -59,8 +60,8 @@ body.intro-ready .site-logo {
     transform: translateY(-3px);
 
     transition:
-        opacity 0.8s ease 0.28s,
-        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.28s;
+        opacity 0.8s ease 0.26s,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.26s;
 }
 
 
@@ -81,8 +82,8 @@ body.intro-ready .page-title {
     transform: translateX(-6px);
 
     transition:
-        opacity 0.8s ease 0.35s,
-        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+        opacity 0.8s ease 0.34s,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.34s;
 }
 
 
@@ -93,12 +94,8 @@ body.intro-ready .menu-button {
 }
 
 
-@media (hover: hover) and (pointer: fine) {
-
-    body.intro-ready .menu-button:hover {
-        opacity: 1;
-    }
-
+body.intro-ready .menu-button:hover {
+    opacity: 1;
 }
 
 
@@ -112,8 +109,8 @@ body.intro-ready .menu-button {
     transform: translateX(7px);
 
     transition:
-        opacity 0.8s ease 0.45s,
-        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s;
+        opacity 0.8s ease 0.42s,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.42s;
 }
 
 
@@ -134,8 +131,8 @@ body.internal-page .internal-content {
     transform: translateY(10px);
 
     transition:
-        opacity 0.9s ease 0.48s,
-        transform 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.48s;
+        opacity 0.9s ease 0.42s,
+        transform 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.42s;
 }
 
 
@@ -158,8 +155,8 @@ body[data-home="true"] .home-menu {
         translateX(-7px);
 
     transition:
-        opacity 0.8s ease 0.38s,
-        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.38s;
+        opacity 0.8s ease 0.34s,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.34s;
 }
 
 
@@ -180,7 +177,7 @@ body[data-home="true"].intro-ready .home-menu {
     opacity: 0;
 
     transition:
-        opacity 0.9s ease 0.65s;
+        opacity 0.9s ease 0.58s;
 }
 
 
@@ -190,39 +187,74 @@ body.intro-ready .site-copyright {
 
 
 /* ========================================
+   FIN DE L'INTRO
+
+   Une fois l'animation terminée,
+   on remet les transitions habituelles
+   pour ne pas perturber les hover.
+======================================== */
+
+body.intro-complete .site-logo,
+body.intro-complete .page-title,
+body.intro-complete .social-links,
+body.internal-page.intro-complete .internal-content,
+body.intro-complete .site-copyright {
+    transition: none;
+}
+
+
+body.intro-complete .menu-button {
+    transition: opacity 0.2s ease;
+}
+
+
+body[data-home="true"].intro-complete .home-menu {
+    transition: none;
+}
+
+
+/* ========================================
    ACCESSIBILITÉ
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
-    body::before,
+    body::before {
+        transform: scale(1);
+        opacity: 1;
+
+        transition: none;
+    }
+
+
     .site-logo,
     .page-title,
-    .menu-button,
     .social-links,
     body.internal-page .internal-content,
     .site-copyright {
-
-        transition: none !important;
-
-        transform: none !important;
-
         opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+
+    .menu-button {
+        opacity: 0.42;
+
+        transform: none;
+
+        transition: opacity 0.2s ease;
     }
 
 
     body[data-home="true"] .home-menu {
-
-        transition: none !important;
-
-        transform: translateY(-50%) !important;
-
         opacity: 1;
-    }
 
+        transform: translateY(-50%);
 
-    body.intro-ready .menu-button {
-        opacity: 0.42;
+        transition: none;
     }
 
 }
