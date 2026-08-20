@@ -1,84 +1,110 @@
 /* ========================================
-   HOME — GIF AU SCROLL
+   HOME — GIF PLEIN ÉCRAN AU SCROLL
 ======================================== */
 
 
 /* ========================================
-   ÉTAT INITIAL
+   GIF — ÉTAT INITIAL
 ======================================== */
 
 body[data-home="true"] .welcome-gif {
-    width: min(700px, 58vw);
+    /*
+       Couche plein écran située juste
+       au-dessus du background.
+    */
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+
+    object-fit: cover;
+    object-position: center;
+
+    /*
+       Le GIF ne doit jamais bloquer
+       le menu ou les liens.
+    */
+
+    pointer-events: none;
+
+    /*
+       État initial invisible.
+    */
 
     opacity: 0;
     visibility: hidden;
 
-    transform:
-        translate(-50%, -50%)
-        scale(0.96);
+    transform: scale(1.02);
 
-    filter: blur(7px);
+    /*
+       Très léger flou au début
+       de l'apparition.
+    */
+
+    filter: blur(5px);
+
+    /*
+       Apparition lente.
+    */
 
     transition:
-        opacity 2.8s ease,
-        transform 3.2s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 2.8s ease,
-        visibility 0s linear 2.8s;
+        opacity 3.2s ease,
+        transform 3.6s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 3.2s ease,
+        visibility 0s linear 3.2s;
 
     will-change:
         opacity,
         transform,
         filter;
+
+    /*
+       Important :
+       au-dessus du background,
+       derrière l'interface.
+    */
+
+    z-index: 0;
 }
 
+
+/* ========================================
+   GIF — VISIBLE
+======================================== */
 
 body[data-home="true"].welcome-visible .welcome-gif {
     opacity: 1;
     visibility: visible;
 
-    transform:
-        translate(-50%, -50%)
-        scale(1);
+    transform: scale(1);
 
     filter: blur(0);
 
     transition:
-        opacity 2.8s ease,
-        transform 3.2s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 2.8s ease,
+        opacity 3.2s ease,
+        transform 3.6s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 3.2s ease,
         visibility 0s;
 }
 
 
 /* ========================================
-   GIF VISIBLE
+   INTERFACE AU-DESSUS DU GIF
 ======================================== */
 
-body[data-home="true"].welcome-visible .welcome-gif {
-    opacity: 1;
-    visibility: visible;
+body[data-home="true"] #site-navigation {
+    position: relative;
 
-    transform:
-        translate(-50%, -50%)
-        scale(1);
-
-    transition:
-        opacity 2.8s ease,
-        transform 3.2s cubic-bezier(0.22, 1, 0.36, 1),
-        visibility 0s;
+    z-index: 10;
 }
 
 
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 700px) {
-
-    body[data-home="true"] .welcome-gif {
-        width: min(88vw, 560px);
-    }
-
+body[data-home="true"] .home-menu {
+    z-index: 10;
 }
 
 
@@ -90,11 +116,13 @@ body[data-home="true"].welcome-visible .welcome-gif {
 
     body[data-home="true"] .welcome-gif,
     body[data-home="true"].welcome-visible .welcome-gif {
-        transition:
-            opacity 0.2s linear;
+        transform: none;
 
-        transform:
-            translate(-50%, -50%);
+        filter: none;
+
+        transition:
+            opacity 0.2s linear,
+            visibility 0s;
     }
 
 }
