@@ -8,11 +8,6 @@
 ======================================== */
 
 body[data-home="true"] .welcome-gif {
-    /*
-       Couche plein écran située juste
-       au-dessus du background.
-    */
-
     position: fixed;
 
     inset: 0;
@@ -24,49 +19,31 @@ body[data-home="true"] .welcome-gif {
     object-fit: cover;
     object-position: center;
 
-    /*
-       Le GIF ne doit jamais bloquer
-       le menu ou les liens.
-    */
-
     pointer-events: none;
 
     /*
-       État initial invisible.
+       On laisse le GIF présent en permanence
+       et on joue uniquement sur l'opacité.
+
+       C'est plus fiable sur mobile que
+       visibility + opacity.
     */
 
     opacity: 0;
-    visibility: hidden;
 
     transform: scale(1.02);
 
-    /*
-       Très léger flou au début
-       de l'apparition.
-    */
-
     filter: blur(5px);
-
-    /*
-       Apparition lente.
-    */
 
     transition:
         opacity 3.2s ease,
         transform 3.6s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 3.2s ease,
-        visibility 0s linear 3.2s;
+        filter 3.2s ease;
 
     will-change:
         opacity,
         transform,
         filter;
-
-    /*
-       Important :
-       au-dessus du background,
-       derrière l'interface.
-    */
 
     z-index: 0;
 }
@@ -78,17 +55,10 @@ body[data-home="true"] .welcome-gif {
 
 body[data-home="true"].welcome-visible .welcome-gif {
     opacity: 1;
-    visibility: visible;
 
     transform: scale(1);
 
     filter: blur(0);
-
-    transition:
-        opacity 3.2s ease,
-        transform 3.6s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 3.2s ease,
-        visibility 0s;
 }
 
 
@@ -109,6 +79,41 @@ body[data-home="true"] .home-menu {
 
 
 /* ========================================
+   MOBILE / TACTILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    /*
+       Sur téléphone :
+       fondu pur.
+
+       Pas de blur ni de scale afin de garantir
+       une transition fluide, notamment sur Safari.
+    */
+
+    body[data-home="true"] .welcome-gif {
+        transform: none;
+
+        filter: none;
+
+        transition:
+            opacity 3.2s ease;
+
+        will-change: opacity;
+    }
+
+
+    body[data-home="true"].welcome-visible .welcome-gif {
+        transform: none;
+
+        filter: none;
+    }
+
+}
+
+
+/* ========================================
    ACCESSIBILITÉ
 ======================================== */
 
@@ -121,8 +126,7 @@ body[data-home="true"] .home-menu {
         filter: none;
 
         transition:
-            opacity 0.2s linear,
-            visibility 0s;
+            opacity 0.2s linear;
     }
 
 }
