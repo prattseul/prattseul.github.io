@@ -1,6 +1,27 @@
 /* ========================================
-   PAGE PRESSE — SÉLECTION
+   PAGE PRESSE
 ======================================== */
+
+
+/* ========================================
+   VISUEL D'OUVERTURE — IMG03
+======================================== */
+
+.press-hero {
+    width: 100%;
+
+    margin-bottom: 38px;
+
+    overflow: hidden;
+}
+
+
+.press-hero img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
 
 
 /* ========================================
@@ -47,8 +68,7 @@
 /* ========================================
    ZONE LOGO
 
-   Chaque média dispose exactement
-   de la même zone.
+   Chaque média dispose de la même zone.
 ======================================== */
 
 .press-featured-logo {
@@ -68,12 +88,8 @@
 /* ========================================
    LOGOS
 
-   Même hauteur visuelle.
-   Les proportions restent intactes.
-
-   grayscale(1) supprime uniquement
-   les couleurs : les noirs, blancs
-   et gris du fichier sont conservés.
+   Les couleurs sont supprimées mais
+   les noirs, blancs et gris sont conservés.
 ======================================== */
 
 .press-featured-logo img {
@@ -166,6 +182,15 @@
 
 @media (max-width: 700px) {
 
+    /* VISUEL */
+
+    .press-hero {
+        margin-bottom: 30px;
+    }
+
+
+    /* SÉLECTION */
+
     .press-featured {
         grid-template-columns: 1fr;
 
@@ -175,10 +200,14 @@
     }
 
 
+    /* ARTICLE */
+
     .press-featured-item {
         padding-top: 10px;
     }
 
+
+    /* LOGO */
 
     .press-featured-logo {
         height: 82px;
@@ -197,10 +226,14 @@
     }
 
 
+    /* TITRE */
+
     .press-featured-title {
         font-size: 19px;
     }
 
+
+    /* DATE */
 
     .press-featured-date {
         margin-top: 10px;
