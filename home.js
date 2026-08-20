@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ========================================
-       VÉRIFICATION PAGE D'ACCUEIL
-    ========================================= */
-
     const body = document.body;
 
     if (body.dataset.home !== "true") {
@@ -12,236 +8,136 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
-       CONDITIONS D'ACTIVATION
+       ACCESSIBILITÉ
     ========================================= */
-
-    const desktopPointer = window.matchMedia(
-        "(hover: hover) and (pointer: fine)"
-    );
 
     const reducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
     );
 
 
-    /* ========================================
-       RÉGLAGES
-    ========================================= */
-
     /*
-       Déplacement maximum du fond
-       dans chaque direction.
+       Si l'utilisateur préfère réduire
+       les animations, on affiche immédiatement
+       la page dans son état final.
     */
 
-    const maxMovement = 10;
+    if (reducedMotion.matches) {
 
+        body.classList.add("home-ready");
 
-    /*
-       Plus cette valeur est petite,
-       plus le mouvement est doux/lent.
-
-       0.08 = mouvement assez feutré.
-    */
-
-    const smoothing = 0.08;
-
-
-    /* ========================================
-       POSITION
-    ========================================= */
-
-    let targetX = 0;
-    let targetY = 0;
-
-    let currentX = 0;
-    let currentY = 0;
-
-    let animationFrame = null;
-
-
-    /* ========================================
-       MISE À JOUR CSS
-    ========================================= */
-
-    function updateBackgroundPosition() {
-
-        /*
-           Interpolation progressive entre
-           la position actuelle et la cible.
-        */
-
-        currentX += (targetX - currentX) * smoothing;
-        currentY += (targetY - currentY) * smoothing;
-
-
-        body.style.setProperty(
-            "--home-bg-x",
-            currentX.toFixed(2) + "px"
-        );
-
-        body.style.setProperty(
-            "--home-bg-y",
-            currentY.toFixed(2) + "px"
-        );
-
-
-        /*
-           On continue l'animation tant que
-           la différence reste perceptible.
-        */
-
-        const differenceX = Math.abs(targetX - currentX);
-        const differenceY = Math.abs(targetY - currentY);
-
-
-        if (
-            differenceX > 0.01 ||
-            differenceY > 0.01
-        ) {
-
-            animationFrame = window.requestAnimationFrame(
-                updateBackgroundPosition
-            );
-
-        } else {
-
-            currentX = targetX;
-            currentY = targetY;
-
-            body.style.setProperty(
-                "--home-bg-x",
-                currentX.toFixed(2) + "px"
-            );
-
-            body.style.setProperty(
-                "--home-bg-y",
-                currentY.toFixed(2) + "px"
-            );
-
-            animationFrame = null;
-        }
-
+        return;
     }
 
 
     /* ========================================
-       DÉMARRER L'INTERPOLATION
+       NAVIGATION COMMUNE
     ========================================= */
 
-    function startAnimation() {
+    const navigationTarget =
+        document.getElementById("site-navigation");
 
-        if (animationFrame !== null) {
-            return;
-        }
 
-        animationFrame = window.requestAnimationFrame(
-            updateBackgroundPosition
-        );
+    /* ========================================
+       DÉCLENCHEMENT
+    ========================================= */
+
+    function revealHome() {
+
+        /*
+           Deux frames permettent au navigateur
+           d'afficher d'abord l'état initial CSS,
+           puis de lancer proprement la transition.
+        */
+
+        window.requestAnimationFrame(function () {
+
+            window.requestAnimationFrame(function () {
+
+                body.classList.add("home-ready");
+
+            });
+
+        });
 
     }
 
 
+    /*
+       Le menu permanent de gauche existe déjà
+       dans index.html.
+
+       Le logo et les réseaux, eux, arrivent
+       après le chargement de
+       components/navigation.html par script.js.
+
+       On attend donc que cette navigation soit
+       réellement présente avant de lancer
+       l'apparition générale.
+    */
+
+    if (
+        navigationTarget &&
+        navigationTarget.children.length > 0
+    ) {
+
+        revealHome();
+
+        return;
+    }
+
+
+    if (!navigationTarget) {
+
+        revealHome();
+
+        return;
+    }
+
+
     /* ========================================
-       MOUVEMENT DE LA SOURIS
+       ATTENDRE L'INSERTION DE LA NAVIGATION
     ========================================= */
 
-    function handlePointerMove(event) {
+    const observer = new MutationObserver(function () {
 
-        if (
-            !desktopPointer.matches ||
-            reducedMotion.matches
-        ) {
+        if (navigationTarget.children.length === 0) {
             return;
         }
 
 
-        /*
-           Position de la souris entre -1 et +1.
+        observer.disconnect();
 
-           Centre écran :
-           0 / 0
+        revealHome();
 
-           Bord gauche :
-           -1
-
-           Bord droit :
-           +1
-        */
-
-        const normalizedX =
-            (event.clientX / window.innerWidth - 0.5) * 2;
-
-        const normalizedY =
-            (event.clientY / window.innerHeight - 0.5) * 2;
+    });
 
 
-        /*
-           Le fond bouge légèrement dans
-           le sens opposé à la souris.
-
-           Cela donne l'impression que
-           l'interface se trouve devant
-           la photographie.
-        */
-
-        targetX = normalizedX * -maxMovement;
-        targetY = normalizedY * -maxMovement;
-
-        startAnimation();
-
-    }
-
-
-    /* ========================================
-       RETOUR AU CENTRE
-    ========================================= */
-
-    function resetBackground() {
-
-        targetX = 0;
-        targetY = 0;
-
-        startAnimation();
-
-    }
-
-
-    /* ========================================
-       ÉVÉNEMENTS
-    ========================================= */
-
-    window.addEventListener(
-        "pointermove",
-        handlePointerMove,
-        { passive: true }
+    observer.observe(
+        navigationTarget,
+        {
+            childList: true
+        }
     );
 
 
-    document.documentElement.addEventListener(
-        "mouseleave",
-        resetBackground
-    );
+    /*
+       Sécurité :
+       même si navigation.html rencontrait
+       exceptionnellement un problème,
+       on ne laisse jamais la home invisible.
+    */
 
+    window.setTimeout(function () {
 
-    window.addEventListener(
-        "blur",
-        resetBackground
-    );
+        if (!body.classList.contains("home-ready")) {
 
+            observer.disconnect();
 
-    /* ========================================
-       CHANGEMENT DE TYPE D'APPAREIL
-    ========================================= */
+            revealHome();
 
-    desktopPointer.addEventListener(
-        "change",
-        resetBackground
-    );
+        }
 
-
-    reducedMotion.addEventListener(
-        "change",
-        resetBackground
-    );
+    }, 1200);
 
 });
