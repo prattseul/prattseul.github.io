@@ -1,70 +1,129 @@
 /* ========================================
-   ACCUEIL — EFFET DE PROFONDEUR
+   HOME — APPARITION DOUCE
 ======================================== */
 
 
 /*
-   Valeurs contrôlées par home.js.
+   Le fond démarre très légèrement agrandi
+   et atténué.
 
-   Par défaut, le fond reste exactement
-   à sa position normale.
+   Dès que home.js ajoute .home-ready,
+   il revient progressivement à son état normal.
 */
 
-body[data-home="true"] {
-    --home-bg-x: 0px;
-    --home-bg-y: 0px;
+body[data-home="true"]::before {
+    transform: scale(1.025);
+    transform-origin: center center;
+
+    opacity: 0.78;
+
+    transition:
+        transform 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 1.4s ease;
+
+    will-change: transform, opacity;
+}
+
+
+body[data-home="true"].home-ready::before {
+    transform: scale(1);
+    opacity: 1;
 }
 
 
 /* ========================================
-   BACKGROUND MOBILE / PAR DÉFAUT
+   LOGO
 ======================================== */
 
 /*
-   On ne change rien sur tactile.
-   Le background commun de style.css
-   reste utilisé normalement.
+   Le header est injecté dynamiquement
+   par script.js.
+
+   On anime le logo lui-même afin de ne pas
+   modifier le transform utilisé pour centrer
+   .header-center.
 */
+
+body[data-home="true"] .site-logo {
+    opacity: 0;
+
+    transform: translateY(-5px);
+
+    transition:
+        opacity 0.8s ease 0.18s,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
+}
+
+
+body[data-home="true"].home-ready .site-logo {
+    opacity: 1;
+
+    transform: translateY(0);
+}
 
 
 /* ========================================
-   PARALLAXE DESKTOP
+   MENU ACCUEIL
 ======================================== */
 
-@media (hover: hover) and (pointer: fine) {
+body[data-home="true"] .home-menu {
+    opacity: 0;
 
-    body[data-home="true"]::before {
+    transform:
+        translateY(-50%)
+        translateX(-7px);
 
-        /*
-           On agrandit légèrement la surface
-           du background afin qu'aucun bord noir
-           n'apparaisse pendant le déplacement.
-        */
+    transition:
+        opacity 0.8s ease 0.38s,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.38s;
+}
 
-        inset: -18px;
 
-        width: auto;
-        height: auto;
+body[data-home="true"].home-ready .home-menu {
+    opacity: 1;
 
-        /*
-           Le mouvement concerne uniquement
-           la photographie de fond.
-        */
+    transform:
+        translateY(-50%)
+        translateX(0);
+}
 
-        transform: translate3d(
-            var(--home-bg-x),
-            var(--home-bg-y),
-            0
-        );
 
-        /*
-           Le navigateur prépare le calque
-           pour conserver une animation fluide.
-        */
+/* ========================================
+   RÉSEAUX SOCIAUX
+======================================== */
 
-        will-change: transform;
-    }
+body[data-home="true"] .social-links {
+    opacity: 0;
 
+    transform: translateX(7px);
+
+    transition:
+        opacity 0.8s ease 0.48s,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.48s;
+}
+
+
+body[data-home="true"].home-ready .social-links {
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+
+/* ========================================
+   COPYRIGHT
+======================================== */
+
+body[data-home="true"] .site-copyright {
+    opacity: 0;
+
+    transition:
+        opacity 0.9s ease 0.65s;
+}
+
+
+body[data-home="true"].home-ready .site-copyright {
+    opacity: 1;
 }
 
 
@@ -74,8 +133,23 @@ body[data-home="true"] {
 
 @media (prefers-reduced-motion: reduce) {
 
-    body[data-home="true"]::before {
-        transform: none !important;
+    body[data-home="true"]::before,
+    body[data-home="true"] .site-logo,
+    body[data-home="true"] .home-menu,
+    body[data-home="true"] .social-links,
+    body[data-home="true"] .site-copyright {
+
+        transition: none !important;
+        transform: none;
+    }
+
+
+    /*
+       Le menu doit conserver son centrage vertical.
+    */
+
+    body[data-home="true"] .home-menu {
+        transform: translateY(-50%);
     }
 
 }
