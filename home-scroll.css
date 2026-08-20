@@ -86,10 +86,10 @@ body[data-home="true"] .home-menu {
 
     /*
        Sur téléphone :
-       fondu pur.
+       fondu très lent et progressif.
 
-       Pas de blur ni de scale afin de garantir
-       une transition fluide, notamment sur Safari.
+       Pas de blur ni de scale pour conserver
+       une animation fluide sur Safari mobile.
     */
 
     body[data-home="true"] .welcome-gif {
@@ -98,7 +98,12 @@ body[data-home="true"] .home-menu {
         filter: none;
 
         transition:
-            opacity 3.2s ease;
+            opacity 7s cubic-bezier(
+                0.22,
+                1,
+                0.36,
+                1
+            );
 
         will-change: opacity;
     }
