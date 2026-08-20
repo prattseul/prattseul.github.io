@@ -47,8 +47,8 @@
 /* ========================================
    ZONE LOGO
 
-   Chaque logo dispose exactement
-   du même espace.
+   Chaque média dispose exactement
+   de la même zone.
 ======================================== */
 
 .press-featured-logo {
@@ -56,71 +56,41 @@
     height: 105px;
 
     display: flex;
-
     align-items: center;
     justify-content: flex-start;
 
     margin-bottom: 18px;
+
+    overflow: hidden;
 }
 
 
 /* ========================================
-   LOGOS — RÈGLES COMMUNES
+   LOGOS
+
+   Même hauteur visuelle.
+   Les proportions restent intactes.
+
+   grayscale(1) supprime uniquement
+   les couleurs : les noirs, blancs
+   et gris du fichier sont conservés.
 ======================================== */
 
 .press-featured-logo img {
     display: block;
 
-    width: 100%;
+    width: 92%;
     height: 62px;
 
     object-fit: contain;
     object-position: left center;
 
-    /*
-       Tous les logos deviennent blancs,
-       quelle que soit leur couleur d'origine.
-    */
-
-    filter:
-        grayscale(1)
-        brightness(0)
-        invert(1);
+    filter: grayscale(1);
 
     opacity: 1;
 
     transition:
         transform 0.3s ease;
-}
-
-
-/* ========================================
-   AJUSTEMENT VISUEL RADIO FRANCE
-======================================== */
-
-.press-featured-item:nth-child(1)
-.press-featured-logo img {
-    width: 92%;
-}
-
-
-/* ========================================
-   AJUSTEMENT VISUEL LA FACE B
-======================================== */
-
-.press-featured-item:nth-child(2)
-.press-featured-logo img {
-    width: 92%;
-}
-
-
-/* ========================================
-   AJUSTEMENT VISUEL ZERO
-======================================== */
-
-.press-featured-item:nth-child(3)
-.press-featured-logo img {
-    width: 92%;
 }
 
 
@@ -222,6 +192,8 @@
         height: 55px;
 
         max-width: 75%;
+
+        object-position: left center;
     }
 
 
