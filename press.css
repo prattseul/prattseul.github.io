@@ -4,7 +4,7 @@
 
 
 /* ========================================
-   BLOC GÉNÉRAL
+   SÉLECTION — 3 COLONNES
 ======================================== */
 
 .press-featured {
@@ -29,40 +29,110 @@
     display: flex;
     flex-direction: column;
 
-    padding-top: 10px;
+    padding-top: 12px;
 
     border-top:
-        1px solid rgba(255, 255, 255, 0.55);
+        1px solid rgba(255, 255, 255, 0.65);
 
     color: #fff;
 
     text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
 }
 
 
 /* ========================================
-   MÉDIA
+   ZONE LOGO
+
+   Chaque logo dispose exactement
+   du même espace.
 ======================================== */
 
-.press-featured-media {
-    margin-bottom: 14px;
+.press-featured-logo {
+    width: 100%;
+    height: 105px;
 
-    font-size: clamp(24px, 2vw, 31px);
-    line-height: 0.95;
+    display: flex;
 
-    font-weight: 700;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-bottom: 18px;
 }
 
 
 /* ========================================
-   TITRE ARTICLE
+   LOGOS — RÈGLES COMMUNES
+======================================== */
+
+.press-featured-logo img {
+    display: block;
+
+    width: 100%;
+    height: 62px;
+
+    object-fit: contain;
+    object-position: left center;
+
+    /*
+       Tous les logos deviennent blancs,
+       quelle que soit leur couleur d'origine.
+    */
+
+    filter:
+        grayscale(1)
+        brightness(0)
+        invert(1);
+
+    opacity: 1;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* ========================================
+   AJUSTEMENT VISUEL RADIO FRANCE
+======================================== */
+
+.press-featured-item:nth-child(1)
+.press-featured-logo img {
+    width: 92%;
+}
+
+
+/* ========================================
+   AJUSTEMENT VISUEL LA FACE B
+======================================== */
+
+.press-featured-item:nth-child(2)
+.press-featured-logo img {
+    width: 92%;
+}
+
+
+/* ========================================
+   AJUSTEMENT VISUEL ZERO
+======================================== */
+
+.press-featured-item:nth-child(3)
+.press-featured-logo img {
+    width: 92%;
+}
+
+
+/* ========================================
+   TITRE DE L'ARTICLE
 ======================================== */
 
 .press-featured-title {
     flex: 1;
 
     font-size: clamp(18px, 1.35vw, 22px);
-    line-height: 1.05;
+    line-height: 1.08;
 
     font-weight: 700;
 }
@@ -85,22 +155,21 @@
 
 
 /* ========================================
-   HOVER DESKTOP
+   SURVOL — ORDINATEUR
 ======================================== */
 
 @media (hover: hover) and (pointer: fine) {
 
-    .press-featured-item {
-        transition:
-            transform 0.25s ease,
-            border-color 0.25s ease;
+    .press-featured-item:hover {
+        transform: translateY(-3px);
+
+        border-color: rgba(255, 255, 255, 1);
     }
 
 
-    .press-featured-item:hover {
-        transform: translateY(-4px);
-
-        border-color: rgba(255, 255, 255, 1);
+    .press-featured-item:hover
+    .press-featured-logo img {
+        transform: scale(1.025);
     }
 
 }
@@ -114,15 +183,6 @@
     padding-top: 4px;
 }
 
-
-/*
-   La liste actuelle avait sa bordure supérieure
-   uniquement lorsque .press-year était le premier
-   enfant de .press-content.
-
-   Comme la sélection passe maintenant avant,
-   on rétablit explicitement cette bordure.
-*/
 
 .press-featured + .press-year .press-list {
     border-top:
@@ -139,21 +199,29 @@
     .press-featured {
         grid-template-columns: 1fr;
 
-        gap: 28px;
+        gap: 32px;
 
         margin-bottom: 42px;
     }
 
 
     .press-featured-item {
-        padding-top: 8px;
+        padding-top: 10px;
     }
 
 
-    .press-featured-media {
-        margin-bottom: 7px;
+    .press-featured-logo {
+        height: 82px;
 
-        font-size: 27px;
+        margin-bottom: 12px;
+    }
+
+
+    .press-featured-logo img {
+        width: auto;
+        height: 55px;
+
+        max-width: 75%;
     }
 
 
@@ -163,7 +231,7 @@
 
 
     .press-featured-date {
-        margin-top: 9px;
+        margin-top: 10px;
 
         font-size: 14px;
     }
