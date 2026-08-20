@@ -48,8 +48,24 @@
 
 
 /* ========================================
-   PETITE APPARITION DU GIF SECONDAIRE
-   AVEC L'INTRO DE PAGE EXISTANTE
+   CRÉDITS
+   IDENTIQUES À LA PAGE À PROPOS
+======================================== */
+
+.shows-gif-credit {
+    margin-top: 8px;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 14px;
+    line-height: 1;
+
+    text-align: right;
+}
+
+
+/* ========================================
+   APPARITION DU GIF SECONDAIRE
 ======================================== */
 
 body.internal-page .shows-interlude {
