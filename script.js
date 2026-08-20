@@ -387,3 +387,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
 });
+
+/* ========================================
+   INTRO GLOBALE
+======================================== */
+
+const introScript = document.createElement("script");
+
+introScript.src = "intro.js";
+
+document.body.appendChild(introScript);
