@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ========================================
-       HOME UNIQUEMENT
-    ========================================= */
-
     const body = document.body;
 
     if (body.dataset.home !== "true") {
@@ -11,46 +7,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ========================================
-       JEU
-    ========================================= */
-
     const gameOverlay =
         document.getElementById("gameOverlay");
 
     const gameClose =
         document.getElementById("gameClose");
 
-    const gameIframe =
-        document.getElementById("gameIframe");
-
 
     if (
         !gameOverlay ||
-        !gameClose ||
-        !gameIframe
+        !gameClose
     ) {
         return;
     }
 
 
-    /* ========================================
-       URL DU JEU
-    ========================================= */
-
-    const gameUrl =
-        "https://itch.io/embed-upload/16608196?color=000000";
-
-
-    /* ========================================
-       ÉTAT
-    ========================================= */
-
     let clickCount = 0;
-
     let clickTimer = null;
-
-    let gameLoaded = false;
 
     let welcomeWasVisible = false;
 
@@ -70,16 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
         body.classList.remove(
             "welcome-visible"
         );
-
-
-        if (!gameLoaded) {
-
-            gameIframe.src =
-                gameUrl;
-
-            gameLoaded = true;
-
-        }
 
 
         body.classList.add(
@@ -148,20 +111,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           Très important :
-           on bloque immédiatement le lien
-           vers index.html sur la home.
+           Sur la home, le logo ne doit
+           jamais recharger index.html.
         */
 
         event.preventDefault();
-
         event.stopPropagation();
 
-
-        /*
-           Si le jeu est déjà ouvert,
-           on ne compte pas les clics.
-        */
 
         if (
             body.classList.contains(
@@ -174,12 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         clickCount += 1;
 
-
-        /*
-           Premier clic :
-           on ouvre une fenêtre de 1 seconde
-           pour faire les 3 clics.
-        */
 
         if (clickCount === 1) {
 
@@ -196,11 +146,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-
-        /*
-           Troisième clic :
-           ouverture du jeu.
-        */
 
         if (clickCount >= 3) {
 
@@ -224,14 +169,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /*
-       Capture = true.
-
-       Cela permet de bloquer le clic
-       avant que le lien <a href="index.html">
-       ne puisse lancer la navigation.
-    */
-
     document.addEventListener(
         "click",
         handleLogoClick,
@@ -240,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
-       BOUTON FERMER
+       FERMER
     ========================================= */
 
     gameClose.addEventListener(
@@ -249,18 +186,11 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
-    /* ========================================
-       CLIC SUR LE FOND NOIR
-    ========================================= */
-
     gameOverlay.addEventListener(
         "click",
         function (event) {
 
-            if (
-                event.target ===
-                gameOverlay
-            ) {
+            if (event.target === gameOverlay) {
 
                 closeGame();
 
@@ -269,10 +199,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     );
 
-
-    /* ========================================
-       TOUCHE ESCAPE
-    ========================================= */
 
     document.addEventListener(
         "keydown",
