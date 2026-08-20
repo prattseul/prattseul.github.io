@@ -138,7 +138,7 @@ body::before {
 
 
 /* ========================================
-   ACCUEIL : PAS DE BOUTON / MENU COULISSANT
+   ACCUEIL
 ======================================== */
 
 body[data-home="true"] .menu-button {
@@ -653,10 +653,11 @@ body[data-home="true"] .page-title {
 
 /* ========================================
    PHOTO PRINCIPALE
+   PLUS PETITE + CROP PAR LE HAUT
 ======================================== */
 
 .about-photo-main {
-    width: 68%;
+    width: 58%;
 
     align-self: center;
 }
@@ -668,12 +669,17 @@ body[data-home="true"] .page-title {
 
     object-fit: cover;
 
-    object-position: center 24%;
+    /*
+       On conserve le bas de la photo
+       et on rogne prioritairement le haut.
+    */
+    object-position: center bottom;
 }
 
 
 /* ========================================
-   IMG01 — FORMAT 2.35:1
+   IMG01
+   CINÉMASCOPE 2.35:1
 ======================================== */
 
 .about-photo-secondary {
@@ -681,8 +687,6 @@ body[data-home="true"] .page-title {
 }
 
 .about-photo-secondary img {
-    display: block;
-
     width: 100%;
 
     aspect-ratio: 2.35 / 1;
@@ -690,12 +694,11 @@ body[data-home="true"] .page-title {
     object-fit: cover;
 
     /*
-       Le sujet d'IMG01 est volontairement
-       placé assez bas dans l'image originale.
-       On descend donc fortement la fenêtre
-       de cadrage pour conserver le personnage.
+       Cadrage complètement descendu :
+       on conserve les pieds + une marge
+       sous le personnage.
     */
-    object-position: 50% 78%;
+    object-position: center bottom;
 }
 
 
@@ -803,8 +806,8 @@ body[data-home="true"] .page-title {
 
     color: rgba(255, 255, 255, 0.76);
 
-    font-size: clamp(14px, 1vw, 17px);
-    line-height: 1.05;
+    font-size: clamp(13px, 0.9vw, 16px);
+    line-height: 1.1;
 
     font-weight: 700;
 }
@@ -1448,13 +1451,13 @@ body[data-home="true"] .page-title {
     /* PHOTO PRINCIPALE MOBILE */
 
     .about-photo-main {
-        width: 76%;
+        width: 66%;
     }
 
     .about-photo-main img {
         aspect-ratio: 4 / 5;
 
-        object-position: center 24%;
+        object-position: center bottom;
     }
 
 
@@ -1467,11 +1470,7 @@ body[data-home="true"] .page-title {
     .about-photo-secondary img {
         aspect-ratio: 2.35 / 1;
 
-        /*
-           Même principe sur mobile :
-           on garde le bas de l'image.
-        */
-        object-position: 50% 80%;
+        object-position: center bottom;
     }
 
 
