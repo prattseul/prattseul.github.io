@@ -24,52 +24,46 @@ document.addEventListener("DOMContentLoaded", function () {
        ÉTAT
     ========================================= */
 
-    let revealed = false;
-
     let touchStartY = null;
+
+    let gifVisible = false;
 
 
     /* ========================================
        AFFICHER LE GIF
     ========================================= */
 
-    function revealWelcomeGif() {
+    function showWelcomeGif() {
 
-        if (revealed) {
+        if (gifVisible) {
             return;
         }
 
 
-        revealed = true;
+        gifVisible = true;
 
         body.classList.add(
             "welcome-visible"
         );
 
+    }
 
-        /*
-           Une fois le GIF révélé,
-           les écouteurs inutiles sont retirés.
-        */
 
-        window.removeEventListener(
-            "wheel",
-            handleWheel
-        );
+    /* ========================================
+       MASQUER LE GIF
+    ========================================= */
 
-        window.removeEventListener(
-            "keydown",
-            handleKeydown
-        );
+    function hideWelcomeGif() {
 
-        window.removeEventListener(
-            "touchstart",
-            handleTouchStart
-        );
+        if (!gifVisible) {
+            return;
+        }
 
-        window.removeEventListener(
-            "touchmove",
-            handleTouchMove
+
+        gifVisible = false;
+
+        body.classList.remove(
+            "welcome-visible"
         );
 
     }
@@ -82,15 +76,28 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleWheel(event) {
 
         /*
-           On déclenche uniquement lorsqu'on
-           essaie de descendre dans la page.
-
-           Un mouvement vers le haut ne fait rien.
+           deltaY positif :
+           tentative d'aller vers le bas
+           de la page.
         */
 
-        if (event.deltaY > 2) {
+        if (event.deltaY > 4) {
 
-            revealWelcomeGif();
+            showWelcomeGif();
+
+            return;
+        }
+
+
+        /*
+           deltaY négatif :
+           tentative de revenir vers
+           le haut de la page.
+        */
+
+        if (event.deltaY < -4) {
+
+            hideWelcomeGif();
 
         }
 
@@ -103,7 +110,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function handleKeydown(event) {
 
-        const scrollKeys = [
+        /*
+           Descendre dans la page.
+        */
+
+        const downKeys = [
             "ArrowDown",
             "PageDown",
             "End",
@@ -111,11 +122,28 @@ document.addEventListener("DOMContentLoaded", function () {
         ];
 
 
-        if (
-            scrollKeys.includes(event.key)
-        ) {
+        /*
+           Remonter dans la page.
+        */
 
-            revealWelcomeGif();
+        const upKeys = [
+            "ArrowUp",
+            "PageUp",
+            "Home"
+        ];
+
+
+        if (downKeys.includes(event.key)) {
+
+            showWelcomeGif();
+
+            return;
+        }
+
+
+        if (upKeys.includes(event.key)) {
+
+            hideWelcomeGif();
 
         }
 
@@ -123,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
-       TACTILE
+       TACTILE — DÉBUT DU GESTE
     ========================================= */
 
     function handleTouchStart(event) {
@@ -142,6 +170,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    /* ========================================
+       TACTILE — MOUVEMENT
+    ========================================= */
+
     function handleTouchMove(event) {
 
         if (
@@ -157,20 +189,50 @@ document.addEventListener("DOMContentLoaded", function () {
             event.touches[0].clientY;
 
 
-        /*
-           Pour descendre dans une page,
-           le doigt se déplace vers le haut.
-        */
-
         const distance =
             touchStartY - currentY;
 
 
-        if (distance > 12) {
+        /*
+           Le doigt monte :
+           on essaie de descendre dans la page.
+           → afficher le GIF.
+        */
 
-            revealWelcomeGif();
+        if (distance > 14) {
+
+            showWelcomeGif();
+
+            touchStartY = currentY;
+
+            return;
+        }
+
+
+        /*
+           Le doigt descend :
+           on essaie de remonter dans la page.
+           → retour au background.
+        */
+
+        if (distance < -14) {
+
+            hideWelcomeGif();
+
+            touchStartY = currentY;
 
         }
+
+    }
+
+
+    /* ========================================
+       FIN DU GESTE TACTILE
+    ========================================= */
+
+    function handleTouchEnd() {
+
+        touchStartY = null;
 
     }
 
@@ -206,6 +268,15 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener(
         "touchmove",
         handleTouchMove,
+        {
+            passive: true
+        }
+    );
+
+
+    window.addEventListener(
+        "touchend",
+        handleTouchEnd,
         {
             passive: true
         }
