@@ -165,11 +165,6 @@ body.game-open .game-shell {
 
     width: 100%;
 
-    /*
-       Le build GB Studio utilise
-       tout le viewport de son iframe.
-    */
-
     height: min(72vh, 650px);
     height: min(72dvh, 650px);
 
@@ -218,6 +213,58 @@ body[data-home="true"] .site-logo {
     cursor: default;
 
     user-select: none;
+}
+
+
+/* ========================================
+   PETIT GLITCH — INDICE
+======================================== */
+
+body[data-home="true"]
+.site-logo.easter-hint {
+    animation:
+        easterHint 0.38s ease;
+}
+
+
+@keyframes easterHint {
+
+    0% {
+        transform:
+            translate(0, 0)
+            skewX(0deg);
+    }
+
+    20% {
+        transform:
+            translate(-2px, 0)
+            skewX(-1deg);
+    }
+
+    40% {
+        transform:
+            translate(2px, -1px)
+            skewX(1deg);
+    }
+
+    60% {
+        transform:
+            translate(-1px, 1px)
+            skewX(-0.5deg);
+    }
+
+    80% {
+        transform:
+            translate(1px, 0)
+            skewX(0.5deg);
+    }
+
+    100% {
+        transform:
+            translate(0, 0)
+            skewX(0deg);
+    }
+
 }
 
 
@@ -276,6 +323,12 @@ body.game-open {
     .game-overlay,
     .game-shell {
         transition: none;
+    }
+
+
+    body[data-home="true"]
+    .site-logo.easter-hint {
+        animation: none;
     }
 
 }
