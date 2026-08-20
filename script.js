@@ -138,6 +138,35 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
 
+    /* ========================================
+       LOGO SUR LA HOME
+
+       Sur les pages internes :
+       le logo reste un lien vers index.html.
+
+       Sur la home :
+       on neutralise uniquement la navigation
+       afin que les 3 clics puissent déclencher
+       l'easter egg.
+    ========================================= */
+
+    if (
+        isHome &&
+        siteLogo
+    ) {
+
+        siteLogo.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+            }
+        );
+
+    }
+
+
     if (titleElement) {
 
         if (isHome) {
