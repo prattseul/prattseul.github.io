@@ -1,14 +1,13 @@
 /* ========================================
    INTRO GLOBALE
-   TOUTES LES PAGES
 ======================================== */
 
 
 /* ========================================
-   BACKGROUND
+   HOME — BACKGROUND
 ======================================== */
 
-body::before {
+body[data-home="true"]::before {
     transform: scale(1.025);
     transform-origin: center center;
 
@@ -22,17 +21,17 @@ body::before {
 }
 
 
-body.intro-ready::before {
+body[data-home="true"].intro-ready::before {
     transform: scale(1);
     opacity: 1;
 }
 
 
 /* ========================================
-   LOGO
+   HOME — LOGO
 ======================================== */
 
-.site-logo {
+body[data-home="true"] .site-logo {
     opacity: 0;
 
     transform: translateY(-5px);
@@ -43,100 +42,7 @@ body.intro-ready::before {
 }
 
 
-body.intro-ready .site-logo {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* ========================================
-   TITRE DE PAGE
-======================================== */
-
-.page-title {
-    opacity: 0;
-
-    transform: translateY(-3px);
-
-    transition:
-        opacity 0.8s ease 0.26s,
-        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.26s;
-}
-
-
-body.intro-ready .page-title {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* ========================================
-   BOUTON MENU
-======================================== */
-
-.menu-button {
-    opacity: 0;
-
-    transform: translateX(-6px);
-
-    transition:
-        opacity 0.8s ease 0.34s,
-        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.34s;
-}
-
-
-body.intro-ready .menu-button {
-    opacity: 0.42;
-
-    transform: translateX(0);
-}
-
-
-body.intro-ready .menu-button:hover {
-    opacity: 1;
-}
-
-
-/* ========================================
-   RÉSEAUX SOCIAUX
-======================================== */
-
-.social-links {
-    opacity: 0;
-
-    transform: translateX(7px);
-
-    transition:
-        opacity 0.8s ease 0.42s,
-        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.42s;
-}
-
-
-body.intro-ready .social-links {
-    opacity: 1;
-
-    transform: translateX(0);
-}
-
-
-/* ========================================
-   CONTENU DES PAGES INTERNES
-======================================== */
-
-body.internal-page .internal-content {
-    opacity: 0;
-
-    transform: translateY(10px);
-
-    transition:
-        opacity 0.9s ease 0.42s,
-        transform 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.42s;
-}
-
-
-body.internal-page.intro-ready .internal-content {
+body[data-home="true"].intro-ready .site-logo {
     opacity: 1;
 
     transform: translateY(0);
@@ -170,10 +76,32 @@ body[data-home="true"].intro-ready .home-menu {
 
 
 /* ========================================
-   COPYRIGHT
+   HOME — RÉSEAUX
 ======================================== */
 
-.site-copyright {
+body[data-home="true"] .social-links {
+    opacity: 0;
+
+    transform: translateX(7px);
+
+    transition:
+        opacity 0.8s ease 0.42s,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.42s;
+}
+
+
+body[data-home="true"].intro-ready .social-links {
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+
+/* ========================================
+   HOME — COPYRIGHT
+======================================== */
+
+body[data-home="true"] .site-copyright {
     opacity: 0;
 
     transition:
@@ -181,33 +109,76 @@ body[data-home="true"].intro-ready .home-menu {
 }
 
 
-body.intro-ready .site-copyright {
+body[data-home="true"].intro-ready .site-copyright {
+    opacity: 1;
+}
+
+
+/* ========================================
+   PAGES INTERNES
+   CONTENU UNIQUEMENT
+======================================== */
+
+body.internal-page .internal-content {
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.9s ease 0.18s,
+        transform 1.05s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
+}
+
+
+body.internal-page.intro-ready .internal-content {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   PAGES INTERNES
+   HEADER IMMÉDIATEMENT VISIBLE
+======================================== */
+
+body.internal-page .site-logo,
+body.internal-page .page-title,
+body.internal-page .menu-button,
+body.internal-page .social-links,
+body.internal-page .site-copyright {
+    opacity: 1;
+    transform: none;
+}
+
+
+/*
+   On conserve simplement l'opacité
+   habituelle du bouton menu.
+*/
+
+body.internal-page .menu-button {
+    opacity: 0.42;
+}
+
+
+body.internal-page .menu-button:hover {
     opacity: 1;
 }
 
 
 /* ========================================
    FIN DE L'INTRO
-
-   Une fois l'animation terminée,
-   on remet les transitions habituelles
-   pour ne pas perturber les hover.
 ======================================== */
 
-body.intro-complete .site-logo,
-body.intro-complete .page-title,
-body.intro-complete .social-links,
-body.internal-page.intro-complete .internal-content,
-body.intro-complete .site-copyright {
+body.internal-page.intro-complete .internal-content {
     transition: none;
 }
 
 
-body.intro-complete .menu-button {
-    transition: opacity 0.2s ease;
-}
-
-
+body[data-home="true"].intro-complete .site-logo,
+body[data-home="true"].intro-complete .social-links,
+body[data-home="true"].intro-complete .site-copyright,
 body[data-home="true"].intro-complete .home-menu {
     transition: none;
 }
@@ -219,7 +190,7 @@ body[data-home="true"].intro-complete .home-menu {
 
 @media (prefers-reduced-motion: reduce) {
 
-    body::before {
+    body[data-home="true"]::before {
         transform: scale(1);
         opacity: 1;
 
@@ -227,11 +198,9 @@ body[data-home="true"].intro-complete .home-menu {
     }
 
 
-    .site-logo,
-    .page-title,
-    .social-links,
-    body.internal-page .internal-content,
-    .site-copyright {
+    body[data-home="true"] .site-logo,
+    body[data-home="true"] .social-links,
+    body[data-home="true"] .site-copyright {
         opacity: 1;
 
         transform: none;
@@ -240,19 +209,19 @@ body[data-home="true"].intro-complete .home-menu {
     }
 
 
-    .menu-button {
-        opacity: 0.42;
-
-        transform: none;
-
-        transition: opacity 0.2s ease;
-    }
-
-
     body[data-home="true"] .home-menu {
         opacity: 1;
 
         transform: translateY(-50%);
+
+        transition: none;
+    }
+
+
+    body.internal-page .internal-content {
+        opacity: 1;
+
+        transform: none;
 
         transition: none;
     }
