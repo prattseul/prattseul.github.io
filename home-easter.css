@@ -24,8 +24,7 @@
 
     box-sizing: border-box;
 
-    background:
-        rgba(0, 0, 0, 0.94);
+    background: rgba(0, 0, 0, 0.94);
 
     opacity: 0;
     visibility: hidden;
@@ -167,7 +166,7 @@ body.game-open .game-shell {
 
 
 /* ========================================
-   IFRAME
+   IFRAME ITCH.IO
 ======================================== */
 
 .game-frame iframe {
@@ -186,7 +185,7 @@ body.game-open .game-shell {
 
 
 /* ========================================
-   LOGO — PETIT INDICE INVISIBLE
+   LOGO HOME
 ======================================== */
 
 body[data-home="true"] .site-logo {
@@ -229,6 +228,15 @@ body.game-open {
     .game-title,
     .game-close {
         font-size: 13px;
+    }
+
+
+    .game-frame iframe {
+        width: 100%;
+
+        aspect-ratio: 480 / 452;
+
+        height: auto;
     }
 
 }
