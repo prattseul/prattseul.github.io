@@ -33,7 +33,6 @@ html {
 
 body {
     position: relative;
-
     width: 100%;
     min-height: 100%;
 
@@ -138,17 +137,12 @@ body::before {
 
 
 /* ========================================
-   PAS DE BOUTON MENU SUR L'ACCUEIL
+   ACCUEIL : PAS DE BOUTON / MENU COULISSANT
 ======================================== */
 
 body[data-home="true"] .menu-button {
     display: none;
 }
-
-
-/* ========================================
-   PAS DE MENU COULISSANT SUR L'ACCUEIL
-======================================== */
 
 body[data-home="true"] .menu {
     display: none !important;
@@ -218,15 +212,8 @@ body[data-home="true"] .menu {
 
     white-space: nowrap;
 
-    text-decoration: none;
-
     pointer-events: auto;
 }
-
-
-/* ========================================
-   PAS DE TITRE SUR L'ACCUEIL
-======================================== */
 
 body[data-home="true"] .page-title {
     display: none !important;
@@ -251,11 +238,6 @@ body[data-home="true"] .page-title {
     margin-left: auto;
 }
 
-
-/* ========================================
-   LIENS RÉSEAUX
-======================================== */
-
 .social-links a {
     display: flex;
 
@@ -272,9 +254,6 @@ body[data-home="true"] .page-title {
     transition: opacity 0.2s ease;
 }
 
-
-/* même comportement que le menu accueil */
-
 .social-links:hover a {
     opacity: 0.22;
 }
@@ -282,11 +261,6 @@ body[data-home="true"] .page-title {
 .social-links a:hover {
     opacity: 1;
 }
-
-
-/* ========================================
-   SVG RÉSEAUX
-======================================== */
 
 .social-links svg {
     display: block;
@@ -306,11 +280,6 @@ body[data-home="true"] .page-title {
     fill: currentColor;
     stroke: none;
 }
-
-
-/* ========================================
-   IMAGES RÉSEAUX
-======================================== */
 
 .social-links img {
     display: block;
@@ -363,7 +332,7 @@ body[data-home="true"] .page-title {
 
 
 /* ========================================
-   FERMETURE MENU
+   FERMER
 ======================================== */
 
 .close-button {
@@ -394,7 +363,7 @@ body[data-home="true"] .page-title {
 
 
 /* ========================================
-   LISTE MENU INTERNE
+   MENU INTERNE
 ======================================== */
 
 .menu-list {
@@ -404,11 +373,6 @@ body[data-home="true"] .page-title {
 
     margin-top: 75px;
 }
-
-
-/* ========================================
-   LIENS MENU INTERNE
-======================================== */
 
 .menu-list a {
     color: #fff;
@@ -422,9 +386,6 @@ body[data-home="true"] .page-title {
 
     transition: opacity 0.2s ease;
 }
-
-
-/* même comportement que l'accueil */
 
 .menu-list:hover a {
     opacity: 0.22;
@@ -511,11 +472,6 @@ body[data-home="true"] .page-title {
     z-index: 20;
 }
 
-
-/* ========================================
-   LIENS MENU ACCUEIL
-======================================== */
-
 .home-menu a {
     color: #fff;
 
@@ -528,11 +484,6 @@ body[data-home="true"] .page-title {
 
     transition: opacity 0.2s ease;
 }
-
-
-/* ========================================
-   SURVOL MENU ACCUEIL
-======================================== */
 
 .home-menu:hover a {
     opacity: 0.22;
@@ -618,9 +569,9 @@ body[data-home="true"] .page-title {
     display: flex;
     flex-direction: column;
 
-    gap: 48px;
+    gap: 40px;
 
-    padding: 35px 45px 50px;
+    padding: 25px 45px 50px;
 
     background: transparent;
 
@@ -629,12 +580,13 @@ body[data-home="true"] .page-title {
 }
 
 .bio-title {
-    margin: 0 0 20px;
+    margin: 0;
 
     color: #fff;
 
     font-size: clamp(27px, 2.1vw, 36px);
     line-height: 1;
+
     font-weight: 700;
 
     letter-spacing: -0.015em;
@@ -674,10 +626,16 @@ body[data-home="true"] .page-title {
 
     font-size: clamp(26px, 2vw, 34px);
     line-height: 1;
+
     font-weight: 700;
 
     letter-spacing: -0.015em;
 }
+
+
+/* ========================================
+   PHOTOS À PROPOS
+======================================== */
 
 .about-photo {
     width: 100%;
@@ -689,10 +647,25 @@ body[data-home="true"] .page-title {
 
     width: 100%;
 
-    height: min(78vh, 920px);
-
     object-fit: cover;
+}
+
+
+/* PHOTO GABBIE BURNS PLUS HAUTE */
+
+.about-photo-main img {
+    height: min(72vh, 820px);
+
     object-position: center 27%;
+}
+
+
+/* IMG01 PLUS HORIZONTALE */
+
+.about-photo-secondary img {
+    height: min(52vh, 560px);
+
+    object-position: center center;
 }
 
 .about-photo figcaption {
@@ -707,7 +680,7 @@ body[data-home="true"] .page-title {
 }
 
 .bio-credit {
-    margin-top: -12px;
+    margin-top: -10px;
 
     color: rgba(255, 255, 255, 0.8);
 
@@ -733,6 +706,7 @@ body[data-home="true"] .page-title {
 
     font-size: clamp(28px, 2.2vw, 36px);
     line-height: 1;
+
     font-weight: 700;
 
     letter-spacing: -0.015em;
@@ -1403,17 +1377,17 @@ body[data-home="true"] .page-title {
     }
 
 
-    /* À PROPOS */
+    /* ========================================
+       À PROPOS MOBILE
+    ========================================= */
 
     .about-content {
-        gap: 38px;
+        gap: 30px;
 
-        padding: 25px 22px 34px;
+        padding: 18px 22px 34px;
     }
 
     .bio-title {
-        margin-bottom: 18px;
-
         font-size: 26px;
     }
 
@@ -1430,12 +1404,20 @@ body[data-home="true"] .page-title {
         font-size: 27px;
     }
 
-    .about-photo img {
-        height: 68vh;
+    .about-photo-main img {
+        height: 60vh;
 
-        min-height: 500px;
+        min-height: 420px;
 
         object-position: center 27%;
+    }
+
+    .about-photo-secondary img {
+        height: 42vh;
+
+        min-height: 300px;
+
+        object-position: center center;
     }
 
     .about-photo figcaption {
@@ -1443,7 +1425,7 @@ body[data-home="true"] .page-title {
     }
 
     .bio-credit {
-        margin-top: -8px;
+        margin-top: -6px;
 
         font-size: 14px;
     }
