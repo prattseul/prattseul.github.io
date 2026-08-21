@@ -88,7 +88,7 @@ body::before {
 
     background-image: url("images/IMG02.jpg");
     background-size: cover;
-    background-position: center 75%;
+    background-position: center 90%;
     background-repeat: no-repeat;
 
     z-index: 0;
