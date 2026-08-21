@@ -420,7 +420,8 @@ body[data-home="true"] .page-title {
        reprend le GIF de l'écran d'accueil.
     */
 
-    .menu {
+    .menu.active {
+        background: transparent;
         background-image: url("images/welcomeGif.gif");
         background-size: cover;
         background-position: center;
