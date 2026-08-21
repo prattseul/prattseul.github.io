@@ -128,10 +128,14 @@
 
 /* ========================================
    PHOTO PRINCIPALE
+
+   Même largeur que la seconde photo.
 ======================================== */
 
 .about-photo-main {
-    width: 100%;
+    width: 62%;
+
+    justify-self: end;
 }
 
 
@@ -503,9 +507,18 @@
     }
 
 
+    /*
+       Les deux photos restent maintenant
+       cohérentes également sur tablette.
+    */
+
+    .about-photo-main,
     .about-photo-secondary {
         width: 70%;
+    }
 
+
+    .about-photo-secondary {
         margin-right: 0;
     }
 
@@ -604,11 +617,23 @@
 
     /* ----------------------------------------
        PHOTOS
+
+       Sur mobile les deux images utilisent
+       également exactement la même largeur.
     ---------------------------------------- */
 
+    .about-photo-main,
     .about-photo-secondary {
         width: 78%;
+    }
 
+
+    .about-photo-main {
+        justify-self: end;
+    }
+
+
+    .about-photo-secondary {
         align-self: flex-end;
 
         margin: 0;
