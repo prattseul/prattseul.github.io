@@ -31,6 +31,8 @@
 html {
     width: 100%;
     min-height: 100%;
+
+    background: #000;
 }
 
 body {
@@ -73,12 +75,16 @@ body::before {
     position: fixed;
 
     /*
-       On dépasse très légèrement du viewport
-       pour éviter toute ligne noire liée aux
-       arrondis / barres dynamiques sur mobile.
+       Débordement volontaire pour Safari iOS.
+       Le background dépasse largement du viewport
+       afin d'éviter toute zone noire lorsque les
+       barres du navigateur changent de hauteur.
     */
 
-    inset: -2px;
+    top: -80px;
+    right: 0;
+    bottom: -80px;
+    left: 0;
 
     background-image: url("images/IMG02.jpg");
     background-size: cover;
