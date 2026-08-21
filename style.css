@@ -445,13 +445,10 @@ body[data-home="true"] .page-title {
         padding: 4px 6px;
         margin: -4px -6px;
 
-        background-image: url("images/welcomeGif.gif");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        background: rgba(0, 0, 0, 0.92);
 
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
     }
 
 }
