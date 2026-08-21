@@ -129,13 +129,14 @@
 /* ========================================
    PHOTO PRINCIPALE
 
-   Même largeur que la seconde photo.
+   Même largeur que la seconde photo,
+   centrée dans sa colonne.
 ======================================== */
 
 .about-photo-main {
     width: 62%;
 
-    justify-self: end;
+    justify-self: center;
 }
 
 
@@ -508,13 +509,23 @@
 
 
     /*
-       Les deux photos restent maintenant
-       cohérentes également sur tablette.
+       Les deux photos gardent
+       la même largeur sur tablette.
     */
 
     .about-photo-main,
     .about-photo-secondary {
         width: 70%;
+    }
+
+
+    /*
+       La première reste centrée
+       dans sa colonne.
+    */
+
+    .about-photo-main {
+        justify-self: center;
     }
 
 
@@ -617,9 +628,6 @@
 
     /* ----------------------------------------
        PHOTOS
-
-       Sur mobile les deux images utilisent
-       également exactement la même largeur.
     ---------------------------------------- */
 
     .about-photo-main,
@@ -628,10 +636,20 @@
     }
 
 
+    /*
+       Photo 1 centrée dans toute
+       la largeur disponible.
+    */
+
     .about-photo-main {
-        justify-self: end;
+        justify-self: center;
     }
 
+
+    /*
+       Photo 2 conserve son placement
+       asymétrique à droite.
+    */
 
     .about-photo-secondary {
         align-self: flex-end;
