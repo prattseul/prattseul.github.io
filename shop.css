@@ -1,6 +1,6 @@
 /* ========================================
-   PRATTSEUL — BOUTIQUE V4
-   carrousel horizontal compact
+   PRATTSEUL — SHOP
+   CARROUSEL INFINI CENTRÉ
 ======================================== */
 
 
@@ -9,22 +9,21 @@
 ======================================== */
 
 .shop-content {
-    width:
-        min(
-            var(--content-width),
-            calc(100% - 80px)
-        );
+    width: min(
+        var(--content-width),
+        calc(100% - 80px)
+    );
 
     min-width: 600px;
 
     display: flex;
     flex-direction: column;
 
-    gap: 14px;
+    gap: 12px;
 
     padding:
-        12px 0
-        40px;
+        8px 0
+        34px;
 }
 
 
@@ -42,21 +41,17 @@
 }
 
 
-.shop-heading p {
-    margin: 0;
-
+.shop-category {
     color:
         rgba(
             255,
             255,
             255,
-            0.42
+            0.38
         );
 
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1;
-
-    text-transform: lowercase;
 }
 
 
@@ -69,7 +64,25 @@
 
     align-items: center;
 
-    gap: 7px;
+    gap: 10px;
+}
+
+
+.shop-counter {
+    min-width: 48px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.34
+        );
+
+    font-size: 10px;
+    line-height: 1;
+
+    text-align: center;
 }
 
 
@@ -87,12 +100,12 @@
             255,
             255,
             255,
-            0.42
+            0.38
         );
 
     font: inherit;
 
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1;
 
     cursor: pointer;
@@ -109,75 +122,74 @@
 
 
 /* ========================================
+   SHELL
+======================================== */
+
+.shop-carousel-shell {
+    width: 100%;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
    CARROUSEL
 ======================================== */
 
 .shop-carousel {
     width: 100%;
 
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    scrollbar-width: none;
-
-    scroll-behavior: smooth;
-
-    scroll-snap-type:
-        x proximity;
+    overflow: hidden;
 
     cursor: grab;
 
-    overscroll-behavior-x:
-        contain;
-
-    -webkit-overflow-scrolling:
-        touch;
-}
-
-
-.shop-carousel::-webkit-scrollbar {
-    display: none;
-}
-
-
-.shop-carousel.is-dragging {
-    cursor: grabbing;
-
-    scroll-snap-type: none;
+    touch-action:
+        pan-y;
 
     user-select: none;
 }
 
 
-.shop-track {
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 14px;
-
-    width: max-content;
-
-    padding-right:
-        clamp(
-            50px,
-            12vw,
-            160px
-        );
+.shop-carousel.is-dragging {
+    cursor: grabbing;
 }
 
 
 /* ========================================
-   PRODUIT STANDARD
+   TRACK
+======================================== */
+
+.shop-track {
+    display: flex;
+
+    align-items: center;
+
+    gap:
+        clamp(
+            12px,
+            1.8vw,
+            24px
+        );
+
+    width: max-content;
+
+    padding:
+        8px
+        34vw;
+}
+
+
+/* ========================================
+   PRODUIT
 ======================================== */
 
 .shop-product {
     flex:
         0 0
         clamp(
-            190px,
-            21vw,
-            260px
+            185px,
+            20vw,
+            255px
         );
 
     display: flex;
@@ -185,21 +197,50 @@
 
     gap: 7px;
 
-    scroll-snap-align: start;
+    opacity: 0.32;
+
+    transform:
+        scale(0.78);
+
+    transform-origin:
+        center center;
+
+    transition:
+        transform
+        0.48s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+        opacity
+        0.35s
+        ease;
 }
 
 
 /* ========================================
-   PRODUIT MIS EN AVANT
+   VOISINS
 ======================================== */
 
-.shop-product-featured {
-    flex-basis:
-        clamp(
-            280px,
-            32vw,
-            390px
-        );
+.shop-product.is-neighbour {
+    opacity: 0.56;
+
+    transform:
+        scale(0.86);
+}
+
+
+/* ========================================
+   ACTIF
+======================================== */
+
+.shop-product.is-active {
+    opacity: 1;
+
+    transform:
+        scale(1);
 }
 
 
@@ -214,7 +255,8 @@
 
     width: 100%;
 
-    aspect-ratio: 1 / 1;
+    aspect-ratio:
+        1 / 1;
 
     overflow: hidden;
 
@@ -223,7 +265,7 @@
             0,
             0,
             0,
-            0.38
+            0.35
         );
 
     color: inherit;
@@ -241,43 +283,145 @@
     object-fit: cover;
 
     pointer-events: none;
-
-    transition:
-        transform
-        0.7s
-        cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        ),
-        opacity
-        0.3s
-        ease;
 }
 
 
 /* ========================================
-   HOVER IMAGE
+   INFORMATIONS
+
+   Sur les produits non actifs,
+   elles restent présentes mais très discrètes.
 ======================================== */
 
-@media
-(hover: hover)
-and
-(pointer: fine) {
+.shop-product-info {
+    display: flex;
+    flex-direction: column;
 
-    .shop-product-image:hover img {
-        transform:
-            scale(1.014);
+    align-items: center;
 
-        opacity: 0.84;
-    }
+    gap: 3px;
 
+    text-align: center;
+
+    opacity: 0;
+
+    transform:
+        translateY(-4px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.4s ease;
+}
+
+
+.shop-product.is-active
+.shop-product-info {
+    opacity: 1;
+
+    transform:
+        translateY(0);
 }
 
 
 /* ========================================
-   BADGE
+   PROJET
+======================================== */
+
+.shop-product-project {
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.36
+        );
+
+    font-size: 9px;
+    line-height: 1;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.06em;
+}
+
+
+/* ========================================
+   TITRE
+======================================== */
+
+.shop-product h1,
+.shop-product h2 {
+    margin: 1px 0 0;
+
+    color: #fff;
+
+    font-size:
+        clamp(
+            16px,
+            1.4vw,
+            20px
+        );
+
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.shop-product p {
+    margin: 2px 0 0;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.46
+        );
+
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+
+/* ========================================
+   PRIX
+======================================== */
+
+.shop-product-price {
+    margin-top: 3px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.84
+        );
+
+    font-size: 13px;
+    line-height: 1;
+
+    text-decoration: none;
+
+    transition:
+        opacity 0.2s ease;
+}
+
+
+.shop-product-price:hover {
+    opacity: 0.5;
+}
+
+
+/* ========================================
+   BADGE PRÉCOMMANDE
 ======================================== */
 
 .shop-badge {
@@ -298,7 +442,7 @@ and
             255,
             255,
             255,
-            0.62
+            0.64
         );
 
     background:
@@ -306,12 +450,12 @@ and
             0,
             0,
             0,
-            0.76
+            0.74
         );
 
     color: #fff;
 
-    font-size: 9px;
+    font-size: 8px;
     line-height: 1;
 
     font-weight: 700;
@@ -325,143 +469,29 @@ and
 
 
 /* ========================================
-   INFORMATIONS
-======================================== */
-
-.shop-product-info {
-    display: flex;
-
-    align-items: flex-start;
-    justify-content: space-between;
-
-    gap: 10px;
-}
-
-
-.shop-product-main {
-    min-width: 0;
-}
-
-
-/* ========================================
-   NOM DU PROJET
-======================================== */
-
-.shop-product-project {
-    margin-bottom: 3px;
-
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            0.34
-        );
-
-    font-size: 10px;
-    line-height: 1;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        0.05em;
-}
-
-
-/* ========================================
-   NOM PRODUIT
-======================================== */
-
-.shop-product h1,
-.shop-product h2 {
-    margin: 0;
-
-    color: #fff;
-
-    font-size: 15px;
-    line-height: 1;
-
-    font-weight: 700;
-}
-
-
-/* ========================================
-   DESCRIPTION
-======================================== */
-
-.shop-product p {
-    margin:
-        4px 0
-        0;
-
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            0.42
-        );
-
-    font-size: 10px;
-    line-height: 1.2;
-}
-
-
-/* ========================================
-   PRIX
-======================================== */
-
-.shop-product-price {
-    flex: 0 0 auto;
-
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            0.78
-        );
-
-    font-size: 13px;
-    line-height: 1;
-
-    text-decoration: none;
-
-    transition:
-        opacity
-        0.2s
-        ease;
-}
-
-
-.shop-product-price:hover {
-    opacity: 0.45;
-}
-
-
-/* ========================================
    FOOTER
 ======================================== */
 
 .shop-footer {
     display: flex;
 
+    justify-content: center;
+
     align-items: baseline;
 
     gap: 4px;
 
-    margin-top: 1px;
+    margin-top: -2px;
 
     color:
         rgba(
             255,
             255,
             255,
-            0.28
+            0.24
         );
 
-    font-size: 10px;
+    font-size: 9px;
     line-height: 1;
 }
 
@@ -472,15 +502,10 @@ and
             255,
             255,
             255,
-            0.52
+            0.46
         );
 
     text-decoration: none;
-
-    transition:
-        opacity
-        0.2s
-        ease;
 }
 
 
@@ -490,91 +515,18 @@ and
 
 
 /* ========================================
-   APPARITION
-======================================== */
-
-body.internal-page
-.shop-product {
-    opacity: 0;
-
-    transform:
-        translateY(7px);
-
-    transition:
-        opacity
-        0.7s
-        ease,
-        transform
-        0.9s
-        cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        );
-}
-
-
-body.internal-page.intro-ready
-.shop-product {
-    opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-
-body.internal-page.intro-ready
-.shop-product:nth-child(2) {
-    transition-delay:
-        0.05s;
-}
-
-
-body.internal-page.intro-ready
-.shop-product:nth-child(3) {
-    transition-delay:
-        0.10s;
-}
-
-
-body.internal-page.intro-ready
-.shop-product:nth-child(4) {
-    transition-delay:
-        0.15s;
-}
-
-
-body.internal-page.intro-ready
-.shop-product:nth-child(5) {
-    transition-delay:
-        0.20s;
-}
-
-
-/* ========================================
-   TABLETTE
+   DESKTOP LARGE
 ======================================== */
 
 @media
-(max-width: 900px) {
+(min-width: 1200px) {
 
     .shop-product {
         flex-basis:
             clamp(
-                180px,
-                31vw,
-                240px
-            );
-    }
-
-
-    .shop-product-featured {
-        flex-basis:
-            clamp(
-                260px,
-                44vw,
-                340px
+                210px,
+                19vw,
+                270px
             );
     }
 
@@ -596,34 +548,40 @@ body.internal-page.intro-ready
 
         min-width: 0;
 
-        gap: 11px;
+        gap: 10px;
 
         padding:
-            10px 0
-            32px;
+            8px 0
+            28px;
     }
 
 
-    .shop-heading p {
-        font-size: 11px;
+    .shop-category {
+        font-size: 10px;
+    }
+
+
+    .shop-counter {
+        font-size: 9px;
     }
 
 
     /*
-       Sur mobile, les flèches sont moins utiles :
-       le swipe suffit.
+       Sur mobile, les flèches restent,
+       mais sont plus petites.
     */
 
-    .shop-controls {
-        display: none;
+    .shop-arrow {
+        font-size: 17px;
     }
 
 
     .shop-track {
         gap: 10px;
 
-        padding-right:
-            48px;
+        padding:
+            6px
+            28vw;
     }
 
 
@@ -633,31 +591,27 @@ body.internal-page.intro-ready
 
         max-width:
             230px;
+
+        transform:
+            scale(0.78);
     }
 
 
-    /*
-       Le premier produit reste plus grand,
-       mais pas au point de remplir tout l'écran.
-    */
+    .shop-product.is-neighbour {
+        transform:
+            scale(0.86);
+    }
 
-    .shop-product-featured {
-        flex-basis:
-            76vw;
 
-        max-width:
-            310px;
+    .shop-product.is-active {
+        transform:
+            scale(1);
     }
 
 
     .shop-product h1,
     .shop-product h2 {
-        font-size: 14px;
-    }
-
-
-    .shop-product-project {
-        font-size: 9px;
+        font-size: 16px;
     }
 
 
@@ -666,13 +620,8 @@ body.internal-page.intro-ready
     }
 
 
-    .shop-product-price {
-        font-size: 12px;
-    }
-
-
     .shop-footer {
-        font-size: 9px;
+        font-size: 8px;
     }
 
 }
@@ -685,20 +634,15 @@ body.internal-page.intro-ready
 @media
 (max-width: 430px) {
 
+    .shop-track {
+        padding-left: 23vw;
+        padding-right: 23vw;
+    }
+
+
     .shop-product {
         flex-basis:
-            62vw;
-    }
-
-
-    .shop-product-featured {
-        flex-basis:
-            80vw;
-    }
-
-
-    .shop-product-info {
-        gap: 6px;
+            64vw;
     }
 
 
@@ -716,22 +660,12 @@ body.internal-page.intro-ready
 @media
 (prefers-reduced-motion: reduce) {
 
-    .shop-carousel {
-        scroll-behavior: auto;
-    }
-
-
-    body.internal-page
     .shop-product {
-        opacity: 1;
-
-        transform: none;
-
         transition: none;
     }
 
 
-    .shop-product-image img {
+    .shop-product-info {
         transition: none;
     }
 
