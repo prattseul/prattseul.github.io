@@ -29,12 +29,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
 
-        /*
-           Deux frames permettent au navigateur
-           d'afficher l'état initial avant
-           de lancer les transitions.
-        */
-
         window.requestAnimationFrame(function () {
 
             window.requestAnimationFrame(function () {
@@ -45,11 +39,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         });
 
-
-        /*
-           Une fois l'intro terminée,
-           on revient aux transitions normales.
-        */
 
         window.setTimeout(function () {
 
@@ -140,14 +129,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     /* ========================================
        LOGO SUR LA HOME
-
-       Sur les pages internes :
-       le logo reste un lien vers index.html.
-
-       Sur la home :
-       on neutralise uniquement la navigation
-       afin que les 3 clics puissent déclencher
-       l'easter egg.
     ========================================= */
 
     if (
@@ -211,28 +192,70 @@ document.addEventListener("DOMContentLoaded", async function () {
         );
 
 
-        /* ----------------------------------------
-           OUVRIR
-        ---------------------------------------- */
+        /*
+           Le menu peut être ouvert de deux façons :
 
-        function openMenu() {
+           "hover"
+           → ouverture temporaire au survol
+           → pas de croix
+           → fermeture quand la souris quitte la zone
+
+           "click"
+           → ouverture persistante
+           → croix visible
+           → fermeture manuelle
+        */
+
+        let menuOpenMode = null;
+
+
+        /*
+           La croix est masquée par défaut.
+        */
+
+        closeButton.hidden = true;
+
+
+        /* ========================================
+           OUVRIR
+        ========================================= */
+
+        function openMenu(mode) {
+
+            menuOpenMode = mode;
+
 
             menu.classList.add("active");
 
             body.classList.add("menu-active");
 
+
+            /*
+               Croix uniquement si le menu
+               a été ouvert par clic / tap.
+            */
+
+            closeButton.hidden =
+                mode !== "click";
+
         }
 
 
-        /* ----------------------------------------
+        /* ========================================
            FERMER
-        ---------------------------------------- */
+        ========================================= */
 
         function closeMenu() {
 
             menu.classList.remove("active");
 
             body.classList.remove("menu-active");
+
+
+            menuOpenMode = null;
+
+
+            closeButton.hidden = true;
 
         }
 
@@ -261,6 +284,17 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         function scheduleClose() {
 
+            /*
+               Si le menu a été verrouillé
+               par un clic, la sortie de souris
+               ne doit pas le fermer.
+            */
+
+            if (menuOpenMode === "click") {
+                return;
+            }
+
+
             cancelScheduledClose();
 
 
@@ -268,6 +302,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 window.setTimeout(function () {
 
                     if (
+                        menuOpenMode === "hover" &&
                         !menuButton.matches(":hover") &&
                         !menu.matches(":hover")
                     ) {
@@ -284,9 +319,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
 
-        /* ----------------------------------------
-           SURVOL BOUTON
-        ---------------------------------------- */
+        /* ========================================
+           SURVOL DU BOUTON MENU
+        ========================================= */
 
         menuButton.addEventListener(
             "mouseenter",
@@ -297,9 +332,20 @@ document.addEventListener("DOMContentLoaded", async function () {
                 }
 
 
+                /*
+                   Un menu ouvert par clic
+                   reste dans ce mode.
+                */
+
+                if (menuOpenMode === "click") {
+                    return;
+                }
+
+
                 cancelScheduledClose();
 
-                openMenu();
+
+                openMenu("hover");
 
             }
         );
@@ -320,9 +366,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         );
 
 
-        /* ----------------------------------------
-           SURVOL MENU
-        ---------------------------------------- */
+        /* ========================================
+           SURVOL DU MENU OUVERT
+        ========================================= */
 
         menu.addEventListener(
             "mouseenter",
@@ -335,7 +381,17 @@ document.addEventListener("DOMContentLoaded", async function () {
 
                 cancelScheduledClose();
 
-                openMenu();
+
+                /*
+                   Si le menu est déjà verrouillé
+                   par clic, on ne change pas son mode.
+                */
+
+                if (menuOpenMode !== "click") {
+
+                    openMenu("hover");
+
+                }
 
             }
         );
@@ -357,7 +413,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
         /* ========================================
-           MOBILE / TACTILE — CLIC
+           OUVERTURE AU CLIC / TAP
         ========================================= */
 
         menuButton.addEventListener(
@@ -367,12 +423,19 @@ document.addEventListener("DOMContentLoaded", async function () {
                 event.stopPropagation();
 
 
-                if (desktopHover.matches) {
-                    return;
-                }
+                /*
+                   Sur ordinateur :
+                   un clic transforme l'ouverture
+                   en ouverture persistante.
+
+                   Sur tactile :
+                   comportement normal au tap.
+                */
+
+                cancelScheduledClose();
 
 
-                openMenu();
+                openMenu("click");
 
             }
         );
@@ -387,6 +450,10 @@ document.addEventListener("DOMContentLoaded", async function () {
             function (event) {
 
                 event.stopPropagation();
+
+
+                cancelScheduledClose();
+
 
                 closeMenu();
 
@@ -419,6 +486,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
                 if (
                     !desktopHover.matches &&
+                    menuOpenMode === "click" &&
                     menu.classList.contains("active")
                 ) {
 
@@ -570,8 +638,10 @@ document.addEventListener("DOMContentLoaded", async function () {
             const label =
                 document.createElement("span");
 
+
             label.className =
                 "show-support-label";
+
 
             label.textContent =
                 "première partie";
@@ -580,8 +650,10 @@ document.addEventListener("DOMContentLoaded", async function () {
             const artist =
                 document.createElement("span");
 
+
             artist.className =
                 "show-support-artist";
+
 
             artist.textContent =
                 artistName;
