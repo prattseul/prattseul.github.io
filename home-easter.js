@@ -51,48 +51,81 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
-       PETIT GLITCH — INDICE
+       GLITCH — PETIT INDICE
+       1er clic
     ========================================= */
 
-    function triggerLogoHint(logo) {
+    function triggerSmallGlitch(logo) {
 
         /*
-           On retire d'abord la classe
-           pour permettre de rejouer
-           l'animation si nécessaire.
+           On retire les deux classes afin
+           de pouvoir rejouer l'animation.
         */
 
         logo.classList.remove(
-            "easter-hint"
+            "easter-hint-small",
+            "easter-hint-big"
         );
 
 
         /*
-           On force un reflow pour que
-           l'animation puisse redémarrer.
+           Force le navigateur à prendre en
+           compte la suppression des classes.
         */
 
         void logo.offsetWidth;
 
 
         logo.classList.add(
-            "easter-hint"
+            "easter-hint-small"
         );
 
 
         window.setTimeout(function () {
 
             logo.classList.remove(
-                "easter-hint"
+                "easter-hint-small"
             );
 
-        }, 380);
+        }, 320);
 
     }
 
 
     /* ========================================
-       OUVRIR
+       GLITCH — INDICE FORT
+       2e clic
+    ========================================= */
+
+    function triggerBigGlitch(logo) {
+
+        logo.classList.remove(
+            "easter-hint-small",
+            "easter-hint-big"
+        );
+
+
+        void logo.offsetWidth;
+
+
+        logo.classList.add(
+            "easter-hint-big"
+        );
+
+
+        window.setTimeout(function () {
+
+            logo.classList.remove(
+                "easter-hint-big"
+            );
+
+        }, 620);
+
+    }
+
+
+    /* ========================================
+       OUVRIR LE JEU
     ========================================= */
 
     function openGame() {
@@ -103,10 +136,19 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
+        /*
+           Masquer le GIF d'accueil
+           s'il est actuellement visible.
+        */
+
         body.classList.remove(
             "welcome-visible"
         );
 
+
+        /*
+           Afficher l'overlay.
+        */
 
         body.classList.add(
             "game-open"
@@ -134,7 +176,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           Focus clavier sur le jeu.
+           Donner le focus au jeu pour
+           permettre l'utilisation du clavier.
         */
 
         window.setTimeout(function () {
@@ -147,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
-       FERMER
+       FERMER LE JEU
     ========================================= */
 
     function closeGame() {
@@ -162,6 +205,12 @@ document.addEventListener("DOMContentLoaded", function () {
             "true"
         );
 
+
+        /*
+           Restaurer le GIF d'accueil
+           s'il était visible avant
+           l'ouverture du jeu.
+        */
 
         if (welcomeWasVisible) {
 
@@ -192,13 +241,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           Sur la home, le logo
-           ne recharge jamais index.html.
+           Sur la page d'accueil,
+           le logo ne doit jamais
+           recharger index.html.
         */
 
         event.preventDefault();
         event.stopPropagation();
 
+
+        /*
+           Aucun déclenchement supplémentaire
+           lorsque le jeu est ouvert.
+        */
 
         if (
             body.classList.contains(
@@ -212,13 +267,22 @@ document.addEventListener("DOMContentLoaded", function () {
         clickCount += 1;
 
 
-        /*
-           Premier clic :
-           fenêtre de 1,2 seconde
-           pour compléter les 3 clics.
-        */
+        /* ====================================
+           PREMIER CLIC
+           Petit glitch
+        ==================================== */
 
         if (clickCount === 1) {
+
+            triggerSmallGlitch(
+                logo
+            );
+
+
+            /*
+               Fenêtre de 1,2 seconde pour
+               effectuer les trois clics.
+            */
 
             clickTimer =
                 window.setTimeout(
@@ -231,27 +295,33 @@ document.addEventListener("DOMContentLoaded", function () {
                     1200
                 );
 
+
+            return;
+
         }
 
 
-        /*
-           Deuxième clic :
-           petit indice visuel.
-        */
+        /* ====================================
+           DEUXIÈME CLIC
+           Glitch beaucoup plus marqué
+        ==================================== */
 
         if (clickCount === 2) {
 
-            triggerLogoHint(
+            triggerBigGlitch(
                 logo
             );
+
+
+            return;
 
         }
 
 
-        /*
-           Troisième clic :
-           ouverture du jeu.
-        */
+        /* ====================================
+           TROISIÈME CLIC
+           Ouverture du jeu
+        ==================================== */
 
         if (clickCount >= 3) {
 
@@ -268,6 +338,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
             clickCount = 0;
 
+
+            /*
+               Nettoyer les éventuelles
+               animations encore actives.
+            */
+
+            logo.classList.remove(
+                "easter-hint-small",
+                "easter-hint-big"
+            );
+
+
             openGame();
 
         }
@@ -275,9 +357,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    /* ========================================
+       ÉCOUTEUR SUR LE LOGO
+    ========================================= */
+
     /*
        Capture = true afin de neutraliser
-       le lien du logo avant toute navigation.
+       le lien du logo avant que la navigation
+       vers index.html puisse avoir lieu.
     */
 
     document.addEventListener(
@@ -298,7 +385,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
-       CLIC SUR LE FOND
+       CLIC SUR LE FOND NOIR
     ========================================= */
 
     gameOverlay.addEventListener(
@@ -318,7 +405,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
-       ESCAPE
+       TOUCHE ESCAPE
     ========================================= */
 
     document.addEventListener(
