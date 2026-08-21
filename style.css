@@ -81,9 +81,9 @@ body::before {
        barres du navigateur changent de hauteur.
     */
 
-    top: -80px;
+    top: -40px;
     right: 0;
-    bottom: -80px;
+    bottom: -40px;
     left: 0;
 
     background-image: url("images/IMG02.jpg");
