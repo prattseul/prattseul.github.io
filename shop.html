@@ -10,11 +10,11 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>PRATTSEUL — Boutique</title>
+    <title>PRATTSEUL — Shop</title>
 
     <meta
         name="description"
-        content="Boutique officielle de Prattseul — vinyles, CD et textile Blizzard Moderne et L’oiseau de nuit."
+        content="Shop officiel de Prattseul — vinyles, CD et textile Blizzard Moderne et L’oiseau de nuit."
     >
 
     <link
@@ -48,7 +48,7 @@
 
 <body
     class="internal-page"
-    data-page-title="boutique"
+    data-page-title="shop"
 >
 
 
@@ -69,14 +69,14 @@
 
 
             <!-- ========================================
-                 ENTÊTE BOUTIQUE
+                 ENTÊTE
             ========================================= -->
 
             <div class="shop-heading">
 
-                <p>
+                <span class="shop-category">
                     disques &amp; textile
-                </p>
+                </span>
 
                 <div class="shop-controls">
 
@@ -87,6 +87,14 @@
                     >
                         ←
                     </button>
+
+                    <span
+                        class="shop-counter"
+                        id="shopCounter"
+                        aria-live="polite"
+                    >
+                        01 / 05
+                    </span>
 
                     <button
                         class="shop-arrow shop-arrow-next"
@@ -102,45 +110,49 @@
 
 
             <!-- ========================================
-                 RAIL PRODUITS
+                 CARROUSEL
             ========================================= -->
 
-            <div
-                class="shop-carousel"
-                id="shopCarousel"
-            >
+            <div class="shop-carousel-shell">
 
-                <div class="shop-track">
+                <div
+                    class="shop-carousel"
+                    id="shopCarousel"
+                >
+
+                    <div
+                        class="shop-track"
+                        id="shopTrack"
+                    >
 
 
-                    <!-- ========================================
-                         VINYLE BLIZZARD MODERNE
-                    ========================================= -->
+                        <!-- 01 — VINYLE BM -->
 
-                    <article class="shop-product shop-product-featured">
-
-                        <a
-                            class="shop-product-image"
-                            href="https://prattseul.bandcamp.com/album/blizzard-moderne"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <article
+                            class="shop-product"
+                            data-product-index="0"
                         >
 
-                            <span class="shop-badge">
-                                précommande
-                            </span>
-
-                            <img
-                                src="https://f4.bcbits.com/img/0046878340_36.jpg"
-                                alt="Vinyle blanc Blizzard Moderne"
+                            <a
+                                class="shop-product-image"
+                                href="https://prattseul.bandcamp.com/album/blizzard-moderne"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
 
-                        </a>
+                                <span class="shop-badge">
+                                    précommande
+                                </span>
+
+                                <img
+                                    src="https://f4.bcbits.com/img/0046878340_36.jpg"
+                                    alt="Vinyle blanc Blizzard Moderne"
+                                >
+
+                            </a>
 
 
-                        <div class="shop-product-info">
-
-                            <div class="shop-product-main">
+                            <div class="shop-product-info">
 
                                 <div class="shop-product-project">
                                     Blizzard Moderne
@@ -154,48 +166,44 @@
                                     12" · 140 g · expédition prévue 01.12.2026
                                 </p>
 
+                                <a
+                                    class="shop-product-price"
+                                    href="https://prattseul.bandcamp.com/album/blizzard-moderne"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    25 € ↗
+                                </a>
+
                             </div>
 
+                        </article>
+
+
+                        <!-- 02 — CD BM -->
+
+                        <article
+                            class="shop-product"
+                            data-product-index="1"
+                        >
 
                             <a
-                                class="shop-product-price"
+                                class="shop-product-image"
                                 href="https://prattseul.bandcamp.com/album/blizzard-moderne"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                25 € ↗
+
+                                <img
+                                    src="https://f4.bcbits.com/img/0046877913_10.jpg"
+                                    alt="CD Blizzard Moderne"
+                                    loading="lazy"
+                                >
+
                             </a>
 
-                        </div>
 
-                    </article>
-
-
-                    <!-- ========================================
-                         CD BLIZZARD MODERNE
-                    ========================================= -->
-
-                    <article class="shop-product">
-
-                        <a
-                            class="shop-product-image"
-                            href="https://prattseul.bandcamp.com/album/blizzard-moderne"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-
-                            <img
-                                src="https://f4.bcbits.com/img/0046877913_10.jpg"
-                                alt="CD Blizzard Moderne"
-                                loading="lazy"
-                            >
-
-                        </a>
-
-
-                        <div class="shop-product-info">
-
-                            <div class="shop-product-main">
+                            <div class="shop-product-info">
 
                                 <div class="shop-product-project">
                                     Blizzard Moderne
@@ -209,48 +217,44 @@
                                     poster dépliant · digital inclus
                                 </p>
 
+                                <a
+                                    class="shop-product-price"
+                                    href="https://prattseul.bandcamp.com/album/blizzard-moderne"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    15 € ↗
+                                </a>
+
                             </div>
 
+                        </article>
+
+
+                        <!-- 03 — T-SHIRT -->
+
+                        <article
+                            class="shop-product"
+                            data-product-index="2"
+                        >
 
                             <a
-                                class="shop-product-price"
-                                href="https://prattseul.bandcamp.com/album/blizzard-moderne"
+                                class="shop-product-image"
+                                href="https://prattseul.bandcamp.com/merch/t-shirt-blizzard-moderne-blanc-naturel"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                15 € ↗
+
+                                <img
+                                    src="https://f4.bcbits.com/img/0046878906_36.jpg"
+                                    alt="T-shirt Blizzard Moderne blanc naturel"
+                                    loading="lazy"
+                                >
+
                             </a>
 
-                        </div>
 
-                    </article>
-
-
-                    <!-- ========================================
-                         T-SHIRT BLIZZARD MODERNE
-                    ========================================= -->
-
-                    <article class="shop-product">
-
-                        <a
-                            class="shop-product-image"
-                            href="https://prattseul.bandcamp.com/merch/t-shirt-blizzard-moderne-blanc-naturel"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-
-                            <img
-                                src="https://f4.bcbits.com/img/0046878906_36.jpg"
-                                alt="T-shirt Blizzard Moderne blanc naturel"
-                                loading="lazy"
-                            >
-
-                        </a>
-
-
-                        <div class="shop-product-info">
-
-                            <div class="shop-product-main">
+                            <div class="shop-product-info">
 
                                 <div class="shop-product-project">
                                     Blizzard Moderne
@@ -264,48 +268,44 @@
                                     blanc naturel · 100 % coton
                                 </p>
 
+                                <a
+                                    class="shop-product-price"
+                                    href="https://prattseul.bandcamp.com/merch/t-shirt-blizzard-moderne-blanc-naturel"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    20 € ↗
+                                </a>
+
                             </div>
 
+                        </article>
+
+
+                        <!-- 04 — HOODIE -->
+
+                        <article
+                            class="shop-product"
+                            data-product-index="3"
+                        >
 
                             <a
-                                class="shop-product-price"
-                                href="https://prattseul.bandcamp.com/merch/t-shirt-blizzard-moderne-blanc-naturel"
+                                class="shop-product-image"
+                                href="https://prattseul.bandcamp.com/merch/hoodie-blizzard-moderne-cr-me"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                20 € ↗
+
+                                <img
+                                    src="https://f4.bcbits.com/img/0046879135_36.jpg"
+                                    alt="Hoodie Blizzard Moderne crème"
+                                    loading="lazy"
+                                >
+
                             </a>
 
-                        </div>
 
-                    </article>
-
-
-                    <!-- ========================================
-                         HOODIE BLIZZARD MODERNE
-                    ========================================= -->
-
-                    <article class="shop-product">
-
-                        <a
-                            class="shop-product-image"
-                            href="https://prattseul.bandcamp.com/merch/hoodie-blizzard-moderne-cr-me"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-
-                            <img
-                                src="https://f4.bcbits.com/img/0046879135_36.jpg"
-                                alt="Hoodie Blizzard Moderne crème"
-                                loading="lazy"
-                            >
-
-                        </a>
-
-
-                        <div class="shop-product-info">
-
-                            <div class="shop-product-main">
+                            <div class="shop-product-info">
 
                                 <div class="shop-product-project">
                                     Blizzard Moderne
@@ -319,48 +319,44 @@
                                     crème · impression bleu marine
                                 </p>
 
+                                <a
+                                    class="shop-product-price"
+                                    href="https://prattseul.bandcamp.com/merch/hoodie-blizzard-moderne-cr-me"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    40 € ↗
+                                </a>
+
                             </div>
 
+                        </article>
+
+
+                        <!-- 05 — VINYLE ODN -->
+
+                        <article
+                            class="shop-product"
+                            data-product-index="4"
+                        >
 
                             <a
-                                class="shop-product-price"
-                                href="https://prattseul.bandcamp.com/merch/hoodie-blizzard-moderne-cr-me"
+                                class="shop-product-image"
+                                href="https://prattseul.bandcamp.com/album/loiseau-de-nuit"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                40 € ↗
+
+                                <img
+                                    src="https://f4.bcbits.com/img/0043937239_36.jpg"
+                                    alt="Vinyle bleu L’oiseau de nuit"
+                                    loading="lazy"
+                                >
+
                             </a>
 
-                        </div>
 
-                    </article>
-
-
-                    <!-- ========================================
-                         VINYLE L'OISEAU DE NUIT
-                    ========================================= -->
-
-                    <article class="shop-product">
-
-                        <a
-                            class="shop-product-image"
-                            href="https://prattseul.bandcamp.com/album/loiseau-de-nuit"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-
-                            <img
-                                src="https://f4.bcbits.com/img/0043937239_36.jpg"
-                                alt="Vinyle bleu L’oiseau de nuit"
-                                loading="lazy"
-                            >
-
-                        </a>
-
-
-                        <div class="shop-product-info">
-
-                            <div class="shop-product-main">
+                            <div class="shop-product-info">
 
                                 <div class="shop-product-project">
                                     L’oiseau de nuit
@@ -374,21 +370,21 @@
                                     12" · 7 titres · digital inclus
                                 </p>
 
+                                <a
+                                    class="shop-product-price"
+                                    href="https://prattseul.bandcamp.com/album/loiseau-de-nuit"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    20 € ↗
+                                </a>
+
                             </div>
 
+                        </article>
 
-                            <a
-                                class="shop-product-price"
-                                href="https://prattseul.bandcamp.com/album/loiseau-de-nuit"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                20 € ↗
-                            </a>
 
-                        </div>
-
-                    </article>
+                    </div>
 
                 </div>
 
@@ -396,7 +392,7 @@
 
 
             <!-- ========================================
-                 FOOTER BOUTIQUE
+                 FOOTER
             ========================================= -->
 
             <div class="shop-footer">
@@ -428,7 +424,7 @@
 
 
     <!-- ========================================
-         CARROUSEL BOUTIQUE
+         CARROUSEL INFINI
     ========================================= -->
 
     <script>
@@ -440,12 +436,20 @@
                     "shopCarousel"
                 );
 
+            const track =
+                document.getElementById(
+                    "shopTrack"
+                );
+
+            const counter =
+                document.getElementById(
+                    "shopCounter"
+                );
 
             const prevButton =
                 document.querySelector(
                     ".shop-arrow-prev"
                 );
-
 
             const nextButton =
                 document.querySelector(
@@ -455,110 +459,537 @@
 
             if (
                 !carousel ||
-                !prevButton ||
-                !nextButton
+                !track
             ) {
                 return;
             }
 
 
-            function getScrollAmount() {
-
-                const firstProduct =
-                    carousel.querySelector(
-                        ".shop-product"
-                    );
+            const originalProducts =
+                Array.from(
+                    track.children
+                );
 
 
-                if (!firstProduct) {
-                    return 320;
-                }
+            const total =
+                originalProducts.length;
 
 
-                const styles =
-                    window.getComputedStyle(
-                        carousel.querySelector(
-                            ".shop-track"
-                        )
-                    );
+            if (total < 2) {
+                return;
+            }
 
 
-                const gap =
-                    parseFloat(
-                        styles.columnGap ||
-                        styles.gap ||
-                        0
-                    );
+            /* ========================================
+               CLONES
+            ========================================= */
+
+            const firstClone =
+                originalProducts[0]
+                .cloneNode(true);
+
+            const secondClone =
+                originalProducts[1]
+                .cloneNode(true);
+
+            const lastClone =
+                originalProducts[
+                    total - 1
+                ].cloneNode(true);
+
+            const beforeLastClone =
+                originalProducts[
+                    total - 2
+                ].cloneNode(true);
 
 
-                return (
-                    firstProduct.offsetWidth +
-                    gap
+            firstClone.classList.add(
+                "is-clone"
+            );
+
+            secondClone.classList.add(
+                "is-clone"
+            );
+
+            lastClone.classList.add(
+                "is-clone"
+            );
+
+            beforeLastClone.classList.add(
+                "is-clone"
+            );
+
+
+            track.appendChild(
+                firstClone
+            );
+
+            track.appendChild(
+                secondClone
+            );
+
+            track.insertBefore(
+                lastClone,
+                track.firstChild
+            );
+
+            track.insertBefore(
+                beforeLastClone,
+                track.firstChild
+            );
+
+
+            let products =
+                Array.from(
+                    track.children
+                );
+
+
+            let currentIndex = 2;
+
+            let isAnimating = false;
+
+            let wheelLocked = false;
+
+            let pointerDown = false;
+
+            let pointerStartX = 0;
+
+            let pointerDelta = 0;
+
+
+            /* ========================================
+               UTILS
+            ========================================= */
+
+            function formatNumber(
+                value
+            ) {
+
+                return String(
+                    value
+                ).padStart(
+                    2,
+                    "0"
                 );
 
             }
 
 
-            prevButton.addEventListener(
-                "click",
-                () => {
+            function realIndexFromTrackIndex(
+                index
+            ) {
 
-                    carousel.scrollBy({
+                let realIndex =
+                    index - 2;
+
+
+                while (
+                    realIndex < 0
+                ) {
+                    realIndex += total;
+                }
+
+
+                return (
+                    realIndex %
+                    total
+                );
+
+            }
+
+
+            function updateCounter() {
+
+                if (!counter) {
+                    return;
+                }
+
+
+                const realIndex =
+                    realIndexFromTrackIndex(
+                        currentIndex
+                    );
+
+
+                counter.textContent =
+                    formatNumber(
+                        realIndex + 1
+                    ) +
+                    " / " +
+                    formatNumber(
+                        total
+                    );
+
+            }
+
+
+            function updateActiveClasses() {
+
+                products.forEach(
+                    (product, index) => {
+
+                        const distance =
+                            Math.abs(
+                                index -
+                                currentIndex
+                            );
+
+
+                        product.classList.toggle(
+                            "is-active",
+                            index ===
+                            currentIndex
+                        );
+
+
+                        product.classList.toggle(
+                            "is-neighbour",
+                            distance === 1
+                        );
+
+                    }
+                );
+
+
+                updateCounter();
+
+            }
+
+
+            function getCenteredScrollLeft(
+                element
+            ) {
+
+                return (
+                    element.offsetLeft -
+                    (
+                        carousel.clientWidth -
+                        element.offsetWidth
+                    ) /
+                    2
+                );
+
+            }
+
+
+            function centerIndex(
+                index,
+                smooth = true
+            ) {
+
+                if (
+                    !products[index]
+                ) {
+                    return;
+                }
+
+
+                currentIndex =
+                    index;
+
+
+                updateActiveClasses();
+
+
+                carousel.scrollTo({
+
+                    left:
+                        getCenteredScrollLeft(
+                            products[index]
+                        ),
+
+                    behavior:
+                        smooth
+                            ? "smooth"
+                            : "auto"
+
+                });
+
+
+                if (smooth) {
+
+                    isAnimating = true;
+
+
+                    window.setTimeout(
+                        () => {
+
+                            normalizeLoop();
+
+                            isAnimating =
+                                false;
+
+                        },
+                        430
+                    );
+
+                } else {
+
+                    normalizeLoop();
+
+                }
+
+            }
+
+
+            /* ========================================
+               LOOP INFINI
+            ========================================= */
+
+            function normalizeLoop() {
+
+                /*
+                   On est sur le clone
+                   "avant dernier".
+                */
+
+                if (
+                    currentIndex === 0
+                ) {
+
+                    currentIndex =
+                        total;
+
+                    carousel.scrollTo({
+
                         left:
-                            -getScrollAmount(),
+                            getCenteredScrollLeft(
+                                products[
+                                    currentIndex
+                                ]
+                            ),
 
                         behavior:
-                            "smooth"
+                            "auto"
+
                     });
 
                 }
-            );
 
 
-            nextButton.addEventListener(
-                "click",
-                () => {
+                /*
+                   Clone du dernier.
+                */
 
-                    carousel.scrollBy({
+                if (
+                    currentIndex === 1
+                ) {
+
+                    currentIndex =
+                        total + 1;
+
+                    carousel.scrollTo({
+
                         left:
-                            getScrollAmount(),
+                            getCenteredScrollLeft(
+                                products[
+                                    currentIndex
+                                ]
+                            ),
 
                         behavior:
-                            "smooth"
+                            "auto"
+
                     });
 
                 }
-            );
 
 
-            /* ----------------------------------------
-               DRAG SOURIS
-            ---------------------------------------- */
+                /*
+                   Premier clone après
+                   les produits originaux.
+                */
 
-            let isDragging = false;
-            let startX = 0;
-            let startScrollLeft = 0;
+                if (
+                    currentIndex ===
+                    total + 2
+                ) {
 
+                    currentIndex = 2;
+
+                    carousel.scrollTo({
+
+                        left:
+                            getCenteredScrollLeft(
+                                products[2]
+                            ),
+
+                        behavior:
+                            "auto"
+
+                    });
+
+                }
+
+
+                /*
+                   Second clone après.
+                */
+
+                if (
+                    currentIndex ===
+                    total + 3
+                ) {
+
+                    currentIndex = 3;
+
+                    carousel.scrollTo({
+
+                        left:
+                            getCenteredScrollLeft(
+                                products[3]
+                            ),
+
+                        behavior:
+                            "auto"
+
+                    });
+
+                }
+
+
+                updateActiveClasses();
+
+            }
+
+
+            /* ========================================
+               NEXT / PREV
+            ========================================= */
+
+            function next() {
+
+                if (isAnimating) {
+                    return;
+                }
+
+
+                centerIndex(
+                    currentIndex + 1
+                );
+
+            }
+
+
+            function previous() {
+
+                if (isAnimating) {
+                    return;
+                }
+
+
+                centerIndex(
+                    currentIndex - 1
+                );
+
+            }
+
+
+            /* ========================================
+               FLÈCHES
+            ========================================= */
+
+            if (nextButton) {
+
+                nextButton.addEventListener(
+                    "click",
+                    next
+                );
+
+            }
+
+
+            if (prevButton) {
+
+                prevButton.addEventListener(
+                    "click",
+                    previous
+                );
+
+            }
+
+
+            /* ========================================
+               MOLETTE / TRACKPAD
+            ========================================= */
 
             carousel.addEventListener(
-                "pointerdown",
+                "wheel",
                 (event) => {
 
+                    const dominantDelta =
+                        Math.abs(
+                            event.deltaX
+                        ) >
+                        Math.abs(
+                            event.deltaY
+                        )
+                            ? event.deltaX
+                            : event.deltaY;
+
+
                     if (
-                        event.pointerType ===
-                        "touch"
+                        Math.abs(
+                            dominantDelta
+                        ) < 8
                     ) {
                         return;
                     }
 
 
-                    isDragging = true;
+                    event.preventDefault();
 
-                    startX =
+
+                    if (wheelLocked) {
+                        return;
+                    }
+
+
+                    wheelLocked = true;
+
+
+                    if (
+                        dominantDelta > 0
+                    ) {
+                        next();
+                    } else {
+                        previous();
+                    }
+
+
+                    window.setTimeout(
+                        () => {
+
+                            wheelLocked =
+                                false;
+
+                        },
+                        480
+                    );
+
+                },
+                {
+                    passive: false
+                }
+            );
+
+
+            /* ========================================
+               DRAG / SWIPE
+            ========================================= */
+
+            carousel.addEventListener(
+                "pointerdown",
+                (event) => {
+
+                    pointerDown = true;
+
+                    pointerStartX =
                         event.clientX;
 
-                    startScrollLeft =
-                        carousel.scrollLeft;
+                    pointerDelta = 0;
+
 
                     carousel.classList.add(
                         "is-dragging"
@@ -577,79 +1008,154 @@
                 "pointermove",
                 (event) => {
 
-                    if (!isDragging) {
+                    if (!pointerDown) {
                         return;
                     }
 
 
-                    const delta =
+                    pointerDelta =
                         event.clientX -
-                        startX;
-
-
-                    carousel.scrollLeft =
-                        startScrollLeft -
-                        delta;
+                        pointerStartX;
 
                 }
             );
 
 
-            function stopDrag(
-                event
-            ) {
-
-                if (!isDragging) {
-                    return;
-                }
-
-
-                isDragging = false;
-
-
-                carousel.classList.remove(
-                    "is-dragging"
-                );
-
-
-                if (
-                    event &&
-                    carousel.hasPointerCapture(
-                        event.pointerId
-                    )
-                ) {
-
-                    carousel.releasePointerCapture(
-                        event.pointerId
-                    );
-
-                }
-
-            }
-
-
             carousel.addEventListener(
                 "pointerup",
-                stopDrag
+                (event) => {
+
+                    if (!pointerDown) {
+                        return;
+                    }
+
+
+                    pointerDown = false;
+
+
+                    carousel.classList.remove(
+                        "is-dragging"
+                    );
+
+
+                    if (
+                        carousel.hasPointerCapture(
+                            event.pointerId
+                        )
+                    ) {
+
+                        carousel.releasePointerCapture(
+                            event.pointerId
+                        );
+
+                    }
+
+
+                    if (
+                        pointerDelta < -40
+                    ) {
+
+                        next();
+
+                    } else if (
+                        pointerDelta > 40
+                    ) {
+
+                        previous();
+
+                    } else {
+
+                        centerIndex(
+                            currentIndex
+                        );
+
+                    }
+
+                }
             );
 
 
             carousel.addEventListener(
                 "pointercancel",
-                stopDrag
+                () => {
+
+                    pointerDown = false;
+
+                    carousel.classList.remove(
+                        "is-dragging"
+                    );
+
+                }
             );
 
 
-            carousel.addEventListener(
-                "pointerleave",
-                (event) => {
+            /* ========================================
+               CLIC SUR UN PRODUIT NON ACTIF
+            ========================================= */
 
-                    if (
-                        isDragging &&
-                        event.buttons === 0
-                    ) {
-                        stopDrag(event);
-                    }
+            products.forEach(
+                (product, index) => {
+
+                    product.addEventListener(
+                        "click",
+                        (event) => {
+
+                            if (
+                                index ===
+                                currentIndex
+                            ) {
+                                return;
+                            }
+
+
+                            event.preventDefault();
+
+
+                            centerIndex(
+                                index
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+
+            /* ========================================
+               RESIZE
+            ========================================= */
+
+            window.addEventListener(
+                "resize",
+                () => {
+
+                    centerIndex(
+                        currentIndex,
+                        false
+                    );
+
+                }
+            );
+
+
+            /* ========================================
+               INIT
+            ========================================= */
+
+            requestAnimationFrame(
+                () => {
+
+                    products =
+                        Array.from(
+                            track.children
+                        );
+
+
+                    centerIndex(
+                        currentIndex,
+                        false
+                    );
 
                 }
             );
