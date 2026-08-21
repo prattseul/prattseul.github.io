@@ -422,6 +422,27 @@ body[data-home="true"] .page-title {
         -webkit-backdrop-filter: blur(8px);
     }
 
+
+    /*
+       Sur les écrans où le menu déplié possède
+       un fond sombre, le bouton "menu" reçoit
+       lui aussi le même fond.
+
+       Les marges négatives compensent le padding :
+       le texte reste exactement à sa position
+       d'origine, sans décaler le header.
+    */
+
+    .menu-button {
+        padding: 4px 6px;
+        margin: -4px -6px;
+
+        background: rgba(0, 0, 0, 0.92);
+
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
 }
 
 
