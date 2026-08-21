@@ -1,126 +1,213 @@
 /* ========================================
-   PRATTSEUL — BOUTIQUE V3
-   compact / éditorial / asymétrique
+   PRATTSEUL — BOUTIQUE V4
+   carrousel horizontal compact
+======================================== */
+
+
+/* ========================================
+   CONTENEUR
 ======================================== */
 
 .shop-content {
-    width: min(
-        var(--content-width),
-        calc(100% - 80px)
-    );
+    width:
+        min(
+            var(--content-width),
+            calc(100% - 80px)
+        );
 
     min-width: 600px;
 
     display: flex;
     flex-direction: column;
 
-    gap: 46px;
+    gap: 14px;
 
-    padding: 12px 0 52px;
+    padding:
+        12px 0
+        40px;
 }
 
 
 /* ========================================
-   PROJETS
+   ENTÊTE
 ======================================== */
 
-.shop-project {
+.shop-heading {
     display: flex;
-    flex-direction: column;
 
-    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
 }
 
 
-.shop-project-header {
-    display: flex;
-    align-items: baseline;
-
-    gap: 9px;
-}
-
-
-.shop-project-header h1 {
+.shop-heading p {
     margin: 0;
 
-    color: #fff;
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.42
+        );
 
-    font-size: 28px;
+    font-size: 12px;
     line-height: 1;
 
-    font-weight: 700;
-}
-
-
-.shop-project-header span {
-    color: rgba(255, 255, 255, 0.38);
-
-    font-size: 13px;
+    text-transform: lowercase;
 }
 
 
 /* ========================================
-   BLIZZARD MODERNE
-
-   grand vinyle à gauche
-   3 petits produits à droite
+   CONTRÔLES
 ======================================== */
 
-.shop-layout-bm {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.45fr)
-        minmax(0, 0.72fr)
-        minmax(0, 0.72fr);
-
-    grid-template-areas:
-        "vinyl cd shirt"
-        "vinyl hoodie hoodie";
-
-    gap: 14px;
-
-    align-items: start;
-}
-
-
-.product-featured {
-    grid-area: vinyl;
-}
-
-
-.product-cd {
-    grid-area: cd;
-}
-
-
-.product-shirt {
-    grid-area: shirt;
-}
-
-
-.product-hoodie {
-    grid-area: hoodie;
-
-    width: calc(50% - 7px);
-}
-
-
-/* ========================================
-   PRODUIT
-======================================== */
-
-.product {
-    min-width: 0;
-
+.shop-controls {
     display: flex;
-    flex-direction: column;
+
+    align-items: center;
 
     gap: 7px;
 }
 
 
-.product-visual {
+.shop-arrow {
+    appearance: none;
+
+    padding: 0;
+
+    border: 0;
+
+    background: none;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.42
+        );
+
+    font: inherit;
+
+    font-size: 20px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.shop-arrow:hover {
+    color: #fff;
+}
+
+
+/* ========================================
+   CARROUSEL
+======================================== */
+
+.shop-carousel {
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+
+    scroll-behavior: smooth;
+
+    scroll-snap-type:
+        x proximity;
+
+    cursor: grab;
+
+    overscroll-behavior-x:
+        contain;
+
+    -webkit-overflow-scrolling:
+        touch;
+}
+
+
+.shop-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+
+.shop-carousel.is-dragging {
+    cursor: grabbing;
+
+    scroll-snap-type: none;
+
+    user-select: none;
+}
+
+
+.shop-track {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    width: max-content;
+
+    padding-right:
+        clamp(
+            50px,
+            12vw,
+            160px
+        );
+}
+
+
+/* ========================================
+   PRODUIT STANDARD
+======================================== */
+
+.shop-product {
+    flex:
+        0 0
+        clamp(
+            190px,
+            21vw,
+            260px
+        );
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    scroll-snap-align: start;
+}
+
+
+/* ========================================
+   PRODUIT MIS EN AVANT
+======================================== */
+
+.shop-product-featured {
+    flex-basis:
+        clamp(
+            280px,
+            32vw,
+            390px
+        );
+}
+
+
+/* ========================================
+   IMAGE
+======================================== */
+
+.shop-product-image {
     position: relative;
 
     display: block;
@@ -131,7 +218,13 @@
 
     overflow: hidden;
 
-    background: rgba(0, 0, 0, 0.38);
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.38
+        );
 
     color: inherit;
 
@@ -139,7 +232,7 @@
 }
 
 
-.product-visual img {
+.shop-product-image img {
     display: block;
 
     width: 100%;
@@ -147,28 +240,95 @@
 
     object-fit: cover;
 
+    pointer-events: none;
+
     transition:
-        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.3s ease;
+        transform
+        0.7s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        ),
+        opacity
+        0.3s
+        ease;
 }
 
 
-@media (hover: hover) and (pointer: fine) {
+/* ========================================
+   HOVER IMAGE
+======================================== */
 
-    .product-visual:hover img {
-        transform: scale(1.015);
+@media
+(hover: hover)
+and
+(pointer: fine) {
 
-        opacity: 0.82;
+    .shop-product-image:hover img {
+        transform:
+            scale(1.014);
+
+        opacity: 0.84;
     }
 
 }
 
 
 /* ========================================
-   LÉGENDE
+   BADGE
 ======================================== */
 
-.product-caption {
+.shop-badge {
+    position: absolute;
+
+    z-index: 2;
+
+    top: 9px;
+    left: 9px;
+
+    padding:
+        5px 6px
+        4px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.62
+        );
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.76
+        );
+
+    color: #fff;
+
+    font-size: 9px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing:
+        0.07em;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* ========================================
+   INFORMATIONS
+======================================== */
+
+.shop-product-info {
     display: flex;
 
     align-items: flex-start;
@@ -178,136 +338,153 @@
 }
 
 
-.product-caption h2 {
+.shop-product-main {
+    min-width: 0;
+}
+
+
+/* ========================================
+   NOM DU PROJET
+======================================== */
+
+.shop-product-project {
+    margin-bottom: 3px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.34
+        );
+
+    font-size: 10px;
+    line-height: 1;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.05em;
+}
+
+
+/* ========================================
+   NOM PRODUIT
+======================================== */
+
+.shop-product h1,
+.shop-product h2 {
     margin: 0;
 
     color: #fff;
 
     font-size: 15px;
-    line-height: 1.05;
+    line-height: 1;
 
     font-weight: 700;
 }
 
 
-.product-caption p {
-    margin: 3px 0 0;
+/* ========================================
+   DESCRIPTION
+======================================== */
 
-    color: rgba(255, 255, 255, 0.42);
+.shop-product p {
+    margin:
+        4px 0
+        0;
 
-    font-size: 11px;
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.42
+        );
+
+    font-size: 10px;
     line-height: 1.2;
 }
 
 
-.product-price {
+/* ========================================
+   PRIX
+======================================== */
+
+.shop-product-price {
     flex: 0 0 auto;
 
-    color: rgba(255, 255, 255, 0.78);
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.78
+        );
 
     font-size: 13px;
     line-height: 1;
 
     text-decoration: none;
 
-    transition: opacity 0.25s ease;
+    transition:
+        opacity
+        0.2s
+        ease;
 }
 
 
-.product-price:hover {
+.shop-product-price:hover {
     opacity: 0.45;
 }
 
 
 /* ========================================
-   BADGE
+   FOOTER
 ======================================== */
 
-.product-badge {
-    position: absolute;
-
-    z-index: 2;
-
-    top: 9px;
-    left: 9px;
-
-    padding: 5px 6px 4px;
-
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.62);
-
-    background:
-        rgba(0, 0, 0, 0.74);
-
-    color: #fff;
-
-    font-size: 9px;
-    line-height: 1;
-
-    font-weight: 700;
-
-    letter-spacing: 0.07em;
-
-    text-transform: uppercase;
-}
-
-
-/* ========================================
-   L'OISEAU DE NUIT
-======================================== */
-
-.shop-project-odn {
-    margin-top: 2px;
-}
-
-
-.shop-layout-odn {
-    display: grid;
-
-    grid-template-columns:
-        minmax(220px, 0.72fr)
-        minmax(0, 1.73fr);
-
-    gap: 14px;
-
-    align-items: end;
-}
-
-
-.product-odn {
-    width: 100%;
-}
-
-
-.shop-note {
+.shop-footer {
     display: flex;
-    align-items: flex-end;
 
-    min-height: 30px;
+    align-items: baseline;
 
-    padding-bottom: 1px;
+    gap: 4px;
+
+    margin-top: 1px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.28
+        );
+
+    font-size: 10px;
+    line-height: 1;
 }
 
 
-.shop-note p {
-    margin: 0;
-
-    color: rgba(255, 255, 255, 0.34);
-
-    font-size: 11px;
-    line-height: 1.25;
-}
-
-
-.shop-note a {
-    color: rgba(255, 255, 255, 0.58);
+.shop-footer a {
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.52
+        );
 
     text-decoration: none;
+
+    transition:
+        opacity
+        0.2s
+        ease;
 }
 
 
-.shop-note a:hover {
+.shop-footer a:hover {
     opacity: 0.5;
 }
 
@@ -316,36 +493,62 @@
    APPARITION
 ======================================== */
 
-body.internal-page .product {
+body.internal-page
+.shop-product {
     opacity: 0;
 
-    transform: translateY(7px);
+    transform:
+        translateY(7px);
 
     transition:
-        opacity 0.7s ease,
-        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        opacity
+        0.7s
+        ease,
+        transform
+        0.9s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
 }
 
 
-body.internal-page.intro-ready .product {
+body.internal-page.intro-ready
+.shop-product {
     opacity: 1;
 
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
 
 
-body.internal-page.intro-ready .product-cd {
-    transition-delay: 0.05s;
+body.internal-page.intro-ready
+.shop-product:nth-child(2) {
+    transition-delay:
+        0.05s;
 }
 
 
-body.internal-page.intro-ready .product-shirt {
-    transition-delay: 0.10s;
+body.internal-page.intro-ready
+.shop-product:nth-child(3) {
+    transition-delay:
+        0.10s;
 }
 
 
-body.internal-page.intro-ready .product-hoodie {
-    transition-delay: 0.15s;
+body.internal-page.intro-ready
+.shop-product:nth-child(4) {
+    transition-delay:
+        0.15s;
+}
+
+
+body.internal-page.intro-ready
+.shop-product:nth-child(5) {
+    transition-delay:
+        0.20s;
 }
 
 
@@ -353,22 +556,26 @@ body.internal-page.intro-ready .product-hoodie {
    TABLETTE
 ======================================== */
 
-@media (max-width: 900px) {
+@media
+(max-width: 900px) {
 
-    .shop-layout-bm {
-        grid-template-columns:
-            minmax(0, 1.25fr)
-            minmax(0, 0.75fr);
-
-        grid-template-areas:
-            "vinyl cd"
-            "vinyl shirt"
-            "hoodie hoodie";
+    .shop-product {
+        flex-basis:
+            clamp(
+                180px,
+                31vw,
+                240px
+            );
     }
 
 
-    .product-hoodie {
-        width: 38%;
+    .shop-product-featured {
+        flex-basis:
+            clamp(
+                260px,
+                44vw,
+                340px
+            );
     }
 
 }
@@ -378,126 +585,125 @@ body.internal-page.intro-ready .product-hoodie {
    MOBILE
 ======================================== */
 
-@media (max-width: 700px) {
+@media
+(max-width: 700px) {
 
     .shop-content {
         width:
-            calc(100% - 36px);
+            calc(
+                100% - 36px
+            );
 
         min-width: 0;
 
-        gap: 42px;
+        gap: 11px;
 
         padding:
             10px 0
-            34px;
+            32px;
     }
 
 
-    .shop-project {
-        gap: 12px;
+    .shop-heading p {
+        font-size: 11px;
     }
 
 
-    .shop-project-header h1 {
-        font-size: 25px;
+    /*
+       Sur mobile, les flèches sont moins utiles :
+       le swipe suffit.
+    */
+
+    .shop-controls {
+        display: none;
     }
 
 
-    .shop-project-header span {
-        font-size: 12px;
+    .shop-track {
+        gap: 10px;
+
+        padding-right:
+            48px;
     }
 
 
-    .shop-layout-bm {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+    .shop-product {
+        flex-basis:
+            58vw;
 
-        grid-template-areas:
-            "vinyl vinyl"
-            "cd shirt"
-            "hoodie hoodie";
-
-        gap:
-            18px 10px;
+        max-width:
+            230px;
     }
 
 
-    .product-hoodie {
-        width:
-            calc(50% - 5px);
+    /*
+       Le premier produit reste plus grand,
+       mais pas au point de remplir tout l'écran.
+    */
+
+    .shop-product-featured {
+        flex-basis:
+            76vw;
+
+        max-width:
+            310px;
     }
 
 
-    .product-caption h2 {
+    .shop-product h1,
+    .shop-product h2 {
         font-size: 14px;
     }
 
 
-    .product-caption p {
-        font-size: 10px;
+    .shop-product-project {
+        font-size: 9px;
     }
 
 
-    .product-price {
+    .shop-product p {
+        font-size: 9px;
+    }
+
+
+    .shop-product-price {
         font-size: 12px;
     }
 
 
-    .shop-layout-odn {
-        grid-template-columns:
-            minmax(0, 1fr)
-            minmax(0, 1fr);
-
-        gap: 10px;
-    }
-
-
-    .shop-note {
-        align-self: end;
+    .shop-footer {
+        font-size: 9px;
     }
 
 }
 
 
 /* ========================================
-   PETIT MOBILE
+   TRÈS PETIT MOBILE
 ======================================== */
 
-@media (max-width: 430px) {
+@media
+(max-width: 430px) {
 
-    .shop-layout-bm {
-        grid-template-columns:
-            1fr
-            1fr;
+    .shop-product {
+        flex-basis:
+            62vw;
     }
 
 
-    .product-featured {
-        width: 100%;
+    .shop-product-featured {
+        flex-basis:
+            80vw;
     }
 
 
-    .product-hoodie {
-        width:
-            calc(50% - 5px);
+    .shop-product-info {
+        gap: 6px;
     }
 
 
-    .product-caption {
-        gap: 5px;
-    }
-
-
-    .product-caption p {
+    .shop-product p {
         display: none;
-    }
-
-
-    .shop-layout-odn {
-        grid-template-columns:
-            58%
-            1fr;
     }
 
 }
@@ -507,9 +713,16 @@ body.internal-page.intro-ready .product-hoodie {
    ACCESSIBILITÉ
 ======================================== */
 
-@media (prefers-reduced-motion: reduce) {
+@media
+(prefers-reduced-motion: reduce) {
 
-    body.internal-page .product {
+    .shop-carousel {
+        scroll-behavior: auto;
+    }
+
+
+    body.internal-page
+    .shop-product {
         opacity: 1;
 
         transform: none;
@@ -518,7 +731,7 @@ body.internal-page.intro-ready .product-hoodie {
     }
 
 
-    .product-visual img {
+    .shop-product-image img {
         transition: none;
     }
 
