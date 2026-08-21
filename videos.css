@@ -8,7 +8,11 @@
 ======================================== */
 
 .videos-content {
-    width: min(var(--content-width), calc(100% - 80px));
+    width: min(
+        var(--content-width),
+        calc(100% - 80px)
+    );
+
     min-width: 600px;
 
     display: flex;
@@ -118,9 +122,12 @@
 
     display: grid;
 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
-    gap: 22px 16px;
+    gap: 30px 16px;
+
+    align-items: start;
 }
 
 
@@ -162,6 +169,86 @@
 }
 
 
+/* ========================================
+   CRÉDITS VIDÉO
+======================================== */
+
+.video-credits {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+
+    box-sizing: border-box;
+
+    margin-top: 4px;
+}
+
+
+/* ========================================
+   LIGNE DE CRÉDIT
+======================================== */
+
+.video-credit {
+    display: grid;
+
+    grid-template-columns:
+        max-content
+        minmax(0, 1fr);
+
+    column-gap: 8px;
+
+    align-items: baseline;
+
+    font-size: 13px;
+    line-height: 1.12;
+}
+
+
+/* ========================================
+   POSTE
+======================================== */
+
+.video-credit-role {
+    color:
+        rgba(255, 255, 255, 0.44);
+
+    white-space: nowrap;
+}
+
+
+/* ========================================
+   NOM
+======================================== */
+
+.video-credit-name {
+    min-width: 0;
+
+    color:
+        rgba(255, 255, 255, 0.74);
+}
+
+
+/* ========================================
+   CRÉDITS VIDÉOS PRINCIPALES
+
+   Un peu plus aérés car nous avons
+   davantage de largeur disponible.
+======================================== */
+
+.video-item-featured .video-credits {
+    margin-top: 5px;
+}
+
+
+.video-item-featured .video-credit {
+    font-size: 14px;
+
+    column-gap: 10px;
+}
+
 
 /* ========================================
    MOBILE
@@ -197,12 +284,16 @@
     }
 
 
+    /* ========================================
+       UNE SEULE COLONNE
+    ========================================= */
+
     .video-grid {
         width: 100%;
 
         grid-template-columns: 1fr;
 
-        gap: 18px;
+        gap: 28px;
     }
 
 
@@ -218,6 +309,68 @@
 
     .video-item h2 {
         font-size: 20px;
+    }
+
+
+    /* ========================================
+       CRÉDITS MOBILE
+    ========================================= */
+
+    .video-credits,
+    .video-item-featured .video-credits {
+        margin-top: 4px;
+
+        gap: 2px;
+    }
+
+
+    .video-credit,
+    .video-item-featured .video-credit {
+        grid-template-columns:
+            max-content
+            minmax(0, 1fr);
+
+        column-gap: 7px;
+
+        font-size: 12px;
+        line-height: 1.15;
+    }
+
+
+    .video-credit-role {
+        white-space: normal;
+    }
+
+}
+
+
+/* ========================================
+   TRÈS PETITS ÉCRANS
+======================================== */
+
+@media (max-width: 430px) {
+
+    /*
+       Sur un écran vraiment étroit,
+       poste et nom passent l'un sous l'autre
+       pour éviter de comprimer les crédits.
+    */
+
+    .video-credit,
+    .video-item-featured .video-credit {
+        grid-template-columns: 1fr;
+
+        row-gap: 1px;
+    }
+
+
+    .video-credit-role {
+        font-size: 11px;
+    }
+
+
+    .video-credit-name {
+        font-size: 12px;
     }
 
 }
