@@ -34,16 +34,14 @@
 
 
     <!-- ========================================
-         PRÉCHARGEMENT DU BACKGROUND
-
-         IMG02 est demandée immédiatement,
-         avant même le rendu de la home.
+         PRÉCHARGEMENT PRIORITAIRE DU BACKGROUND
     ========================================= -->
 
     <link
         rel="preload"
         as="image"
         href="images/IMG02.jpg"
+        fetchpriority="high"
     >
 
 
@@ -73,19 +71,19 @@
 
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "MusicGroup",
-      "name": "Prattseul",
-      "url": "https://prattseul.fr/",
-      "sameAs": [
-        "https://instagram.com/prattseul/",
-        "https://facebook.com/prattseul",
-        "https://tiktok.com/@prattseul",
-        "https://youtube.com/prattseul",
-        "https://open.spotify.com/artist/2fuNjNQ9TytbwINLWo8x0y",
-        "https://link.deezer.com/s/349ou5JCWcltw1dXBCJPf",
-        "https://music.apple.com/fr/artist/prattseul/1423294870"
-      ]
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "Prattseul",
+        "url": "https://prattseul.fr/",
+        "sameAs": [
+            "https://instagram.com/prattseul/",
+            "https://facebook.com/prattseul",
+            "https://tiktok.com/@prattseul",
+            "https://youtube.com/prattseul",
+            "https://open.spotify.com/artist/2fuNjNQ9TytbwINLWo8x0y",
+            "https://link.deezer.com/s/349ou5JCWcltw1dXBCJPf",
+            "https://music.apple.com/fr/artist/prattseul/1423294870"
+        ]
     }
     </script>
 
@@ -138,10 +136,16 @@
 
         <!-- ========================================
              GIF D'ACCUEIL
+
+             IMPORTANT :
+             aucun src au chargement initial.
+
+             home-scroll.js ajoutera le GIF
+             uniquement APRÈS que IMG02.jpg
+             soit réellement prête.
         ========================================= -->
 
         <img
-            src="images/welcomeGif.gif"
             alt=""
             class="welcome-gif"
             aria-hidden="true"
