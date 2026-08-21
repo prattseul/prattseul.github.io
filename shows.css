@@ -12,7 +12,7 @@
 
     margin:
         0 0
-        42px;
+        28px;
 
     overflow: hidden;
 }
@@ -31,7 +31,7 @@
 ======================================== */
 
 .shows-gif-credit {
-    margin-top: 8px;
+    margin-top: 7px;
 
     color:
         rgba(255, 255, 255, 0.72);
@@ -50,14 +50,14 @@
 .shows-year {
     width: 100%;
 
-    margin-bottom: 58px;
+    margin-bottom: 40px;
 }
 
 
 .shows-year-title {
     margin:
         0 0
-        14px;
+        10px;
 
     color: #fff;
 
@@ -103,15 +103,15 @@
         minmax(220px, 1fr)
         auto;
 
-    column-gap: 24px;
+    column-gap: 22px;
 
     align-items: center;
 
     box-sizing: border-box;
 
     padding:
-        16px 0
-        15px;
+        13px 0
+        12px;
 
     border-bottom:
         1px solid
@@ -172,7 +172,7 @@
     display: flex;
     flex-direction: column;
 
-    gap: 4px;
+    gap: 3px;
 }
 
 
@@ -190,7 +190,7 @@
 
 .show-meta {
     color:
-        rgba(255, 255, 255, 0.52);
+        rgba(255, 255, 255, 0.54);
 
     font-size:
         clamp(13px, 0.95vw, 15px);
@@ -243,16 +243,13 @@
 
 /* ========================================
    DATES FUTURES
-
-   Tant que script.js n'ajoute pas .past,
-   la date est considérée comme à venir.
 ======================================== */
 
 .show-item:not(.past) {
     position: relative;
 
-    padding-top: 20px;
-    padding-bottom: 19px;
+    padding-top: 16px;
+    padding-bottom: 15px;
 
     border-bottom-color:
         rgba(255, 255, 255, 0.48);
@@ -282,13 +279,13 @@
 ======================================== */
 
 .show-item.past {
-    opacity: 0.38;
+    opacity: 0.52;
 
-    padding-top: 11px;
-    padding-bottom: 10px;
+    padding-top: 9px;
+    padding-bottom: 9px;
 
     border-bottom-color:
-        rgba(255, 255, 255, 0.16);
+        rgba(255, 255, 255, 0.18);
 }
 
 
@@ -324,12 +321,6 @@
    PREMIÈRES PARTIES
 ======================================== */
 
-/*
-   script.js ajoute automatiquement
-   .show-support lorsque .show-meta
-   commence par "première partie".
-*/
-
 .show-item.show-support {
     box-sizing: border-box;
 
@@ -345,14 +336,8 @@
 }
 
 
-/*
-   Une première partie passée reste
-   légèrement plus visible que les autres
-   archives.
-*/
-
 .show-item.show-support.past {
-    opacity: 0.55;
+    opacity: 0.66;
 }
 
 
@@ -416,11 +401,6 @@
 
 @media (hover: hover) and (pointer: fine) {
 
-    /*
-       Dates à venir :
-       mouvement très léger.
-    */
-
     .show-item:not(.past):hover {
         transform:
             translateX(3px);
@@ -433,10 +413,6 @@
     }
 
 
-    /*
-       Billetterie.
-    */
-
     .show-ticket:hover {
         background: #fff;
 
@@ -446,20 +422,10 @@
     }
 
 
-    /*
-       Archives :
-       elles redeviennent légèrement lisibles
-       si l'utilisateur vient les consulter.
-    */
-
     .show-item.past:hover {
-        opacity: 0.68;
+        opacity: 0.78;
     }
 
-
-    /*
-       Première partie future.
-    */
 
     .show-item.show-support:not(.past):hover {
         background:
@@ -482,8 +448,8 @@
     align-self: center;
 
     margin:
-        8px auto
-        60px;
+        4px auto
+        40px;
 
     overflow: hidden;
 }
@@ -576,7 +542,7 @@ body.internal-page.intro-ready
     ---------------------------------------- */
 
     .shows-hero {
-        margin-bottom: 34px;
+        margin-bottom: 24px;
     }
 
 
@@ -590,12 +556,12 @@ body.internal-page.intro-ready
     ---------------------------------------- */
 
     .shows-year {
-        margin-bottom: 42px;
+        margin-bottom: 32px;
     }
 
 
     .shows-year-title {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
 
         font-size: 30px;
     }
@@ -616,11 +582,11 @@ body.internal-page.intro-ready
             "info info";
 
         gap:
-            5px 12px;
+            4px 12px;
 
         padding:
-            13px 0
-            12px;
+            11px 0
+            10px;
     }
 
 
@@ -641,7 +607,7 @@ body.internal-page.intro-ready
     .show-info {
         grid-area: info;
 
-        margin-top: 4px;
+        margin-top: 3px;
     }
 
 
@@ -675,8 +641,8 @@ body.internal-page.intro-ready
     ---------------------------------------- */
 
     .show-item:not(.past) {
-        padding-top: 17px;
-        padding-bottom: 16px;
+        padding-top: 14px;
+        padding-bottom: 13px;
     }
 
 
@@ -697,10 +663,10 @@ body.internal-page.intro-ready
     ---------------------------------------- */
 
     .show-item.past {
-        opacity: 0.36;
+        opacity: 0.5;
 
-        padding-top: 9px;
-        padding-bottom: 9px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
 
 
@@ -734,16 +700,16 @@ body.internal-page.intro-ready
 
     .show-item.show-support {
         padding:
-            12px 8px
-            12px 11px;
+            10px 8px
+            10px 11px;
 
         gap:
-            5px 10px;
+            4px 10px;
     }
 
 
     .show-support-meta {
-        margin-top: 3px;
+        margin-top: 2px;
 
         gap: 5px;
     }
@@ -771,8 +737,8 @@ body.internal-page.intro-ready
         width: 76%;
 
         margin:
-            4px auto
-            44px;
+            2px auto
+            32px;
     }
 
 }
