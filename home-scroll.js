@@ -42,15 +42,15 @@ document.addEventListener("DOMContentLoaded", function () {
        ÉTAT
     ========================================= */
 
-    let touchStartY = null;
-
     let gifVisible = false;
-
-    let backgroundReady = false;
 
     let gifReady = false;
 
     let interactionsReady = false;
+
+    let touchStartY = null;
+
+    let touchDirectionHandled = false;
 
 
     /* ========================================
@@ -70,10 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /*
-       État initial obligatoire :
-
-       IMG02 visible.
-       Le GIF n'a pas encore de src.
+       La home commence TOUJOURS
+       avec IMG02.
     */
 
     resetWelcomeGif();
@@ -85,17 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showWelcomeGif() {
 
-        /*
-           Impossible d'afficher le GIF
-           tant que :
-
-           - IMG02 n'est pas prête
-           - le GIF n'est pas prêt
-           - les interactions ne sont pas actives
-        */
-
         if (
-            !backgroundReady ||
             !gifReady ||
             !interactionsReady ||
             gifVisible
@@ -136,18 +124,60 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
-       CHARGEMENT DU GIF
+       ACTIVER LE GIF
+    ========================================= */
+
+    function activateWelcomeGif() {
+
+        /*
+           Le GIF est maintenant chargé,
+           mais reste opacity: 0 grâce au CSS.
+
+           On peut donc enfin supprimer
+           l'attribut hidden sans provoquer
+           de flash.
+        */
+
+        welcomeGif.hidden = false;
+
+
+        /*
+           Deux frames supplémentaires permettent
+           au navigateur d'enregistrer proprement
+           l'état opacity: 0 avant toute interaction.
+        */
+
+        window.requestAnimationFrame(
+            function () {
+
+                window.requestAnimationFrame(
+                    function () {
+
+                        gifReady = true;
+                        interactionsReady = true;
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+    /* ========================================
+       CHARGER LE GIF
+
+       UNIQUEMENT APRÈS LE BACKGROUND
     ========================================= */
 
     function loadWelcomeGif() {
 
         /*
-           Seulement maintenant on donne
-           son fichier à la balise <img>.
+           Le GIF n'avait aucun src jusque-là.
 
-           Le navigateur n'a donc pas pu
-           télécharger / afficher le GIF
-           avant IMG02.
+           Le navigateur commence seulement
+           maintenant à le télécharger.
         */
 
         welcomeGif.src =
@@ -155,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           Si le GIF est déjà en cache.
+           Cas où il est déjà en cache.
         */
 
         if (
@@ -163,8 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
             welcomeGif.naturalWidth > 0
         ) {
 
-            gifReady = true;
-            interactionsReady = true;
+            activateWelcomeGif();
 
             return;
         }
@@ -174,8 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "load",
             function () {
 
-                gifReady = true;
-                interactionsReady = true;
+                activateWelcomeGif();
 
             },
             {
@@ -189,9 +217,12 @@ document.addEventListener("DOMContentLoaded", function () {
             function () {
 
                 /*
-                   En cas de problème avec le GIF,
-                   on conserve simplement IMG02.
+                   Si le GIF échoue,
+                   on conserve simplement
+                   le background.
                 */
+
+                welcomeGif.hidden = true;
 
                 gifReady = false;
                 interactionsReady = false;
@@ -211,19 +242,14 @@ document.addEventListener("DOMContentLoaded", function () {
        BACKGROUND PRÊT
     ========================================= */
 
-    function backgroundIsReady() {
-
-        backgroundReady = true;
-
+    function backgroundReady() {
 
         /*
-           Même lorsque l'image vient d'être
-           décodée, on laisse au navigateur
-           deux frames pour la peindre
-           réellement à l'écran.
+           On attend deux frames.
 
-           Ensuite seulement :
-           chargement du GIF.
+           IMG02 est décodée à ce stade,
+           mais ces frames laissent le temps
+           au navigateur de la peindre réellement.
         */
 
         window.requestAnimationFrame(
@@ -244,54 +270,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
-       CHARGEMENT / DÉCODAGE DE IMG02
+       PRÉPARER IMG02
     ========================================= */
 
     function prepareBackground() {
 
-        const backgroundImage =
+        const image =
             new Image();
 
 
-        backgroundImage.src =
+        image.src =
             backgroundUrl;
 
 
-        /*
-           Si l'image est déjà disponible
-           dans le cache navigateur.
-        */
+        /* ----------------------------------------
+           IMAGE DÉJÀ EN CACHE
+        ---------------------------------------- */
 
         if (
-            backgroundImage.complete &&
-            backgroundImage.naturalWidth > 0
+            image.complete &&
+            image.naturalWidth > 0
         ) {
 
             if (
-                typeof backgroundImage.decode ===
+                typeof image.decode ===
                 "function"
             ) {
 
-                backgroundImage
+                image
                     .decode()
                     .catch(function () {
 
                         /*
-                           decode() peut échouer
-                           même si l'image est
-                           parfaitement utilisable.
+                           Certains navigateurs peuvent
+                           rejeter decode() alors que
+                           l'image reste utilisable.
                         */
 
                     })
                     .finally(function () {
 
-                        backgroundIsReady();
+                        backgroundReady();
 
                     });
 
             } else {
 
-                backgroundIsReady();
+                backgroundReady();
 
             }
 
@@ -300,34 +325,33 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /*
-           Cache froid :
-           on attend réellement IMG02.
-        */
+        /* ----------------------------------------
+           CACHE FROID
+        ---------------------------------------- */
 
-        backgroundImage.addEventListener(
+        image.addEventListener(
             "load",
             function () {
 
                 if (
-                    typeof backgroundImage.decode ===
+                    typeof image.decode ===
                     "function"
                 ) {
 
-                    backgroundImage
+                    image
                         .decode()
                         .catch(function () {
 
                         })
                         .finally(function () {
 
-                            backgroundIsReady();
+                            backgroundReady();
 
                         });
 
                 } else {
 
-                    backgroundIsReady();
+                    backgroundReady();
 
                 }
 
@@ -338,17 +362,17 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-        backgroundImage.addEventListener(
+        image.addEventListener(
             "error",
             function () {
 
                 /*
-                   Si IMG02 ne charge pas,
-                   on n'autorise surtout pas
-                   le GIF à prendre sa place.
+                   Si IMG02 n'est pas disponible,
+                   le GIF reste complètement caché.
                 */
 
-                backgroundReady = false;
+                welcomeGif.hidden = true;
+
                 gifReady = false;
                 interactionsReady = false;
 
@@ -384,13 +408,12 @@ document.addEventListener("DOMContentLoaded", function () {
             showWelcomeGif();
 
             return;
-
         }
 
 
         /*
            Scroll vers le haut
-           → BACKGROUND
+           → IMG02
         */
 
         if (event.deltaY < -4) {
@@ -437,7 +460,6 @@ document.addEventListener("DOMContentLoaded", function () {
             showWelcomeGif();
 
             return;
-
         }
 
 
@@ -472,6 +494,10 @@ document.addEventListener("DOMContentLoaded", function () {
         touchStartY =
             event.touches[0].clientY;
 
+
+        touchDirectionHandled =
+            false;
+
     }
 
 
@@ -484,6 +510,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (
             !interactionsReady ||
             touchStartY === null ||
+            touchDirectionHandled ||
             !event.touches ||
             event.touches.length === 0
         ) {
@@ -500,40 +527,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-           Le doigt monte :
-           intention de descendre.
+           Doigt vers le haut :
+           tentative de descendre.
 
            → GIF
         */
 
-        if (distance > 14) {
+        if (distance > 20) {
+
+            touchDirectionHandled =
+                true;
+
 
             showWelcomeGif();
 
-
-            touchStartY =
-                currentY;
-
-
             return;
-
         }
 
 
         /*
-           Le doigt descend :
-           intention de remonter.
+           Doigt vers le bas :
+           tentative de remonter.
 
-           → BACKGROUND
+           → IMG02
         */
 
-        if (distance < -14) {
+        if (distance < -20) {
+
+            touchDirectionHandled =
+                true;
+
 
             hideWelcomeGif();
-
-
-            touchStartY =
-                currentY;
 
         }
 
@@ -541,18 +566,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ========================================
-       FIN DU GESTE TACTILE
+       FIN DU GESTE
     ========================================= */
 
     function handleTouchEnd() {
 
         touchStartY = null;
 
+        touchDirectionHandled =
+            false;
+
+    }
+
+
+    function handleTouchCancel() {
+
+        touchStartY = null;
+
+        touchDirectionHandled =
+            false;
+
     }
 
 
     /* ========================================
-       CACHE DE NAVIGATION
+       BFCache / RETOUR NAVIGATEUR
     ========================================= */
 
     window.addEventListener(
@@ -568,11 +606,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener(
         "pageshow",
         function (event) {
-
-            /*
-               Retour via BFCache :
-               toujours revenir sur IMG02.
-            */
 
             if (event.persisted) {
 
@@ -630,11 +663,17 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
+    window.addEventListener(
+        "touchcancel",
+        handleTouchCancel,
+        {
+            passive: true
+        }
+    );
+
+
     /* ========================================
        DÉMARRAGE
-
-       IMG02 est la toute première image
-       que ce script autorise.
     ========================================= */
 
     prepareBackground();
