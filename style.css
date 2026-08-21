@@ -259,12 +259,29 @@ body[data-home="true"] .page-title {
     pointer-events: none;
 }
 
+/*
+   Sur la home, le titre de page est masqué.
+   On compense donc sa hauteur afin que le trait
+   reste exactement au même niveau visuel que
+   sur les pages internes.
+*/
+
+body[data-home="true"] .header-center::after {
+    top: calc(100% + 32px);
+}
+
+
 @media (max-width: 700px) {
 
     .header-center::after {
         top: calc(100% + 7px);
 
         width: calc(100vw - 36px);
+    }
+
+
+    body[data-home="true"] .header-center::after {
+        top: calc(100% + 28px);
     }
 
 }
@@ -995,7 +1012,7 @@ body[data-home="true"] .page-title {
 
     gap: 42px;
 
-    padding: 10px 35px 40px;
+    padding: 10px 0 40px;
 }
 
 .shows-gif {
@@ -1143,7 +1160,7 @@ body[data-home="true"] .page-title {
 
     gap: 0;
 
-    padding: 5px 35px 35px;
+    padding: 5px 0 35px;
 }
 
 .press-year {
@@ -1271,7 +1288,7 @@ body[data-home="true"] .page-title {
 ======================================== */
 
 .contact-content {
-    padding: 10px 35px 35px;
+    padding: 10px 0 35px;
 }
 
 .contact-list {
