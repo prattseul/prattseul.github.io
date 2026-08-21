@@ -1,5 +1,5 @@
 /* ========================================
-   PAGE CONCERTS — VISUELS LIVE
+   PAGE CONCERTS
 ======================================== */
 
 
@@ -10,7 +10,9 @@
 .shows-hero {
     width: 100%;
 
-    margin: 0 0 10px;
+    margin:
+        0 0
+        42px;
 
     overflow: hidden;
 }
@@ -25,37 +27,14 @@
 
 
 /* ========================================
-   GIF SECONDAIRE — RESPIRATION
-======================================== */
-
-.shows-interlude {
-    width: 60%;
-
-    align-self: center;
-
-    margin: 6px auto 2px;
-
-    overflow: hidden;
-}
-
-
-.shows-interlude img {
-    display: block;
-
-    width: 100%;
-    height: auto;
-}
-
-
-/* ========================================
-   CRÉDITS
-   IDENTIQUES À LA PAGE À PROPOS
+   CRÉDITS GIF
 ======================================== */
 
 .shows-gif-credit {
     margin-top: 8px;
 
-    color: rgba(255, 255, 255, 0.72);
+    color:
+        rgba(255, 255, 255, 0.72);
 
     font-size: 14px;
     line-height: 1;
@@ -65,43 +44,315 @@
 
 
 /* ========================================
+   ANNÉE
+======================================== */
+
+.shows-year {
+    width: 100%;
+
+    margin-bottom: 58px;
+}
+
+
+.shows-year-title {
+    margin:
+        0 0
+        14px;
+
+    color: #fff;
+
+    font-size:
+        clamp(28px, 2.7vw, 42px);
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: -0.02em;
+}
+
+
+/* ========================================
+   LISTE
+======================================== */
+
+.shows-list {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.55);
+}
+
+
+/* ========================================
+   DATE DE CONCERT
+======================================== */
+
+.show-item {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        140px
+        minmax(170px, 0.8fr)
+        minmax(220px, 1fr)
+        auto;
+
+    column-gap: 24px;
+
+    align-items: center;
+
+    box-sizing: border-box;
+
+    padding:
+        16px 0
+        15px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    color: #fff;
+
+    transition:
+        opacity 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* ========================================
+   DATE
+======================================== */
+
+.show-date {
+    color: #fff;
+
+    font-size:
+        clamp(20px, 1.6vw, 25px);
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* ========================================
+   VILLE
+======================================== */
+
+.show-location {
+    color:
+        rgba(255, 255, 255, 0.78);
+
+    font-size:
+        clamp(15px, 1.15vw, 18px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   SALLE / INFOS
+======================================== */
+
+.show-info {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.show-venue {
+    color: #fff;
+
+    font-size:
+        clamp(18px, 1.45vw, 23px);
+
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+
+.show-meta {
+    color:
+        rgba(255, 255, 255, 0.52);
+
+    font-size:
+        clamp(13px, 0.95vw, 15px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   BILLETS
+======================================== */
+
+.show-ticket {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    justify-self: end;
+
+    min-width: 64px;
+
+    padding:
+        6px 8px
+        5px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.58);
+
+    color: #fff;
+
+    font-size: 12px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    text-transform: lowercase;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* ========================================
+   DATES FUTURES
+
+   Tant que script.js n'ajoute pas .past,
+   la date est considérée comme à venir.
+======================================== */
+
+.show-item:not(.past) {
+    position: relative;
+
+    padding-top: 20px;
+    padding-bottom: 19px;
+
+    border-bottom-color:
+        rgba(255, 255, 255, 0.48);
+}
+
+
+.show-item:not(.past) .show-date {
+    font-size:
+        clamp(22px, 1.85vw, 29px);
+}
+
+
+.show-item:not(.past) .show-location {
+    color:
+        rgba(255, 255, 255, 0.9);
+}
+
+
+.show-item:not(.past) .show-venue {
+    font-size:
+        clamp(20px, 1.65vw, 26px);
+}
+
+
+/* ========================================
+   DATES PASSÉES — ARCHIVES
+======================================== */
+
+.show-item.past {
+    opacity: 0.38;
+
+    padding-top: 11px;
+    padding-bottom: 10px;
+
+    border-bottom-color:
+        rgba(255, 255, 255, 0.16);
+}
+
+
+.show-item.past .show-date {
+    font-size:
+        clamp(16px, 1.1vw, 18px);
+}
+
+
+.show-item.past .show-location {
+    font-size:
+        clamp(13px, 0.95vw, 15px);
+}
+
+
+.show-item.past .show-venue {
+    font-size:
+        clamp(15px, 1.1vw, 18px);
+}
+
+
+.show-item.past .show-meta {
+    font-size: 12px;
+}
+
+
+.show-item.past .show-ticket {
+    display: none;
+}
+
+
+/* ========================================
    PREMIÈRES PARTIES
 ======================================== */
 
 /*
-   Toute date identifiée comme première partie
-   reçoit automatiquement .show-support
-   via script.js.
+   script.js ajoute automatiquement
+   .show-support lorsque .show-meta
+   commence par "première partie".
 */
 
 .show-item.show-support {
     box-sizing: border-box;
 
-    padding-left: 12px;
+    padding-left: 14px;
     padding-right: 10px;
 
     background:
-        rgba(255, 255, 255, 0.055);
+        rgba(255, 255, 255, 0.05);
 
     box-shadow:
-        inset 3px 0 0 rgba(255, 255, 255, 0.95);
-
-    transition:
-        opacity 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
+        inset 3px 0 0
+        rgba(255, 255, 255, 0.92);
 }
 
 
 /*
-   Les anciennes dates restent grisées,
-   mais un peu moins que les autres archives
-   afin que les premières parties restent
-   identifiables.
+   Une première partie passée reste
+   légèrement plus visible que les autres
+   archives.
 */
 
 .show-item.show-support.past {
-    opacity: 0.62;
+    opacity: 0.55;
 }
 
 
@@ -123,12 +374,16 @@
     display: inline-flex;
     align-items: center;
 
-    padding: 3px 5px 2px;
+    padding:
+        3px 5px
+        2px;
 
     border:
-        1px solid rgba(255, 255, 255, 0.68);
+        1px solid
+        rgba(255, 255, 255, 0.68);
 
-    color: rgba(255, 255, 255, 0.82);
+    color:
+        rgba(255, 255, 255, 0.82);
 
     font-size: 10px;
     line-height: 1;
@@ -146,7 +401,9 @@
 .show-support-artist {
     color: #fff;
 
-    font-size: clamp(15px, 1vw, 17px);
+    font-size:
+        clamp(15px, 1vw, 17px);
+
     line-height: 1;
 
     font-weight: 700;
@@ -159,9 +416,54 @@
 
 @media (hover: hover) and (pointer: fine) {
 
+    /*
+       Dates à venir :
+       mouvement très léger.
+    */
+
+    .show-item:not(.past):hover {
+        transform:
+            translateX(3px);
+
+        background:
+            rgba(255, 255, 255, 0.035);
+
+        border-bottom-color:
+            rgba(255, 255, 255, 0.8);
+    }
+
+
+    /*
+       Billetterie.
+    */
+
+    .show-ticket:hover {
+        background: #fff;
+
+        color: #000;
+
+        border-color: #fff;
+    }
+
+
+    /*
+       Archives :
+       elles redeviennent légèrement lisibles
+       si l'utilisateur vient les consulter.
+    */
+
+    .show-item.past:hover {
+        opacity: 0.68;
+    }
+
+
+    /*
+       Première partie future.
+    */
+
     .show-item.show-support:not(.past):hover {
         background:
-            rgba(255, 255, 255, 0.09);
+            rgba(255, 255, 255, 0.085);
 
         box-shadow:
             inset 3px 0 0 #fff;
@@ -171,24 +473,95 @@
 
 
 /* ========================================
-   APPARITION DU GIF SECONDAIRE
+   GIF SECONDAIRE — RESPIRATION
+======================================== */
+
+.shows-interlude {
+    width: 60%;
+
+    align-self: center;
+
+    margin:
+        8px auto
+        60px;
+
+    overflow: hidden;
+}
+
+
+.shows-interlude img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* ========================================
+   APPARITION GIF SECONDAIRE
 ======================================== */
 
 body.internal-page .shows-interlude {
     opacity: 0;
 
-    transform: translateY(8px);
+    transform:
+        translateY(8px);
 
     transition:
         opacity 0.9s ease 0.25s,
-        transform 1.05s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+        transform 1.05s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        0.25s;
 }
 
 
-body.internal-page.intro-ready .shows-interlude {
+body.internal-page.intro-ready
+.shows-interlude {
     opacity: 1;
 
-    transform: translateY(0);
+    transform:
+        translateY(0);
+}
+
+
+/* ========================================
+   TABLETTE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .show-item {
+        grid-template-columns:
+            120px
+            minmax(130px, 0.7fr)
+            minmax(180px, 1fr)
+            auto;
+
+        column-gap: 16px;
+    }
+
+
+    .show-date {
+        font-size: 18px;
+    }
+
+
+    .show-item:not(.past)
+    .show-date {
+        font-size: 21px;
+    }
+
+
+    .show-venue {
+        font-size: 18px;
+    }
+
+
+    .show-item:not(.past)
+    .show-venue {
+        font-size: 21px;
+    }
+
 }
 
 
@@ -198,38 +571,188 @@ body.internal-page.intro-ready .shows-interlude {
 
 @media (max-width: 700px) {
 
+    /* ----------------------------------------
+       HERO
+    ---------------------------------------- */
+
     .shows-hero {
-        margin-bottom: 4px;
+        margin-bottom: 34px;
     }
 
 
-    .shows-interlude {
-        width: 72%;
-
-        margin-top: 2px;
+    .shows-gif-credit {
+        font-size: 12px;
     }
 
 
-    /* PREMIÈRES PARTIES */
+    /* ----------------------------------------
+       ANNÉE
+    ---------------------------------------- */
+
+    .shows-year {
+        margin-bottom: 42px;
+    }
+
+
+    .shows-year-title {
+        margin-bottom: 10px;
+
+        font-size: 30px;
+    }
+
+
+    /* ----------------------------------------
+       DATE
+    ---------------------------------------- */
+
+    .show-item {
+        grid-template-columns:
+            1fr
+            auto;
+
+        grid-template-areas:
+            "date ticket"
+            "location location"
+            "info info";
+
+        gap:
+            5px 12px;
+
+        padding:
+            13px 0
+            12px;
+    }
+
+
+    .show-date {
+        grid-area: date;
+
+        font-size: 18px;
+    }
+
+
+    .show-location {
+        grid-area: location;
+
+        font-size: 14px;
+    }
+
+
+    .show-info {
+        grid-area: info;
+
+        margin-top: 4px;
+    }
+
+
+    .show-venue {
+        font-size: 18px;
+    }
+
+
+    .show-meta {
+        font-size: 13px;
+    }
+
+
+    .show-ticket {
+        grid-area: ticket;
+
+        align-self: start;
+
+        min-width: 54px;
+
+        padding:
+            5px 6px
+            4px;
+
+        font-size: 11px;
+    }
+
+
+    /* ----------------------------------------
+       FUTURES
+    ---------------------------------------- */
+
+    .show-item:not(.past) {
+        padding-top: 17px;
+        padding-bottom: 16px;
+    }
+
+
+    .show-item:not(.past)
+    .show-date {
+        font-size: 22px;
+    }
+
+
+    .show-item:not(.past)
+    .show-venue {
+        font-size: 21px;
+    }
+
+
+    /* ----------------------------------------
+       ARCHIVES
+    ---------------------------------------- */
+
+    .show-item.past {
+        opacity: 0.36;
+
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+
+
+    .show-item.past
+    .show-date {
+        font-size: 15px;
+    }
+
+
+    .show-item.past
+    .show-location {
+        font-size: 12px;
+    }
+
+
+    .show-item.past
+    .show-venue {
+        font-size: 15px;
+    }
+
+
+    .show-item.past
+    .show-meta {
+        font-size: 11px;
+    }
+
+
+    /* ----------------------------------------
+       PREMIÈRES PARTIES
+    ---------------------------------------- */
 
     .show-item.show-support {
         padding:
-            11px 8px
-            11px 11px;
+            12px 8px
+            12px 11px;
 
-        gap: 3px;
+        gap:
+            5px 10px;
     }
 
 
     .show-support-meta {
-        margin-top: 4px;
+        margin-top: 3px;
 
         gap: 5px;
     }
 
 
     .show-support-label {
-        padding: 3px 5px 2px;
+        padding:
+            3px 5px
+            2px;
 
         font-size: 9px;
     }
@@ -237,6 +760,19 @@ body.internal-page.intro-ready .shows-interlude {
 
     .show-support-artist {
         font-size: 15px;
+    }
+
+
+    /* ----------------------------------------
+       GIF SECONDAIRE
+    ---------------------------------------- */
+
+    .shows-interlude {
+        width: 76%;
+
+        margin:
+            4px auto
+            44px;
     }
 
 }
@@ -248,7 +784,8 @@ body.internal-page.intro-ready .shows-interlude {
 
 @media (prefers-reduced-motion: reduce) {
 
-    body.internal-page .shows-interlude {
+    body.internal-page
+    .shows-interlude {
         opacity: 1;
 
         transform: none;
@@ -257,7 +794,9 @@ body.internal-page.intro-ready .shows-interlude {
     }
 
 
-    .show-item.show-support {
+    .show-item,
+    .show-item.show-support,
+    .show-ticket {
         transition: none;
     }
 
