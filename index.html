@@ -16,7 +16,10 @@
         content="Site officiel de Prattseul — musique, vidéos, concerts, presse et actualités."
     >
 
-    <link rel="canonical" href="https://prattseul.fr/">
+    <link
+        rel="canonical"
+        href="https://prattseul.fr/"
+    >
 
     <link
         rel="icon"
@@ -29,9 +32,44 @@
         href="images/prattseul_favicon.png"
     >
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="home-scroll.css">
-    <link rel="stylesheet" href="home-easter.css">
+
+    <!-- ========================================
+         PRÉCHARGEMENT DU BACKGROUND
+
+         IMG02 est demandée immédiatement,
+         avant même le rendu de la home.
+    ========================================= -->
+
+    <link
+        rel="preload"
+        as="image"
+        href="images/IMG02.jpg"
+    >
+
+
+    <!-- ========================================
+         CSS
+    ========================================= -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="home-scroll.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="home-easter.css"
+    >
+
+
+    <!-- ========================================
+         DONNÉES STRUCTURÉES
+    ========================================= -->
 
     <script type="application/ld+json">
     {
@@ -50,6 +88,7 @@
       ]
     }
     </script>
+
 </head>
 
 
@@ -97,6 +136,10 @@
         </nav>
 
 
+        <!-- ========================================
+             GIF D'ACCUEIL
+        ========================================= -->
+
         <img
             src="images/welcomeGif.gif"
             alt=""
@@ -124,6 +167,7 @@
                 <div class="game-title">
                     BLIZZARD MODERNE — LE JEU
                 </div>
+
 
                 <button
                     class="game-close"
@@ -158,8 +202,11 @@
     ========================================= -->
 
     <script src="script.js"></script>
+
     <script src="home-scroll.js"></script>
+
     <script src="home-easter.js"></script>
+
 
 </body>
 
