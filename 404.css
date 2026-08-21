@@ -1,0 +1,405 @@
+/* ========================================
+   PAGE 404
+======================================== */
+
+
+/* ========================================
+   PAGE
+======================================== */
+
+.error-page {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    background: #000;
+
+    color: #fff;
+}
+
+
+/* ========================================
+   BACKGROUND PRINCIPAL
+======================================== */
+
+.error-background {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 0;
+
+    background-image:
+        url("images/IMG02.jpg");
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    background-position:
+        center bottom;
+}
+
+
+/* ========================================
+   GIF / PERTURBATION
+
+   Le GIF n'est pas présent dans le HTML
+   sous forme d'image.
+
+   Il n'est donc jamais susceptible
+   d'apparaître avant IMG02.
+======================================== */
+
+.error-glitch {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    background-image:
+        url("images/welcomeGif.gif");
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    background-position: center;
+
+    mix-blend-mode: screen;
+
+    transform:
+        scale(1.025);
+
+    transition:
+        opacity 45ms linear,
+        visibility 0s linear 45ms;
+}
+
+
+/* ========================================
+   GLITCH VISIBLE
+======================================== */
+
+.error-glitch.is-visible {
+    opacity: 0.82;
+
+    visibility: visible;
+
+    transition:
+        opacity 35ms linear,
+        visibility 0s;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.error-header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    box-sizing: border-box;
+
+    padding-top: 20px;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.error-logo {
+    color: #fff;
+
+    font-size:
+        clamp(28px, 3vw, 42px);
+
+    line-height: 0.9;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    pointer-events: auto;
+}
+
+
+/* ========================================
+   TITRE DE PAGE
+======================================== */
+
+.error-page-name {
+    margin-top: 5px;
+
+    color:
+        rgba(255, 255, 255, 0.72);
+
+    font-size: 15px;
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   CONTENU
+======================================== */
+
+.error-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    padding:
+        110px 40px
+        50px;
+}
+
+
+/* ========================================
+   404 GÉANT
+======================================== */
+
+.error-code {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -52%);
+
+    color:
+        rgba(255, 255, 255, 0.13);
+
+    font-size:
+        clamp(180px, 36vw, 560px);
+
+    line-height: 0.7;
+
+    font-weight: 700;
+
+    letter-spacing: -0.08em;
+
+    white-space: nowrap;
+
+    user-select: none;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   MESSAGE
+======================================== */
+
+.error-message {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 20px;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   TEXTE
+======================================== */
+
+.error-message p {
+    margin: 0;
+
+    color: #fff;
+
+    font-size:
+        clamp(25px, 3vw, 43px);
+
+    line-height: 0.98;
+
+    font-weight: 700;
+
+    letter-spacing: -0.02em;
+}
+
+
+/* ========================================
+   RETOUR
+======================================== */
+
+.error-return {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        7px 9px
+        6px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.7);
+
+    background:
+        rgba(0, 0, 0, 0.12);
+
+    color: #fff;
+
+    font-size: 14px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+/* ========================================
+   HOVER
+======================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .error-return:hover {
+        background: #fff;
+
+        color: #000;
+
+        border-color: #fff;
+    }
+
+
+    .error-logo:hover {
+        opacity: 0.72;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .error-header {
+        padding-top: 17px;
+    }
+
+
+    .error-logo {
+        font-size: 30px;
+    }
+
+
+    .error-page-name {
+        margin-top: 4px;
+
+        font-size: 13px;
+    }
+
+
+    .error-content {
+        padding:
+            100px 18px
+            35px;
+    }
+
+
+    .error-code {
+        transform:
+            translate(-50%, -58%);
+
+        font-size:
+            clamp(150px, 55vw, 250px);
+    }
+
+
+    .error-message {
+        gap: 17px;
+    }
+
+
+    .error-message p {
+        font-size:
+            clamp(25px, 8vw, 34px);
+    }
+
+
+    .error-return {
+        font-size: 13px;
+    }
+
+
+    .error-background {
+        background-position:
+            center bottom;
+    }
+
+}
+
+
+/* ========================================
+   ACCESSIBILITÉ
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .error-glitch {
+        display: none;
+    }
+
+
+    .error-return {
+        transition: none;
+    }
+
+}
