@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>404 — PRATTSEUL</title>
+
+    <meta
+        name="robots"
+        content="noindex"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="/images/prattseul_favicon.png"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="/images/prattseul_favicon.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/404.css"
+    >
+
+</head>
+
+
+<body class="error-page">
+
+
+    <!-- ========================================
+         BACKGROUND
+    ========================================= -->
+
+    <div
+        class="error-background"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- ========================================
+         GLITCH
+    ========================================= -->
+
+    <div
+        class="error-glitch"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- ========================================
+         HEADER
+    ========================================= -->
+
+    <header class="error-header">
+
+        <a
+            class="error-logo"
+            href="/"
+            aria-label="Retour à l'accueil"
+        >
+            PRATTSEUL
+        </a>
+
+        <div class="error-page-name">
+            404
+        </div>
+
+    </header>
+
+
+    <!-- ========================================
+         CONTENU
+    ========================================= -->
+
+    <main class="error-content">
+
+        <div class="error-code">
+            404
+        </div>
+
+
+        <div class="error-message">
+
+            <p>
+                Vous vous êtes perdu<br>
+                dans le blizzard.
+            </p>
+
+
+            <a
+                class="error-return"
+                href="/"
+            >
+                retour à l'accueil
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- ========================================
+         SCRIPT
+
+         Une seule perturbation visuelle.
+    ========================================= -->
+
+    <script>
+
+        (() => {
+
+            const glitch =
+                document.querySelector(
+                    ".error-glitch"
+                );
+
+
+            if (!glitch) {
+                return;
+            }
+
+
+            const reducedMotion =
+                window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                );
+
+
+            if (reducedMotion.matches) {
+                return;
+            }
+
+
+            /*
+               On attend que la page soit réellement
+               chargée avant de programmer l'effet.
+
+               Le GIF n'est donc jamais visible
+               pendant le chargement initial.
+            */
+
+            window.addEventListener(
+                "load",
+                () => {
+
+                    window.setTimeout(
+                        () => {
+
+                            glitch.classList.add(
+                                "is-visible"
+                            );
+
+
+                            window.setTimeout(
+                                () => {
+
+                                    glitch.classList.remove(
+                                        "is-visible"
+                                    );
+
+                                },
+                                320
+                            );
+
+                        },
+                        1700
+                    );
+
+                },
+                {
+                    once: true
+                }
+            );
+
+        })();
+
+    </script>
+
+
+</body>
+
+</html>
