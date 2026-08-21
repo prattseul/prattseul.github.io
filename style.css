@@ -234,6 +234,43 @@ body[data-home="true"] .page-title {
 
 
 /* ========================================
+   LIGNE SOUS LE LOGO / TITRE
+   PAGES INTERNES UNIQUEMENT
+======================================== */
+
+body.internal-page .header-center::after {
+    content: "";
+
+    position: absolute;
+
+    top: calc(100% + 14px);
+    left: 50%;
+
+    width: min(
+        var(--content-width),
+        calc(100vw - 80px)
+    );
+
+    transform: translateX(-50%);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.45);
+
+    pointer-events: none;
+}
+
+@media (max-width: 700px) {
+
+    body.internal-page .header-center::after {
+        top: calc(100% + 12px);
+
+        width: calc(100vw - 36px);
+    }
+
+}
+
+
+/* ========================================
    RÉSEAUX SOCIAUX
 ======================================== */
 
