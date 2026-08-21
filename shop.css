@@ -1,14 +1,15 @@
 /* ========================================
-   PRATTSEUL — SHOP
-   CARROUSEL INFINI CENTRÉ
+   PRATTSEUL — SHOP V6
+   CARROUSEL INFINI / PRODUIT CENTRÉ
 ======================================== */
 
 
 /* ========================================
-   CONTENEUR
+   CONTENU
 ======================================== */
 
 .shop-content {
+
     width: min(
         var(--content-width),
         calc(100% - 80px)
@@ -23,7 +24,8 @@
 
     padding:
         8px 0
-        34px;
+        32px;
+
 }
 
 
@@ -32,26 +34,40 @@
 ======================================== */
 
 .shop-heading {
+
+    position: relative;
+
+    z-index: 10;
+
     display: flex;
 
     align-items: center;
     justify-content: space-between;
 
     gap: 20px;
+
 }
 
 
 .shop-category {
+
     color:
         rgba(
             255,
             255,
             255,
-            0.38
+            0.68
         );
 
     font-size: 11px;
     line-height: 1;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 1px 8px
+        rgba(0, 0, 0, 0.28);
+
 }
 
 
@@ -60,64 +76,90 @@
 ======================================== */
 
 .shop-controls {
+
     display: flex;
 
     align-items: center;
 
-    gap: 10px;
+    gap: 12px;
+
 }
 
 
 .shop-counter {
-    min-width: 48px;
+
+    min-width: 50px;
 
     color:
         rgba(
             255,
             255,
             255,
-            0.34
+            0.72
         );
 
     font-size: 10px;
     line-height: 1;
 
+    font-weight: 600;
+
     text-align: center;
+
+    text-shadow:
+        0 1px 8px
+        rgba(0, 0, 0, 0.28);
+
 }
 
 
 .shop-arrow {
+
     appearance: none;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 26px;
+    height: 26px;
 
     padding: 0;
 
     border: 0;
 
-    background: none;
+    background: transparent;
 
     color:
         rgba(
             255,
             255,
             255,
-            0.38
+            0.68
         );
 
     font: inherit;
 
-    font-size: 19px;
+    font-size: 20px;
     line-height: 1;
 
     cursor: pointer;
 
     transition:
         color 0.2s ease,
+        transform 0.2s ease,
         opacity 0.2s ease;
+
 }
 
 
 .shop-arrow:hover {
+
     color: #fff;
+
+    transform:
+        scale(1.08);
+
 }
 
 
@@ -126,56 +168,108 @@
 ======================================== */
 
 .shop-carousel-shell {
+
+    position: relative;
+
     width: 100%;
 
     overflow: hidden;
+
 }
 
 
 /* ========================================
    CARROUSEL
+
+   C'est ce viewport qui définit
+   le centre géométrique.
 ======================================== */
 
 .shop-carousel {
+
+    position: relative;
+
     width: 100%;
+
+    height:
+        clamp(
+            430px,
+            55vh,
+            540px
+        );
 
     overflow: hidden;
 
     cursor: grab;
 
-    touch-action:
-        pan-y;
+    touch-action: pan-y;
 
     user-select: none;
+
+    outline: none;
+
 }
 
 
 .shop-carousel.is-dragging {
+
     cursor: grabbing;
+
 }
 
 
 /* ========================================
    TRACK
+
+   left: 50% = axe central du carousel.
+
+   Le JS translate ensuite le centre
+   du produit actif exactement sur cet axe.
 ======================================== */
 
 .shop-track {
+
+    position: absolute;
+
+    top: 28px;
+    left: 50%;
+
     display: flex;
 
-    align-items: center;
+    align-items: flex-start;
 
     gap:
         clamp(
-            12px,
-            1.8vw,
-            24px
+            24px,
+            3vw,
+            46px
         );
 
     width: max-content;
 
-    padding:
-        8px
-        34vw;
+    padding: 0;
+
+    margin: 0;
+
+    will-change: transform;
+
+    transform:
+        translate3d(
+            0,
+            0,
+            0
+        );
+
+    transition:
+        transform
+        0.65s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
 }
 
 
@@ -184,30 +278,36 @@
 ======================================== */
 
 .shop-product {
+
+    position: relative;
+
     flex:
         0 0
         clamp(
-            185px,
+            220px,
             20vw,
-            255px
+            285px
         );
 
     display: flex;
     flex-direction: column;
 
-    gap: 7px;
+    gap: 13px;
 
-    opacity: 0.32;
+    opacity: 0.40;
 
     transform:
-        scale(0.78);
+        scale(0.76);
 
     transform-origin:
-        center center;
+        center top;
+
+    filter:
+        brightness(0.84);
 
     transition:
         transform
-        0.48s
+        0.58s
         cubic-bezier(
             0.22,
             1,
@@ -215,32 +315,49 @@
             1
         ),
         opacity
-        0.35s
+        0.4s
+        ease,
+        filter
+        0.4s
         ease;
+
 }
 
 
 /* ========================================
-   VOISINS
+   PRODUITS VOISINS
 ======================================== */
 
 .shop-product.is-neighbour {
-    opacity: 0.56;
+
+    z-index: 2;
+
+    opacity: 0.72;
 
     transform:
         scale(0.86);
+
+    filter:
+        brightness(0.95);
+
 }
 
 
 /* ========================================
-   ACTIF
+   PRODUIT ACTIF
 ======================================== */
 
 .shop-product.is-active {
+
+    z-index: 5;
+
     opacity: 1;
 
     transform:
-        scale(1);
+        scale(1.12);
+
+    filter: none;
+
 }
 
 
@@ -249,6 +366,7 @@
 ======================================== */
 
 .shop-product-image {
+
     position: relative;
 
     display: block;
@@ -265,16 +383,47 @@
             0,
             0,
             0,
-            0.35
+            0.15
         );
 
     color: inherit;
 
     text-decoration: none;
+
+    box-shadow:
+        0 16px 46px
+        rgba(
+            0,
+            0,
+            0,
+            0.10
+        );
+
+    transition:
+        box-shadow
+        0.4s
+        ease;
+
+}
+
+
+.shop-product.is-active
+.shop-product-image {
+
+    box-shadow:
+        0 20px 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.16
+        );
+
 }
 
 
 .shop-product-image img {
+
     display: block;
 
     width: 100%;
@@ -283,43 +432,100 @@
     object-fit: cover;
 
     pointer-events: none;
+
 }
 
 
 /* ========================================
-   INFORMATIONS
+   HOVER IMAGE ACTIVE
+======================================== */
 
-   Sur les produits non actifs,
-   elles restent présentes mais très discrètes.
+@media
+(hover: hover)
+and
+(pointer: fine) {
+
+    .shop-product.is-active
+    .shop-product-image img {
+
+        transition:
+            transform
+            0.7s
+            cubic-bezier(
+                0.22,
+                1,
+                0.36,
+                1
+            );
+
+    }
+
+
+    .shop-product.is-active
+    .shop-product-image:hover img {
+
+        transform:
+            scale(1.015);
+
+    }
+
+}
+
+
+/* ========================================
+   INFOS PRODUIT
+
+   On cache les textes latéraux.
+   Le produit actif est donc immédiatement
+   identifiable.
 ======================================== */
 
 .shop-product-info {
+
     display: flex;
     flex-direction: column;
 
     align-items: center;
 
-    gap: 3px;
+    gap: 4px;
+
+    width: 100%;
 
     text-align: center;
 
     opacity: 0;
 
     transform:
-        translateY(-4px);
+        translateY(-5px);
+
+    pointer-events: none;
 
     transition:
-        opacity 0.3s ease,
-        transform 0.4s ease;
+        opacity
+        0.3s
+        ease,
+        transform
+        0.45s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
 }
 
 
 .shop-product.is-active
 .shop-product-info {
+
     opacity: 1;
 
     transform:
         translateY(0);
+
+    pointer-events: auto;
+
 }
 
 
@@ -328,22 +534,35 @@
 ======================================== */
 
 .shop-product-project {
+
     color:
         rgba(
             255,
             255,
             255,
-            0.36
+            0.78
         );
 
     font-size: 9px;
     line-height: 1;
 
+    font-weight: 700;
+
+    letter-spacing:
+        0.09em;
+
     text-transform:
         uppercase;
 
-    letter-spacing:
-        0.06em;
+    text-shadow:
+        0 1px 8px
+        rgba(
+            0,
+            0,
+            0,
+            0.45
+        );
+
 }
 
 
@@ -353,20 +572,33 @@
 
 .shop-product h1,
 .shop-product h2 {
-    margin: 1px 0 0;
+
+    margin:
+        2px 0
+        0;
 
     color: #fff;
 
     font-size:
         clamp(
-            16px,
-            1.4vw,
-            20px
+            18px,
+            1.5vw,
+            22px
         );
 
     line-height: 1;
 
     font-weight: 700;
+
+    text-shadow:
+        0 1px 10px
+        rgba(
+            0,
+            0,
+            0,
+            0.45
+        );
+
 }
 
 
@@ -375,18 +607,51 @@
 ======================================== */
 
 .shop-product p {
-    margin: 2px 0 0;
+
+    margin:
+        3px 0
+        0;
 
     color:
         rgba(
             255,
             255,
             255,
-            0.46
+            0.76
         );
 
     font-size: 10px;
-    line-height: 1.2;
+    line-height: 1.25;
+
+    font-weight: 500;
+
+    text-shadow:
+        0 1px 8px
+        rgba(
+            0,
+            0,
+            0,
+            0.45
+        );
+
+}
+
+
+.shop-product
+.shop-product-shipping {
+
+    margin-top: 0;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.58
+        );
+
+    font-size: 9px;
+
 }
 
 
@@ -395,28 +660,39 @@
 ======================================== */
 
 .shop-product-price {
-    margin-top: 3px;
 
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            0.84
-        );
+    margin-top: 5px;
 
-    font-size: 13px;
+    color: #fff;
+
+    font-size: 14px;
     line-height: 1;
+
+    font-weight: 700;
 
     text-decoration: none;
 
+    text-shadow:
+        0 1px 10px
+        rgba(
+            0,
+            0,
+            0,
+            0.45
+        );
+
     transition:
-        opacity 0.2s ease;
+        opacity
+        0.2s
+        ease;
+
 }
 
 
 .shop-product-price:hover {
-    opacity: 0.5;
+
+    opacity: 0.55;
+
 }
 
 
@@ -425,16 +701,17 @@
 ======================================== */
 
 .shop-badge {
+
     position: absolute;
 
-    z-index: 2;
+    z-index: 5;
 
-    top: 9px;
-    left: 9px;
+    top: 10px;
+    left: 10px;
 
     padding:
-        5px 6px
-        4px;
+        6px 7px
+        5px;
 
     border:
         1px solid
@@ -442,7 +719,7 @@
             255,
             255,
             255,
-            0.64
+            0.72
         );
 
     background:
@@ -450,7 +727,7 @@
             0,
             0,
             0,
-            0.74
+            0.72
         );
 
     color: #fff;
@@ -461,10 +738,17 @@
     font-weight: 700;
 
     letter-spacing:
-        0.07em;
+        0.08em;
 
     text-transform:
         uppercase;
+
+    backdrop-filter:
+        blur(4px);
+
+    -webkit-backdrop-filter:
+        blur(4px);
+
 }
 
 
@@ -473,6 +757,11 @@
 ======================================== */
 
 .shop-footer {
+
+    position: relative;
+
+    z-index: 10;
+
     display: flex;
 
     justify-content: center;
@@ -481,53 +770,126 @@
 
     gap: 4px;
 
-    margin-top: -2px;
+    margin-top: -12px;
 
     color:
         rgba(
             255,
             255,
             255,
-            0.24
+            0.48
         );
 
     font-size: 9px;
     line-height: 1;
+
+    font-weight: 500;
+
+    text-shadow:
+        0 1px 7px
+        rgba(
+            0,
+            0,
+            0,
+            0.35
+        );
+
 }
 
 
 .shop-footer a {
+
     color:
         rgba(
             255,
             255,
             255,
-            0.46
+            0.78
         );
 
+    font-weight: 600;
+
     text-decoration: none;
+
+    transition:
+        opacity
+        0.2s
+        ease;
+
 }
 
 
 .shop-footer a:hover {
-    opacity: 0.5;
+
+    opacity: 0.55;
+
 }
 
 
 /* ========================================
-   DESKTOP LARGE
+   ÉCRANS LARGES
 ======================================== */
 
 @media
-(min-width: 1200px) {
+(min-width: 1300px) {
 
     .shop-product {
+
         flex-basis:
             clamp(
-                210px,
+                240px,
                 19vw,
-                270px
+                300px
             );
+
+    }
+
+
+    .shop-carousel {
+
+        height:
+            clamp(
+                450px,
+                56vh,
+                570px
+            );
+
+    }
+
+}
+
+
+/* ========================================
+   TABLETTE
+======================================== */
+
+@media
+(max-width: 900px) {
+
+    .shop-product {
+
+        flex-basis:
+            clamp(
+                200px,
+                31vw,
+                250px
+            );
+
+    }
+
+
+    .shop-track {
+
+        gap: 20px;
+
+    }
+
+
+    .shop-product.is-active {
+
+        transform:
+            scale(1.08);
+
     }
 
 }
@@ -541,113 +903,185 @@
 (max-width: 700px) {
 
     .shop-content {
+
         width:
             calc(
-                100% - 36px
+                100% - 30px
             );
 
         min-width: 0;
 
-        gap: 10px;
+        gap: 8px;
 
         padding:
-            8px 0
-            28px;
+            6px 0
+            24px;
+
     }
 
 
     .shop-category {
-        font-size: 10px;
+
+        font-size: 9px;
+
+    }
+
+
+    .shop-controls {
+
+        gap: 7px;
+
     }
 
 
     .shop-counter {
+
+        min-width: 43px;
+
         font-size: 9px;
+
     }
 
 
-    /*
-       Sur mobile, les flèches restent,
-       mais sont plus petites.
-    */
-
     .shop-arrow {
+
+        width: 23px;
+        height: 23px;
+
         font-size: 17px;
+
+    }
+
+
+    .shop-carousel {
+
+        height: 440px;
+
     }
 
 
     .shop-track {
-        gap: 10px;
 
-        padding:
-            6px
-            28vw;
+        top: 24px;
+
+        gap: 12px;
+
     }
 
 
     .shop-product {
-        flex-basis:
-            58vw;
 
-        max-width:
-            230px;
+        flex-basis:
+            min(
+                64vw,
+                235px
+            );
+
+        opacity: 0.30;
 
         transform:
-            scale(0.78);
+            scale(0.76);
+
     }
 
 
     .shop-product.is-neighbour {
+
+        opacity: 0.62;
+
         transform:
-            scale(0.86);
+            scale(0.84);
+
     }
 
 
     .shop-product.is-active {
+
+        opacity: 1;
+
         transform:
-            scale(1);
+            scale(1.04);
+
     }
 
 
     .shop-product h1,
     .shop-product h2 {
-        font-size: 16px;
+
+        font-size: 17px;
+
     }
 
 
     .shop-product p {
+
         font-size: 9px;
+
+    }
+
+
+    .shop-product-price {
+
+        font-size: 13px;
+
     }
 
 
     .shop-footer {
+
+        margin-top: -8px;
+
         font-size: 8px;
+
     }
 
 }
 
 
 /* ========================================
-   TRÈS PETIT MOBILE
+   PETIT MOBILE
 ======================================== */
 
 @media
 (max-width: 430px) {
 
-    .shop-track {
-        padding-left: 23vw;
-        padding-right: 23vw;
+    .shop-carousel {
+
+        height: 405px;
+
     }
 
 
     .shop-product {
+
         flex-basis:
-            64vw;
+            66vw;
+
+    }
+
+
+    .shop-product.is-active {
+
+        transform:
+            scale(1.02);
+
     }
 
 
     .shop-product p {
+
         display: none;
+
+    }
+
+
+    .shop-product
+    .shop-product-shipping {
+
+        display: block;
+
+        margin-top: 2px;
+
     }
 
 }
@@ -660,13 +1094,24 @@
 @media
 (prefers-reduced-motion: reduce) {
 
+    .shop-track {
+
+        transition: none !important;
+
+    }
+
+
     .shop-product {
+
         transition: none;
+
     }
 
 
     .shop-product-info {
+
         transition: none;
+
     }
 
 }
