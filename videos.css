@@ -171,39 +171,63 @@
 
 /* ========================================
    CRÉDITS VIDÉO
+
+   Les crédits se suivent horizontalement
+   sous la vidéo.
+
+   Ils reviennent automatiquement à la ligne
+   uniquement lorsque la largeur disponible
+   n'est plus suffisante.
 ======================================== */
 
 .video-credits {
     width: 100%;
 
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 
-    gap: 2px;
+    align-items: baseline;
+
+    column-gap: 0;
+    row-gap: 3px;
 
     box-sizing: border-box;
 
-    margin-top: 4px;
+    margin-top: 5px;
+
+    font-size: 13px;
+    line-height: 1.2;
 }
 
 
 /* ========================================
-   LIGNE DE CRÉDIT
+   UN CRÉDIT
 ======================================== */
 
 .video-credit {
-    display: grid;
-
-    grid-template-columns:
-        max-content
-        minmax(0, 1fr);
-
-    column-gap: 8px;
+    display: inline-flex;
 
     align-items: baseline;
 
-    font-size: 13px;
-    line-height: 1.12;
+    gap: 5px;
+
+    white-space: nowrap;
+}
+
+
+/* ========================================
+   SÉPARATEUR ENTRE LES CRÉDITS
+======================================== */
+
+.video-credit:not(:last-child)::after {
+    content: "·";
+
+    display: inline-block;
+
+    margin: 0 7px;
+
+    color:
+        rgba(255, 255, 255, 0.32);
 }
 
 
@@ -214,8 +238,6 @@
 .video-credit-role {
     color:
         rgba(255, 255, 255, 0.44);
-
-    white-space: nowrap;
 }
 
 
@@ -224,29 +246,20 @@
 ======================================== */
 
 .video-credit-name {
-    min-width: 0;
-
     color:
-        rgba(255, 255, 255, 0.74);
+        rgba(255, 255, 255, 0.78);
 }
 
 
 /* ========================================
-   CRÉDITS VIDÉOS PRINCIPALES
+   VIDÉOS PRINCIPALES
 
-   Un peu plus aérés car nous avons
-   davantage de largeur disponible.
+   Très légèrement plus grand lorsque
+   la vidéo occupe toute la largeur.
 ======================================== */
 
 .video-item-featured .video-credits {
-    margin-top: 5px;
-}
-
-
-.video-item-featured .video-credit {
     font-size: 14px;
-
-    column-gap: 10px;
 }
 
 
@@ -314,31 +327,30 @@
 
     /* ========================================
        CRÉDITS MOBILE
+
+       Même principe horizontal.
+       Le navigateur effectue naturellement
+       les retours à la ligne entre les crédits.
     ========================================= */
 
     .video-credits,
     .video-item-featured .video-credits {
         margin-top: 4px;
 
-        gap: 2px;
-    }
-
-
-    .video-credit,
-    .video-item-featured .video-credit {
-        grid-template-columns:
-            max-content
-            minmax(0, 1fr);
-
-        column-gap: 7px;
+        row-gap: 3px;
 
         font-size: 12px;
-        line-height: 1.15;
+        line-height: 1.2;
     }
 
 
-    .video-credit-role {
-        white-space: normal;
+    .video-credit {
+        gap: 4px;
+    }
+
+
+    .video-credit:not(:last-child)::after {
+        margin: 0 6px;
     }
 
 }
@@ -350,27 +362,30 @@
 
 @media (max-width: 430px) {
 
-    /*
-       Sur un écran vraiment étroit,
-       poste et nom passent l'un sous l'autre
-       pour éviter de comprimer les crédits.
-    */
-
-    .video-credit,
-    .video-item-featured .video-credit {
-        grid-template-columns: 1fr;
-
-        row-gap: 1px;
-    }
-
-
-    .video-credit-role {
+    .video-credits,
+    .video-item-featured .video-credits {
         font-size: 11px;
+
+        row-gap: 4px;
     }
 
 
-    .video-credit-name {
-        font-size: 12px;
+    .video-credit {
+        /*
+           On garde chaque couple
+           fonction + nom insécable.
+
+           Le retour à la ligne se fait donc
+           entre deux crédits et jamais
+           au milieu d'un crédit.
+        */
+
+        white-space: nowrap;
+    }
+
+
+    .video-credit:not(:last-child)::after {
+        margin: 0 5px;
     }
 
 }
