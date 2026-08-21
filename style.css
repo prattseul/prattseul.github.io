@@ -415,27 +415,18 @@ body[data-home="true"] .page-title {
 
 @media (max-width: 900px) {
 
-    /*
-       Sur les écrans étroits, le menu déplié
-       reprend le GIF de l'écran d'accueil.
-    */
+    .menu {
+        background: rgba(0, 0, 0, 0.92);
 
-    .menu.active {
-        background: transparent;
-        background-image: url("images/welcomeGif.gif");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
     }
 
 
     /*
-       Le bouton "menu" utilise le même GIF
-       afin de rester lisible et cohérent
-       avec le panneau déplié.
+       Sur les écrans où le menu déplié possède
+       un fond sombre, le bouton "menu" reçoit
+       lui aussi le même fond.
 
        Les marges négatives compensent le padding :
        le texte reste exactement à sa position
