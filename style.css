@@ -235,15 +235,15 @@ body[data-home="true"] .page-title {
 
 /* ========================================
    LIGNE SOUS LE LOGO / TITRE
-   PAGES INTERNES UNIQUEMENT
+   TOUTES LES PAGES
 ======================================== */
 
-body.internal-page .header-center::after {
+.header-center::after {
     content: "";
 
     position: absolute;
 
-    top: calc(100% + 14px);
+    top: calc(100% + 8px);
     left: 50%;
 
     width: min(
@@ -261,8 +261,8 @@ body.internal-page .header-center::after {
 
 @media (max-width: 700px) {
 
-    body.internal-page .header-center::after {
-        top: calc(100% + 12px);
+    .header-center::after {
+        top: calc(100% + 7px);
 
         width: calc(100vw - 36px);
     }
