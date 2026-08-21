@@ -1,6 +1,6 @@
 /* ========================================
-   PRATTSEUL — SHOP V8
-   CARROUSEL INFINI / COMPACT / LISIBLE
+   PRATTSEUL — SHOP V9
+   CARROUSEL INFINI / COMPACT / ENCADRÉ
 ======================================== */
 
 
@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
 
-    gap: 8px;
+    gap: 0;
 
     padding: 0 0 22px;
 }
@@ -41,11 +41,26 @@
     gap: 16px;
 
     margin: 0;
+
+    padding-bottom: 14px;
+
+    /*
+       Ligne supérieure
+    */
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.34);
 }
 
 
 .shop-category {
-    color: rgba(255, 255, 255, 0.88);
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.88
+        );
 
     font-size: 15px;
     line-height: 1;
@@ -74,7 +89,13 @@
 .shop-counter {
     min-width: 58px;
 
-    color: rgba(255, 255, 255, 0.90);
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.90
+        );
 
     font-size: 14px;
     line-height: 1;
@@ -106,7 +127,13 @@
 
     background: transparent;
 
-    color: rgba(255, 255, 255, 0.86);
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.86
+        );
 
     font: inherit;
 
@@ -125,7 +152,8 @@
 .shop-arrow:hover {
     color: #fff;
 
-    transform: scale(1.1);
+    transform:
+        scale(1.1);
 }
 
 
@@ -144,18 +172,17 @@
 
 /* ========================================
    CARROUSEL
-
-   La hauteur inclut :
-   image + textes + prix.
-
-   Le footer Bandcamp reste ensuite
-   EN DEHORS de cette zone.
 ======================================== */
 
 .shop-carousel {
     position: relative;
 
     width: 100%;
+
+    /*
+       Zone réservée à :
+       image + informations + prix
+    */
 
     height:
         clamp(
@@ -188,16 +215,16 @@
 .shop-track {
     position: absolute;
 
-    top: 8px;
+    /*
+       Plus proche de la ligne supérieure
+    */
+
+    top: 4px;
     left: 50%;
 
     display: flex;
 
     align-items: flex-start;
-
-    /*
-       Peu d'espace entre les produits.
-    */
 
     gap:
         clamp(
@@ -424,12 +451,6 @@ and
 
     align-items: center;
 
-    /*
-       Très serré :
-       la hiérarchie vient de la typo,
-       pas de grands espaces.
-    */
-
     gap: 0;
 
     width: 100%;
@@ -492,8 +513,7 @@ and
     letter-spacing:
         0.055em;
 
-    text-transform:
-        uppercase;
+    text-transform: uppercase;
 
     text-shadow:
         0 1px 9px
@@ -515,11 +535,6 @@ and
     margin: 0;
 
     color: #fff;
-
-    /*
-       Le titre devient vraiment
-       l'élément typographique principal.
-    */
 
     font-size:
         clamp(
@@ -686,8 +701,7 @@ and
     letter-spacing:
         0.07em;
 
-    text-transform:
-        uppercase;
+    text-transform: uppercase;
 
     backdrop-filter:
         blur(4px);
@@ -700,11 +714,8 @@ and
 /* ========================================
    FOOTER BANDCAMP
 
-   AUCUN MARGIN NÉGATIF.
-
-   Il est réellement placé après
-   le carrousel et ne peut donc plus
-   recouvrir le prix ou les descriptions.
+   La bordure supérieure devient
+   la seconde ligne du cadre.
 ======================================== */
 
 .shop-footer {
@@ -725,9 +736,23 @@ and
 
     margin: 0;
 
+    /*
+       Espace symétrique autour
+       de la ligne inférieure
+    */
+
     padding:
-        8px 0
+        14px 0
         0;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.34
+        );
 
     color:
         rgba(
@@ -882,8 +907,6 @@ and
 
         min-width: 0;
 
-        gap: 6px;
-
         padding:
             2px 0
             18px;
@@ -892,6 +915,8 @@ and
 
     .shop-heading {
         gap: 8px;
+
+        padding-bottom: 10px;
     }
 
 
@@ -926,7 +951,7 @@ and
 
 
     .shop-track {
-        top: 8px;
+        top: 4px;
 
         gap: 7px;
     }
@@ -998,7 +1023,7 @@ and
 
 
     .shop-footer {
-        padding-top: 5px;
+        padding-top: 10px;
 
         font-size: 10px;
     }
