@@ -37,7 +37,9 @@ body {
     position: relative;
 
     width: 100%;
-    min-height: 100%;
+
+    min-height: 100vh;
+    min-height: 100dvh;
 
     background: #000;
     color: #fff;
@@ -69,12 +71,14 @@ body::before {
     content: "";
 
     position: fixed;
-    inset: 0;
 
-    width: 100vw;
+    /*
+       On dépasse très légèrement du viewport
+       pour éviter toute ligne noire liée aux
+       arrondis / barres dynamiques sur mobile.
+    */
 
-    height: 100vh;
-    height: 100dvh;
+    inset: -2px;
 
     background-image: url("images/IMG02.jpg");
     background-size: cover;
@@ -1276,19 +1280,7 @@ body[data-home="true"] .page-title {
 ======================================== */
 
 @media (max-width: 700px) {
-
-    body::before {
-        width: 100vw;
-
-        height: 100vh;
-        height: 100dvh;
-
-        background-size: cover;
-
-        background-position: center 75%;
-    }
-
-
+ 
     /* HEADER */
 
     .top {
