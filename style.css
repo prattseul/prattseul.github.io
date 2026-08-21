@@ -234,60 +234,6 @@ body[data-home="true"] .page-title {
 
 
 /* ========================================
-   LIGNE SOUS LE LOGO / TITRE
-   TOUTES LES PAGES
-======================================== */
-
-.header-center::after {
-    content: "";
-
-    position: absolute;
-
-    top: calc(100% + 8px);
-    left: 50%;
-
-    width: min(
-        var(--content-width),
-        calc(100vw - 80px)
-    );
-
-    transform: translateX(-50%);
-
-    border-bottom:
-        1px solid rgba(255, 255, 255, 0.45);
-
-    pointer-events: none;
-}
-
-/*
-   Sur la home, le titre de page est masqué.
-   On compense donc sa hauteur afin que le trait
-   reste exactement au même niveau visuel que
-   sur les pages internes.
-*/
-
-body[data-home="true"] .header-center::after {
-    top: calc(100% + 32px);
-}
-
-
-@media (max-width: 700px) {
-
-    .header-center::after {
-        top: calc(100% + 7px);
-
-        width: calc(100vw - 36px);
-    }
-
-
-    body[data-home="true"] .header-center::after {
-        top: calc(100% + 28px);
-    }
-
-}
-
-
-/* ========================================
    RÉSEAUX SOCIAUX
 ======================================== */
 
