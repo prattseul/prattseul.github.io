@@ -52,16 +52,9 @@
 >
 
 
-    <!-- ========================================
-         NAVIGATION COMMUNE
-    ========================================= -->
-
+    <!-- NAVIGATION COMMUNE -->
     <div id="site-navigation"></div>
 
-
-    <!-- ========================================
-         CONTENU
-    ========================================= -->
 
     <main class="internal-content">
 
@@ -78,6 +71,7 @@
                     disques &amp; textile
                 </span>
 
+
                 <div class="shop-controls">
 
                     <button
@@ -88,6 +82,7 @@
                         ←
                     </button>
 
+
                     <span
                         class="shop-counter"
                         id="shopCounter"
@@ -95,6 +90,7 @@
                     >
                         01 / 05
                     </span>
+
 
                     <button
                         class="shop-arrow shop-arrow-next"
@@ -126,7 +122,9 @@
                     >
 
 
-                        <!-- 01 — VINYLE BM -->
+                        <!-- ========================================
+                             01 — VINYLE BLIZZARD MODERNE
+                        ========================================= -->
 
                         <article
                             class="shop-product"
@@ -163,7 +161,11 @@
                                 </h1>
 
                                 <p>
-                                    12" · 140 g · expédition prévue 01.12.2026
+                                    12" · blanc opaque · 140 g
+                                </p>
+
+                                <p class="shop-product-shipping">
+                                    expédition prévue 01.12.2026
                                 </p>
 
                                 <a
@@ -180,7 +182,9 @@
                         </article>
 
 
-                        <!-- 02 — CD BM -->
+                        <!-- ========================================
+                             02 — CD BLIZZARD MODERNE
+                        ========================================= -->
 
                         <article
                             class="shop-product"
@@ -231,7 +235,9 @@
                         </article>
 
 
-                        <!-- 03 — T-SHIRT -->
+                        <!-- ========================================
+                             03 — T-SHIRT
+                        ========================================= -->
 
                         <article
                             class="shop-product"
@@ -282,7 +288,9 @@
                         </article>
 
 
-                        <!-- 04 — HOODIE -->
+                        <!-- ========================================
+                             04 — HOODIE
+                        ========================================= -->
 
                         <article
                             class="shop-product"
@@ -333,7 +341,9 @@
                         </article>
 
 
-                        <!-- 05 — VINYLE ODN -->
+                        <!-- ========================================
+                             05 — VINYLE L'OISEAU DE NUIT
+                        ========================================= -->
 
                         <article
                             class="shop-product"
@@ -411,15 +421,13 @@
 
             </div>
 
+
         </section>
 
     </main>
 
 
-    <!-- ========================================
-         SCRIPT GLOBAL
-    ========================================= -->
-
+    <!-- SCRIPT GLOBAL DU SITE -->
     <script src="script.js"></script>
 
 
@@ -432,44 +440,32 @@
         (() => {
 
             const carousel =
-                document.getElementById(
-                    "shopCarousel"
-                );
+                document.getElementById("shopCarousel");
 
             const track =
-                document.getElementById(
-                    "shopTrack"
-                );
+                document.getElementById("shopTrack");
 
             const counter =
-                document.getElementById(
-                    "shopCounter"
-                );
+                document.getElementById("shopCounter");
 
             const prevButton =
-                document.querySelector(
-                    ".shop-arrow-prev"
-                );
+                document.querySelector(".shop-arrow-prev");
 
             const nextButton =
-                document.querySelector(
-                    ".shop-arrow-next"
-                );
+                document.querySelector(".shop-arrow-next");
 
 
-            if (
-                !carousel ||
-                !track
-            ) {
+            if (!carousel || !track) {
                 return;
             }
 
 
-            const originalProducts =
-                Array.from(
-                    track.children
-                );
+            /* ========================================
+               PRODUITS ORIGINAUX
+            ========================================= */
 
+            const originalProducts =
+                Array.from(track.children);
 
             const total =
                 originalProducts.length;
@@ -481,69 +477,74 @@
 
 
             /* ========================================
-               CLONES
+               CRÉATION DES CLONES
             ========================================= */
 
-            const firstClone =
+            const cloneBefore1 =
+                originalProducts[total - 2]
+                .cloneNode(true);
+
+            const cloneBefore2 =
+                originalProducts[total - 1]
+                .cloneNode(true);
+
+            const cloneAfter1 =
                 originalProducts[0]
                 .cloneNode(true);
 
-            const secondClone =
+            const cloneAfter2 =
                 originalProducts[1]
                 .cloneNode(true);
 
-            const lastClone =
-                originalProducts[
-                    total - 1
-                ].cloneNode(true);
 
-            const beforeLastClone =
-                originalProducts[
-                    total - 2
-                ].cloneNode(true);
+            [
+                cloneBefore1,
+                cloneBefore2,
+                cloneAfter1,
+                cloneAfter2
+            ].forEach((clone) => {
 
+                clone.classList.add("is-clone");
 
-            firstClone.classList.add(
-                "is-clone"
-            );
+                clone.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
 
-            secondClone.classList.add(
-                "is-clone"
-            );
+            });
 
-            lastClone.classList.add(
-                "is-clone"
-            );
-
-            beforeLastClone.classList.add(
-                "is-clone"
-            );
-
-
-            track.appendChild(
-                firstClone
-            );
-
-            track.appendChild(
-                secondClone
-            );
 
             track.insertBefore(
-                lastClone,
+                cloneBefore2,
                 track.firstChild
             );
 
             track.insertBefore(
-                beforeLastClone,
+                cloneBefore1,
                 track.firstChild
+            );
+
+
+            track.appendChild(
+                cloneAfter1
+            );
+
+            track.appendChild(
+                cloneAfter2
             );
 
 
             let products =
-                Array.from(
-                    track.children
-                );
+                Array.from(track.children);
 
+
+            /*
+               Les deux premiers éléments
+               sont maintenant des clones.
+
+               Le premier vrai produit
+               se trouve donc à l'index 2.
+            */
 
             let currentIndex = 2;
 
@@ -559,42 +560,31 @@
 
 
             /* ========================================
-               UTILS
+               OUTILS
             ========================================= */
 
-            function formatNumber(
-                value
-            ) {
+            function formatNumber(value) {
 
-                return String(
-                    value
-                ).padStart(
-                    2,
-                    "0"
-                );
+                return String(value)
+                    .padStart(2, "0");
 
             }
 
 
-            function realIndexFromTrackIndex(
-                index
-            ) {
+            function realIndexFromTrackIndex(index) {
 
                 let realIndex =
                     index - 2;
 
 
-                while (
-                    realIndex < 0
-                ) {
+                while (realIndex < 0) {
+
                     realIndex += total;
+
                 }
 
 
-                return (
-                    realIndex %
-                    total
-                );
+                return realIndex % total;
 
             }
 
@@ -617,12 +607,14 @@
                         realIndex + 1
                     ) +
                     " / " +
-                    formatNumber(
-                        total
-                    );
+                    formatNumber(total);
 
             }
 
+
+            /* ========================================
+               CLASSES VISUELLES
+            ========================================= */
 
             function updateActiveClasses() {
 
@@ -638,8 +630,7 @@
 
                         product.classList.toggle(
                             "is-active",
-                            index ===
-                            currentIndex
+                            index === currentIndex
                         );
 
 
@@ -657,30 +648,177 @@
             }
 
 
-            function getCenteredScrollLeft(
-                element
-            ) {
+            /* ========================================
+               POSITION EXACTE DU CENTRE
+            ========================================= */
+
+            function getProductCenter(index) {
+
+                const product =
+                    products[index];
+
 
                 return (
-                    element.offsetLeft -
-                    (
-                        carousel.clientWidth -
-                        element.offsetWidth
-                    ) /
-                    2
+                    product.offsetLeft +
+                    product.offsetWidth / 2
                 );
 
             }
 
+
+            function applyTrackPosition(
+                index,
+                smooth = true
+            ) {
+
+                const productCenter =
+                    getProductCenter(index);
+
+
+                if (smooth) {
+
+                    track.style.transition =
+                        "transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)";
+
+                } else {
+
+                    track.style.transition =
+                        "none";
+
+                }
+
+
+                /*
+                   .shop-track possède left: 50%.
+
+                   En déplaçant le track de
+                   -productCenter, le centre exact
+                   du produit arrive donc sur
+                   le centre du carousel.
+                */
+
+                track.style.transform =
+                    `translate3d(-${productCenter}px, 0, 0)`;
+
+
+                if (!smooth) {
+
+                    /*
+                       Force le navigateur à appliquer
+                       immédiatement la position.
+                    */
+
+                    track.getBoundingClientRect();
+
+
+                    requestAnimationFrame(() => {
+
+                        track.style.transition =
+                            "transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)";
+
+                    });
+
+                }
+
+            }
+
+
+            /* ========================================
+               NORMALISATION DU LOOP
+            ========================================= */
+
+            function normalizeLoop() {
+
+                let newIndex =
+                    currentIndex;
+
+
+                /*
+                   Clone de l'avant-dernier
+                   placé au début.
+                */
+
+                if (currentIndex === 0) {
+
+                    newIndex = total;
+
+                }
+
+
+                /*
+                   Clone du dernier
+                   placé au début.
+                */
+
+                else if (currentIndex === 1) {
+
+                    newIndex =
+                        total + 1;
+
+                }
+
+
+                /*
+                   Clone du premier
+                   placé après les originaux.
+                */
+
+                else if (
+                    currentIndex ===
+                    total + 2
+                ) {
+
+                    newIndex = 2;
+
+                }
+
+
+                /*
+                   Clone du deuxième.
+                */
+
+                else if (
+                    currentIndex ===
+                    total + 3
+                ) {
+
+                    newIndex = 3;
+
+                }
+
+
+                if (
+                    newIndex !==
+                    currentIndex
+                ) {
+
+                    currentIndex =
+                        newIndex;
+
+
+                    updateActiveClasses();
+
+
+                    applyTrackPosition(
+                        currentIndex,
+                        false
+                    );
+
+                }
+
+            }
+
+
+            /* ========================================
+               CENTRER UN PRODUIT
+            ========================================= */
 
             function centerIndex(
                 index,
                 smooth = true
             ) {
 
-                if (
-                    !products[index]
-                ) {
+                if (!products[index]) {
                     return;
                 }
 
@@ -692,19 +830,10 @@
                 updateActiveClasses();
 
 
-                carousel.scrollTo({
-
-                    left:
-                        getCenteredScrollLeft(
-                            products[index]
-                        ),
-
-                    behavior:
-                        smooth
-                            ? "smooth"
-                            : "auto"
-
-                });
+                applyTrackPosition(
+                    currentIndex,
+                    smooth
+                );
 
 
                 if (smooth) {
@@ -721,7 +850,7 @@
                                 false;
 
                         },
-                        430
+                        680
                     );
 
                 } else {
@@ -734,128 +863,7 @@
 
 
             /* ========================================
-               LOOP INFINI
-            ========================================= */
-
-            function normalizeLoop() {
-
-                /*
-                   On est sur le clone
-                   "avant dernier".
-                */
-
-                if (
-                    currentIndex === 0
-                ) {
-
-                    currentIndex =
-                        total;
-
-                    carousel.scrollTo({
-
-                        left:
-                            getCenteredScrollLeft(
-                                products[
-                                    currentIndex
-                                ]
-                            ),
-
-                        behavior:
-                            "auto"
-
-                    });
-
-                }
-
-
-                /*
-                   Clone du dernier.
-                */
-
-                if (
-                    currentIndex === 1
-                ) {
-
-                    currentIndex =
-                        total + 1;
-
-                    carousel.scrollTo({
-
-                        left:
-                            getCenteredScrollLeft(
-                                products[
-                                    currentIndex
-                                ]
-                            ),
-
-                        behavior:
-                            "auto"
-
-                    });
-
-                }
-
-
-                /*
-                   Premier clone après
-                   les produits originaux.
-                */
-
-                if (
-                    currentIndex ===
-                    total + 2
-                ) {
-
-                    currentIndex = 2;
-
-                    carousel.scrollTo({
-
-                        left:
-                            getCenteredScrollLeft(
-                                products[2]
-                            ),
-
-                        behavior:
-                            "auto"
-
-                    });
-
-                }
-
-
-                /*
-                   Second clone après.
-                */
-
-                if (
-                    currentIndex ===
-                    total + 3
-                ) {
-
-                    currentIndex = 3;
-
-                    carousel.scrollTo({
-
-                        left:
-                            getCenteredScrollLeft(
-                                products[3]
-                            ),
-
-                        behavior:
-                            "auto"
-
-                    });
-
-                }
-
-
-                updateActiveClasses();
-
-            }
-
-
-            /* ========================================
-               NEXT / PREV
+               NEXT / PREVIOUS
             ========================================= */
 
             function next() {
@@ -912,27 +920,44 @@
 
             /* ========================================
                MOLETTE / TRACKPAD
+
+               On exige un mouvement horizontal
+               ou un Shift + molette afin de ne
+               pas bloquer le scroll vertical
+               normal de la page.
             ========================================= */
 
             carousel.addEventListener(
                 "wheel",
                 (event) => {
 
-                    const dominantDelta =
-                        Math.abs(
-                            event.deltaX
-                        ) >
-                        Math.abs(
-                            event.deltaY
-                        )
+                    const horizontalIntent =
+                        Math.abs(event.deltaX) >
+                        Math.abs(event.deltaY);
+
+
+                    const shiftIntent =
+                        event.shiftKey;
+
+
+                    if (
+                        !horizontalIntent &&
+                        !shiftIntent
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const delta =
+                        horizontalIntent
                             ? event.deltaX
                             : event.deltaY;
 
 
                     if (
-                        Math.abs(
-                            dominantDelta
-                        ) < 8
+                        Math.abs(delta) < 5
                     ) {
                         return;
                     }
@@ -949,12 +974,14 @@
                     wheelLocked = true;
 
 
-                    if (
-                        dominantDelta > 0
-                    ) {
+                    if (delta > 0) {
+
                         next();
+
                     } else {
+
                         previous();
+
                     }
 
 
@@ -965,7 +992,7 @@
                                 false;
 
                         },
-                        480
+                        500
                     );
 
                 },
@@ -982,6 +1009,19 @@
             carousel.addEventListener(
                 "pointerdown",
                 (event) => {
+
+                    /*
+                       Ne pas lancer le drag
+                       avec un clic droit.
+                    */
+
+                    if (
+                        event.pointerType === "mouse" &&
+                        event.button !== 0
+                    ) {
+                        return;
+                    }
+
 
                     pointerDown = true;
 
@@ -1052,18 +1092,28 @@
 
 
                     if (
-                        pointerDelta < -40
+                        pointerDelta < -45
                     ) {
 
                         next();
 
-                    } else if (
-                        pointerDelta > 40
+                    }
+
+                    else if (
+                        pointerDelta > 45
                     ) {
 
                         previous();
 
-                    } else {
+                    }
+
+                    else {
+
+                        /*
+                           Petit mouvement :
+                           on revient exactement
+                           au centre.
+                        */
 
                         centerIndex(
                             currentIndex
@@ -1090,7 +1140,10 @@
 
 
             /* ========================================
-               CLIC SUR UN PRODUIT NON ACTIF
+               CLIC SUR PRODUIT LATÉRAL
+
+               Un clic sur un voisin le centre.
+               Un clic sur l'actif ouvre Bandcamp.
             ========================================= */
 
             products.forEach(
@@ -1101,19 +1154,32 @@
                         (event) => {
 
                             if (
+                                Math.abs(
+                                    pointerDelta
+                                ) > 10
+                            ) {
+
+                                event.preventDefault();
+
+                                return;
+
+                            }
+
+
+                            if (
                                 index ===
                                 currentIndex
                             ) {
+
                                 return;
+
                             }
 
 
                             event.preventDefault();
 
 
-                            centerIndex(
-                                index
-                            );
+                            centerIndex(index);
 
                         }
                     );
@@ -1123,46 +1189,138 @@
 
 
             /* ========================================
-               RESIZE
+               CLAVIER
             ========================================= */
 
-            window.addEventListener(
-                "resize",
-                () => {
+            carousel.setAttribute(
+                "tabindex",
+                "0"
+            );
 
-                    centerIndex(
-                        currentIndex,
-                        false
-                    );
+
+            carousel.addEventListener(
+                "keydown",
+                (event) => {
+
+                    if (
+                        event.key ===
+                        "ArrowRight"
+                    ) {
+
+                        event.preventDefault();
+
+                        next();
+
+                    }
+
+
+                    if (
+                        event.key ===
+                        "ArrowLeft"
+                    ) {
+
+                        event.preventDefault();
+
+                        previous();
+
+                    }
 
                 }
             );
 
 
             /* ========================================
-               INIT
+               RESIZE
             ========================================= */
 
-            requestAnimationFrame(
+            let resizeTimer;
+
+
+            window.addEventListener(
+                "resize",
                 () => {
 
-                    products =
-                        Array.from(
-                            track.children
-                        );
-
-
-                    centerIndex(
-                        currentIndex,
-                        false
+                    clearTimeout(
+                        resizeTimer
                     );
+
+
+                    resizeTimer =
+                        window.setTimeout(
+                            () => {
+
+                                applyTrackPosition(
+                                    currentIndex,
+                                    false
+                                );
+
+                            },
+                            100
+                        );
 
                 }
             );
 
+
+            /* ========================================
+               INITIALISATION
+            ========================================= */
+
+            function initialiseCarousel() {
+
+                products =
+                    Array.from(
+                        track.children
+                    );
+
+
+                updateActiveClasses();
+
+
+                applyTrackPosition(
+                    currentIndex,
+                    false
+                );
+
+            }
+
+
+            /*
+               On attend que la mise en page
+               soit réellement calculée.
+            */
+
+            if (
+                document.readyState ===
+                "complete"
+            ) {
+
+                requestAnimationFrame(
+                    initialiseCarousel
+                );
+
+            } else {
+
+                window.addEventListener(
+                    "load",
+                    () => {
+
+                        requestAnimationFrame(
+                            initialiseCarousel
+                        );
+
+                    },
+                    {
+                        once: true
+                    }
+                );
+
+            }
+
         })();
 
     </script>
+
 
 </body>
 
