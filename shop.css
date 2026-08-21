@@ -1,6 +1,6 @@
 /* ========================================
-   PRATTSEUL — SHOP V7
-   CARROUSEL INFINI / COMPACT
+   PRATTSEUL — SHOP V8
+   CARROUSEL INFINI / COMPACT / LISIBLE
 ======================================== */
 
 
@@ -9,7 +9,6 @@
 ======================================== */
 
 .shop-content {
-
     width: min(
         var(--content-width),
         calc(100% - 80px)
@@ -20,12 +19,9 @@
     display: flex;
     flex-direction: column;
 
-    gap: 6px;
+    gap: 8px;
 
-    padding:
-        2px 0
-        18px;
-
+    padding: 0 0 22px;
 }
 
 
@@ -34,9 +30,7 @@
 ======================================== */
 
 .shop-heading {
-
     position: relative;
-
     z-index: 10;
 
     display: flex;
@@ -46,30 +40,21 @@
 
     gap: 16px;
 
-    margin-bottom: 0;
-
+    margin: 0;
 }
 
 
 .shop-category {
+    color: rgba(255, 255, 255, 0.88);
 
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            0.78
-        );
-
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1;
 
     font-weight: 600;
 
     text-shadow:
         0 1px 8px
-        rgba(0, 0, 0, 0.30);
-
+        rgba(0, 0, 0, 0.38);
 }
 
 
@@ -78,29 +63,20 @@
 ======================================== */
 
 .shop-controls {
-
     display: flex;
 
     align-items: center;
 
-    gap: 9px;
-
+    gap: 8px;
 }
 
 
 .shop-counter {
+    min-width: 58px;
 
-    min-width: 54px;
+    color: rgba(255, 255, 255, 0.90);
 
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            0.82
-        );
-
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1;
 
     font-weight: 600;
@@ -109,13 +85,11 @@
 
     text-shadow:
         0 1px 8px
-        rgba(0, 0, 0, 0.30);
-
+        rgba(0, 0, 0, 0.38);
 }
 
 
 .shop-arrow {
-
     appearance: none;
 
     display: flex;
@@ -123,8 +97,8 @@
     align-items: center;
     justify-content: center;
 
-    width: 27px;
-    height: 27px;
+    width: 30px;
+    height: 30px;
 
     padding: 0;
 
@@ -132,17 +106,11 @@
 
     background: transparent;
 
-    color:
-        rgba(
-            255,
-            255,
-            255,
-            0.78
-        );
+    color: rgba(255, 255, 255, 0.86);
 
     font: inherit;
 
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1;
 
     cursor: pointer;
@@ -151,17 +119,13 @@
         color 0.2s ease,
         transform 0.2s ease,
         opacity 0.2s ease;
-
 }
 
 
 .shop-arrow:hover {
-
     color: #fff;
 
-    transform:
-        scale(1.1);
-
+    transform: scale(1.1);
 }
 
 
@@ -170,35 +134,34 @@
 ======================================== */
 
 .shop-carousel-shell {
-
     position: relative;
 
     width: 100%;
 
     overflow: hidden;
-
 }
 
 
 /* ========================================
    CARROUSEL
+
+   La hauteur inclut :
+   image + textes + prix.
+
+   Le footer Bandcamp reste ensuite
+   EN DEHORS de cette zone.
 ======================================== */
 
 .shop-carousel {
-
     position: relative;
 
     width: 100%;
 
-    /*
-       Beaucoup moins haut qu'avant.
-    */
-
     height:
         clamp(
-            390px,
-            47vh,
-            475px
+            455px,
+            52vh,
+            535px
         );
 
     overflow: hidden;
@@ -210,14 +173,11 @@
     user-select: none;
 
     outline: none;
-
 }
 
 
 .shop-carousel.is-dragging {
-
     cursor: grabbing;
-
 }
 
 
@@ -226,14 +186,9 @@
 ======================================== */
 
 .shop-track {
-
     position: absolute;
 
-    /*
-       On remonte les produits.
-    */
-
-    top: 12px;
+    top: 8px;
     left: 50%;
 
     display: flex;
@@ -241,14 +196,14 @@
     align-items: flex-start;
 
     /*
-       Produits plus proches.
+       Peu d'espace entre les produits.
     */
 
     gap:
         clamp(
-            10px,
-            1.5vw,
-            22px
+            8px,
+            1.2vw,
+            18px
         );
 
     width: max-content;
@@ -274,7 +229,6 @@
             0.36,
             1
         );
-
 }
 
 
@@ -283,23 +237,18 @@
 ======================================== */
 
 .shop-product {
-
     position: relative;
 
     flex:
         0 0
         clamp(
-            215px,
+            220px,
             19vw,
-            275px
+            280px
         );
 
     display: flex;
     flex-direction: column;
-
-    /*
-       Infos plus proches de l'image.
-    */
 
     gap: 8px;
 
@@ -329,7 +278,6 @@
         filter
         0.4s
         ease;
-
 }
 
 
@@ -338,7 +286,6 @@
 ======================================== */
 
 .shop-product.is-neighbour {
-
     z-index: 2;
 
     opacity: 0.72;
@@ -348,7 +295,6 @@
 
     filter:
         brightness(0.96);
-
 }
 
 
@@ -357,7 +303,6 @@
 ======================================== */
 
 .shop-product.is-active {
-
     z-index: 5;
 
     opacity: 1;
@@ -366,7 +311,6 @@
         scale(1.08);
 
     filter: none;
-
 }
 
 
@@ -375,15 +319,13 @@
 ======================================== */
 
 .shop-product-image {
-
     position: relative;
 
     display: block;
 
     width: 100%;
 
-    aspect-ratio:
-        1 / 1;
+    aspect-ratio: 1 / 1;
 
     overflow: hidden;
 
@@ -412,13 +354,11 @@
         box-shadow
         0.4s
         ease;
-
 }
 
 
 .shop-product.is-active
 .shop-product-image {
-
     box-shadow:
         0 18px 50px
         rgba(
@@ -427,12 +367,10 @@
             0,
             0.16
         );
-
 }
 
 
 .shop-product-image img {
-
     display: block;
 
     width: 100%;
@@ -441,12 +379,11 @@
     object-fit: cover;
 
     pointer-events: none;
-
 }
 
 
 /* ========================================
-   HOVER
+   HOVER IMAGE
 ======================================== */
 
 @media
@@ -456,7 +393,6 @@ and
 
     .shop-product.is-active
     .shop-product-image img {
-
         transition:
             transform
             0.7s
@@ -466,37 +402,35 @@ and
                 0.36,
                 1
             );
-
     }
 
 
     .shop-product.is-active
     .shop-product-image:hover img {
-
         transform:
             scale(1.018);
-
     }
 
 }
 
 
 /* ========================================
-   INFORMATIONS
+   INFORMATIONS PRODUIT
 ======================================== */
 
 .shop-product-info {
-
     display: flex;
     flex-direction: column;
 
     align-items: center;
 
     /*
-       Très peu d'espace entre les lignes.
+       Très serré :
+       la hiérarchie vient de la typo,
+       pas de grands espaces.
     */
 
-    gap: 2px;
+    gap: 0;
 
     width: 100%;
 
@@ -505,7 +439,7 @@ and
     opacity: 0;
 
     transform:
-        translateY(-3px);
+        translateY(-2px);
 
     pointer-events: none;
 
@@ -521,78 +455,77 @@ and
             0.36,
             1
         );
-
 }
 
 
 .shop-product.is-active
 .shop-product-info {
-
     opacity: 1;
 
     transform:
         translateY(0);
 
     pointer-events: auto;
-
 }
 
 
 /* ========================================
-   PROJET / ALBUM
+   NOM DE L'ALBUM / PROJET
 ======================================== */
 
 .shop-product-project {
+    margin: 0 0 5px;
 
     color:
         rgba(
             255,
             255,
             255,
-            0.82
+            0.88
         );
 
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1;
 
     font-weight: 700;
 
     letter-spacing:
-        0.08em;
+        0.055em;
 
     text-transform:
         uppercase;
 
     text-shadow:
-        0 1px 8px
+        0 1px 9px
         rgba(
             0,
             0,
             0,
-            0.48
+            0.52
         );
-
 }
 
 
 /* ========================================
-   TITRE
+   TITRE PRODUIT
 ======================================== */
 
 .shop-product h1,
 .shop-product h2 {
-
-    margin:
-        3px 0
-        1px;
+    margin: 0;
 
     color: #fff;
 
+    /*
+       Le titre devient vraiment
+       l'élément typographique principal.
+    */
+
     font-size:
         clamp(
-            22px,
-            1.8vw,
-            26px
+            28px,
+            2.25vw,
+            34px
         );
 
     line-height: 0.98;
@@ -600,17 +533,16 @@ and
     font-weight: 700;
 
     letter-spacing:
-        -0.02em;
+        -0.03em;
 
     text-shadow:
-        0 1px 11px
+        0 2px 13px
         rgba(
             0,
             0,
             0,
-            0.48
+            0.52
         );
-
 }
 
 
@@ -619,51 +551,50 @@ and
 ======================================== */
 
 .shop-product p {
-
-    margin:
-        2px 0
-        0;
+    margin: 7px 0 0;
 
     color:
         rgba(
             255,
             255,
             255,
-            0.82
+            0.92
         );
 
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1.12;
 
     font-weight: 500;
 
     text-shadow:
-        0 1px 8px
+        0 1px 9px
         rgba(
             0,
             0,
             0,
-            0.48
+            0.52
         );
-
 }
 
 
+/* ========================================
+   EXPÉDITION
+======================================== */
+
 .shop-product
 .shop-product-shipping {
-
-    margin-top: 1px;
+    margin-top: 3px;
 
     color:
         rgba(
             255,
             255,
             255,
-            0.68
+            0.76
         );
 
-    font-size: 11px;
-
+    font-size: 13px;
+    line-height: 1.1;
 }
 
 
@@ -672,12 +603,13 @@ and
 ======================================== */
 
 .shop-product-price {
+    display: inline-block;
 
-    margin-top: 5px;
+    margin-top: 8px;
 
     color: #fff;
 
-    font-size: 17px;
+    font-size: 21px;
     line-height: 1;
 
     font-weight: 700;
@@ -685,35 +617,37 @@ and
     text-decoration: none;
 
     text-shadow:
-        0 1px 10px
+        0 2px 12px
         rgba(
             0,
             0,
             0,
-            0.48
+            0.52
         );
 
     transition:
         opacity
         0.2s
+        ease,
+        transform
+        0.2s
         ease;
-
 }
 
 
 .shop-product-price:hover {
+    opacity: 0.70;
 
-    opacity: 0.55;
-
+    transform:
+        translateX(2px);
 }
 
 
 /* ========================================
-   BADGE
+   BADGE PRÉCOMMANDE
 ======================================== */
 
 .shop-badge {
-
     position: absolute;
 
     z-index: 5;
@@ -722,7 +656,7 @@ and
     left: 9px;
 
     padding:
-        6px 7px
+        6px 8px
         5px;
 
     border:
@@ -731,7 +665,7 @@ and
             255,
             255,
             255,
-            0.76
+            0.78
         );
 
     background:
@@ -744,7 +678,7 @@ and
 
     color: #fff;
 
-    font-size: 9px;
+    font-size: 10px;
     line-height: 1;
 
     font-weight: 700;
@@ -760,70 +694,75 @@ and
 
     -webkit-backdrop-filter:
         blur(4px);
-
 }
 
 
 /* ========================================
-   FOOTER
+   FOOTER BANDCAMP
+
+   AUCUN MARGIN NÉGATIF.
+
+   Il est réellement placé après
+   le carrousel et ne peut donc plus
+   recouvrir le prix ou les descriptions.
 ======================================== */
 
 .shop-footer {
-
     position: relative;
 
     z-index: 10;
 
+    flex: 0 0 auto;
+
     display: flex;
 
     justify-content: center;
+    align-items: center;
 
-    align-items: baseline;
+    gap: 5px;
 
-    gap: 4px;
+    width: 100%;
 
-    /*
-       Beaucoup plus proche du carousel.
-    */
+    margin: 0;
 
-    margin-top: -18px;
+    padding:
+        8px 0
+        0;
 
     color:
         rgba(
             255,
             255,
             255,
-            0.64
+            0.70
         );
 
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1;
 
     font-weight: 500;
 
     text-shadow:
-        0 1px 7px
+        0 1px 8px
         rgba(
             0,
             0,
             0,
-            0.40
+            0.44
         );
-
 }
 
 
 .shop-footer a {
-
     color:
         rgba(
             255,
             255,
             255,
-            0.90
+            0.96
         );
 
-    font-weight: 600;
+    font-weight: 700;
 
     text-decoration: none;
 
@@ -831,45 +770,49 @@ and
         opacity
         0.2s
         ease;
-
 }
 
 
 .shop-footer a:hover {
-
-    opacity: 0.55;
-
+    opacity: 0.60;
 }
 
 
 /* ========================================
-   DESKTOP LARGE
+   GRAND ÉCRAN
 ======================================== */
 
 @media
 (min-width: 1300px) {
 
     .shop-product {
-
         flex-basis:
             clamp(
-                230px,
+                235px,
                 18vw,
-                285px
+                290px
             );
-
     }
 
 
     .shop-carousel {
-
         height:
             clamp(
-                405px,
-                48vh,
-                490px
+                470px,
+                53vh,
+                545px
             );
+    }
 
+
+    .shop-product h1,
+    .shop-product h2 {
+        font-size:
+            clamp(
+                30px,
+                2vw,
+                35px
+            );
     }
 
 }
@@ -882,30 +825,43 @@ and
 @media
 (max-width: 900px) {
 
-    .shop-product {
+    .shop-content {
+        width:
+            calc(
+                100% - 48px
+            );
+    }
 
+
+    .shop-product {
         flex-basis:
             clamp(
-                200px,
+                205px,
                 30vw,
-                245px
+                250px
             );
-
     }
 
 
     .shop-track {
-
-        gap: 12px;
-
+        gap: 10px;
     }
 
 
     .shop-product.is-active {
-
         transform:
             scale(1.06);
+    }
 
+
+    .shop-product h1,
+    .shop-product h2 {
+        font-size: 27px;
+    }
+
+
+    .shop-product p {
+        font-size: 14px;
     }
 
 }
@@ -919,7 +875,6 @@ and
 (max-width: 700px) {
 
     .shop-content {
-
         width:
             calc(
                 100% - 28px
@@ -927,66 +882,57 @@ and
 
         min-width: 0;
 
-        gap: 5px;
+        gap: 6px;
 
         padding:
-            4px 0
+            2px 0
             18px;
+    }
 
+
+    .shop-heading {
+        gap: 8px;
     }
 
 
     .shop-category {
-
-        font-size: 11px;
-
+        font-size: 12px;
     }
 
 
     .shop-controls {
-
-        gap: 5px;
-
+        gap: 4px;
     }
 
 
     .shop-counter {
+        min-width: 48px;
 
-        min-width: 46px;
-
-        font-size: 10px;
-
+        font-size: 11px;
     }
 
 
     .shop-arrow {
+        width: 25px;
+        height: 25px;
 
-        width: 24px;
-        height: 24px;
-
-        font-size: 19px;
-
+        font-size: 20px;
     }
 
 
     .shop-carousel {
-
-        height: 390px;
-
+        height: 420px;
     }
 
 
     .shop-track {
+        top: 8px;
 
-        top: 12px;
-
-        gap: 8px;
-
+        gap: 7px;
     }
 
 
     .shop-product {
-
         flex-basis:
             min(
                 62vw,
@@ -997,82 +943,64 @@ and
 
         transform:
             scale(0.78);
-
     }
 
 
     .shop-product.is-neighbour {
-
         opacity: 0.66;
 
         transform:
             scale(0.86);
-
     }
 
 
     .shop-product.is-active {
-
         opacity: 1;
 
         transform:
             scale(1.03);
-
-    }
-
-
-    .shop-product-info {
-
-        gap: 1px;
-
     }
 
 
     .shop-product-project {
+        margin-bottom: 4px;
 
-        font-size: 10px;
-
+        font-size: 11px;
     }
 
 
     .shop-product h1,
     .shop-product h2 {
-
-        font-size: 21px;
-
+        font-size: 25px;
     }
 
 
     .shop-product p {
+        margin-top: 5px;
 
-        font-size: 11px;
-
+        font-size: 12px;
     }
 
 
     .shop-product
     .shop-product-shipping {
+        margin-top: 2px;
 
-        font-size: 10px;
-
+        font-size: 11px;
     }
 
 
     .shop-product-price {
+        margin-top: 7px;
 
-        margin-top: 4px;
-
-        font-size: 16px;
-
+        font-size: 18px;
     }
 
 
     .shop-footer {
+        padding-top: 5px;
 
-        margin-top: -16px;
-
-        font-size: 9px;
-
+        font-size: 10px;
     }
 
 }
@@ -1086,40 +1014,40 @@ and
 (max-width: 430px) {
 
     .shop-carousel {
-
-        height: 365px;
-
+        height: 395px;
     }
 
 
     .shop-product {
-
-        flex-basis:
-            64vw;
-
+        flex-basis: 64vw;
     }
 
 
     .shop-product.is-active {
-
         transform:
             scale(1.02);
-
     }
 
 
     .shop-product h1,
     .shop-product h2 {
-
-        font-size: 20px;
-
+        font-size: 23px;
     }
 
 
     .shop-product p {
+        font-size: 11px;
+    }
 
+
+    .shop-product
+    .shop-product-shipping {
         font-size: 10px;
+    }
 
+
+    .shop-product-price {
+        font-size: 17px;
     }
 
 }
@@ -1133,23 +1061,17 @@ and
 (prefers-reduced-motion: reduce) {
 
     .shop-track {
-
         transition: none !important;
-
     }
 
 
     .shop-product {
-
         transition: none;
-
     }
 
 
     .shop-product-info {
-
         transition: none;
-
     }
 
 }
