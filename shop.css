@@ -1,105 +1,129 @@
 /* ========================================
-   PRATTSEUL — BOUTIQUE V2
+   PRATTSEUL — BOUTIQUE V3
+   compact / éditorial / asymétrique
 ======================================== */
 
 .shop-content {
-    width: min(var(--content-width), calc(100% - 80px));
+    width: min(
+        var(--content-width),
+        calc(100% - 80px)
+    );
+
     min-width: 600px;
 
     display: flex;
     flex-direction: column;
 
-    gap: 66px;
+    gap: 46px;
 
-    padding: 20px 0 64px;
+    padding: 12px 0 52px;
 }
 
 
-/* INTRO */
+/* ========================================
+   PROJETS
+======================================== */
 
-.shop-intro p {
-    max-width: 520px;
-
-    margin: 0;
-
-    color: rgba(255, 255, 255, 0.58);
-
-    font-size: 14px;
-    line-height: 1.35;
-}
-
-
-/* SECTIONS */
-
-.shop-section {
-    width: 100%;
-
+.shop-project {
     display: flex;
     flex-direction: column;
 
-    gap: 22px;
+    gap: 14px;
 }
 
-.shop-section-heading {
+
+.shop-project-header {
     display: flex;
     align-items: baseline;
 
-    gap: 10px;
+    gap: 9px;
 }
 
-.shop-section-heading h1 {
+
+.shop-project-header h1 {
     margin: 0;
 
     color: #fff;
 
-    font-size: 32px;
+    font-size: 28px;
     line-height: 1;
 
     font-weight: 700;
 }
 
-.shop-section-heading span {
-    color: rgba(255, 255, 255, 0.42);
 
-    font-size: 15px;
+.shop-project-header span {
+    color: rgba(255, 255, 255, 0.38);
+
+    font-size: 13px;
 }
 
 
-/* GRILLE */
+/* ========================================
+   BLIZZARD MODERNE
 
-.shop-grid {
-    width: 100%;
+   grand vinyle à gauche
+   3 petits produits à droite
+======================================== */
 
+.shop-layout-bm {
     display: grid;
 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+        minmax(0, 1.45fr)
+        minmax(0, 0.72fr)
+        minmax(0, 0.72fr);
 
-    gap: 46px 20px;
+    grid-template-areas:
+        "vinyl cd shirt"
+        "vinyl hoodie hoodie";
+
+    gap: 14px;
 
     align-items: start;
 }
 
 
-/* CARTE PRODUIT */
+.product-featured {
+    grid-area: vinyl;
+}
 
-.shop-item {
+
+.product-cd {
+    grid-area: cd;
+}
+
+
+.product-shirt {
+    grid-area: shirt;
+}
+
+
+.product-hoodie {
+    grid-area: hoodie;
+
+    width: calc(50% - 7px);
+}
+
+
+/* ========================================
+   PRODUIT
+======================================== */
+
+.product {
     min-width: 0;
 
     display: flex;
     flex-direction: column;
 
-    gap: 11px;
+    gap: 7px;
 }
 
-.shop-image-link {
-    display: block;
 
-    color: inherit;
-    text-decoration: none;
-}
-
-.shop-image {
+.product-visual {
     position: relative;
+
+    display: block;
 
     width: 100%;
 
@@ -107,10 +131,15 @@
 
     overflow: hidden;
 
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.38);
+
+    color: inherit;
+
+    text-decoration: none;
 }
 
-.shop-image img {
+
+.product-visual img {
     display: block;
 
     width: 100%;
@@ -119,226 +148,377 @@
     object-fit: cover;
 
     transition:
-        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.35s ease;
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.3s ease;
 }
+
 
 @media (hover: hover) and (pointer: fine) {
 
-    .shop-image-link:hover img {
-        transform: scale(1.018);
-        opacity: 0.84;
+    .product-visual:hover img {
+        transform: scale(1.015);
+
+        opacity: 0.82;
     }
 
 }
 
 
-/* PRÉCOMMANDE */
+/* ========================================
+   LÉGENDE
+======================================== */
 
-.shop-badge {
-    position: absolute;
-
-    z-index: 2;
-
-    top: 10px;
-    left: 10px;
-
-    padding: 6px 7px 5px;
-
-    border: 1px solid rgba(255, 255, 255, 0.72);
-
-    background: rgba(0, 0, 0, 0.78);
-
-    color: #fff;
-
-    font-size: 10px;
-    line-height: 1;
-
-    font-weight: 700;
-
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-
-/* INFOS */
-
-.shop-info {
+.product-caption {
     display: flex;
-    flex-direction: column;
 
-    gap: 6px;
-}
-
-.shop-topline {
-    display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     justify-content: space-between;
 
-    gap: 16px;
+    gap: 10px;
 }
 
-.shop-topline h2 {
+
+.product-caption h2 {
     margin: 0;
 
     color: #fff;
 
-    font-size: 20px;
+    font-size: 15px;
     line-height: 1.05;
 
     font-weight: 700;
 }
 
-.shop-price {
+
+.product-caption p {
+    margin: 3px 0 0;
+
+    color: rgba(255, 255, 255, 0.42);
+
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+
+.product-price {
     flex: 0 0 auto;
 
-    color: #fff;
+    color: rgba(255, 255, 255, 0.78);
 
-    font-size: 17px;
+    font-size: 13px;
     line-height: 1;
 
-    font-weight: 700;
-}
-
-.shop-description,
-.shop-shipping {
-    max-width: 94%;
-
-    margin: 0;
-
-    color: rgba(255, 255, 255, 0.50);
-
-    font-size: 13px;
-    line-height: 1.3;
-}
-
-.shop-shipping {
-    color: rgba(255, 255, 255, 0.70);
-}
-
-
-/* LIENS */
-
-.shop-buy,
-.shop-bandcamp a {
-    width: fit-content;
-
-    color: rgba(255, 255, 255, 0.72);
-
-    font-size: 13px;
-    line-height: 1.2;
-
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
+    text-decoration: none;
 
     transition: opacity 0.25s ease;
 }
 
-.shop-buy {
-    margin-top: 3px;
+
+.product-price:hover {
+    opacity: 0.45;
 }
 
-.shop-buy:hover,
-.shop-bandcamp a:hover {
+
+/* ========================================
+   BADGE
+======================================== */
+
+.product-badge {
+    position: absolute;
+
+    z-index: 2;
+
+    top: 9px;
+    left: 9px;
+
+    padding: 5px 6px 4px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.62);
+
+    background:
+        rgba(0, 0, 0, 0.74);
+
+    color: #fff;
+
+    font-size: 9px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: 0.07em;
+
+    text-transform: uppercase;
+}
+
+
+/* ========================================
+   L'OISEAU DE NUIT
+======================================== */
+
+.shop-project-odn {
+    margin-top: 2px;
+}
+
+
+.shop-layout-odn {
+    display: grid;
+
+    grid-template-columns:
+        minmax(220px, 0.72fr)
+        minmax(0, 1.73fr);
+
+    gap: 14px;
+
+    align-items: end;
+}
+
+
+.product-odn {
+    width: 100%;
+}
+
+
+.shop-note {
+    display: flex;
+    align-items: flex-end;
+
+    min-height: 30px;
+
+    padding-bottom: 1px;
+}
+
+
+.shop-note p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.34);
+
+    font-size: 11px;
+    line-height: 1.25;
+}
+
+
+.shop-note a {
+    color: rgba(255, 255, 255, 0.58);
+
+    text-decoration: none;
+}
+
+
+.shop-note a:hover {
     opacity: 0.5;
 }
 
 
-/* APPARITION */
+/* ========================================
+   APPARITION
+======================================== */
 
-body.internal-page .shop-item {
+body.internal-page .product {
     opacity: 0;
 
-    transform: translateY(8px);
+    transform: translateY(7px);
 
     transition:
-        opacity 0.8s ease,
-        transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+        opacity 0.7s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-body.internal-page.intro-ready .shop-item {
+
+body.internal-page.intro-ready .product {
     opacity: 1;
+
     transform: translateY(0);
 }
 
-body.internal-page.intro-ready .shop-item:nth-child(2) {
-    transition-delay: 0.08s;
-}
 
-body.internal-page.intro-ready .shop-item:nth-child(3) {
-    transition-delay: 0.16s;
-}
-
-body.internal-page.intro-ready .shop-item:nth-child(4) {
-    transition-delay: 0.24s;
+body.internal-page.intro-ready .product-cd {
+    transition-delay: 0.05s;
 }
 
 
-/* MOBILE */
+body.internal-page.intro-ready .product-shirt {
+    transition-delay: 0.10s;
+}
+
+
+body.internal-page.intro-ready .product-hoodie {
+    transition-delay: 0.15s;
+}
+
+
+/* ========================================
+   TABLETTE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .shop-layout-bm {
+        grid-template-columns:
+            minmax(0, 1.25fr)
+            minmax(0, 0.75fr);
+
+        grid-template-areas:
+            "vinyl cd"
+            "vinyl shirt"
+            "hoodie hoodie";
+    }
+
+
+    .product-hoodie {
+        width: 38%;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
 
 @media (max-width: 700px) {
 
     .shop-content {
-        width: calc(100% - 36px);
+        width:
+            calc(100% - 36px);
+
         min-width: 0;
 
-        gap: 50px;
+        gap: 42px;
 
-        padding: 15px 0 38px;
+        padding:
+            10px 0
+            34px;
     }
 
-    .shop-intro p {
-        font-size: 13px;
+
+    .shop-project {
+        gap: 12px;
     }
 
-    .shop-section {
-        gap: 17px;
+
+    .shop-project-header h1 {
+        font-size: 25px;
     }
 
-    .shop-section-heading h1 {
-        font-size: 27px;
+
+    .shop-project-header span {
+        font-size: 12px;
     }
 
-    .shop-section-heading span {
+
+    .shop-layout-bm {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        grid-template-areas:
+            "vinyl vinyl"
+            "cd shirt"
+            "hoodie hoodie";
+
+        gap:
+            18px 10px;
+    }
+
+
+    .product-hoodie {
+        width:
+            calc(50% - 5px);
+    }
+
+
+    .product-caption h2 {
         font-size: 14px;
     }
 
-    .shop-grid {
-        grid-template-columns: 1fr;
 
-        gap: 36px;
+    .product-caption p {
+        font-size: 10px;
     }
 
-    .shop-topline h2 {
-        font-size: 19px;
-    }
 
-    .shop-price {
-        font-size: 16px;
-    }
-
-    .shop-description,
-    .shop-shipping {
-        max-width: 100%;
-
+    .product-price {
         font-size: 12px;
+    }
+
+
+    .shop-layout-odn {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+
+        gap: 10px;
+    }
+
+
+    .shop-note {
+        align-self: end;
     }
 
 }
 
 
-/* RÉDUCTION DES ANIMATIONS */
+/* ========================================
+   PETIT MOBILE
+======================================== */
+
+@media (max-width: 430px) {
+
+    .shop-layout-bm {
+        grid-template-columns:
+            1fr
+            1fr;
+    }
+
+
+    .product-featured {
+        width: 100%;
+    }
+
+
+    .product-hoodie {
+        width:
+            calc(50% - 5px);
+    }
+
+
+    .product-caption {
+        gap: 5px;
+    }
+
+
+    .product-caption p {
+        display: none;
+    }
+
+
+    .shop-layout-odn {
+        grid-template-columns:
+            58%
+            1fr;
+    }
+
+}
+
+
+/* ========================================
+   ACCESSIBILITÉ
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
-    body.internal-page .shop-item {
+    body.internal-page .product {
         opacity: 1;
+
         transform: none;
+
         transition: none;
     }
 
-    .shop-image img {
+
+    .product-visual img {
         transition: none;
     }
 
