@@ -34,7 +34,7 @@
 
 
     <!-- ========================================
-         PRÉCHARGEMENT PRIORITAIRE DU BACKGROUND
+         BACKGROUND PRIORITAIRE
     ========================================= -->
 
     <link
@@ -106,6 +106,11 @@
 
     <main class="hero">
 
+
+        <!-- ========================================
+             MENU ACCUEIL
+        ========================================= -->
+
         <nav
             class="home-menu"
             aria-label="Navigation principale"
@@ -138,18 +143,24 @@
              GIF D'ACCUEIL
 
              IMPORTANT :
-             aucun src au chargement initial.
 
-             home-scroll.js ajoutera le GIF
-             uniquement APRÈS que IMG02.jpg
-             soit réellement prête.
+             - aucun src
+             - hidden
+
+             Le navigateur ne peut donc pas
+             afficher le GIF au premier rendu.
+
+             home-scroll.js l'activera uniquement
+             après IMG02.
         ========================================= -->
 
         <img
             alt=""
             class="welcome-gif"
             aria-hidden="true"
+            hidden
         >
+
 
     </main>
 
