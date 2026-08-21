@@ -6,13 +6,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const body = document.body;
 
-    if (body.dataset.home !== "true") {
+
+    if (
+        body.dataset.home !== "true"
+    ) {
         return;
     }
 
 
     const welcomeGif =
-        document.querySelector(".welcome-gif");
+        document.querySelector(
+            ".welcome-gif"
+        );
 
 
     if (!welcomeGif) {
@@ -24,20 +29,43 @@ document.addEventListener("DOMContentLoaded", function () {
        ÉTAT
     ========================================= */
 
-    let gifVisible =
-        body.classList.contains(
+    let touchStartY = null;
+
+    let gifVisible = false;
+
+
+    /* ========================================
+       REMISE À ZÉRO
+    ========================================= */
+
+    function resetWelcomeGif() {
+
+        /*
+           La home doit toujours commencer
+           par IMG02.
+
+           Cela synchronise également l'état
+           JavaScript avec l'état CSS.
+        */
+
+        gifVisible = false;
+
+
+        body.classList.remove(
             "welcome-visible"
         );
 
+    }
 
-    let touchStartY = null;
 
     /*
-       Empêche un même swipe de déclencher
-       plusieurs changements contradictoires.
+       Important :
+
+       on force l'état initial dès que
+       le script démarre.
     */
 
-    let touchDirectionHandled = false;
+    resetWelcomeGif();
 
 
     /* ========================================
@@ -89,8 +117,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleWheel(event) {
 
         /*
-           Molette vers le bas :
-           apparition du GIF.
+           deltaY positif :
+           tentative d'aller vers le bas
+           de la page.
+
+           → GIF
         */
 
         if (event.deltaY > 4) {
@@ -98,12 +129,16 @@ document.addEventListener("DOMContentLoaded", function () {
             showWelcomeGif();
 
             return;
+
         }
 
 
         /*
-           Molette vers le haut :
-           retour au background.
+           deltaY négatif :
+           tentative de revenir vers
+           le haut de la page.
+
+           → BACKGROUND
         */
 
         if (event.deltaY < -4) {
@@ -136,15 +171,24 @@ document.addEventListener("DOMContentLoaded", function () {
         ];
 
 
-        if (downKeys.includes(event.key)) {
+        if (
+            downKeys.includes(
+                event.key
+            )
+        ) {
 
             showWelcomeGif();
 
             return;
+
         }
 
 
-        if (upKeys.includes(event.key)) {
+        if (
+            upKeys.includes(
+                event.key
+            )
+        ) {
 
             hideWelcomeGif();
 
@@ -170,14 +214,6 @@ document.addEventListener("DOMContentLoaded", function () {
         touchStartY =
             event.touches[0].clientY;
 
-
-        /*
-           Nouveau swipe :
-           on autorise une nouvelle décision.
-        */
-
-        touchDirectionHandled = false;
-
     }
 
 
@@ -189,7 +225,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (
             touchStartY === null ||
-            touchDirectionHandled ||
             !event.touches ||
             event.touches.length === 0
         ) {
@@ -207,33 +242,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
         /*
            Le doigt monte :
-           intention de descendre dans la page.
+           intention de descendre.
 
-           → GIF.
+           → GIF
         */
 
-        if (distance > 20) {
-
-            touchDirectionHandled = true;
+        if (distance > 14) {
 
             showWelcomeGif();
 
+
+            touchStartY =
+                currentY;
+
+
             return;
+
         }
 
 
         /*
            Le doigt descend :
-           intention de remonter dans la page.
+           intention de remonter.
 
-           → background.
+           → BACKGROUND
         */
 
-        if (distance < -20) {
-
-            touchDirectionHandled = true;
+        if (distance < -14) {
 
             hideWelcomeGif();
+
+
+            touchStartY =
+                currentY;
 
         }
 
@@ -248,22 +289,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
         touchStartY = null;
 
-        touchDirectionHandled = false;
-
     }
 
 
     /* ========================================
-       ANNULATION DU GESTE
+       CACHE DE NAVIGATION
+       BFCache
     ========================================= */
 
-    function handleTouchCancel() {
+    /*
+       C'est probablement ce qui provoquait
+       ton flash.
 
-        touchStartY = null;
+       Avant que le navigateur mette la home
+       en cache, on force le retour à IMG02.
 
-        touchDirectionHandled = false;
+       Ainsi, s'il restaure la page plus tard,
+       il restaure directement le background,
+       et non welcomeGif.gif.
+    */
 
-    }
+    window.addEventListener(
+        "pagehide",
+        function () {
+
+            resetWelcomeGif();
+
+        }
+    );
+
+
+    /*
+       Safari / Chrome peuvent restaurer une
+       page depuis leur Back-Forward Cache sans
+       relancer DOMContentLoaded.
+
+       On sécurise donc également le retour.
+    */
+
+    window.addEventListener(
+        "pageshow",
+        function (event) {
+
+            if (event.persisted) {
+
+                resetWelcomeGif();
+
+            }
+
+        }
+    );
 
 
     /* ========================================
@@ -306,15 +381,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener(
         "touchend",
         handleTouchEnd,
-        {
-            passive: true
-        }
-    );
-
-
-    window.addEventListener(
-        "touchcancel",
-        handleTouchCancel,
         {
             passive: true
         }
