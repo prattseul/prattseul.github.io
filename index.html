@@ -9,17 +9,33 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>PRATTSEUL — Site officiel</title>
+    <title>Prattseul — Site officiel | Blizzard Moderne</title>
 
     <meta
         name="description"
-        content="Site officiel de Prattseul — musique, vidéos, concerts, presse et actualités."
+        content="Site officiel de Prattseul. Découvrez Blizzard Moderne, la musique, les vidéos, les concerts, la presse et le shop."
     >
 
     <link
         rel="canonical"
         href="https://prattseul.fr/"
     >
+
+    <!-- SEO / PARTAGE -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Prattseul">
+    <meta property="og:title" content="Prattseul — Site officiel | Blizzard Moderne">
+    <meta property="og:description" content="Site officiel de Prattseul. Découvrez Blizzard Moderne, la musique, les vidéos, les concerts, la presse et le shop.">
+    <meta property="og:url" content="https://prattseul.fr/">
+    <meta property="og:image" content="https://prattseul.fr/images/ARTWORK_ALB_BM_PRATTSEUL.jpg">
+    <meta property="og:image:alt" content="Prattseul">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prattseul — Site officiel | Blizzard Moderne">
+    <meta name="twitter:description" content="Site officiel de Prattseul. Découvrez Blizzard Moderne, la musique, les vidéos, les concerts, la presse et le shop.">
+    <meta name="twitter:image" content="https://prattseul.fr/images/ARTWORK_ALB_BM_PRATTSEUL.jpg">
+
 
     <link
         rel="icon"
@@ -70,21 +86,76 @@
     ========================================= -->
 
     <script type="application/ld+json">
-    {
+{
         "@context": "https://schema.org",
-        "@type": "MusicGroup",
-        "name": "Prattseul",
-        "url": "https://prattseul.fr/",
-        "sameAs": [
-            "https://instagram.com/prattseul/",
-            "https://facebook.com/prattseul",
-            "https://tiktok.com/@prattseul",
-            "https://youtube.com/prattseul",
-            "https://open.spotify.com/artist/2fuNjNQ9TytbwINLWo8x0y",
-            "https://link.deezer.com/s/349ou5JCWcltw1dXBCJPf",
-            "https://music.apple.com/fr/artist/prattseul/1423294870"
+        "@graph": [
+                {
+                        "@type": "WebSite",
+                        "@id": "https://prattseul.fr/#website",
+                        "url": "https://prattseul.fr/",
+                        "name": "Prattseul — Site officiel",
+                        "inLanguage": "fr-FR",
+                        "about": {
+                                "@id": "https://prattseul.fr/#artist"
+                        }
+                },
+                {
+                        "@type": "MusicGroup",
+                        "@id": "https://prattseul.fr/#artist",
+                        "name": "Prattseul",
+                        "url": "https://prattseul.fr/",
+                        "description": "Prattseul fait sonner le rock en français, entre pop, chanson, mélancolie et imaginaire fantastique.",
+                        "image": "https://prattseul.fr/images/IMG01.jpg",
+                        "genre": [
+                                "Rock français",
+                                "Pop",
+                                "Chanson française"
+                        ],
+                        "sameAs": [
+                                "https://prattseul.bandcamp.com",
+                                "https://instagram.com/prattseul/",
+                                "https://facebook.com/prattseul",
+                                "https://tiktok.com/@prattseul",
+                                "https://youtube.com/prattseul",
+                                "https://open.spotify.com/artist/2fuNjNQ9TytbwINLWo8x0y",
+                                "https://link.deezer.com/s/349ou5JCWcltw1dXBCJPf",
+                                "https://music.apple.com/fr/artist/prattseul/1423294870"
+                        ],
+                        "album": [
+                                {
+                                        "@type": "MusicAlbum",
+                                        "name": "Blizzard Moderne",
+                                        "datePublished": "2026",
+                                        "albumReleaseType": "https://schema.org/AlbumRelease",
+                                        "byArtist": {
+                                                "@id": "https://prattseul.fr/#artist"
+                                        },
+                                        "image": "https://prattseul.fr/images/ARTWORK_ALB_BM_PRATTSEUL.jpg",
+                                        "url": "https://prattseul.bandcamp.com/album/blizzard-moderne"
+                                },
+                                {
+                                        "@type": "MusicAlbum",
+                                        "name": "L’oiseau de nuit",
+                                        "datePublished": "2023",
+                                        "byArtist": {
+                                                "@id": "https://prattseul.fr/#artist"
+                                        },
+                                        "image": "https://prattseul.fr/images/oiseau-de-nuit.jpg",
+                                        "url": "https://prattseul.bandcamp.com/album/loiseau-de-nuit"
+                                },
+                                {
+                                        "@type": "MusicAlbum",
+                                        "name": "Enchanté",
+                                        "datePublished": "2021",
+                                        "byArtist": {
+                                                "@id": "https://prattseul.fr/#artist"
+                                        },
+                                        "image": "https://prattseul.fr/images/enchante-couv.jpeg"
+                                }
+                        ]
+                }
         ]
-    }
+}
     </script>
 
 </head>
