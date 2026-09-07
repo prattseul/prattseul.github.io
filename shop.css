@@ -269,9 +269,9 @@
     flex:
         0 0
         clamp(
-            220px,
-            19vw,
-            280px
+            240px,
+            21vw,
+            310px
         );
 
     display: flex;
@@ -403,7 +403,11 @@
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
+    /*
+       Affiche le visuel produit en entier
+       sans recadrage dans le cadre carré.
+    */
+    object-fit: contain;
 
     pointer-events: none;
 }
@@ -813,9 +817,9 @@ and
     .shop-product {
         flex-basis:
             clamp(
-                235px,
-                18vw,
-                290px
+                255px,
+                20vw,
+                325px
             );
     }
 
@@ -861,9 +865,9 @@ and
     .shop-product {
         flex-basis:
             clamp(
-                205px,
-                30vw,
-                250px
+                220px,
+                33vw,
+                275px
             );
     }
 
@@ -960,8 +964,8 @@ and
     .shop-product {
         flex-basis:
             min(
-                62vw,
-                225px
+                68vw,
+                245px
             );
 
         opacity: 0.34;
@@ -1044,7 +1048,7 @@ and
 
 
     .shop-product {
-        flex-basis: 64vw;
+        flex-basis: 70vw;
     }
 
 
