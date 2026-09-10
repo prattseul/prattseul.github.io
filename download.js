@@ -12,7 +12,7 @@
 */
 
 const WORKER_URL =
-    "https://TON-WORKER.workers.dev";
+    "https://prattseul-download.pratt-musique.workers.dev";
 
 
 document.addEventListener("DOMContentLoaded", () => {
