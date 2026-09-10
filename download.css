@@ -230,6 +230,29 @@
 
 
 /* ========================================
+   ÉTATS DU CHAMP
+======================================== */
+
+.download-input.is-success {
+    border-bottom-color: #54d98c;
+}
+
+.download-input.is-success:hover,
+.download-input.is-success:focus {
+    border-bottom-color: #54d98c;
+}
+
+.download-input.is-error {
+    border-bottom-color: #ff5f5f;
+}
+
+.download-input.is-error:hover,
+.download-input.is-error:focus {
+    border-bottom-color: #ff5f5f;
+}
+
+
+/* ========================================
    AUTOFILL
 ======================================== */
 
@@ -281,6 +304,12 @@
     opacity: 1;
 }
 
+.download-button:disabled {
+    cursor: default;
+
+    opacity: 0.45;
+}
+
 
 /* ========================================
    MESSAGE
@@ -299,6 +328,16 @@
     font-weight: 700;
 
     text-align: left !important;
+
+    transition: color 0.2s ease;
+}
+
+.download-message.is-success {
+    color: #54d98c;
+}
+
+.download-message.is-error {
+    color: #ff5f5f;
 }
 
 
