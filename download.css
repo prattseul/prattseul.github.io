@@ -1,0 +1,225 @@
+/* ========================================
+   DOWNLOAD
+======================================== */
+
+.download-content {
+    width: min(var(--content-width), calc(100% - 80px));
+
+    min-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px 0 35px;
+}
+
+
+/* ========================================
+   INTRO
+======================================== */
+
+.download-intro {
+    max-width: 620px;
+
+    color: #fff;
+
+    font-size: clamp(21px, 1.55vw, 27px);
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    letter-spacing: -0.008em;
+
+    text-align: left !important;
+}
+
+
+/* ========================================
+   FORMULAIRE
+======================================== */
+
+.download-form {
+    width: 100%;
+    max-width: 620px;
+
+    margin-top: 38px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* ========================================
+   LABEL
+======================================== */
+
+.download-label {
+    margin-bottom: 7px;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 16px;
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   CHAMP E-MAIL
+======================================== */
+
+.download-input {
+    width: 100%;
+
+    border: none;
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.5);
+
+    border-radius: 0;
+
+    padding: 4px 0 7px;
+
+    background: transparent;
+    color: #fff;
+
+    font-family: "PP Neue Bit", sans-serif;
+
+    font-size: clamp(21px, 1.55vw, 27px);
+    line-height: 1;
+
+    font-weight: 700;
+
+    outline: none;
+
+    transition: border-color 0.2s ease;
+}
+
+.download-input:focus {
+    border-bottom-color: #fff;
+}
+
+
+/* ========================================
+   AUTOFILL NAVIGATEUR
+======================================== */
+
+.download-input:-webkit-autofill,
+.download-input:-webkit-autofill:hover,
+.download-input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #fff;
+
+    -webkit-box-shadow:
+        0 0 0 1000px transparent inset;
+
+    transition:
+        background-color 9999s ease-out;
+}
+
+
+/* ========================================
+   BOUTON
+======================================== */
+
+.download-button {
+    margin-top: 22px;
+
+    border: none;
+    padding: 0;
+
+    background: transparent;
+    color: #fff;
+
+    font-size: clamp(21px, 1.55vw, 27px);
+    line-height: 1;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    opacity: 0.42;
+
+    transition: opacity 0.2s ease;
+}
+
+.download-button:hover,
+.download-button:focus-visible {
+    opacity: 1;
+}
+
+
+/* ========================================
+   MESSAGE
+======================================== */
+
+.download-message {
+    min-height: 1em;
+
+    margin-top: 18px;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 17px;
+    line-height: 1.1;
+
+    font-weight: 700;
+
+    text-align: left !important;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .download-content {
+        width: calc(100% - 36px);
+
+        min-width: 0;
+
+        padding: 5px 0 25px;
+    }
+
+
+    .download-intro {
+        max-width: 100%;
+
+        font-size: 19px;
+        line-height: 1.2;
+    }
+
+
+    .download-form {
+        max-width: 100%;
+
+        margin-top: 30px;
+    }
+
+
+    .download-label {
+        font-size: 14px;
+    }
+
+
+    .download-input {
+        font-size: 20px;
+    }
+
+
+    .download-button {
+        margin-top: 20px;
+
+        font-size: 20px;
+    }
+
+
+    .download-message {
+        margin-top: 15px;
+
+        font-size: 15px;
+    }
+
+}
