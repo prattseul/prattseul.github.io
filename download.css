@@ -1,17 +1,36 @@
 /* ========================================
-   DOWNLOAD
+   PAGE DOWNLOAD
+======================================== */
+
+.download-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    padding-top: 118px;
+    padding-bottom: 58px;
+
+    align-items: center;
+}
+
+
+/* ========================================
+   CONTENU
 ======================================== */
 
 .download-content {
-    width: min(var(--content-width), calc(100% - 80px));
+    width: min(720px, calc(100% - 80px));
 
     min-width: 600px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
 
-    padding: 8px 0 45px;
+    grid-template-columns:
+        minmax(220px, 0.82fr)
+        minmax(300px, 1.18fr);
+
+    column-gap: 44px;
+
+    align-items: center;
 }
 
 
@@ -20,7 +39,7 @@
 ======================================== */
 
 .download-cover {
-    width: min(420px, 62%);
+    width: 100%;
 
     margin: 0;
 }
@@ -38,70 +57,83 @@
 
 
 /* ========================================
-   TEXTE
+   COLONNE TEXTE
 ======================================== */
 
 .download-copy {
     width: 100%;
-    max-width: 620px;
-
-    margin-top: 32px;
-
-    text-align: center;
 }
+
+
+/* ========================================
+   PRATTSEUL
+======================================== */
 
 .download-kicker {
     color: rgba(255, 255, 255, 0.62);
 
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1;
 
     font-weight: 700;
 
-    text-align: center !important;
+    text-align: left !important;
 }
 
+
+/* ========================================
+   TITRE ALBUM
+======================================== */
+
 .download-title {
-    margin-top: 6px;
+    margin-top: 5px;
 
     color: #fff;
 
-    font-size: clamp(38px, 4.5vw, 66px);
-    line-height: 0.9;
+    font-size: clamp(38px, 4.2vw, 58px);
+    line-height: 0.88;
 
     font-weight: 700;
 
-    letter-spacing: -0.035em;
+    letter-spacing: -0.04em;
 }
+
+
+/* ========================================
+   SOUS-TITRE
+======================================== */
 
 .download-subtitle {
     margin-top: 8px;
 
     color: rgba(255, 255, 255, 0.72);
 
-    font-size: clamp(18px, 1.4vw, 22px);
+    font-size: clamp(17px, 1.3vw, 20px);
     line-height: 1;
 
     font-weight: 700;
 
-    text-align: center !important;
+    text-align: left !important;
 }
 
-.download-intro {
-    max-width: 540px;
 
-    margin: 34px auto 0;
+/* ========================================
+   TEXTE INTRO
+======================================== */
+
+.download-intro {
+    margin-top: 25px;
 
     color: #fff;
 
-    font-size: clamp(21px, 1.55vw, 27px);
-    line-height: 1.2;
+    font-size: clamp(18px, 1.35vw, 22px);
+    line-height: 1.15;
 
     font-weight: 700;
 
     letter-spacing: -0.008em;
 
-    text-align: center !important;
+    text-align: left !important;
 }
 
 
@@ -110,10 +142,11 @@
 ======================================== */
 
 .download-form {
-    width: 100%;
-    max-width: 540px;
+    grid-column: 2;
 
-    margin-top: 34px;
+    width: 100%;
+
+    margin-top: 24px;
 
     display: flex;
     flex-direction: column;
@@ -126,11 +159,11 @@
 ======================================== */
 
 .download-label {
-    margin-bottom: 7px;
+    margin-bottom: 6px;
 
     color: rgba(255, 255, 255, 0.62);
 
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1;
 
     font-weight: 700;
@@ -145,28 +178,27 @@
     width: 100%;
 
     border: none;
+
     border-bottom:
         1px solid rgba(255, 255, 255, 0.5);
 
     border-radius: 0;
 
-    padding: 5px 0 8px;
+    padding: 3px 0 6px;
 
     background: transparent;
     color: #fff;
 
     font-family: "PP Neue Bit", sans-serif;
 
-    font-size: clamp(21px, 1.55vw, 27px);
+    font-size: clamp(19px, 1.45vw, 23px);
     line-height: 1;
 
     font-weight: 700;
 
     outline: none;
 
-    transition:
-        border-color 0.2s ease,
-        opacity 0.2s ease;
+    transition: border-color 0.2s ease;
 }
 
 .download-input:focus {
@@ -196,7 +228,7 @@
 ======================================== */
 
 .download-button {
-    margin-top: 24px;
+    margin-top: 18px;
 
     border: none;
     padding: 0;
@@ -204,7 +236,7 @@
     background: transparent;
     color: #fff;
 
-    font-size: clamp(22px, 1.7vw, 29px);
+    font-size: clamp(20px, 1.5vw, 24px);
     line-height: 1;
 
     font-weight: 700;
@@ -229,11 +261,11 @@
 .download-message {
     min-height: 1em;
 
-    margin-top: 18px;
+    margin-top: 12px;
 
     color: rgba(255, 255, 255, 0.72);
 
-    font-size: 17px;
+    font-size: 15px;
     line-height: 1.1;
 
     font-weight: 700;
@@ -243,85 +275,161 @@
 
 
 /* ========================================
+   TABLETTE / PETITS ÉCRANS
+======================================== */
+
+@media (max-width: 850px) {
+
+    .download-page {
+        padding-top: 110px;
+        padding-bottom: 55px;
+    }
+
+    .download-content {
+        width: calc(100% - 48px);
+
+        min-width: 0;
+
+        grid-template-columns:
+            minmax(190px, 0.8fr)
+            minmax(260px, 1.2fr);
+
+        column-gap: 30px;
+    }
+
+}
+
+
+/* ========================================
    MOBILE
 ======================================== */
 
 @media (max-width: 700px) {
+
+    .download-page {
+        min-height: 100vh;
+        min-height: 100dvh;
+
+        padding:
+            102px
+            0
+            45px;
+
+        align-items: center;
+    }
+
 
     .download-content {
         width: calc(100% - 36px);
 
         min-width: 0;
 
-        padding: 4px 0 35px;
+        display: grid;
+
+        grid-template-columns:
+            minmax(110px, 0.78fr)
+            minmax(0, 1.22fr);
+
+        column-gap: 18px;
+
+        align-items: center;
     }
 
+
+    /* POCHETTE */
 
     .download-cover {
-        width: min(290px, 78%);
+        width: 100%;
     }
 
 
-    .download-copy {
-        margin-top: 25px;
-    }
-
+    /* TEXTE */
 
     .download-kicker {
-        font-size: 14px;
+        font-size: 12px;
     }
-
 
     .download-title {
-        margin-top: 5px;
+        margin-top: 3px;
 
-        font-size: clamp(38px, 12vw, 52px);
+        font-size: clamp(31px, 9.5vw, 42px);
+        line-height: 0.87;
     }
-
 
     .download-subtitle {
-        margin-top: 7px;
+        margin-top: 5px;
 
-        font-size: 17px;
+        font-size: 14px;
+        line-height: 1;
     }
-
 
     .download-intro {
-        margin-top: 28px;
+        grid-column: 1 / -1;
 
-        font-size: 19px;
-        line-height: 1.2;
+        margin-top: 23px;
+
+        font-size: 18px;
+        line-height: 1.15;
+
+        text-align: left !important;
     }
 
+
+    /* FORMULAIRE */
 
     .download-form {
-        max-width: 100%;
+        grid-column: 1 / -1;
 
-        margin-top: 29px;
+        margin-top: 20px;
     }
-
 
     .download-label {
-        font-size: 14px;
+        margin-bottom: 5px;
+
+        font-size: 13px;
     }
 
-
     .download-input {
+        padding-bottom: 5px;
+
+        font-size: 19px;
+    }
+
+    .download-button {
+        margin-top: 16px;
+
         font-size: 20px;
     }
 
+    .download-message {
+        margin-top: 11px;
 
-    .download-button {
-        margin-top: 21px;
-
-        font-size: 21px;
+        font-size: 14px;
     }
 
+}
 
-    .download-message {
-        margin-top: 15px;
 
-        font-size: 15px;
+/* ========================================
+   MOBILE TRÈS ÉTROIT
+======================================== */
+
+@media (max-width: 420px) {
+
+    .download-content {
+        grid-template-columns:
+            105px
+            minmax(0, 1fr);
+
+        column-gap: 15px;
+    }
+
+    .download-title {
+        font-size: clamp(28px, 9vw, 36px);
+    }
+
+    .download-subtitle {
+        font-size: 13px;
     }
 
 }
