@@ -9,17 +9,88 @@
 
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    padding: 10px 0 35px;
+    padding: 8px 0 45px;
 }
 
 
 /* ========================================
-   INTRO
+   POCHETTE
 ======================================== */
 
-.download-intro {
+.download-cover {
+    width: min(420px, 62%);
+
+    margin: 0;
+}
+
+.download-cover img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+}
+
+
+/* ========================================
+   TEXTE
+======================================== */
+
+.download-copy {
+    width: 100%;
     max-width: 620px;
+
+    margin-top: 32px;
+
+    text-align: center;
+}
+
+.download-kicker {
+    color: rgba(255, 255, 255, 0.62);
+
+    font-size: 16px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    text-align: center !important;
+}
+
+.download-title {
+    margin-top: 6px;
+
+    color: #fff;
+
+    font-size: clamp(38px, 4.5vw, 66px);
+    line-height: 0.9;
+
+    font-weight: 700;
+
+    letter-spacing: -0.035em;
+}
+
+.download-subtitle {
+    margin-top: 8px;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: clamp(18px, 1.4vw, 22px);
+    line-height: 1;
+
+    font-weight: 700;
+
+    text-align: center !important;
+}
+
+.download-intro {
+    max-width: 540px;
+
+    margin: 34px auto 0;
 
     color: #fff;
 
@@ -30,7 +101,7 @@
 
     letter-spacing: -0.008em;
 
-    text-align: left !important;
+    text-align: center !important;
 }
 
 
@@ -40,9 +111,9 @@
 
 .download-form {
     width: 100%;
-    max-width: 620px;
+    max-width: 540px;
 
-    margin-top: 38px;
+    margin-top: 34px;
 
     display: flex;
     flex-direction: column;
@@ -57,7 +128,7 @@
 .download-label {
     margin-bottom: 7px;
 
-    color: rgba(255, 255, 255, 0.68);
+    color: rgba(255, 255, 255, 0.62);
 
     font-size: 16px;
     line-height: 1;
@@ -79,7 +150,7 @@
 
     border-radius: 0;
 
-    padding: 4px 0 7px;
+    padding: 5px 0 8px;
 
     background: transparent;
     color: #fff;
@@ -93,7 +164,9 @@
 
     outline: none;
 
-    transition: border-color 0.2s ease;
+    transition:
+        border-color 0.2s ease,
+        opacity 0.2s ease;
 }
 
 .download-input:focus {
@@ -102,7 +175,7 @@
 
 
 /* ========================================
-   AUTOFILL NAVIGATEUR
+   AUTOFILL
 ======================================== */
 
 .download-input:-webkit-autofill,
@@ -123,7 +196,7 @@
 ======================================== */
 
 .download-button {
-    margin-top: 22px;
+    margin-top: 24px;
 
     border: none;
     padding: 0;
@@ -131,7 +204,7 @@
     background: transparent;
     color: #fff;
 
-    font-size: clamp(21px, 1.55vw, 27px);
+    font-size: clamp(22px, 1.7vw, 29px);
     line-height: 1;
 
     font-weight: 700;
@@ -180,12 +253,41 @@
 
         min-width: 0;
 
-        padding: 5px 0 25px;
+        padding: 4px 0 35px;
+    }
+
+
+    .download-cover {
+        width: min(290px, 78%);
+    }
+
+
+    .download-copy {
+        margin-top: 25px;
+    }
+
+
+    .download-kicker {
+        font-size: 14px;
+    }
+
+
+    .download-title {
+        margin-top: 5px;
+
+        font-size: clamp(38px, 12vw, 52px);
+    }
+
+
+    .download-subtitle {
+        margin-top: 7px;
+
+        font-size: 17px;
     }
 
 
     .download-intro {
-        max-width: 100%;
+        margin-top: 28px;
 
         font-size: 19px;
         line-height: 1.2;
@@ -195,7 +297,7 @@
     .download-form {
         max-width: 100%;
 
-        margin-top: 30px;
+        margin-top: 29px;
     }
 
 
@@ -210,9 +312,9 @@
 
 
     .download-button {
-        margin-top: 20px;
+        margin-top: 21px;
 
-        font-size: 20px;
+        font-size: 21px;
     }
 
 
