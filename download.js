@@ -2,15 +2,6 @@
    DOWNLOAD — PRATTSEUL
 ======================================== */
 
-
-/*
-    À REMPLACER APRÈS LE DÉPLOIEMENT DU WORKER.
-
-    Exemple :
-
-    https://prattseul-download.nom-compte.workers.dev
-*/
-
 const WORKER_URL =
     "https://prattseul-download.pratt-musique.workers.dev";
 
@@ -40,6 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    /*
+        Dès que l'utilisateur modifie son adresse,
+        on revient à l'état visuel neutre.
+    */
+
+    emailInput.addEventListener(
+        "input",
+        () => {
+            clearStatus();
+        }
+    );
+
+
     form.addEventListener(
         "submit",
         async (event) => {
@@ -57,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     .toLowerCase();
 
 
-            message.textContent = "";
+            clearStatus();
 
 
             /*
@@ -68,8 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!email) {
 
-                message.textContent =
-                    "Entrez votre adresse e-mail.";
+                showError(
+                    "Entrez votre adresse e-mail."
+                );
 
                 emailInput.focus();
 
@@ -79,8 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!isValidEmail(email)) {
 
-                message.textContent =
-                    "Cette adresse e-mail ne semble pas valide.";
+                showError(
+                    "Cette adresse e-mail ne semble pas valide."
+                );
 
                 emailInput.focus();
 
@@ -141,8 +147,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     response.status === 403
                 ) {
 
-                    message.textContent =
-                        "Cette adresse e-mail n'est pas associée à une contribution Ulule.";
+                    showError(
+                        "Cette adresse e-mail n'est pas associée à une contribution Ulule."
+                    );
 
                     return;
                 }
@@ -156,9 +163,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     response.status === 400
                 ) {
 
-                    message.textContent =
+                    showError(
                         data?.message ||
-                        "Cette adresse e-mail ne semble pas valide.";
+                        "Cette adresse e-mail ne semble pas valide."
+                    );
 
                     return;
                 }
@@ -183,17 +191,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 /*
                     Adresse autorisée.
-
-                    On navigue directement vers l'URL
-                    temporaire fournie par le Worker.
-
-                    Le navigateur télécharge ensuite
-                    directement le ZIP depuis le Worker,
-                    qui le diffuse depuis R2.
                 */
 
-                message.textContent =
-                    "Accès autorisé. Le téléchargement démarre…";
+                showSuccess(
+                    "Accès autorisé. Le téléchargement démarre…"
+                );
 
 
                 window.location.href =
@@ -209,8 +211,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
 
-                message.textContent =
-                    "Impossible de lancer le téléchargement. Réessayez dans quelques instants.";
+                showError(
+                    "Impossible de lancer le téléchargement. Réessayez dans quelques instants."
+                );
 
             }
 
@@ -225,6 +228,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
     );
+
+
+    /* ========================================
+       ÉTATS VISUELS
+    ======================================== */
+
+    function clearStatus() {
+
+        emailInput.classList.remove(
+            "is-success",
+            "is-error"
+        );
+
+        message.classList.remove(
+            "is-success",
+            "is-error"
+        );
+
+        message.textContent = "";
+
+    }
+
+
+    function showSuccess(text) {
+
+        clearStatus();
+
+        emailInput.classList.add(
+            "is-success"
+        );
+
+        message.classList.add(
+            "is-success"
+        );
+
+        message.textContent =
+            `✓ ${text}`;
+
+    }
+
+
+    function showError(text) {
+
+        clearStatus();
+
+        emailInput.classList.add(
+            "is-error"
+        );
+
+        message.classList.add(
+            "is-error"
+        );
+
+        message.textContent =
+            `× ${text}`;
+
+    }
 
 });
 
