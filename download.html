@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Download — Prattseul</title>
+
+    <meta
+        name="robots"
+        content="noindex, nofollow"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body data-page-title="Download">
+
+
+    <!-- ========================================
+         NAVIGATION COMMUNE
+    ========================================= -->
+
+    <div id="site-navigation"></div>
+
+
+    <!-- ========================================
+         DOWNLOAD
+    ========================================= -->
+
+    <main class="internal-content">
+
+        <section class="download-content">
+
+            <p class="download-intro">
+                Entrez l’adresse e-mail utilisée lors de votre contribution Ulule.
+            </p>
+
+
+            <form
+                class="download-form"
+                id="downloadForm"
+                novalidate
+            >
+
+                <label
+                    class="download-label"
+                    for="downloadEmail"
+                >
+                    adresse e-mail
+                </label>
+
+                <input
+                    class="download-input"
+                    id="downloadEmail"
+                    name="email"
+                    type="email"
+                    inputmode="email"
+                    autocomplete="email"
+                    autocapitalize="none"
+                    spellcheck="false"
+                    required
+                >
+
+
+                <button
+                    class="download-button"
+                    type="submit"
+                >
+                    télécharger
+                </button>
+
+
+                <p
+                    class="download-message"
+                    id="downloadMessage"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         SCRIPT COMMUN
+    ========================================= -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
